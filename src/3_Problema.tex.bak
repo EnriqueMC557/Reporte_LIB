@@ -1,0 +1,5 @@
+%{\color{red}Peña: Hay que presentar una descripción documentada y bien dimensionada del problema a estudiar}
+
+En el INR existen sistemas de software y hardware que se han utilizado para implementar aplicaciones de estimulación eléctrica funcional, sin embargo, estos bloques funcionan de manera independiente sin que uno tenga interacción alguna con otro.
+
+En especial, la problemática para este trabajo será el desarrollo de un protocolo de comunicación que permita la transmisión de datos desde el prototipo de adquisición logrando reducir la perdida de muestras, el diseño de un algoritmo que permita modular la intensidad de la corriente eléctrica respecto a la electromiografía de superficie (sEGM por sus siglas en inglés), y la integración de los bloques de procesamiento de sEMG y un sensor de presión, así como del algoritmo modulador, dentro de Simulink; para lograr un sistema en lazo cerrado.

@@ -1,0 +1,28 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}% 
+\contentsline {chapter}{\numberline {2}Marco te\IeC {\'o}rico}{4}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Estimulaci\IeC {\'o}n el\IeC {\'e}ctrica funcional}{4}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Neuropr\IeC {\'o}tesis}{4}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Se\IeC {\~n}ales de comando y retroalimentaci\IeC {\'o}n}{5}{section.2.3}% 
+\contentsline {subsection}{\numberline {2.3.1}Se\IeC {\~n}al de comando}{5}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}Se\IeC {\~n}al de retroalimentaci\IeC {\'o}n}{5}{subsection.2.3.2}% 
+\contentsline {section}{\numberline {2.4}Esquemas de control}{6}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}Control en lazo abierto}{6}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Control en lazo cerrado}{6}{subsection.2.4.2}% 
+\contentsline {chapter}{\numberline {3}Antecedentes}{8}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Desarrollos previos al proyecto}{8}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}Plataforma de software para neuropr\IeC {\'o}tesis}{8}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Aplicaci\IeC {\'o}n FES en lazo abierto}{8}{subsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.1.3}Sistema prototipo de adquisici\IeC {\'o}n de biopotenciales}{9}{subsection.3.1.3}% 
+\contentsline {section}{\numberline {3.2}Sistemas FES existentes}{9}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Metodolog\IeC {\'\i }a}{11}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}{\color {red}Planteamiento del sistema}}{11}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Decodificaci\IeC {\'o}n de stream de datos en Simulink}{12}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Evaluaci\IeC {\'o}n de transferencia de datos entre prototipo de adquisici\IeC {\'o}n y computadora}{15}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Procesamiento de sEMG}{17}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Mapeo sEMG-FES}{17}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Implementaci\IeC {\'o}n de sensor de fuerza}{17}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}Desarrollo de esquema de control}{18}{section.4.7}% 
+\contentsline {chapter}{\numberline {5}Avances}{19}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Discusi\IeC {\'o}n}{20}{chapter.6}% 
+\contentsline {chapter}{Referencias}{21}{chapter*.11}% 

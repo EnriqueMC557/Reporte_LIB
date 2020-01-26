@@ -1,0 +1,95 @@
+%[Tamaño de letra 12, hoja tamaño carta, idioma español]{Documento tipo reporte}
+\documentclass[12pt,letterpaper]{report}
+
+%Interlineado del documento
+\renewcommand{\baselinestretch}{1.15}
+
+%Permite configurar espaciados de forma sencilla
+\usepackage{setspace}  
+
+%Configuración de márgenes
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+%Permite el manejo de caracteres especiales en el español
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+%Permite manejo de ecuaciones y símbolos matemáticos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%Permite manejo de gráficos
+\usepackage{graphicx}
+\graphicspath{{../figures/}}%Path de figuras
+
+%Permite agregar sub-figuras
+\usepackage{caption}
+\usepackage{subcaption}
+
+%Permite colorear texto
+\usepackage{color}
+
+%Permite manejo de múltiples columnas dentro de un mismo documento
+\usepackage{multicol}
+
+%Hipervínculos
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black}
+    
+%Para contraer referencias
+\usepackage{cite}
+
+%Permite que la sección bibliografía/referencias se muestre en el índice    
+\usepackage[nottoc]{tocbibind}
+    
+\begin{document}
+
+%Portada del documento
+\input{0_Portada}
+
+%INDÍCE
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\chapter{Introducción}
+\input{1_Introduccion}
+
+%\chapter{Justificación}
+%\input{2_Justificacion}
+%
+%\chapter{Planteamiento del problema}
+%\input{3_Problema}
+
+\chapter{Marco teórico}
+\input{4_MarcoTeorico}
+
+\chapter{Antecedentes}
+\input{5_Antecedentes}
+
+%\chapter{Hipótesis}
+%\input{6_Hipotesis}
+%
+%\chapter{Objetivos}
+%\input{7_Objetivos}
+
+\chapter{Metodología}
+\input{8_Metodologia}
+
+\chapter{Avances}
+%\input{9_Avances}
+
+\chapter{Discusión}
+\input{10_Discusion}
+
+\renewcommand{\bibname}{Referencias}
+\bibliographystyle{acm}
+\bibliography{11_biblio}
+
+\end{document}

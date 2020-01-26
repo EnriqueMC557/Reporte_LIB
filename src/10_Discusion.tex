@@ -1,0 +1,13 @@
+Considero que el trabajo que he realizado hasta el momento es apenas casi la mitad del todo.
+
+Falta terminar la evaluación del protocolo de comunicación, y la verdad siento que, como me lo mencionó Jorge, puede que la idea de generar la señales utilizando la tarjeta de audio de la computadora no sea la mejor para señales de baja frecuencia, así que quizás se podría tomar solamente una señal que se encuentre dentro del ancho de banda del prototipo y que la tarjeta de audio sea capaz de generarla, la cuál podría ser quizás una senoidal de 30 o 40 Hz, esto porque el espectro audible empieza en 20 Hz y la tarjeta de audio debería ser capaz de generar dicha señal.
+
+En cuanto al procesamiento del sEMG creo que se debería de definir ya el tipo de filtro a utilizar, y creo que podríamos optar por una de las opciones que he encontrado en otros trabajos que utilizan el sEMG como control.
+
+En cuanto al descriptor de amplitud creo que el RMS podría ser el adecuado, y creo que para lograr que dicho valor sea más estable la solución podría ser incrementar la ventana de registro y también pienso que el mapeo podría solucionar el problema de la estabilidad.
+
+El mapeo inicialmente lo llegué a probar con una ecuación de una recta, pero de eso me di cuenta que puede que este tipo de mapeo genere ciertos problemas, ya que por ejemplo, con un RMS de 15.5 me generaría una corriente de 1 mA, pero con 15.6 de RMS generaría una corriente de 2 mA y ese cambio podría ser brusco para el paciente (como lo hemos visto lo cambios no tienen el mismo efecto en todos los pacientes).
+
+Del sensor de fuerza tengo mis dudas sobre si tendré tiempo para lograr implementarlo, ya que siento que encontrar el mapeo adecuado para el proyecto me podría llevar más tiempo del que creía. Quizás y sería buena idea optar por un lazo cerrado donde sea el mismo sujeto el que controle el momento en el cuál la estimulación eléctrica es suficiente para realizar la tarea.
+
+Otra cosa muy importante es que hace falta por definir la tarea a realizar, y creo que antes de continuar con todo lo demás deberíamos definir bien como va a ser la tarea a realizar.

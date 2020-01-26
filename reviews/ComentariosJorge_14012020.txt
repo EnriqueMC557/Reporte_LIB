@@ -1,0 +1,43 @@
+Buenas tardes Omar y Enrique.
+
+Por supuesto, un viernes a eso del mediodía podría ser la reunión virtual, o bien un martes o jueves temprano, que venga Quique al INR. 
+¿Te queda bien alguna de esas opciones Omar?
+
+Para ir adelantando ideas:   
+1. Sobre las revisiones del documento: 
+Estoy totalmente de acuerdo. Que se acote el objetivo a generar el movimiento contralateral, para que se termine en tiempo. LISTO
+De acuerdo también con eliminar los capítulos 2, 3, 6 y 7. Creo que todos podrían quedar como secciones del capítulo de Introducción. LISTO
+De acuerdo con que la redacción de la discusión no es la ideal para un reporte académico, 
+
+2. Sobre la observación de que Enrique puso cosas de metodología en Avances (Resultados) y viceversa, quiero agregar:
+ a) Ahora veo que realmente no están los resultados que ya obtuvo, que son (al menos): 
+- Los registros en Simulink de señales del generador, sintéticas y del sEMG a diferentes frecuencias de muestreo (Las de la Fig. 9 son las señales sintéticas, esas deben ir en Metodología como le mencioné a Enrique).
+- Las pruebas donde obtuvo los rasgos del sEMG obtenidos en línea al realizar contracciones y registros sEMG ( y las gráficas o al menos screenshots de los valores de esos rasgos).
+
+b)  Por otro lado, en la metodología faltó explicar varias cosas, entre ellas los filtros implementados y los algoritmos de los rasgos extraídos del sEMG (por sencillos que sean, se pueden expresar matemáticamente), así como el protocolo de registro de sEMG. Esto claro se deberá ir trabajando rumbo al reporte final.
+
+3. Le propuse a Enrique que cada fin de semana nos pase una hojita con actividades a realizar y al final de la semana un pequeño reporte de los resultados obtenidos, y un avance de su reporte, para seguir de cerca su trabajo en estas últimas semanas. ¿Qué opinas Omar?
+
+4. Ya había comentado con Enrique en diciembre y la semana pasada, que el término "closed-loop" también lo llegan a usar para estas aplicaciones, cuando el sujeto es el que controla/modula la estimulación y su efecto (el sujeto forma parte del control), como alternativa a un sistema "closed-loop" clásico o estándar, por así decirlo, donde el sistema "artificial" es el que toma información de una señal de control  derivada de un sensor, y la interpreta para ajustar el actuador, en este caso la intensidad de la estimulación FES.
+
+Esto pensando precisamente en reducir la complejidad del control y de la aplicación, por el tiempo, pero pensando tambien en mantener de algún modo el enfoque y término "lazo cerrado" dentro del trabajo.   Si se decide mantener este término de "lazo cerrado" (en el título y en el trabajo), se debe justificar con las referencias bibliográficas pertinentes.
+
+5. Entonces, se eliminaría el trabajo relacionado con: 
+- el objeto a manipular 
+- el diseño de la tarea funcional, y el desarrollo del control que implicaba
+- el sensor de presión (instrumentación, adquisición y el procesamiento)
+
+6. Quedaría la tarea funcional de "abrir y cerrar la mano" al aire, por así decirlo (sin resistencia u objeto).  
+Habría que definir aún así las características de este movimiento: duración, rango de movimiento, etc. 
+Pienso que así podría acotar más Enrique su búsqueda de métodos de procesamiento y control, específicos para la tarea planteada.
+
+7. Por otro lado, creo que se debe definir algún parámetro ó medida para evaluar el desempeño del sistema y de la tarea, obtenidas de un número de repeticiones de la misma.
+
+Por ejemplo:
+- Los valores de los rasgos de sEMG y los valores correspondientes de los parámetros de estimulación.  
+- La diferencia entre los ángulos o rango de movimiento alcanzado en la mano controlada por FES y en la mano que se registra el sEMG.
+- El tiempo que toma abrir y cerrar la mano (la tarea funcional propuesta), y los tiempos en los que alcanzan las posiciones o rangos del punto anterior.
+
+Seguimos en contacto, para definir el día de la reunión por Skype (mientras lo instalo y vuelvo a probar jaja)
+
+Atte.:
