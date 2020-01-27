@@ -20,8 +20,9 @@
 \BOOKMARK [1][-]{section.4.3}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.4}% 20
 \BOOKMARK [1][-]{section.4.4}{Procesamiento de sEMG}{chapter.4}% 21
 \BOOKMARK [1][-]{section.4.5}{Mapeo sEMG-FES}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.6}{Implementaci\363n de sensor de fuerza}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.7}{Desarrollo de esquema de control}{chapter.4}% 24
-\BOOKMARK [0][-]{chapter.5}{Avances}{}% 25
-\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 26
-\BOOKMARK [0][-]{chapter*.11}{Referencias}{}% 27
+\BOOKMARK [0][-]{chapter.5}{Avances}{}% 23
+\BOOKMARK [1][-]{section.5.1}{Decodificaci\363n de stream de datos en Simulink}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.2}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.3}{Procesamiento de sEMG}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.4}{Mapeo sEMG-FES}{chapter.5}% 27
+\BOOKMARK [0][-]{chapter*.18}{Referencias}{}% 28

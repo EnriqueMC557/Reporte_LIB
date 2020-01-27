@@ -46,6 +46,9 @@
 
 %Permite que la sección bibliografía/referencias se muestre en el índice    
 \usepackage[nottoc]{tocbibind}
+
+%Símbolo de valor absoluto
+\providecommand{\abs}[1]{\lvert#1\rvert}
     
 \begin{document}
 
@@ -83,10 +86,10 @@
 \input{8_Metodologia}
 
 \chapter{Avances}
-%\input{9_Avances}
+\input{9_Avances}
 
-\chapter{Discusión}
-\input{10_Discusion}
+%\chapter{Discusión}
+%\input{10_Discusion}
 
 \renewcommand{\bibname}{Referencias}
 \bibliographystyle{acm}

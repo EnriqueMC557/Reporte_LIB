@@ -48,12 +48,12 @@ En la Figura~\ref{Figura: DecoSimuT} se muestra el sistema implementado en Simul
 
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}[htbp]{0.6\textwidth}
+	\begin{subfigure}[htbp]{0.5\textwidth}
 		\includegraphics[width=\textwidth]{Read_Simu.png}
 		\caption{Vista general del sistema diseñado para realizar la decodificación del stream de datos}
 		\label{Figura: readSimu}
 	\end{subfigure}
-	\begin{subfigure}[htbp]{0.6\textwidth}
+	\begin{subfigure}[htbp]{0.5\textwidth}
 		\includegraphics[width=\textwidth]{Deco_Simu.png}
 		\caption{Vista interna del subsistema encargado de la decodificación de número negativos y positivos}
 		\label{Figura: decoSimu}
@@ -64,7 +64,7 @@ En la Figura~\ref{Figura: DecoSimuT} se muestra el sistema implementado en Simul
 
 \newpage
 \section{Evaluación de transferencia de datos entre prototipo de adquisición y computadora}
-Debido a que el sistema de adquisición de bipotenciales se encuentra aún en una etapa de prototipo, se necesita saber si existe alguna perdida o alteración en las muestras adquiridas. Para esto, se propuso generar señales sintéticas en MATLAB que sirvieran como patrón para esta evaluación. Dichas señales consistieron en 5 senoidales con frecuencias de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), además de dos senoidales de 50 Hz moduladas en amplitud con una exponencial decreciente (Figura \ref{Figura: ExpAte}) y una recta con pendiente negativa (Figura \ref{Figura: LinAte}), por útlimo, una senoidal de 50 Hz modulada de tal forma que simule un contracción muscular que sube, se mantiene por un tiempo y baja (Figura \ref{Figura: Contra}). La duración de estas señales es de 5 segundos cada una, exeptuando la última que tiene una duración de 15 segundos, y todas se diseñaron con una frecuencia de muestreo de 1 kHz.
+Debido a que el sistema de adquisición de biopotenciales se encuentra aún en una etapa de prototipo, se necesita saber si existe alguna perdida o alteración en las muestras adquiridas. Para esto, se propuso generar señales sintéticas en MATLAB que sirvieran como patrón para esta evaluación. Dichas señales consistieron en 5 senoidales con frecuencias de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), además de dos senoidales de 50 Hz moduladas en amplitud con una exponencial decreciente (Figura \ref{Figura: ExpAte}) y una recta con pendiente negativa (Figura \ref{Figura: LinAte}), por útlimo, una senoidal de 50 Hz modulada de tal forma que simule un contracción muscular que sube, se mantiene por un tiempo y baja (Figura \ref{Figura: Contra}). La duración de estas señales es de 5 segundos cada una, exeptuando la última que tiene una duración de 15 segundos, y todas se diseñaron con una frecuencia de muestreo de 1 kHz.
 
 %Figura de senoidales MATLAB
 \begin{figure}[htbp]
@@ -97,27 +97,53 @@ Debido a que el sistema de adquisición de bipotenciales se encuentra aún en un
 \end{figure}
 
 El proceso de evaluación se realizó de la siguiente manera:
-\begin{itemize}
+\begin{enumerate}
 	\item Utilizando un jack de audio de 3.5 mm, se conectó una punta a la salida de audio de la computadora, mientras que la otra punta se conectó al canal 1 del prototipo de adquisición.
 	\item El canal 1 del prototipo de adquisición se configuró con una ganancia de 1 y se hablilitó el BIAS para dicho canal. La frecuencia de muestreo del prototipo se configuró a 1 kHz.
 	\item Se inició la solicitud de datos utilizando el subsistema decodificador implementado en Simulink y se inició el contento de un cronómetro.
-	\item Tras haber transcurridos 2 segundo en el cronómetro, se procedió a la reproducción de la señal tratándola como una señal de audio.
-	\item Al marcar el cronómetro 10 segundos (20 segundos para se señal de larga duración), se detuvo la adquisición en el sistema de Simulink.
+	\item Tras haber transcurridos 2 segundo en el cronómetro, se procedió a la reproducción de la señal tratándola como una señal de audio en MATLAB.
+	\item Al marcar el cronómetro 10 segundos (20 segundos para la señal de larga duración), se detuvo la adquisición en el sistema de Simulink.
 	\item Se calculó la metrica de correlación entre ambas señales como indicador de la calidad de la transferencia de datos.
-\end{itemize}
+\end{enumerate}
 
 Estos pasos se repitieron tres veces para cada señal, esto para tener una mayor cantidad de datos con los cuales obtener una métrica de correlación promedio.
 
 \section{Procesamiento de sEMG}
-Se diseñarán filtros pasa banda que nos permitan tener información útil del sEMG como señal de control, la banda a utilizar aún está por definirse pero ya se cuentan con algunas opciones, las cuales son bandas que se han utilizado en otros trabajo que utilizan sEMG como señal de control \cite{Lenzi2012}\cite{Lenzi2011}\cite{Raafat}. Adicional a esto se diseñará un filtro rechaza banda para retirar el ruido de línea.
 
-Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés) y el valor cuadrático medio (RMS por sus siglas en Inglés) \cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementarán utilizando bloques estándar de Simulink y se valorará cuál puede proporcionar una señal de control más estable.
+Se diseñó un filtro Butterworth pasa altas con frecuencia de corte de 15 Hz, este filtro cumple la finalidad de eliminar las variaciones en frecuencias bajas que ocasionan que los registros de sEMG tengan una línea base inestable. En la Figura \ref{Figura: FiltroPA} se muestra la respuesta en frecuencia de dicho filtro.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{FiltroPA15Hz_PADQ.png}
+	\caption{Filtro diseñado para retirar variaciones de bajas frecuencias.}
+	\label{Figura: FiltroPA}
+\end{figure}
+
+Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés)(Ecuación \ref{ARV}) y el valor cuadrático medio (RMS por sus siglas en Inglés) (Ecuación \ref{RMS}) \cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementaron en Simulink utilizando los bloques disponibles en su biblioteca estándar.
+
+\begin{equation}
+	ARV = \frac{1}{N} \sum_{n=1}^{N} \abs{EMG[n]}
+	\label{ARV}
+\end{equation}
+
+\begin{equation}
+	RMS = \sqrt{\frac{1}{N} \sum_{n=1}^{N} EMG[n]^{2}}
+	\label{RMS}
+\end{equation}
+
+\newpage
 \section{Mapeo sEMG-FES}
-Para poder convertir el descriptor de amplitud de sEMG se planea realizar un mapeo que convierta los valores del descriptor a valores de amplitud de la corriente eléctrica que proporcionará el dispositivo de estimulación eléctrica. Para esto, se planea utilizar un mapeo lineal utilizando una ecuación de una recta cuyos parámetros se definirán tras una etapa de calibración del sistema.
+Para realizar un mapeo que convierta el descriptor de amplitud de sEMG a un valor de corriente eléctrica se optó por implementar una transformación lineal diseñada a partir de la ecuación de una recta. Esta recta está definida por la Ecuación \ref{Mapeo}, donde $A$ representa a la amplitud que inyectará el estimulador eléctrico y $D$ representa al descriptor de sEMG. Adicionalmente se aplica la función mínimo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros.
 
-\section{Implementación de sensor de fuerza}
-Se acoplará un sensor de fuerza a un objeto cilíndrico, como una botella o un vaso, el cual nos servirá como indicador de la fuerza que se le está aplicando al objeto. Dicho sensor estará acompañado de una etapa de procesamiento, la cual consistirá en una función que, tras pasar un umbral de fuerza predefinido en la calibración, enviará una señal de retroalimentación que le indicará al esquema de control en lazo cerrado, que se ha logrado sujetar el objeto; midiendo continuamente la presión y utilizando esta información para indicar al sistema de control si se mantiene la estimulación o tiene que ser modulada.
+\begin{equation}
+	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
+	\label{Mapeo}
+\end{equation}
 
-\section{Desarrollo de esquema de control}
-El esquema de control consistirá en la modulación de la estimulación eléctrica a partir del descriptor de amplitu de sEMG que se decida usar, esta intensidad tendrá un valor mínimo y máximo que serán definidos por nosotros previos a iniciar las pruebas del sistema terminado. Inicialmente se propuso utilizar un sensor de fuerza como señal de retroalimentación que indique el momento en el que se ha logrado la fuerza suficiente para levantar el objeto, pero se está considerando otra alternativa en la cual ya no se utilizaría el sensor de fuerza y quién serviría como retroalimentación sería el mismo sujeto de prueba.
+%Para poder convertir el descriptor de amplitud de sEMG se planea realizar un mapeo que convierta los valores del descriptor a valores de amplitud de la corriente eléctrica que proporcionará el dispositivo de estimulación eléctrica. Para esto, se planea utilizar un mapeo lineal utilizando una ecuación de una recta cuyos parámetros se definirán tras una etapa de calibración del sistema.
+
+%\section{Implementación de sensor de fuerza}
+%Se acoplará un sensor de fuerza a un objeto cilíndrico, como una botella o un vaso, el cual nos servirá como indicador de la fuerza que se le está aplicando al objeto. Dicho sensor estará acompañado de una etapa de procesamiento, la cual consistirá en una función que, tras pasar un umbral de fuerza predefinido en la calibración, enviará una señal de retroalimentación que le indicará al esquema de control en lazo cerrado, que se ha logrado sujetar el objeto; midiendo continuamente la presión y utilizando esta información para indicar al sistema de control si se mantiene la estimulación o tiene que ser modulada.
+
+%\section{Desarrollo de esquema de control}
+%El esquema de control consistirá en la modulación de la estimulación eléctrica a partir del descriptor de amplitu de sEMG que se decida usar, esta intensidad tendrá un valor mínimo y máximo que serán definidos por nosotros previos a iniciar las pruebas del sistema terminado. Inicialmente se propuso utilizar un sensor de fuerza como señal de retroalimentación que indique el momento en el que se ha logrado la fuerza suficiente para levantar el objeto, pero se está considerando otra alternativa en la cual ya no se utilizaría el sensor de fuerza y quién serviría como retroalimentación sería el mismo sujeto de prueba.

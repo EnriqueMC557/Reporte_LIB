@@ -19,10 +19,11 @@
 \contentsline {section}{\numberline {4.1}{\color {red}Planteamiento del sistema}}{11}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}Decodificaci\IeC {\'o}n de stream de datos en Simulink}{12}{section.4.2}% 
 \contentsline {section}{\numberline {4.3}Evaluaci\IeC {\'o}n de transferencia de datos entre prototipo de adquisici\IeC {\'o}n y computadora}{15}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Procesamiento de sEMG}{17}{section.4.4}% 
+\contentsline {section}{\numberline {4.4}Procesamiento de sEMG}{16}{section.4.4}% 
 \contentsline {section}{\numberline {4.5}Mapeo sEMG-FES}{17}{section.4.5}% 
-\contentsline {section}{\numberline {4.6}Implementaci\IeC {\'o}n de sensor de fuerza}{17}{section.4.6}% 
-\contentsline {section}{\numberline {4.7}Desarrollo de esquema de control}{18}{section.4.7}% 
-\contentsline {chapter}{\numberline {5}Avances}{19}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Discusi\IeC {\'o}n}{20}{chapter.6}% 
-\contentsline {chapter}{Referencias}{21}{chapter*.11}% 
+\contentsline {chapter}{\numberline {5}Avances}{18}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Decodificaci\IeC {\'o}n de stream de datos en Simulink}{18}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Evaluaci\IeC {\'o}n de transferencia de datos entre prototipo de adquisici\IeC {\'o}n y computadora}{19}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Procesamiento de sEMG}{20}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Mapeo sEMG-FES}{21}{section.5.4}% 
+\contentsline {chapter}{Referencias}{23}{chapter*.18}% 
