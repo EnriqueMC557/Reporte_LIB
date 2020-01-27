@@ -4,4 +4,4 @@ El procesamiento para el sEMG es útil, ya que se logra obtener un registro de s
 
 El protocolo para registro aún se encuentra en una primera etapa, y con las pruebas realizadas hasta ahora se ha observado que dicho protocolo es útil, pero se puede mejorar, por ello, se propone probar otra posición de electrodos de tal forma que los registros se encuentren aislados uno del otro, o bien, pensar en algún algoritmo de control que a pesar de la presencia de ambos movimientos en un canal pueda identificar cuando se está activando cada músculo.
 
-Relacionado al mapeo considero que posiblemente una recta podría ser útli, pero esto aún está por valorarse ya que no se ha probado el mapeo con los registros de sEMG. En caso de no funcionar podría optarse por obtener una transformación definida por una calibración a 5 posturas de la mano (cierre total de la mano, cierre parcial, descanso, apertura parcial de mano y apertura total).
+Relacionado al mapeo considero que posiblemente una recta podría ser útli, pero esto aún queda p

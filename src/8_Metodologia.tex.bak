@@ -1,16 +1,16 @@
-\section{{\color{red}Planteamiento del sistema}}
-Para lograr cumplir lo planteado en este proyecto se propone el desarrollo del sistema mostrado en la Figura \ref{Figura: SistProp}.
+%\section{{\color{red}Planteamiento del sistema}}
+%Para lograr cumplir lo planteado en este proyecto se propone el desarrollo del sistema mostrado en la Figura \ref{Figura: SistProp}.
 
-\begin{figure}[htbp]
-\centering
-	\includegraphics[scale=0.5]{SistemaPropuesto.png}
-	\caption{Sistema propuesto para el proyecto. Líneas continuas representan entes de hardwares y líneas discontinuas representan entes de software.}
-	\label{Figura: SistProp}
-\end{figure}
+%\begin{figure}[htbp]
+%\centering
+%	\includegraphics[scale=0.5]{SistemaPropuesto.png}
+%	\caption{Sistema propuesto para el proyecto. Líneas continuas representan entes de hardwares y líneas discontinuas representan entes de software.}
+%	\label{Figura: SistProp}
+%\end{figure}
 
-Con la conclusión de este trabajo se espera que a futuro este sistema sea implementado para realizar un entrenamiento en espejo en sujetos que presenten hemiparesia. En este trabajo nos enfocaremos al desarrollo y evaluación del prototipo cuyo funcionamiento esperado es el siguiente: a través de los electrodos de registro se obtendrán dos canales de sEMG del miembro sano del sujeto, cada canal representará un movimiento (abrir mano y cerrar mano), dichos canales de EMG serán procesados para obtener dos parámetros, uno será el responsable de modular la intensidad de la corriente eléctrica que se aplicará al miembro con parálisis, y otro será un selector del canal de estimulación que estará activo (un canal para apertura de mano y otro canal para cierre). Acoplado a un objeto cilíndrico, que se le pedirá al sujeto intente alzar, estará un sensor de fuerza (presión), dicho sensor se encargará de mandar una señal de retroalimentación al esquema de control que servirá como indicador de si ya se ha logrado sujetar el objeto, una vez logrado esto la estimulación se quedará fija por 5 segundos para permitirle al sujeto levantar y manipular el objeto, y pasado dicho tiempo se continuará con la modulación de la intensidad de la corriente eléctrica utilizando un enfoque proporcional.
-
-Para lograr la implementación del sistema se plantean las siguientes tareas a realizar:
+%Con la conclusión de este trabajo se espera que a futuro este sistema sea implementado para realizar un entrenamiento en espejo en sujetos que presenten hemiparesia. En este trabajo nos enfocaremos al desarrollo y evaluación del prototipo cuyo funcionamiento esperado es el siguiente: a través de los electrodos de registro se obtendrán dos canales de sEMG del miembro sano del sujeto, cada canal representará un movimiento (abrir mano y cerrar mano), dichos canales de EMG serán procesados para obtener dos parámetros, uno será el responsable de modular la intensidad de la corriente eléctrica que se aplicará al miembro con parálisis, y otro será un selector del canal de estimulación que estará activo (un canal para apertura de mano y otro canal para cierre). Acoplado a un objeto cilíndrico, que se le pedirá al sujeto intente alzar, estará un sensor de fuerza (presión), dicho sensor se encargará de mandar una señal de retroalimentación al esquema de control que servirá como indicador de si ya se ha logrado sujetar el objeto, una vez logrado esto la estimulación se quedará fija por 5 segundos para permitirle al sujeto levantar y manipular el objeto, y pasado dicho tiempo se continuará con la modulación de la intensidad de la corriente eléctrica utilizando un enfoque proporcional.
+%
+%Para lograr la implementación del sistema se plantean las siguientes tareas a realizar:
 
 \section{Decodificación de stream de datos en Simulink}
 El prototipo de adquisición utiliza un ADS1299 de Texas Instruments para realizar la conversión analógica-digital, y un microcontrolador MSP432P401R es el responsable de configurar y transmitir a la computadora la información del ADS. Dicha información está organizada en un bus de datos de 27 bytes (los cuales están en complemento a dos) como se muestra en la Figura \ref{Figura: BusOut}. Con cada muestra recibida en la computadora se recibe un bus de 27 bytes, por lo cuál, para poder obtener la información leída por el ADS se tiene que decodificar el stream de datos recibido.
@@ -140,7 +140,47 @@ Para realizar un mapeo que convierta el descriptor de amplitud de sEMG a un valo
 	\label{Mapeo}
 \end{equation}
 
-%Para poder convertir el descriptor de amplitud de sEMG se planea realizar un mapeo que convierta los valores del descriptor a valores de amplitud de la corriente eléctrica que proporcionará el dispositivo de estimulación eléctrica. Para esto, se planea utilizar un mapeo lineal utilizando una ecuación de una recta cuyos parámetros se definirán tras una etapa de calibración del sistema.
+\section{Protocolo para registro de sEMG}
+Una forma de garantizar un repetibilidad en los registros de sEMG se logra estableciendo un protocolo a seguir para la realización de los registros. Para esto, se proponen las siguientes características sobre la configuración del prototipo de adquisición y la colocación de electrodos para realizar registros de dos canales de sEMG en músculos relacionados a las tareas de cierre y apertura de mano:
+
+\begin{itemize}
+	\item Frecuencia de muestro de prototipo de adquisición: 1 kHz.
+	\item Canales 3 a 8 a cero.
+	\item Canal 1 y 2 a modo free-run con ganancia 8.
+	\item Electrodos: Covidien H124SG
+	\item Canal 1: Digitorum flexor
+	\begin{itemize}
+		\item Limpiar lado ventral de antebrazo.
+		\item Medir antebrazo de lado ventral de codo a muñeca.
+		\item Palpar músculo al 25\% de la medida obtenida.
+		\item Colocar dos electrodos separados 2 cm (Figura \ref{Figura: E_Cie}).
+	\end{itemize}
+	\item Canal 2: Digitorum extensor
+	\begin{itemize}
+		\item Limpiar lado dorsal de antebrazo.
+		\item Medir antebrazo de lado dorsal de codo a muñeca.
+		\item Palpar músculo al 25\% de la medida obtenida.
+		\item Colocar dos electrodos separados 2 cm (Figura \ref{Figura: E_Ape}).
+	\end{itemize}
+	\item Referencia: Limpiar codo y colocar electrodo.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[htbp]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{E_Cie.png}
+		\caption{Ubicación de electrodos para digitorum flexor.}
+		\label{Figura: E_Cie}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[htbp]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{E_Ape.png}
+		\caption{Ubicación de electrodos para digitorum extensor.}
+		\label{Figura: E_Ape}
+	\end{subfigure}
+	\caption{Posicionamiento de electrodos para realizar registros de sEMG. Recuperado de \cite{Cavalcanti-Garcia2009}}.
+	\label{Figura: E_sEMG}
+\end{figure}
 
 %\section{Implementación de sensor de fuerza}
 %Se acoplará un sensor de fuerza a un objeto cilíndrico, como una botella o un vaso, el cual nos servirá como indicador de la fuerza que se le está aplicando al objeto. Dicho sensor estará acompañado de una etapa de procesamiento, la cual consistirá en una función que, tras pasar un umbral de fuerza predefinido en la calibración, enviará una señal de retroalimentación que le indicará al esquema de control en lazo cerrado, que se ha logrado sujetar el objeto; midiendo continuamente la presión y utilizando esta información para indicar al sistema de control si se mantiene la estimulación o tiene que ser modulada.

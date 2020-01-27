@@ -89,7 +89,7 @@
 \input{9_Avances}
 
 %\chapter{Discusión}
-%\input{10_Discusion}
+\input{10_Discusion}
 
 \renewcommand{\bibname}{Referencias}
 \bibliographystyle{acm}

@@ -69,3 +69,24 @@ Como una primera prueba de la utilidad de una transformación lineal como mapeo 
 	\caption{Resultados de valor RMS (arriba) y mapeo (abajo) al ir variando la amplitud de una senoidal de 20 Hz.}
 	\label{Figura: Map1_Sen}
 \end{figure}
+
+\newpage
+\section{Protocolo para registro de sEMG}
+
+Utilizando el protocolo de registro descrito en la metodología se realizaron registros de sEMG a varios sujetos. En todos estos registros se observó que la posición de electros para la tarea de cierre de mano sí es selectiva en comparación a la posición de apertura de mano, ya que esta última registra actividad de sEMG en ambas tareas. En la Figura \ref{Figura: AC_Exp} se muestra un registro crudo de sEMG siguiendo del protocolo de registro propuesto.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Ape_Cie_Exp.png}
+	\caption{Registro crudo de sEMG obtenido con el protocolo de registro propuesto. Arriba: Registro para cierre de mano. Abajo: Registro para apertura de mano.}
+	\label{Figura: AC_Exp}
+\end{figure}
+
+Utilizando el mismo protocolo de registro se realizó una prueba para la obtención del valor RMS en cada canal, esto se realizó con el modelo en Simulink y en un scope se visualizó el valor RMS obtenido en cada canal, en la Figura \ref{Figura: AC_RMS} se observa esta prueba realizada. Se observa el mismo comportamiento que en los registros crudos, el RMS asociado a la apertura también detecta actividad del cierre de mano.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{RMS_Apertura_Cierre.png}
+	\caption{RMS medido para dos canales de sEMG. Amarillo: RMS para cierre de mano. Azul: RMS para apertura de mano.}
+	\label{Figura: AC_RMS}
+\end{figure}
