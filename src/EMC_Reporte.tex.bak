@@ -88,7 +88,7 @@
 \chapter{Avances}
 \input{9_Avances}
 
-%\chapter{Discusión}
+\chapter{Discusión}
 \input{10_Discusion}
 
 \renewcommand{\bibname}{Referencias}

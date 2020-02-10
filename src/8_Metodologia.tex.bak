@@ -108,38 +108,6 @@ El proceso de evaluación se realizó de la siguiente manera:
 
 Estos pasos se repitieron tres veces para cada señal, esto para tener una mayor cantidad de datos con los cuales obtener una métrica de correlación promedio.
 
-\section{Procesamiento de sEMG}
-
-Se diseñó un filtro Butterworth pasa altas con frecuencia de corte de 15 Hz, este filtro cumple la finalidad de eliminar las variaciones en frecuencias bajas que ocasionan que los registros de sEMG tengan una línea base inestable. En la Figura \ref{Figura: FiltroPA} se muestra la respuesta en frecuencia de dicho filtro.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{FiltroPA15Hz_PADQ.png}
-	\caption{Filtro diseñado para retirar variaciones de bajas frecuencias.}
-	\label{Figura: FiltroPA}
-\end{figure}
-
-Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés)(Ecuación \ref{ARV}) y el valor cuadrático medio (RMS por sus siglas en Inglés) (Ecuación \ref{RMS}) \cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementaron en Simulink utilizando los bloques disponibles en su biblioteca estándar.
-
-\begin{equation}
-	ARV = \frac{1}{N} \sum_{n=1}^{N} \abs{EMG[n]}
-	\label{ARV}
-\end{equation}
-
-\begin{equation}
-	RMS = \sqrt{\frac{1}{N} \sum_{n=1}^{N} EMG[n]^{2}}
-	\label{RMS}
-\end{equation}
-
-\newpage
-\section{Mapeo sEMG-FES}
-Para realizar un mapeo que convierta el descriptor de amplitud de sEMG a un valor de corriente eléctrica se optó por implementar una transformación lineal diseñada a partir de la ecuación de una recta. Esta recta está definida por la Ecuación \ref{Mapeo}, donde $A$ representa a la amplitud que inyectará el estimulador eléctrico y $D$ representa al descriptor de sEMG. Adicionalmente se aplica la función mínimo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros.
-
-\begin{equation}
-	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
-	\label{Mapeo}
-\end{equation}
-
 \section{Protocolo para registro de sEMG}
 Una forma de garantizar un repetibilidad en los registros de sEMG se logra estableciendo un protocolo a seguir para la realización de los registros. Para esto, se proponen las siguientes características sobre la configuración del prototipo de adquisición y la colocación de electrodos para realizar registros de dos canales de sEMG en músculos relacionados a las tareas de cierre y apertura de mano:
 
@@ -178,9 +146,59 @@ Una forma de garantizar un repetibilidad en los registros de sEMG se logra estab
 		\caption{Ubicación de electrodos para digitorum extensor.}
 		\label{Figura: E_Ape}
 	\end{subfigure}
-	\caption{Posicionamiento de electrodos para realizar registros de sEMG. Recuperado de \cite{Cavalcanti-Garcia2009}}.
+	\caption{Posicionamiento de electrodos para realizar registros de sEMG. Recuperado de \cite{Cavalcanti-Garcia2009}.}
 	\label{Figura: E_sEMG}
 \end{figure}
+
+\section{Procesamiento de sEMG}
+
+Se diseñaron tres filtros Butterworth para realizar el procesamiento de sEMG: un filtro pasa altas con frecuencia de corte de 15 Hz,para eliminar las variaciones en la línea base del registro; un filtro pasa bajas con frecuencia de corte de 100 Hz, para eliminar armónicos de 60 Hz y demás interferencias de alta frecuencia; y un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea. Las gráficas de respuesta en frecuencia de estos filtros se muestran en las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{FiltroPA15Hz_PADQ.png}
+	\caption{Filtro pasa altas para conseguir línea base estable.}
+	\label{Figura: FiltroPA}
+	
+	\includegraphics[width=0.7\textwidth]{FiltroPB100Hz_PADQ.png}
+	\caption{Filtro pasa bajas para eliminar interferencias de alta frecuencia y armónicos de 60 Hz.} 
+	\label{Figura: FiltroPB}
+	
+	\includegraphics[width=0.7\textwidth]{FiltroRB_58_62_PADQ.png}
+	\caption{Filtro rechaza banda para reducir interferencia de 60 Hz.}
+	\label{Figura: FiltroRB}
+\end{figure}
+
+\newpage
+Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés)(Ecuación \ref{ARV}) y el valor cuadrático medio (RMS por sus siglas en Inglés) (Ecuación \ref{RMS}) \cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementaron en Simulink utilizando los bloques disponibles en su biblioteca estándar.
+
+\begin{equation}
+	ARV = \frac{1}{N} \sum_{n=1}^{N} \abs{EMG[n]}
+	\label{ARV}
+\end{equation}
+
+\begin{equation}
+	RMS = \sqrt{\frac{1}{N} \sum_{n=1}^{N} EMG[n]^{2}}
+	\label{RMS}
+\end{equation}
+
+Para suavizar la señal obtenida tras aplicar un descriptor de amplitud se utilizó un filtro de mediana móvil, el cual está descrito por la Ecuación \ref{Mediana}.
+
+\begin{equation}
+	y[n] = mediana(x[n]:x[n-N])
+	\label{Mediana}
+\end{equation}
+
+\section{Mapeo sEMG-FES}
+Para realizar un mapeo que convierta el descriptor de amplitud de sEMG a un valor de corriente eléctrica se optó por implementar una transformación lineal diseñada a partir de la ecuación de una recta. Esta recta está definida por la Ecuación \ref{Mapeo}, donde $A$ representa a la amplitud que inyectará el estimulador eléctrico y $D$ representa al descriptor de sEMG. Adicionalmente se aplica la función mínimo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros.
+
+\begin{equation}
+	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
+	\label{Mapeo}
+\end{equation}
+
+
 
 %\section{Implementación de sensor de fuerza}
 %Se acoplará un sensor de fuerza a un objeto cilíndrico, como una botella o un vaso, el cual nos servirá como indicador de la fuerza que se le está aplicando al objeto. Dicho sensor estará acompañado de una etapa de procesamiento, la cual consistirá en una función que, tras pasar un umbral de fuerza predefinido en la calibración, enviará una señal de retroalimentación que le indicará al esquema de control en lazo cerrado, que se ha logrado sujetar el objeto; midiendo continuamente la presión y utilizando esta información para indicar al sistema de control si se mantiene la estimulación o tiene que ser modulada.

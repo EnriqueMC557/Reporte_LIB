@@ -48,45 +48,99 @@ Contracción                                                      & 0.9877      
 \label{Cuadro: Corre}
 \end{table}
 
-\section{Procesamiento de sEMG}
-
-Optando por utilizar como descriptor de la amplitud del sEMG al valor RMS se procedió a realizar pruebas sobre el desempeño de este. Se realizaron registros de sEMG filtrados con el filtro pasa altas descrito en la metodología y utilizando ventanas de registro de 100 mS, estas ventas de registro se utilizaron para calcular el valor RMS de ellas y dicho valor se visualizó en un scope en Simulink. En la Figura \ref{Figura: RMS_Filter} se muestra un segmento de uno de los registros realizados en esta prueba.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{RMS_Filter_2.png}
-	\caption{Resultado del cálculo del valor RMS utilizando ventanas de registro con duración de 100 mS mientras se realizaba la tarea de cierre de mano.}
-	\label{Figura: RMS_Filter}
-\end{figure}
-
-\newpage
-\section{Mapeo sEMG-FES}
-Como una primera prueba de la utilidad de una transformación lineal como mapeo de sEMG a FES se utilizó un generador de funciones para generar una senoidal de  20 Hz e ir variando su amplitud de tal forma que simulara variaciones en la amplitud del sEMG. Se utilizó como parámetros de la recta los siguientes: $A_{min}=0[A]$, $A_{max}=50[A]$, $D_{min}=60$, $D_{max}=1500$. Dichos parámetros se configuraron en un bloque \emph{Fcn} de Simulink en la forma descrita por la Ecuación \ref{Mapeo} (Sección 4.5). Para visualizar los efectos de aplicar este mapeo al valor RMS se visualizó en dos scopes los valores obtenidos de RMS y los resultantes tras aplicar el mapeo. En la Figura \ref{Figura: Map1_Sen} se muestra el resultado de ambos valores al ir variando la amplitud de la senoidal generada por el generador de funciones.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{Mapeo1_Seno.png}
-	\caption{Resultados de valor RMS (arriba) y mapeo (abajo) al ir variando la amplitud de una senoidal de 20 Hz.}
-	\label{Figura: Map1_Sen}
-\end{figure}
-
-\newpage
 \section{Protocolo para registro de sEMG}
 
-Utilizando el protocolo de registro descrito en la metodología se realizaron registros de sEMG a varios sujetos. En todos estos registros se observó que la posición de electros para la tarea de cierre de mano sí es selectiva en comparación a la posición de apertura de mano, ya que esta última registra actividad de sEMG en ambas tareas. En la Figura \ref{Figura: AC_Exp} se muestra un registro crudo de sEMG siguiendo del protocolo de registro propuesto.
+Se realizaron dos registros de sEMG utilizando el protocolo de registro descrito en la metodología y el dispositivo OpenBCI, estos registros obtenidos no cuentan con marcadores de movimiento debido a que se le iba indicando por voz el momento en el cual realizar una u otra acción. En la Figura \ref{Figura: AC_Exp} se muestra uno de los registros crudos de sEMG obtenidos tras esta prueba.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Ape_Cie_Exp.png}
-	\caption{Registro crudo de sEMG obtenido con el protocolo de registro propuesto. Arriba: Registro para cierre de mano. Abajo: Registro para apertura de mano.}
+	\caption{Registro crudo de sEMG sin marcadores de movimiento obtenido tras una primera prueba del protocolo de registro propuesto. Arriba: Registro para cierre de mano. Abajo: Registro para apertura de mano.}
 	\label{Figura: AC_Exp}
 \end{figure}
 
-Utilizando el mismo protocolo de registro se realizó una prueba para la obtención del valor RMS en cada canal, esto se realizó con el modelo en Simulink y en un scope se visualizó el valor RMS obtenido en cada canal, en la Figura \ref{Figura: AC_RMS} se observa esta prueba realizada. Se observa el mismo comportamiento que en los registros crudos, el RMS asociado a la apertura también detecta actividad del cierre de mano.
+Utilizando una GUI para obtener registros de sEMG con marcadores de movimieno se puso a prueba nuevamente el protocolo de registro. Para esta prueba se configuró la GUI para realizar 4 repeticiones de la secuencia \emph{descanso-cierre-descanso-apertura}, donde los movimientos de descanso se configuraron con una duración de 9 segundos, y los movimientos de cierre y apertura se configuraron con una duración de 3 segundos. Para esta prueba se realizaron registros utilizando el dispositivo OpenBCI y el sistema prototipo. En la Figura \ref{Figura: sEMG_Crudo_OBCI} se muestra un registro crudo con el dispositivo OpenBCI, mientras que en la Figura \ref{Figura: sEMG_Crudo_PADQ} se muestra un registro crudo con el dispositivo prototipo.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{RMS_Apertura_Cierre.png}
-	\caption{RMS medido para dos canales de sEMG. Amarillo: RMS para cierre de mano. Azul: RMS para apertura de mano.}
-	\label{Figura: AC_RMS}
+	\includegraphics[width=\textwidth]{sEMG_Ent_060220_OBCI.png}
+	\caption{Registro de entrenamiento crudo realizado con el dispositivo OpenBCI. Arriba: Canal para cierre de mano. Abajo: Canal para apertura de mano. Naranja: Marcador de movimiento (línea estable: descanso; cuadro pequeño: cierre; cuadro grande: apertura}.
+	\label{Figura: sEMG_Crudo_OBCI}
+	
+	\includegraphics[width=\textwidth]{sEMG_Ent_300120_PADQ.png}
+	\caption{Registro de entrenamiento crudo realizado con el dispositivo prototipo. Arriba: Canal para cierre de mano. Abajo: Canal para apertura de mano. Naranja: Marcador de movimiento (línea estable: descanso; cuadro pequeño: cierre; cuadro grande: apertura}.
+	\label{Figura: sEMG_Crudo_PADQ}
 \end{figure}
+
+%Utilizando el mismo protocolo de registro se realizó una prueba para la obtención del valor RMS en cada canal, esto se realizó con el modelo en Simulink y en un scope se visualizó el valor RMS obtenido en cada canal, en la Figura \ref{Figura: AC_RMS} se observa esta prueba realizada. Se observa el mismo comportamiento que en los registros crudos, el RMS asociado a la apertura también detecta actividad del cierre de mano.
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=\textwidth]{RMS_Apertura_Cierre.png}
+%	\caption{RMS medido para dos canales de sEMG. Amarillo: RMS para cierre de mano. Azul: RMS para apertura de mano.}
+%	\label{Figura: AC_RMS}
+%\end{figure}
+
+\section{Procesamiento de sEMG}
+
+Utilizando los registros obtenidos del entrenamiento para probar los filtros diseñados se obtuvieron los resultados mostrados en la Figura \ref{Figura: sEMG_Fil_OBCI} (para el dispositivo OpenBCI) y la Figura \ref{Figura: sEMG_Fil_PADQ} (para el dispositivo prototipo).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{sEMG_f_Ent_060220_OBCI.png}
+	\caption{Registro de entrenamiento filtrado realizado con el dispositivo OpenBCI. Arriba: Canal para cierre de mano. Abajo: Canal para apertura de mano. Naranja: Marcador de movimiento (línea estable: descanso; cuadro pequeño: cierre; cuadro grande: apertura}.
+	\label{Figura: sEMG_Fil_OBCI}
+	
+	\includegraphics[width=\textwidth]{sEMG_f_Ent_300120_PADQ_964-3.png}
+	\caption{Registro de entrenamiento filtrado realizado con el dispositivo prototipo. Arriba: Canal para cierre de mano. Abajo: Canal para apertura de mano. Naranja: Marcador de movimiento (línea estable: descanso; cuadro pequeño: cierre; cuadro grande: apertura}.
+	\label{Figura: sEMG_Fil_PADQ}
+\end{figure}
+
+Teniendo los registros filtrados se realizó una comparación visual entre los descriptores de amplitud. Para ello se graficó el resultado de aplicar ambos descriptores a cada canal, obteniendo como resultado la Figura \ref{Figura: Desc_Amp}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{DAmp_f_Ent_060220_OBCI.png}
+	\caption{Comparación visual entre descriptores de amplitud RMS (arriba) y ARV/MAV (abajo). Azul: Canal para cierre de mano. Naranja: Canal para apertura de mano. Amarillo: Marcador de movimiento.}
+	\label{Figura: Desc_Amp}
+\end{figure}
+
+Utilizando un filtro de mediana de 10 muestras se suavizó el descriptor RMS como prueba de viabilidad del filtro de mediana. La Figura \ref{Figura: Suav_RMS} muestra el resultado de este filtro suavizador.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Suav_f_Ent_060220_OBCI.png}
+	\caption{Resultado de suavizado con filtro de mediana móvil. Arriba: Valor RMS. Abajo: Filtro de mediana móvil. Azul: Canal para cierre de mano. Naranja: Canal para apertura de mano. Amarillo: Marcador de movimiento.}
+	\label{Figura: Suav_RMS}
+\end{figure}
+
+%Optando por utilizar como descriptor de la amplitud del sEMG al valor RMS se procedió a realizar pruebas sobre el desempeño de este. Se realizaron registros de sEMG filtrados con el filtro pasa altas descrito en la metodología y utilizando ventanas de registro de 100 mS, estas ventas de registro se utilizaron para calcular el valor RMS de ellas y dicho valor se visualizó en un scope en Simulink. En la Figura \ref{Figura: RMS_Filter} se muestra un segmento de uno de los registros realizados en esta prueba.
+
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=\textwidth]{RMS_Filter_2.png}
+%	\caption{Resultado del cálculo del valor RMS utilizando ventanas de registro con duración de 100 mS mientras se realizaba la tarea de cierre de mano.}
+%	\label{Figura: RMS_Filter}
+%\end{figure}
+
+
+\newpage
+\section{Mapeo sEMG-FES}
+Utilizando la ecuación de la recta definida en el capítulo Metodología, se aplicó una transformación lineal al valor RMS para convertirlo a un valor entero entre 1 y 15, el cual representará la amplitud de la corriente eléctrica inyectada al sujeto. El resultado de dicho mapeo lineal se observa en la Figura \ref{Figura: Map_Lin}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Map_f_Ent_060220_OBCI.png}
+	\caption{Comparación visual entre RMS (arriba), RMS suavizado con filtro de mediana (centro) y mapeo lineal (abajo).  Azul: Canal para cierre de mano. Naranja: Canal para apertura de mano. Amarillo: Marcador de movimiento.}
+	\label{Figura: Map_Lin}
+\end{figure}
+
+%Como una primera prueba de la utilidad de una transformación lineal como mapeo de sEMG a FES se utilizó un generador de funciones para generar una senoidal de  20 Hz e ir variando su amplitud de tal forma que simulara variaciones en la amplitud del sEMG. Se utilizó como parámetros de la recta los siguientes: $A_{min}=0[A]$, $A_{max}=50[A]$, $D_{min}=60$, $D_{max}=1500$. Dichos parámetros se configuraron en un bloque \emph{Fcn} de Simulink en la forma descrita por la Ecuación \ref{Mapeo} (Sección 4.5). Para visualizar los efectos de aplicar este mapeo al valor RMS se visualizó en dos scopes los valores obtenidos de RMS y los resultantes tras aplicar el mapeo. En la Figura \ref{Figura: Map1_Sen} se muestra el resultado de ambos valores al ir variando la amplitud de la senoidal generada por el generador de funciones.
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=\textwidth]{Mapeo1_Seno.png}
+%	\caption{Resultados de valor RMS (arriba) y mapeo (abajo) al ir variando la amplitud de una senoidal de 20 Hz.}
+%	\label{Figura: Map1_Sen}
+%\end{figure}
+
