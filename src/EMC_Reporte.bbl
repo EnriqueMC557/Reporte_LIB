@@ -3,16 +3,19 @@
 \bibitem{Cavalcanti-Garcia2009}
 {\sc Cavalcanti-Garcia, M., and Vierira, T.}
 \newblock {Surface electromyography: Why, when and how to use it}.
-\newblock {\em Medicina 1}, 3 (2009), 98--101.
-
-\bibitem{Lenzi2011}
-{\sc Lenzi, T., {De Rossi}, S., Vitiello, N., and Carrozza, M.}
-\newblock {Proportional EMG control for upper-limb powered exoskeletons}.
-\newblock 628--631.
+\newblock {\em Revista Andaluza de Medicina del Deporte 4}, 1 (2011), 17--28.
 
 \bibitem{Lenzi2012}
-{\sc Lenzi, T., Marco, S., and Rossi, M.~D.}
-\newblock {Intention-Based EMG Control for Powered}.
+{\sc Lenzi, T., {De Rossi}, S. M.~M., Vitiello, N., and Carroza, M.~C.}
+\newblock {Intention-Based EMG Control for Powered Exoskeletons}.
+\newblock {\em IEEE Transactions on Biomedical Engineering 59}, 8 (2012),
+  2180--2190.
+
+\bibitem{Lenzi2011}
+{\sc Lenzi, T., {De Rossi}, S. M.~M., Vitiello, N., and Carrozza, M.~C.}
+\newblock {Proportional EMG control for upper-limb powered exoskeletons}.
+\newblock {\em 2011 Annual International Conference of the IEEE Engineering in
+  Medicine and Biology Society\/} (2011), 628--631.
 
 \bibitem{Peckham2005}
 {\sc Peckham, P.~H., and Knutson, J.~S.}
@@ -21,8 +24,8 @@
 \bibitem{Popovic2015}
 {\sc Popovi{\'{c}}, D.~B.}
 \newblock {Principles of command and control for neuroprostheses}.
-\newblock {\em Implantable Neuroprostheses for Restoring Function\/} (2015),
-  45--58.
+\newblock In {\em Implantable Neuroprostheses for Restoring Function}. 2015,
+  pp.~45--58.
 
 \bibitem{Popovic2008}
 {\sc Popovic, M.~R., and Thrasher, A.~T.}
@@ -31,17 +34,17 @@
   G.~E. Wnek and G.~L. Bowlin, Eds., 2~ed. 2008, ch.~Neuroprost,
   pp.~1056--1065.
 
-\bibitem{Raafat}
-{\sc Raafat, M.~S., and Shalaby, E.-S.}
-\newblock {Development of an Electromyography Detection System for the Control
-  of Functional Electrical Stimulation in Neurological Rehabilitation}.
-\newblock Tech. rep.
-
 \bibitem{Salchow2016}
 {\sc Salchow, C., Valtin, M., Seel, T., and Schauer, T.}
 \newblock {Development of a Feedback-Controlled Hand Neuroprosthesis:
   FES-Supported Mirror Training}.
-\newblock 4--5.
+
+\bibitem{Raafat}
+{\sc Shalaby, R.}
+\newblock {\em {Development of an Electromyography Detection System for the
+  Control of Functional Electrical Stimulation in Neurological
+  Rehabilitation}}.
+\newblock PhD thesis, 2011.
 
 \bibitem{Simonsen2017}
 {\sc Simonsen, D., Spaich, E.~G., Hansen, J., and Andersen, O.~K.}
@@ -49,7 +52,7 @@
   of the Hemiparetic Hand Based on Automatic Detection Using the Microsoft
   Kinect Sensor}.
 \newblock {\em IEEE Transactions on Neural Systems and Rehabilitation
-  Engineering 25}, 8 (aug 2017), 1249--1256.
+  Engineering 25}, 8 (2017), 1249--1256.
 
 \bibitem{Sun2014}
 {\sc Sun, M.}
@@ -59,15 +62,15 @@
 
 \bibitem{Woods2018}
 {\sc Woods, B., Subramanian, M., Shafti, A., and Faisal, A.~A.}
-\newblock {Mechanomyograpby Based Closed-Loop Functional Electrical Stimulation
-  Cycling System}.
-\newblock {\em Proceedings of the IEEE RAS and EMBS International Conference on
-  Biomedical Robotics and Biomechatronics 2018-Augus\/} (2018), 179--184.
+\newblock {Mechanomyography based closed-loop Functional Electrical Stimulation
+  cycling system}.
+\newblock {\em 2018 7th IEEE International Conference on Biomedical Robotics
+  and Biomechatronics (Biorob)\/} (2018), 179--184.
 
 \bibitem{Wright2016}
 {\sc Wright, J., Macefield, V.~G., van Schaik, A., and Tapson, J.~C.}
-\newblock {A review of control strategies in closed-loop neuroprosthetic
-  systems}.
-\newblock {\em Frontiers in Neuroscience 10}, JUL (2016).
+\newblock {A Review of Control Strategies in Closed-Loop Neuroprosthetic
+  Systems}.
+\newblock {\em Frontiers in Neuroscience 10\/} (2016).
 
 \end{thebibliography}

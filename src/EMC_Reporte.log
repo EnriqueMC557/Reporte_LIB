@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.4)  9 FEB 2020 22:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.4)  1 MAR 2020 14:37
 entering extended mode
 **./EMC_Reporte.tex
 (EMC_Reporte.tex
@@ -538,17 +538,7 @@ File: ../figures/INR.png Graphic file (type png)
 <use ../figures/INR.png>
 Package pdftex.def Info: ../figures/INR.png  used on input line 10.
 (pdftex.def)             Requested size: 218.25482pt x 74.67877pt.
-
-Overfull \hbox (40.11836pt too wide) in paragraph at lines 19--19
- [][] 
- []
-
-
-Overfull \hbox (40.11836pt too wide) in paragraph at lines 21--22
- [][] 
- []
-
-[1
+ [1
 
 {C:/Users/enriq/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <../figures/
 variacion6Izt.png> <../figures/INR.png>]) (EMC_Reporte.toc
@@ -715,13 +705,13 @@ Overfull \hbox (43.21283pt too wide) in paragraph at lines 25--43
 ) [10]
 Cap\'{\i }tulo 4.
 (8_Metodologia.tex
-<../figures/Bus_Dat_Out_ADS.png, id=267, 536.75531pt x 158.09062pt>
+<../figures/Bus_Dat_Out_ADS.png, id=268, 536.75531pt x 158.09062pt>
 File: ../figures/Bus_Dat_Out_ADS.png Graphic file (type png)
 <use ../figures/Bus_Dat_Out_ADS.png>
 Package pdftex.def Info: ../figures/Bus_Dat_Out_ADS.png  used on input line 20.
 
 (pdftex.def)             Requested size: 429.40482pt x 126.47266pt.
-<../figures/Deco_Stream.png, id=269, 320.69812pt x 363.60844pt>
+<../figures/Deco_Stream.png, id=270, 320.69812pt x 363.60844pt>
 File: ../figures/Deco_Stream.png Graphic file (type png)
 <use ../figures/Deco_Stream.png>
 Package pdftex.def Info: ../figures/Deco_Stream.png  used on input line 29.
@@ -734,63 +724,63 @@ Overfull \hbox (9.01476pt too wide) in paragraph at lines 29--30
 [11
 
  <../figures/Bus_Dat_Out_ADS.png>] [12 <../figures/Deco_Stream.png>]
-<../figures/Read_Simu.png, id=285, 641.39626pt x 215.30438pt>
+<../figures/Read_Simu.png, id=286, 641.39626pt x 215.30438pt>
 File: ../figures/Read_Simu.png Graphic file (type png)
 <use ../figures/Read_Simu.png>
 Package pdftex.def Info: ../figures/Read_Simu.png  used on input line 52.
 (pdftex.def)             Requested size: 236.01561pt x 79.22443pt.
-<../figures/Deco_Simu.png, id=286, 697.8572pt x 230.36063pt>
+<../figures/Deco_Simu.png, id=287, 697.8572pt x 230.36063pt>
 File: ../figures/Deco_Simu.png Graphic file (type png)
 <use ../figures/Deco_Simu.png>
 Package pdftex.def Info: ../figures/Deco_Simu.png  used on input line 57.
 (pdftex.def)             Requested size: 236.01561pt x 77.9068pt.
 
 [13 <../figures/Read_Simu.png> <../figures/Deco_Simu.png>]
-<../figures/Sen_Pur.png, id=307, 1028.34187pt x 497.60907pt>
+<../figures/Sen_Pur.png, id=308, 1028.34187pt x 497.60907pt>
 File: ../figures/Sen_Pur.png Graphic file (type png)
 <use ../figures/Sen_Pur.png>
 Package pdftex.def Info: ../figures/Sen_Pur.png  used on input line 73.
 (pdftex.def)             Requested size: 188.8096pt x 91.35768pt.
-<../figures/Lin_Ate.png, id=308, 421.575pt x 316.18124pt>
+<../figures/Lin_Ate.png, id=309, 421.575pt x 316.18124pt>
 File: ../figures/Lin_Ate.png Graphic file (type png)
 <use ../figures/Lin_Ate.png>
 Package pdftex.def Info: ../figures/Lin_Ate.png  used on input line 79.
 (pdftex.def)             Requested size: 188.8096pt x 141.60963pt.
-<../figures/Exp_Ate.png, id=309, 421.575pt x 316.18124pt>
+<../figures/Exp_Ate.png, id=310, 421.575pt x 316.18124pt>
 File: ../figures/Exp_Ate.png Graphic file (type png)
 <use ../figures/Exp_Ate.png>
 Package pdftex.def Info: ../figures/Exp_Ate.png  used on input line 85.
 (pdftex.def)             Requested size: 188.8096pt x 141.60963pt.
-<../figures/Contra.png, id=310, 421.575pt x 316.18124pt>
+<../figures/Contra.png, id=311, 421.575pt x 316.18124pt>
 File: ../figures/Contra.png Graphic file (type png)
 <use ../figures/Contra.png>
 Package pdftex.def Info: ../figures/Contra.png  used on input line 91.
 (pdftex.def)             Requested size: 188.8096pt x 141.60963pt.
  [14 <../figures/Sen_Pur.png (PNG copy)> <../figures/Lin_Ate.png (PNG copy)> <.
 ./figures/Exp_Ate.png (PNG copy)> <../figures/Contra.png (PNG copy)>] [15]
-<../figures/E_Cie.png, id=329, 67.452pt x 101.178pt>
+<../figures/E_Cie.png, id=330, 67.452pt x 101.178pt>
 File: ../figures/E_Cie.png Graphic file (type png)
 <use ../figures/E_Cie.png>
 Package pdftex.def Info: ../figures/E_Cie.png  used on input line 139.
 (pdftex.def)             Requested size: 141.61081pt x 212.45996pt.
-<../figures/E_Ape.png, id=330, 77.088pt x 115.1502pt>
+<../figures/E_Ape.png, id=331, 77.088pt x 115.1502pt>
 File: ../figures/E_Ape.png Graphic file (type png)
 <use ../figures/E_Ape.png>
 Package pdftex.def Info: ../figures/E_Ape.png  used on input line 145.
 (pdftex.def)             Requested size: 141.61081pt x 211.55739pt.
-<../figures/FiltroPA15Hz_PADQ.png, id=335, 883.04906pt x 496.10344pt>
+<../figures/FiltroPA15Hz_PADQ.png, id=336, 883.04906pt x 496.10344pt>
 File: ../figures/FiltroPA15Hz_PADQ.png Graphic file (type png)
 <use ../figures/FiltroPA15Hz_PADQ.png>
 Package pdftex.def Info: ../figures/FiltroPA15Hz_PADQ.png  used on input line 1
 60.
 (pdftex.def)             Requested size: 330.42041pt x 185.62955pt.
-<../figures/FiltroPB100Hz_PADQ.png, id=336, 883.04906pt x 496.10344pt>
+<../figures/FiltroPB100Hz_PADQ.png, id=337, 883.04906pt x 496.10344pt>
 File: ../figures/FiltroPB100Hz_PADQ.png Graphic file (type png)
 <use ../figures/FiltroPB100Hz_PADQ.png>
 Package pdftex.def Info: ../figures/FiltroPB100Hz_PADQ.png  used on input line 
 164.
 (pdftex.def)             Requested size: 330.42041pt x 185.62955pt.
-<../figures/FiltroRB_58_62_PADQ.png, id=337, 883.04906pt x 496.10344pt>
+<../figures/FiltroRB_58_62_PADQ.png, id=338, 883.04906pt x 496.10344pt>
 File: ../figures/FiltroRB_58_62_PADQ.png Graphic file (type png)
 <use ../figures/FiltroRB_58_62_PADQ.png>
 Package pdftex.def Info: ../figures/FiltroRB_58_62_PADQ.png  used on input line
@@ -801,13 +791,13 @@ z_PADQ.png> <../figures/FiltroPB100Hz_PADQ.png> <../figures/FiltroRB_58_62_PADQ
 .png>]) [18]
 Cap\'{\i }tulo 5.
 (9_Avances.tex
-<../figures/Test_8CHs_1k_mue2mue.png, id=369, 443.7378pt x 148.8762pt>
+<../figures/Test_8CHs_1k_mue2mue.png, id=370, 443.7378pt x 148.8762pt>
 File: ../figures/Test_8CHs_1k_mue2mue.png Graphic file (type png)
 <use ../figures/Test_8CHs_1k_mue2mue.png>
 Package pdftex.def Info: ../figures/Test_8CHs_1k_mue2mue.png  used on input lin
 e 7.
 (pdftex.def)             Requested size: 377.62642pt x 126.69984pt.
-<../figures/sEMG_PADQ.png, id=370, 770.88pt x 236.38312pt>
+<../figures/sEMG_PADQ.png, id=371, 770.88pt x 236.38312pt>
 File: ../figures/sEMG_PADQ.png Graphic file (type png)
 <use ../figures/sEMG_PADQ.png>
 Package pdftex.def Info: ../figures/sEMG_PADQ.png  used on input line 14.
@@ -815,24 +805,24 @@ Package pdftex.def Info: ../figures/sEMG_PADQ.png  used on input line 14.
  [19
 
  <../figures/Test_8CHs_1k_mue2mue.png>]
-<../figures/DRDY.png, id=379, 803.0pt x 481.8pt>
+<../figures/DRDY.png, id=380, 803.0pt x 481.8pt>
 File: ../figures/DRDY.png Graphic file (type png)
 <use ../figures/DRDY.png>
 Package pdftex.def Info: ../figures/DRDY.png  used on input line 25.
 (pdftex.def)             Requested size: 472.03123pt x 283.22295pt.
  [20 <../figures/sEMG_PADQ.png> <../figures/DRDY.png>]
-<../figures/Ape_Cie_Exp.png, id=388, 829.59938pt x 426.09187pt>
+<../figures/Ape_Cie_Exp.png, id=389, 829.59938pt x 426.09187pt>
 File: ../figures/Ape_Cie_Exp.png Graphic file (type png)
 <use ../figures/Ape_Cie_Exp.png>
 Package pdftex.def Info: ../figures/Ape_Cie_Exp.png  used on input line 57.
 (pdftex.def)             Requested size: 472.03123pt x 242.43927pt.
-<../figures/sEMG_Ent_060220_OBCI.png, id=391, 858.95906pt x 482.55281pt>
+<../figures/sEMG_Ent_060220_OBCI.png, id=392, 858.95906pt x 482.55281pt>
 File: ../figures/sEMG_Ent_060220_OBCI.png Graphic file (type png)
 <use ../figures/sEMG_Ent_060220_OBCI.png>
 Package pdftex.def Info: ../figures/sEMG_Ent_060220_OBCI.png  used on input lin
 e 66.
 (pdftex.def)             Requested size: 472.03123pt x 265.18396pt.
-<../figures/sEMG_Ent_300120_PADQ.png, id=392, 849.1725pt x 477.28313pt>
+<../figures/sEMG_Ent_300120_PADQ.png, id=393, 849.1725pt x 477.28313pt>
 File: ../figures/sEMG_Ent_300120_PADQ.png Graphic file (type png)
 <use ../figures/sEMG_Ent_300120_PADQ.png>
 Package pdftex.def Info: ../figures/sEMG_Ent_300120_PADQ.png  used on input lin
@@ -843,13 +833,13 @@ e 70.
 LaTeX Warning: Float too large for page by 6.08801pt on input line 73.
 
 [21]
-<../figures/sEMG_f_Ent_060220_OBCI.png, id=402, 859.71187pt x 483.30562pt>
+<../figures/sEMG_f_Ent_060220_OBCI.png, id=403, 859.71187pt x 483.30562pt>
 File: ../figures/sEMG_f_Ent_060220_OBCI.png Graphic file (type png)
 <use ../figures/sEMG_f_Ent_060220_OBCI.png>
 Package pdftex.def Info: ../figures/sEMG_f_Ent_060220_OBCI.png  used on input l
 ine 90.
 (pdftex.def)             Requested size: 472.03123pt x 265.36906pt.
-<../figures/sEMG_f_Ent_300120_PADQ_964-3.png, id=403, 850.67813pt x 478.03593pt
+<../figures/sEMG_f_Ent_300120_PADQ_964-3.png, id=404, 850.67813pt x 478.03593pt
 >
 File: ../figures/sEMG_f_Ent_300120_PADQ_964-3.png Graphic file (type png)
 <use ../figures/sEMG_f_Ent_300120_PADQ_964-3.png>
@@ -860,13 +850,13 @@ nput line 94.
 
 LaTeX Warning: Float too large for page by 6.22476pt on input line 97.
 
-<../figures/DAmp_f_Ent_060220_OBCI.png, id=405, 858.95906pt x 482.55281pt>
+<../figures/DAmp_f_Ent_060220_OBCI.png, id=406, 858.95906pt x 482.55281pt>
 File: ../figures/DAmp_f_Ent_060220_OBCI.png Graphic file (type png)
 <use ../figures/DAmp_f_Ent_060220_OBCI.png>
 Package pdftex.def Info: ../figures/DAmp_f_Ent_060220_OBCI.png  used on input l
 ine 103.
 (pdftex.def)             Requested size: 472.03123pt x 265.18396pt.
-<../figures/Suav_f_Ent_060220_OBCI.png, id=407, 852.18375pt x 479.54156pt>
+<../figures/Suav_f_Ent_060220_OBCI.png, id=408, 852.18375pt x 479.54156pt>
 File: ../figures/Suav_f_Ent_060220_OBCI.png Graphic file (type png)
 <use ../figures/Suav_f_Ent_060220_OBCI.png>
 Package pdftex.def Info: ../figures/Suav_f_Ent_060220_OBCI.png  used on input l
@@ -876,7 +866,7 @@ ine 112.
 /figures/sEMG_Ent_300120_PADQ.png>] [24 <../figures/sEMG_f_Ent_060220_OBCI.png>
  <../figures/sEMG_f_Ent_300120_PADQ_964-3.png>] [25 <../figures/DAmp_f_Ent_0602
 20_OBCI.png> <../figures/Suav_f_Ent_060220_OBCI.png>]
-<../figures/Map_f_Ent_060220_OBCI.png, id=429, 848.4197pt x 476.53032pt>
+<../figures/Map_f_Ent_060220_OBCI.png, id=430, 848.4197pt x 476.53032pt>
 File: ../figures/Map_f_Ent_060220_OBCI.png Graphic file (type png)
 <use ../figures/Map_f_Ent_060220_OBCI.png>
 Package pdftex.def Info: ../figures/Map_f_Ent_060220_OBCI.png  used on input li
@@ -899,15 +889,15 @@ LaTeX Info: Redefining \% on input line 23.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
 Package rerunfilecheck Info: File `EMC_Reporte.out' has not changed.
-(rerunfilecheck)             Checksum: 42682329C3A890E9CB69F387F7AB984B;2292.
+(rerunfilecheck)             Checksum: 9B25F942D37075864FE5B25E92FD7171;2292.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
  ) 
 Here is how much of TeX's memory you used:
- 9177 strings out of 492895
- 141042 string characters out of 3123736
- 254915 words of memory out of 3000000
- 12814 multiletter control sequences out of 15000+200000
- 11656 words of font info for 43 fonts, out of 3000000 for 9000
+ 9180 strings out of 492895
+ 141091 string characters out of 3123736
+ 255924 words of memory out of 3000000
+ 12816 multiletter control sequences out of 15000+200000
+ 11963 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,15n,40p,1453b,670s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
@@ -923,9 +913,9 @@ c/amsfonts/cm/cmr17.pfb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmr8.pfb><C:/Users/enriq/AppData/Local/Programs/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/enriq/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on EMC_Reporte.pdf (33 pages, 1626622 bytes).
+Output written on EMC_Reporte.pdf (33 pages, 1628313 bytes).
 PDF statistics:
- 513 PDF objects out of 1000 (max. 8388607)
- 114 named destinations out of 1000 (max. 500000)
+ 515 PDF objects out of 1000 (max. 8388607)
+ 115 named destinations out of 1000 (max. 500000)
  381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

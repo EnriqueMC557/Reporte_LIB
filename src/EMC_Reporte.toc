@@ -28,4 +28,4 @@
 \contentsline {section}{\numberline {5.4}Procesamiento de sEMG}{22}{section.5.4}% 
 \contentsline {section}{\numberline {5.5}Mapeo sEMG-FES}{26}{section.5.5}% 
 \contentsline {chapter}{\numberline {6}Discusi\IeC {\'o}n}{27}{chapter.6}% 
-\contentsline {chapter}{Referencias}{29}{chapter*.22}% 
+\contentsline {chapter}{Referencias}{29}{chapter*.23}% 

@@ -1,7 +1,0 @@
-%{\color{red}Peña: Falta respaldo de afirmaciones con investigación documental}
-
-Con el desarrollo de este proyecto se podrá lograr una intervención basada en la actividad, que permita la repetición de movimientos en un contexto relevante para la rehabilitación del sujeto, y donde se involucre la actividad voluntaria del sujeto, y esta a su vez tenga un efecto en la estimulación eléctrica aplicada y el movimiento resultante. De este modo la operación del sistema ya no se llevará a cabo con una modulación subjetiva de los parámetros de estimulación, dotando a los pacientes del control de los movimientos de su rehabilitación.
-
-Esta propuesta de enfoque en lazo cerrado también podrá contribuir a la seguridad para el usuario; ya que, hasta ahora, debido a la modificación experimentador-dependiente de parámetros por parte del experimentador, algunos usuarios han reportado molestias ante incrementos en la intensidad de la estimulación entre repeticiones de los movimientos generados por FES.
-
-Por último, este proyecto busca reducir la dependencia del experimentador al momento de realizar la estimulación, a través del desarrollo de aplicaciones en lazo cerrado retroalimentados, que midan de manera objetiva el resultado de la estimulación, y mediante algoritmos de procesamiento y modelos de control en línea, contribuyan a la participación del usuario en su propia rehabilitación.
