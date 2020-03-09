@@ -174,24 +174,3 @@ title = {{Optimal EMG Amplitude Detectors for Muscle- Computer Interface}},
 url = {https://ieeexplore.ieee.org/document/6559485},
 year = {2013}
 }
-
-@book{Yucha2008,
-archivePrefix = {arXiv},
-arxivId = {arXiv:1011.1669v3},
-author = {Yucha, Carolyn B and Montgomery, Doil},
-booktitle = {Nursing},
-doi = {10.1017/CBO9781107415324.004},
-eprint = {arXiv:1011.1669v3},
-file = {:D$\backslash$:/Documentos/Proyecto INR/Referencias/EvidenceBased{\_}Biofeedback{\_}Neurofeedback.pdf:pdf},
-isbn = {188711419X},
-issn = {1098-6596},
-keywords = {Biofeedback,PTSD,neurofeedback,therapy,trauma},
-mendeley-groups = {Referencias PIB/Control},
-pages = {81},
-pmid = {25246403},
-publisher = {AAPB Wheat Ridge, CO},
-title = {{Evidence-Based Practice in Biofeedback and Neurofeedback}},
-url = {http://digitalcommons.library.unlv.edu/nursing{\_}fac{\_}articles/1/},
-volume = {6656},
-year = {2008}
-}

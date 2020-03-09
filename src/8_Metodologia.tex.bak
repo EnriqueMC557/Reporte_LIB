@@ -171,7 +171,7 @@ Se diseñaron tres filtros Butterworth para realizar el procesamiento de sEMG: u
 \end{figure}
 
 \newpage
-Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés) y el valor cuadrático medio (RMS por sus siglas en Inglés)\cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementaron en Simulink utilizando los bloques disponibles en su biblioteca estándar.
+Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés)(Ecuación \ref{ARV}) y el valor cuadrático medio (RMS por sus siglas en Inglés) \cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementaron en Simulink utilizando los bloques disponibles en su biblioteca estándar.
 
 Para suavizar la señal obtenida tras aplicar un descriptor de amplitud se utilizó un filtro de mediana móvil, el cual está descrito por la Ecuación \ref{Mediana}.
 
