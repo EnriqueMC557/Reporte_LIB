@@ -1,19 +1,17 @@
-%\section{{\color{red}Planteamiento del sistema}}
-%Para lograr cumplir lo planteado en este proyecto se propone el desarrollo del sistema mostrado en la Figura \ref{Figura: SistProp}.
+\section{Sistema propuesto}
+Para este proyecto se planteó un sistema que implementa un lazo cerrado utilizando biofeedback. El sistema consiste en la adquisición de dos canales de sEMG, del brazo izquierdo, los cuales son procesados y sirven como entrada de un sistema de control que realiza la modulación de la amplitud de dos canales de estimulación eléctrica en el brazo derecho. Este sistema implementa un control contralateral para realizar un entrenamiento en espejo de las acciones de apertura y cierre de mano.
 
-%\begin{figure}[htbp]
-%\centering
-%	\includegraphics[scale=0.5]{SistemaPropuesto.png}
-%	\caption{Sistema propuesto para el proyecto. Líneas continuas representan entes de hardwares y líneas discontinuas representan entes de software.}
-%	\label{Figura: SistProp}
-%\end{figure}
+En la Figura \ref{Figura: SistProp} se muestra un esquema general del sistema desarrollado, en el cual se muestran en rojo los elementos sobre los cuales se trabajó en este proyecto.
 
-%Con la conclusión de este trabajo se espera que a futuro este sistema sea implementado para realizar un entrenamiento en espejo en sujetos que presenten hemiparesia. En este trabajo nos enfocaremos al desarrollo y evaluación del prototipo cuyo funcionamiento esperado es el siguiente: a través de los electrodos de registro se obtendrán dos canales de sEMG del miembro sano del sujeto, cada canal representará un movimiento (abrir mano y cerrar mano), dichos canales de EMG serán procesados para obtener dos parámetros, uno será el responsable de modular la intensidad de la corriente eléctrica que se aplicará al miembro con parálisis, y otro será un selector del canal de estimulación que estará activo (un canal para apertura de mano y otro canal para cierre). Acoplado a un objeto cilíndrico, que se le pedirá al sujeto intente alzar, estará un sensor de fuerza (presión), dicho sensor se encargará de mandar una señal de retroalimentación al esquema de control que servirá como indicador de si ya se ha logrado sujetar el objeto, una vez logrado esto la estimulación se quedará fija por 5 segundos para permitirle al sujeto levantar y manipular el objeto, y pasado dicho tiempo se continuará con la modulación de la intensidad de la corriente eléctrica utilizando un enfoque proporcional.
-%
-%Para lograr la implementación del sistema se plantean las siguientes tareas a realizar:
+\begin{figure}[htbp]
+\centering
+	\includegraphics[scale=0.6]{SistemaPropuesto.png}
+	\caption{Sistema propuesto para el proyecto. Líneas continuas representan entes de hardwares y líneas discontinuas representan entes de software. Elementos en rojo representan zonas de trabajo del proyecto.}
+	\label{Figura: SistProp}
+\end{figure}
 
-\section{Decodificación de stream de datos en Simulink}
-El prototipo de adquisición utiliza un ADS1299 de Texas Instruments para realizar la conversión analógica-digital, y un microcontrolador MSP432P401R es el responsable de configurar y transmitir a la computadora la información del ADS. Dicha información está organizada en un bus de datos de 27 bytes (los cuales están en complemento a dos) como se muestra en la Figura \ref{Figura: BusOut}. Con cada muestra recibida en la computadora se recibe un bus de 27 bytes, por lo cuál, para poder obtener la información leída por el ADS se tiene que decodificar el stream de datos recibido.
+\section{Adquisición de datos en Simulink}
+Se utilizó el sistema Cyton Board (OpenBCI Inc., E.E. U.U. A.A.), el cual tiene una frecuencia de muestreo de 250 Hz, para realizar la adquisición de las señales de sEMG. Dicho sistema utiliza un chip ADS1299 (Texas Instruments) para realizar la conversión analógico-digital de las señales, el cual codifica los datos de cada muestra, utilizando complemento a 2, en un bus de datos esquematizado en la Figura \ref{Figura: BusOut}.
 
 \begin{figure}[htbp]
 \centering
@@ -22,17 +20,10 @@ El prototipo de adquisición utiliza un ADS1299 de Texas Instruments para realiz
 	\label{Figura: BusOut}
 \end{figure}
 
-Para realizar la decodificación del stream de datos en Simulink, se utilizó el bloque \emph{Query Instrument} del \emph{Instrument Control Toolbox} para realizar la solicitud de datos al prototipo y se diseñó un subsistema utilizando bloques de la librería estándar de Simulink encargado de realizar la decodificación. Dicho subsitema sigue el funcionamiento mostrado en la Figura \ref{Figura: DecoStream}.\vfill
+Para realizar la decodificación del bus de datos dentro de Simulink, se diseñó un subsistema encargado de la solicitud y decodificación de datos, para esto se utilizó el bloque \emph{Query Instrument} del \emph{Instrument Control Toolbox} para realizar la solicitud de datos, mientras que con bloques de la librería estándar de Simulink se realizó la decodificación de dichos datos.
 
-\begin{figure}[htbp]
-\centering
-	\includegraphics[scale=1.5]{Deco_Stream.png}
-	\caption{Funcionamiento del subsistema decodificador del stream de datos}
-	\label{Figura: DecoStream}
-\end{figure}
+El funcionamiento del subsistema responsable de la solicitud y decodificación de datos, esquematizado en la Figura \ref{Figura: DecoStream}, sigue los siguientes pasos:
 
-\newpage
-El funcionamiento del subsistema decodificador mostrado en la Figura~\ref{Figura: DecoStream} consiste en:
 \begin{enumerate}
 	\item Realizar la adquisición de N muestras, lo cual generará un vector columna con dimensión (27*N,1).
 	\item Aplicar un reshape a dicho vector para obtener una matriz con dimensión (27,N).
@@ -44,27 +35,34 @@ El funcionamiento del subsistema decodificador mostrado en la Figura~\ref{Figura
 	\item Regresar los elementos del subvector al vector original.
 \end{enumerate}
 
-En la Figura~\ref{Figura: DecoSimuT} se muestra el sistema implementado en Simulink que realiza los pasos anteriormente descritos para realizar la decodificación.
+\begin{figure}[htbp]
+\centering
+	\includegraphics[scale=0.15]{DecoStream.png}
+	\caption{Funcionamiento del subsistema decodificador del stream de datos}
+	\label{Figura: DecoStream}
+\end{figure}
+
+
+La implementación final del subsistema diseñado en Simulink se observa en la Figura \ref{Figura: DecoSimuT}.
 
 \begin{figure}[htbp]
 	\centering
 	\begin{subfigure}[htbp]{0.5\textwidth}
 		\includegraphics[width=\textwidth]{Read_Simu.png}
-		\caption{Vista general del sistema diseñado para realizar la decodificación del stream de datos}
+		\caption{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.}
 		\label{Figura: readSimu}
 	\end{subfigure}
 	\begin{subfigure}[htbp]{0.5\textwidth}
 		\includegraphics[width=\textwidth]{Deco_Simu.png}
-		\caption{Vista interna del subsistema encargado de la decodificación de número negativos y positivos}
+		\caption{Vista interna del subsistema encargado de la decodificación del stream de datos.}
 		\label{Figura: decoSimu}
 	\end{subfigure}
 	\caption{Sistema decodificador de stream de datos implementado en Simulink}
 	\label{Figura: DecoSimuT}
 \end{figure}
 
-\newpage
-\section{Evaluación de transferencia de datos entre prototipo de adquisición y computadora}
-Debido a que el sistema de adquisición de biopotenciales se encuentra aún en una etapa de prototipo, se necesita saber si existe alguna perdida o alteración en las muestras adquiridas. Para esto, se propuso generar señales sintéticas en MATLAB que sirvieran como patrón para esta evaluación. Dichas señales consistieron en 5 senoidales con frecuencias de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), además de dos senoidales de 50 Hz moduladas en amplitud con una exponencial decreciente (Figura \ref{Figura: ExpAte}) y una recta con pendiente negativa (Figura \ref{Figura: LinAte}), por útlimo, una senoidal de 50 Hz modulada de tal forma que simule un contracción muscular que sube, se mantiene por un tiempo y baja (Figura \ref{Figura: Contra}). La duración de estas señales es de 5 segundos cada una, exeptuando la última que tiene una duración de 15 segundos, y todas se diseñaron con una frecuencia de muestreo de 1 kHz.
+\section{Evaluación de bloque de adquisición y decodificación}
+Para obtener una valoración sobre el funcionamiento del bloque diseñado dentro de Simulink para la adquisición y decodificación se generaron señales sintéticas dentro de MATLAB para que sirvieran como patrón de evaluación. Dichas señales consistieron en un banco de 5 senoidales a diferentes frecuencias (1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur})), dos senoidales de 50 Hz moduladas en amplitud con una exponencial decreciente (Figura \ref{Figura: ExpAte}) y una recta con pendiente negativa (Figura \ref{Figura: LinAte}), y una senoidal de 50 Hz modulada de tal forma que simule un contracción muscular que sube, se mantiene por un tiempo y baja (Figura \ref{Figura: Contra}). La duración de estas señales es de 5 segundos cada una, exeptuando la última que tiene una duración de 15 segundos, y todas se diseñaron con una frecuencia de muestreo de 250 Hz.
 
 %Figura de senoidales MATLAB
 \begin{figure}[htbp]
@@ -98,39 +96,36 @@ Debido a que el sistema de adquisición de biopotenciales se encuentra aún en u
 
 El proceso de evaluación se realizó de la siguiente manera:
 \begin{enumerate}
-	\item Utilizando un jack de audio de 3.5 mm, se conectó una punta a la salida de audio de la computadora, mientras que la otra punta se conectó al canal 1 del prototipo de adquisición.
-	\item El canal 1 del prototipo de adquisición se configuró con una ganancia de 1 y se hablilitó el BIAS para dicho canal. La frecuencia de muestreo del prototipo se configuró a 1 kHz.
+	\item Utilizando un jack de audio de 3.5 mm, se conectó una punta a la salida de audio de la computadora, mientras que la otra punta se conectó al canal 1 del sistema de adquisición.
+%	\item El canal 1 del prototipo de adquisición se configuró con una ganancia de 1 y se hablilitó el BIAS para dicho canal. La frecuencia de muestreo del prototipo se configuró a 1 kHz.
 	\item Se inició la solicitud de datos utilizando el subsistema decodificador implementado en Simulink y se inició el contento de un cronómetro.
 	\item Tras haber transcurridos 2 segundo en el cronómetro, se procedió a la reproducción de la señal tratándola como una señal de audio en MATLAB.
 	\item Al marcar el cronómetro 10 segundos (20 segundos para la señal de larga duración), se detuvo la adquisición en el sistema de Simulink.
-	\item Se calculó la metrica de correlación entre ambas señales como indicador de la calidad de la transferencia de datos.
+	\item Se calculó la métrica de correlación entre ambas señales como indicador de la calidad de la transferencia de datos.
 \end{enumerate}
 
 Estos pasos se repitieron tres veces para cada señal, esto para tener una mayor cantidad de datos con los cuales obtener una métrica de correlación promedio.
 
 \section{Protocolo para registro de sEMG}
-Una forma de garantizar un repetibilidad en los registros de sEMG se logra estableciendo un protocolo a seguir para la realización de los registros. Para esto, se proponen las siguientes características sobre la configuración del prototipo de adquisición y la colocación de electrodos para realizar registros de dos canales de sEMG en músculos relacionados a las tareas de cierre y apertura de mano:
+Para garantizar una repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo tiene las caracteristicas mostradas a continuación:
 
 \begin{itemize}
-	\item Frecuencia de muestro de prototipo de adquisición: 1 kHz.
-	\item Canales 3 a 8 a cero.
-	\item Canal 1 y 2 a modo free-run con ganancia 8.
+	\item Frecuencia de muestro de sistema de adquisición: 250 Hz.
+	\item Canales 1 y 2 para realizar adquisición.
 	\item Electrodos: Covidien H124SG
 	\item Canal 1: Digitorum flexor
 	\begin{itemize}
-		\item Limpiar lado ventral de antebrazo.
 		\item Medir antebrazo de lado ventral de codo a muñeca.
 		\item Palpar músculo al 25\% de la medida obtenida.
 		\item Colocar dos electrodos separados 2 cm (Figura \ref{Figura: E_Cie}).
 	\end{itemize}
 	\item Canal 2: Digitorum extensor
 	\begin{itemize}
-		\item Limpiar lado dorsal de antebrazo.
 		\item Medir antebrazo de lado dorsal de codo a muñeca.
-		\item Palpar músculo al 25\% de la medida obtenida.
+		\item Palpar músculo al 50\% de la medida obtenida.
 		\item Colocar dos electrodos separados 2 cm (Figura \ref{Figura: E_Ape}).
 	\end{itemize}
-	\item Referencia: Limpiar codo y colocar electrodo.
+	\item Referencia: Colocar electrodo en codo.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -154,7 +149,6 @@ Una forma de garantizar un repetibilidad en los registros de sEMG se logra estab
 
 Se diseñaron tres filtros Butterworth para realizar el procesamiento de sEMG: un filtro pasa altas con frecuencia de corte de 15 Hz,para eliminar las variaciones en la línea base del registro; un filtro pasa bajas con frecuencia de corte de 100 Hz, para eliminar armónicos de 60 Hz y demás interferencias de alta frecuencia; y un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea. Las gráficas de respuesta en frecuencia de estos filtros se muestran en las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
 
-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{FiltroPA15Hz_PADQ.png}
@@ -170,28 +164,22 @@ Se diseñaron tres filtros Butterworth para realizar el procesamiento de sEMG: u
 	\label{Figura: FiltroRB}
 \end{figure}
 
-\newpage
-Para poder utilizar el sEMG como señal de control se tiene que utilizar algún descriptor de amplitud, siendo los más comúnes el valor rectificado promedio (ARV por sus siglas en Inglés) y el valor cuadrático medio (RMS por sus siglas en Inglés)\cite{Cavalcanti-Garcia2009}. Estos descriptores de amplitud se implementaron en Simulink utilizando los bloques disponibles en su biblioteca estándar.
-
-Para suavizar la señal obtenida tras aplicar un descriptor de amplitud se utilizó un filtro de mediana móvil, el cual está descrito por la Ecuación \ref{Mediana}.
+Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS de ventanas de registro de 100 ms de sEMG para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de de mediana de 10 muestras (Ecuación \ref{Mediana}), el cual tiene como propósito conseguir una señal de RMS suavizada
 
 \begin{equation}
 	y[n] = mediana(x[n]:x[n-N])
 	\label{Mediana}
 \end{equation}
 
-\section{Mapeo sEMG-FES}
-Para realizar un mapeo que convierta el descriptor de amplitud de sEMG a un valor de corriente eléctrica se optó por implementar una transformación lineal diseñada a partir de la ecuación de una recta. Esta recta está definida por la Ecuación \ref{Mapeo}, donde $A$ representa a la amplitud que inyectará el estimulador eléctrico y $D$ representa al descriptor de sEMG. Adicionalmente se aplica la función mínimo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros.
+\newpage
+\section{Esquema de control}
+Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. {\color{red}AGREGAR FOTO DE POSTURAS DE MANOS}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en [{\color {red}ANA}], donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
+
+El detector de movimiento se utiliza para realizar el control por máquina de estados finitos ({\color{red}Figura NUM}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
+
+Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras para realizar la activación del control lineal, el cual modula la amplitud de la corriente eléctrica, del canal asociado al movimiento detectado, utilizando la recta descrita por la Ecuación \ref{Mapeo}, donde $A$ representa la amplitud que inyectará el estimulador eléctrico, $A_{max}$ es el umbral funcional de estimulación eléctica, $A_{min}$ es el umbral motor de estimulación eléctica, $D$ representa el valor RMS actual, mientras que $D_{max}$ y $D_{min}$ representan los umbrales RMS de la tarea completa y ligera del canal asociado al movimiento detectado (canal 1 para cierre de mano y canal 2 para apertura de mano). Adicionalmente se aplica la función máximo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros, y también se aplica un criterio de saturación de corriente eléctrica para evitar que tras una contracción muscular muy fuerte se genere un valor de amplitud de corriente eléctrica dañino para el sujeto.
 
 \begin{equation}
 	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
 	\label{Mapeo}
 \end{equation}
-
-
-
-%\section{Implementación de sensor de fuerza}
-%Se acoplará un sensor de fuerza a un objeto cilíndrico, como una botella o un vaso, el cual nos servirá como indicador de la fuerza que se le está aplicando al objeto. Dicho sensor estará acompañado de una etapa de procesamiento, la cual consistirá en una función que, tras pasar un umbral de fuerza predefinido en la calibración, enviará una señal de retroalimentación que le indicará al esquema de control en lazo cerrado, que se ha logrado sujetar el objeto; midiendo continuamente la presión y utilizando esta información para indicar al sistema de control si se mantiene la estimulación o tiene que ser modulada.
-
-%\section{Desarrollo de esquema de control}
-%El esquema de control consistirá en la modulación de la estimulación eléctrica a partir del descriptor de amplitu de sEMG que se decida usar, esta intensidad tendrá un valor mínimo y máximo que serán definidos por nosotros previos a iniciar las pruebas del sistema terminado. Inicialmente se propuso utilizar un sensor de fuerza como señal de retroalimentación que indique el momento en el que se ha logrado la fuerza suficiente para levantar el objeto, pero se está considerando otra alternativa en la cual ya no se utilizaría el sensor de fuerza y quién serviría como retroalimentación sería el mismo sujeto de prueba.

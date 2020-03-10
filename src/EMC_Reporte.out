@@ -27,16 +27,17 @@
 \BOOKMARK [2][-]{subsection.3.1.2}{Aplicaci\363n FES en lazo abierto}{section.3.1}% 27
 \BOOKMARK [1][-]{section.3.2}{Sistemas FES existentes}{chapter.3}% 28
 \BOOKMARK [0][-]{chapter.4}{Metodolog\355a}{}% 29
-\BOOKMARK [1][-]{section.4.1}{Decodificaci\363n de stream de datos en Simulink}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.2}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.3}{Protocolo para registro de sEMG}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.4}{Procesamiento de sEMG}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.5}{Mapeo sEMG-FES}{chapter.4}% 34
-\BOOKMARK [0][-]{chapter.5}{Avances}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Decodificaci\363n de stream de datos en Simulink}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.2}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.3}{Protocolo para registro de sEMG}{chapter.5}% 38
-\BOOKMARK [1][-]{section.5.4}{Procesamiento de sEMG}{chapter.5}% 39
-\BOOKMARK [1][-]{section.5.5}{Mapeo sEMG-FES}{chapter.5}% 40
-\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 41
-\BOOKMARK [0][-]{chapter*.23}{Referencias}{}% 42
+\BOOKMARK [1][-]{section.4.1}{Sistema propuesto}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Adquisici\363n de datos en Simulink}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.3}{Evaluaci\363n de bloque de adquisici\363n y decodificaci\363n}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.4}{Protocolo para registro de sEMG}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.5}{Procesamiento de sEMG}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.6}{Esquema de control}{chapter.4}% 35
+\BOOKMARK [0][-]{chapter.5}{Avances}{}% 36
+\BOOKMARK [1][-]{section.5.1}{Decodificaci\363n de stream de datos en Simulink}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.2}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.3}{Protocolo para registro de sEMG}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.4}{Procesamiento de sEMG}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.5}{Mapeo sEMG-FES}{chapter.5}% 41
+\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 42
+\BOOKMARK [0][-]{chapter*.24}{Referencias}{}% 43
