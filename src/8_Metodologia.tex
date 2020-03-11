@@ -5,7 +5,7 @@ En la Figura \ref{Figura: SistProp} se muestra un esquema general del sistema de
 
 \begin{figure}[htbp]
 \centering
-	\includegraphics[scale=0.6]{SistemaPropuesto.png}
+	\includegraphics[scale=0.7]{SistemaPropuesto.png}
 	\caption{Sistema propuesto para el proyecto. Líneas continuas representan entes de hardwares y líneas discontinuas representan entes de software. Elementos en rojo representan zonas de trabajo del proyecto.}
 	\label{Figura: SistProp}
 \end{figure}
@@ -104,7 +104,7 @@ El proceso de evaluación se realizó de la siguiente manera:
 	\item Se calculó la métrica de correlación entre ambas señales como indicador de la calidad de la transferencia de datos.
 \end{enumerate}
 
-Estos pasos se repitieron tres veces para cada señal, esto para tener una mayor cantidad de datos con los cuales obtener una métrica de correlación promedio.
+Se realizaron tres repeticiones de cada señal, obteniendo un total de 24 registros para la obtención de la correlación, dando un resultado de correlación promedio de 0.9615 $\pm$ 0.0604.
 
 \section{Protocolo para registro de sEMG}
 Para garantizar una repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo tiene las caracteristicas mostradas a continuación:
@@ -175,7 +175,14 @@ Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS 
 \section{Esquema de control}
 Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. {\color{red}AGREGAR FOTO DE POSTURAS DE MANOS}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en [{\color {red}ANA}], donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
 
-El detector de movimiento se utiliza para realizar el control por máquina de estados finitos ({\color{red}Figura NUM}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
+El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.9]{FSM_control.png}
+	\caption{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.}
+	\label{Figura: FSM_control}
+\end{figure}
 
 Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras para realizar la activación del control lineal, el cual modula la amplitud de la corriente eléctrica, del canal asociado al movimiento detectado, utilizando la recta descrita por la Ecuación \ref{Mapeo}, donde $A$ representa la amplitud que inyectará el estimulador eléctrico, $A_{max}$ es el umbral funcional de estimulación eléctica, $A_{min}$ es el umbral motor de estimulación eléctica, $D$ representa el valor RMS actual, mientras que $D_{max}$ y $D_{min}$ representan los umbrales RMS de la tarea completa y ligera del canal asociado al movimiento detectado (canal 1 para cierre de mano y canal 2 para apertura de mano). Adicionalmente se aplica la función máximo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros, y también se aplica un criterio de saturación de corriente eléctrica para evitar que tras una contracción muscular muy fuerte se genere un valor de amplitud de corriente eléctrica dañino para el sujeto.
 
