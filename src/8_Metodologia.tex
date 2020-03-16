@@ -47,12 +47,12 @@ La implementación final del subsistema diseñado en Simulink se observa en la F
 
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}[htbp]{0.5\textwidth}
+	\begin{subfigure}[htbp]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{Read_Simu.png}
 		\caption{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.}
 		\label{Figura: readSimu}
 	\end{subfigure}
-	\begin{subfigure}[htbp]{0.5\textwidth}
+	\begin{subfigure}[htbp]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{Deco_Simu.png}
 		\caption{Vista interna del subsistema encargado de la decodificación del stream de datos.}
 		\label{Figura: decoSimu}
@@ -190,3 +190,6 @@ Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras
 	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
 	\label{Mapeo}
 \end{equation}
+
+\section{Tarea objetivo}
+{\color{red}INCLUIR TAREA OBJETIVO DE ENTRENAMIENTO CON TRAPEZOIDAL EN LÍNEA}

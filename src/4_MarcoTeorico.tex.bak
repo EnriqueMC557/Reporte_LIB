@@ -50,10 +50,12 @@ Existe una gran variedad de algoritmos de control que suelen ser usados dentro d
 \subsection{Control On-Off}
 El control control On-Off: es una política de control en la que cuando una variable cruza un umbral predefinido, se activa un programa que habilita o deshabilita determinadas funciones del esquema de control \cite{Wright2016}.
 
-\subsection{Máquina de estados finitos}
+\subsection{Máquina de estados finitos (FSM)}
 Este es un modelo de sistema que puede considerarse como una implementación más compleja del control on-off. En este modelo, la medición de una variable del sistema en combinación con el estado actual desencadena una serie de acciones y una transición de estado. Este tipo de modelo es periódico, entonces pueden realizarse transiciones de estado en respuesta al tiempo \cite{Wright2016}.
 
 {\color{red}\subsection{Control lineal}}
+
+
 
 \section{Retroalimentación}
 Existe más de una forma de implementar una retroalimentación dentro de un sistema de neuroprótesis. Esta retroalimentación puede ser la observación visual de la acción realizada por algún efector robótico dentro de una interfaz cerebro-computadora (neurofeedback), la adquisición de una señal eléctrica durante un periodo de estimulación eléctrica, la medición de algún elemento sensor que proporcione información sobre el estado del efector \cite{Wright2016}. Otro ejemplo de como implementar retroalimentación en un sistema de neuroprótesis es el biofeedback, el cual se trata de una técnica de retroalimentación donde no se requiere de algún elemento sensor en el efector del sistema, ya que esta técnica consiste en permitir al individuo usuario de la neuropróteis aprender a cambiar su actividad fisiológica con el fin de mejorar el rendimiento del sistema \cite{Yucha2008}.

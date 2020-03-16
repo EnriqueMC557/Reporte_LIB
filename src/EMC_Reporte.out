@@ -15,7 +15,7 @@
 \BOOKMARK [2][-]{subsection.2.4.3}{Control adaptativo}{section.2.4}% 15
 \BOOKMARK [1][-]{section.2.5}{Algoritmos de control}{chapter.2}% 16
 \BOOKMARK [2][-]{subsection.2.5.1}{Control On-Off}{section.2.5}% 17
-\BOOKMARK [2][-]{subsection.2.5.2}{M\341quina de estados finitos}{section.2.5}% 18
+\BOOKMARK [2][-]{subsection.2.5.2}{M\341quina de estados finitos \(FSM\)}{section.2.5}% 18
 \BOOKMARK [2][-]{subsection.2.5.3}{Control lineal}{section.2.5}% 19
 \BOOKMARK [1][-]{section.2.6}{Retroalimentaci\363n}{chapter.2}% 20
 \BOOKMARK [1][-]{section.2.7}{Electromiograf\355a de superficie}{chapter.2}% 21
@@ -33,11 +33,12 @@
 \BOOKMARK [1][-]{section.4.4}{Protocolo para registro de sEMG}{chapter.4}% 33
 \BOOKMARK [1][-]{section.4.5}{Procesamiento de sEMG}{chapter.4}% 34
 \BOOKMARK [1][-]{section.4.6}{Esquema de control}{chapter.4}% 35
-\BOOKMARK [0][-]{chapter.5}{Avances}{}% 36
-\BOOKMARK [1][-]{section.5.1}{Decodificaci\363n de stream de datos en Simulink}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.2}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.5}% 38
-\BOOKMARK [1][-]{section.5.3}{Protocolo para registro de sEMG}{chapter.5}% 39
-\BOOKMARK [1][-]{section.5.4}{Procesamiento de sEMG}{chapter.5}% 40
-\BOOKMARK [1][-]{section.5.5}{Mapeo sEMG-FES}{chapter.5}% 41
-\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 42
-\BOOKMARK [0][-]{chapter*.25}{Referencias}{}% 43
+\BOOKMARK [1][-]{section.4.7}{Tarea objetivo}{chapter.4}% 36
+\BOOKMARK [0][-]{chapter.5}{Avances}{}% 37
+\BOOKMARK [1][-]{section.5.1}{Decodificaci\363n de stream de datos en Simulink}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.2}{Evaluaci\363n de transferencia de datos entre prototipo de adquisici\363n y computadora}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.3}{Protocolo para registro de sEMG}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.4}{Procesamiento de sEMG}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.5}{Mapeo sEMG-FES}{chapter.5}% 42
+\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 43
+\BOOKMARK [0][-]{chapter*.25}{Referencias}{}% 44

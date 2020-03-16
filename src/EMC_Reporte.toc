@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {2.4.3}Control adaptativo}{6}{subsection.2.4.3}% 
 \contentsline {section}{\numberline {2.5}Algoritmos de control}{7}{section.2.5}% 
 \contentsline {subsection}{\numberline {2.5.1}Control On-Off}{7}{subsection.2.5.1}% 
-\contentsline {subsection}{\numberline {2.5.2}M\IeC {\'a}quina de estados finitos}{7}{subsection.2.5.2}% 
+\contentsline {subsection}{\numberline {2.5.2}M\IeC {\'a}quina de estados finitos (FSM)}{7}{subsection.2.5.2}% 
 \contentsline {subsection}{\numberline {2.5.3}Control lineal}{7}{subsection.2.5.3}% 
 \contentsline {section}{\numberline {2.6}Retroalimentaci\IeC {\'o}n}{7}{section.2.6}% 
 \contentsline {section}{\numberline {2.7}Electromiograf\IeC {\'\i }a de superficie}{8}{section.2.7}% 
@@ -30,10 +30,11 @@
 \contentsline {chapter}{\numberline {4}Metodolog\IeC {\'\i }a}{13}{chapter.4}% 
 \contentsline {section}{\numberline {4.1}Sistema propuesto}{13}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}Adquisici\IeC {\'o}n de datos en Simulink}{14}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Evaluaci\IeC {\'o}n de bloque de adquisici\IeC {\'o}n y decodificaci\IeC {\'o}n}{16}{section.4.3}% 
+\contentsline {section}{\numberline {4.3}Evaluaci\IeC {\'o}n de bloque de adquisici\IeC {\'o}n y decodificaci\IeC {\'o}n}{15}{section.4.3}% 
 \contentsline {section}{\numberline {4.4}Protocolo para registro de sEMG}{17}{section.4.4}% 
 \contentsline {section}{\numberline {4.5}Procesamiento de sEMG}{18}{section.4.5}% 
 \contentsline {section}{\numberline {4.6}Esquema de control}{20}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}Tarea objetivo}{21}{section.4.7}% 
 \contentsline {chapter}{\numberline {5}Avances}{22}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Decodificaci\IeC {\'o}n de stream de datos en Simulink}{22}{section.5.1}% 
 \contentsline {section}{\numberline {5.2}Evaluaci\IeC {\'o}n de transferencia de datos entre prototipo de adquisici\IeC {\'o}n y computadora}{23}{section.5.2}% 

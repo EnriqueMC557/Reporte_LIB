@@ -1,5 +1,12 @@
 \begin{thebibliography}{10}
 
+\bibitem{Aguirre-Vargas2015}
+{\sc Aguirre-Vargas, G., Flores-Abad, {\'{A}}., Alba-Baena, N.,
+  Acosta-Guadarrama, J.~C., and Canales-Valdiviezo, I.}
+\newblock {Control de Se{\~{n}}ales EMG para el Movimiento de un Brazo
+  Rob{\'{o}}tico de Tres Grados de Libertad}.
+\newblock {\em Cultura Cient{\'{i}}fica y Tecnol{\'{o}}gica 12}, 55 (2015).
+
 \bibitem{Cavalcanti-Garcia2009}
 {\sc Cavalcanti-Garcia, M., and Vierira, T.}
 \newblock {Surface electromyography: Why, when and how to use it}.
@@ -11,6 +18,39 @@
   to Amplitude Detectors}.
 \newblock {\em IEEE Transactions on Biomedical Engineering 46}, 6 (1999),
   730--739.
+
+\bibitem{Fonseca2019}
+{\sc Fonseca, L., Tigra, W., Navarro, B., Guiraud, D., Fattal, C., B{\'{o}},
+  A., Fachin-Martins, E., Leynaert, V., G{\'{e}}lis, A., and Azevedo-Coste, C.}
+\newblock {Assisted grasping in individuals with tetraplegia: Improving control
+  through residual muscle contraction and movement}.
+\newblock {\em Sensors (Switzerland) 19}, 20 (oct 2019), 4532.
+
+\bibitem{Kim2015}
+{\sc Kim, J.~H., and Lee, B.~H.}
+\newblock {Mirror Therapy Combined With Biofeedback Functional Electrical
+  Stimulation for Motor Recovery of Upper Extremities After Stroke: A Pilot
+  Randomized Controlled Trial}.
+\newblock {\em Occupational Therapy International 22}, 2 (2015), 51--60.
+
+\bibitem{Lenzi2012}
+{\sc Lenzi, T., {De Rossi}, S. M.~M., Vitiello, N., and Carroza, M.~C.}
+\newblock {Intention-Based EMG Control for Powered Exoskeletons}.
+\newblock {\em IEEE Transactions on Biomedical Engineering 59}, 8 (2012),
+  2180--2190.
+
+\bibitem{Castillo2019}
+{\sc Mercado, J., Castillo, J., Toledo, C., Quinzaños, J., and Gutierrez, J.}
+\newblock {A Simple Approach for EEG-FES Triggered Upper Limb Rehabilitation}.
+\newblock {\em Rehabweek 2019 / International Functional Electrical Stimulation
+  Society Conference\/} (2019).
+
+\bibitem{Fuentes2018}
+{\sc Mercado, J., Fuentes, J., Toledo, C., Castellanos, N., and Gutierrez, J.}
+\newblock {Design of a Flexible Platform for prototyping of FES-based Motor
+  Rehabilitation Systems}.
+\newblock {\em 22 Annual Conference of the International Functional Electrical
+  Stimulation Society\/} (2018).
 
 \bibitem{Peckham2005}
 {\sc Peckham, P.~H., and Knutson, J.~S.}
@@ -35,6 +75,12 @@
 \newblock In {\em Encyclopedia of Biomaterials and Biomedical Engineering},
   G.~E. Wnek and G.~L. Bowlin, Eds., 2~ed. 2008, ch.~Neuroprost,
   pp.~1056--1065.
+
+\bibitem{Sachs2006}
+{\sc Sachs, N., Chang, E., and Weiland, J.}
+\newblock {Contralateral EMG-Triggered Electrical Stimulation of the Eyelid}.
+\newblock In {\em 11th Annual Conference of the International FES Society\/}
+  (Zao, Japan, 2006), no.~September, pp.~286--288.
 
 \bibitem{Salchow2016}
 {\sc Salchow, C., Valtin, M., Seel, T., and Schauer, T.}
@@ -68,10 +114,23 @@
   Systems}.
 \newblock {\em Frontiers in Neuroscience 10\/} (2016).
 
+\bibitem{Yi2013}
+{\sc Yi, X., Jia, J., Deng, S., Shen, G., Xie, Q., and Wang, G.}
+\newblock {A Blink Restoration System With Contralateral EMG Triggered
+  Stimulation and Real-Time Artifact Blanking}.
+\newblock {\em IEEE Transactions on Biomedical Circuits and Systems 7}, 2
+  (2013), 140--148.
+
 \bibitem{Yucha2008}
 {\sc Yucha, C.~B., and Montgomery, D.}
 \newblock {\em {Evidence-Based Practice in Biofeedback and Neurofeedback}},
   vol.~6656.
 \newblock AAPB Wheat Ridge, CO, 2008.
+
+\bibitem{Zhou2018}
+{\sc Zhou, Y., Fang, Y., Gui, K., Li, K., Zhang, D., and Liu, H.}
+\newblock {sEMG Bias-driven Functional Electrical Stimulation System for
+  Upper-Limb Stroke Rehabilitation}.
+\newblock {\em IEEE Sensors Journal 18}, 16 (2018), 6812--6821.
 
 \end{thebibliography}

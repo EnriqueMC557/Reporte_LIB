@@ -64,23 +64,11 @@
 \chapter{Introducción}
 \input{1_Introduccion}
 
-%\chapter{Justificación}
-%\input{2_Justificacion}
-%
-%\chapter{Planteamiento del problema}
-%\input{3_Problema}
-
 \chapter{Marco teórico}
 \input{4_MarcoTeorico}
 
 \chapter{Antecedentes}
 \input{5_Antecedentes}
-
-%\chapter{Hipótesis}
-%\input{6_Hipotesis}
-%
-%\chapter{Objetivos}
-%\input{7_Objetivos}
 
 \chapter{Metodología}
 \input{8_Metodologia}

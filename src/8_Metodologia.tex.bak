@@ -190,3 +190,6 @@ Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras
 	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
 	\label{Mapeo}
 \end{equation}
+
+\section{Tarea objetivo}
+{\color{red}INCLUIR TAREA OBJETIVO DE ENTRENAMIENTO CON TRAPEZOIDAL EN LÍNEA}

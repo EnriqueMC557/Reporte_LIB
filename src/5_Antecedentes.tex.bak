@@ -1,13 +1,12 @@
 \section{Desarrollos previos al proyecto}
-{\color{red}Peña: ¿Dónde están publicados los trabajos realizados en el INR?}
 
-En el INR se han realizado trabajos previos relacionados al desarrollo de la neuroprótesis, los cuales han logrado que dicho sistema sea funcional y se pueda ocupar en pacientes del propio instituto. Este trabajo incluye una plataforma de software para control y configuración de la neuroprótesis, la implementación de una aplicación FES en lazo abierto comandada por EEG, y un sistema prototipo de adquisición de biopotenciales.
+En el INR se han realizado trabajos previos relacionados al desarrollo de la neuroprótesis, los cuales han logrado que dicho sistema sea funcional y útil en pacientes del propio instituto. Estos trabajos incluyen una plataforma de software para control y configuración de la neuroprótesis y la implementación de una aplicación FES en lazo abierto comandada por EEG.
 
 \subsection{Plataforma de software para neuroprótesis}
-Consiste en una GUI implementada en la herramienta GUIDE de MATLAB®, la cual consta de 4 pantallas que en conjunto permiten, hasta el momento: a) realizar el registro de datos de un paciente o usuario en el que se probará el dispositivo, b) realizar el entrenamiento de un clasificador de movimientos voluntarios, c) ejecutar una aplicación FES en lazo abierto, o bien d) experimentar con los parámetros del estimulador y el sistema de registro de biopotenciales para determinar el patrón de estimulación óptimo para el paciente. Esta plataforma realiza una conexión a dispositivos comerciales: Rehastim 2 (Hasomed GmbH, Alemania) para estimulación eléctrica, y Cyton Board (OpeBCI Inc, E.E.U.U.) para adquisición de biopotenciales) que permiten la integración de las funciones de la NP.
+Consiste en una GUI implementada en MATLAB®, la cual consta de 4 pantallas que en conjunto permiten: a) realizar el registro de datos de un paciente o usuario en el que se probará el dispositivo, b) realizar el entrenamiento de un clasificador de movimientos voluntarios, c) ejecutar una aplicación FES en lazo abierto, o bien d) experimentar con los parámetros del estimulador y el sistema de registro de biopotenciales para determinar el patrón de estimulación óptimo para el paciente. Esta plataforma realiza una conexión a dispositivos comerciales: RehaMove 2 (Hasomed GmbH, Alemania) para estimulación eléctrica, y Cyton Board (OpeBCI Inc, E.E.U.U.) para adquisición de biopotenciales) que permiten la integración de las funciones de la neuroprotesis \cite{Fuentes2018}.
 
 \subsection{Aplicación FES en lazo abierto}
-La aplicación FES, que se encuentra inmersa en la plataforma de software para la neuroprótesis, está basada en una Interfaz Cerebro-Computadora. Dicha aplicación le muestra al sujeto una serie de 5 movimientos predefinidos, dentro de los cuales el sujeto debe seleccionar alguno cerrando los ojos. Una vez seleccionado y confirmado el movimiento objetivo, el sistema envía una secuencia de pulsos de estimulación eléctrica para asistir al sujeto a realizar el movimiento elegido. En esta aplicación el patrón de estimulación eléctrica está predeterminado antes de iniciar la aplicación.
+La aplicación FES, que se encuentra inmersa en la plataforma de software para la neuroprótesis, está basada en una Interfaz Cerebro-Computadora. Dicha aplicación le muestra al sujeto una serie de 5 movimientos predefinidos, dentro de los cuales el sujeto debe seleccionar alguno cerrando los ojos. Una vez seleccionado y confirmado el movimiento objetivo, el sistema envía una secuencia de pulsos de estimulación eléctrica para asistir al sujeto a realizar el movimiento elegido. En esta aplicación el patrón de estimulación eléctrica está predeterminado antes de iniciar la aplicación \cite{Castillo2019}.
 
 %\subsection{Sistema prototipo de adquisición de biopotenciales}
 %Sistema que consta del convertidor analógico digital ADS1299 y el microcontrolador MSP432P401R. Es un sistema que presenta ventajas respecto al sistema comercial utilizado en trabajos anteriores basados en OpenBCI, principalmente una frecuencia de muestreo de 1 kHz por canal, la cual es útil para fines de control con sEMG \cite{Lenzi2012}\cite{Lenzi2011}\cite{Raafat}. Además, el prototipo utiliza una conexión USB para la transmisión de datos, la cual, a diferencia de la conexión bluetooth con la que cuenta el dispositivo de OpenBCI, permite una mayor tasa de transmisión de datos (460800 bps, contra 115200 bps). %y evita la pérdida de datos que se presentaba en el sistema comercial por fallas en la conexión bluetooth.
@@ -15,44 +14,63 @@ La aplicación FES, que se encuentra inmersa en la plataforma de software para l
 %El sistema prototipo de adquisición será útil para fines de este proyecto, ya que gracias a la interfaz gráfica desarrollada previamente para dicho sistema, se tiene la posibilidad de ajustar los parámetros de adquisición de tal forma que nos permitirá obtener una señal de sEMG de mejor calidad que con el sistema OpenBCI.
 
 \section{Sistemas FES existentes}
-En el Cuadro ~\ref{Cuadro:Sistemas FES} se muestran los trabajos revisados que proporcionan información de interés para lograr los objetivos de este proyecto. Dentro de los campos que se destacan de dichos trabajos se encuentran: la aplicación, debido a que se buscaron trabajos que asistan el funcionamiento de las extremidades, en especial de miembro superior; el dispositivo de estimulación, ya que se buscaron trabajos que utilizaran el mismo dispositivo a utilizar en este proyecto o bien sus versiones anteriores; la implementación del esquema de control, esto debido a que se buscaron sistemas que aprovecharan el entorno de Simulink, ya que el controlador del dispositivo de estimulación eléctrica a emplear (Rehastim2) está desarrollado en dicha plataforma; y finalmente, las señales que dichos sistemas utilizaron para realizar la retroalimentación del sistema y la activación de los comandos.
+En la literatura existe una diversidad de trabajos que implementan un lazo cerrado para aplicaciones FES, los cuales utilizan dispositivos de estimulación que varían entre dispositivos comerciales o prototipos, sin embargo, la revisión bibliográfica realizada para este proyecto se centró en trabajos que utilizaran el dispositivo RehaMove 2 (Hasomed GmbH, Alemania) como dispositivo de estimulación, y que además implementaran alguna aplicación para rehabilitación de miembro superior.
 
-De estos trabajos se puede rescatar que, al realizar un entrenamiento en espejo donde sea un miembro sano el que controla la estimulación eléctrica aplicada al miembro dañado, se lograrán disminuir los artefactos generados por esta al momento de registrar EMG, o bien serán nulos si se ocupa una técnica de cuantificación de movimiento de origen no bioeléctrico \cite{Salchow2016}. También, se destaca que para realizar una terapia de asistencia para apertura y cierre de mano es necesario tener indicadores del estado actual de la mano y del estado del objeto sobre el que se quiere realizar la acción \cite{Simonsen2017}. Adicional a esto, se ha demostrado que implementar una máquina de estados finitos para el control de una neuroprótesis es algo viable y que permite la comprensión rápida, por parte del usuario, del funcionamiento del esquema de control \cite{Sun2014}. Por último, se destaca que, de lograr integrar todos los componentes del esquema de control en una misma plataforma, se pueden realizar aplicaciones que presenten un funcionamiento en tiempo real o muy cercano a este \cite{Salchow2016}\cite{Sun2014}\cite{Woods2018}.
+Trabajos como el documentado en \cite{Salchow2016}, muestran la importancia de las aplicaciones que implementan una terapia por medio de un entrenamiento en espejo para facilitar la recuperación motora de miembros superiores e inferiores en pacientes con hemiplejia. Dicha importancia radica en lograr la ilusión de un movimiento sincrónico entre dos extremidades sanas, ilusión que ha demostrado puede promover la recuperación de la funcionalidad de la extremidad paralizada.
+
+El trabajo documentado en \cite{Sun2014} demuestra la gran capacidad que tienen los algoritmos implementados en una máquina de estados finitos para realizar el control de una neuroprótesis, además de demostrar que estos algoritmos permiten una comprensión rápida sobre el funcionamiento del esquema de control.
+
+Otros trabajos como lo son \cite{Simonsen2017} y \cite{Woods2018} son de utilidad para el proyecto debido a que demuestran que al lograr una integración de los componentes y control de una neuroprótesis se pueden realizar aplicaciones que presenten un funcionamiento en tiempo real o muy cercano a este.
+
+El Cuadro \ref{Cuadro:Sistemas FES} resume la información de los trabajos mencionados anteriormente, mostrando información de estos como lo son autor, año de publicación, propósito del trabajo, señales de comando y retroalimentación utilizadas, y dispositivo de estimulación. Cabe mencionar que todos estos trabajos presentan una implementación dentro de los sofwtares MATLAB y Simulink.
 
 %Cuadro de revisión bibliográfica
 \begin{table}[hbt]
 	\centering
-	\begin{tabular}{|p{25mm}|p{35mm}|p{25mm}|p{40mm}|p{35mm}|}
+	\begin{tabular}{|p{30mm}|p{10mm}|p{40mm}|p{40mm}|p{25mm}|}
 	\hline
-	\textbf{Referencia} & \textbf{Aplicación} & \textbf{Dispositivo de estimulación} & \textbf{Señales de comando y retroalimentación} & \textbf{Implementación del sistema de control}\\ 
+	\textbf{Autor} & \textbf{Año} & \textbf{Propósito} & \textbf{Señales utilizadas} & \textbf{Dispositivo}\\ 
 	\hline
-	%\cite{Salchow2016}
-	(Salchow, 2016) & Entrenamiento en espejo para posturas de mano & RehaMove Pro & Electromiografía, movimiento de mano & MATLAB/Simulink\\
 	\hline
-	%\cite{Sun2014}
-	(Sun, 2014) & Recuperación de funciones de miembro superior & RehaStim1 & Acelerómetro & Simulink\\
+	Christina Salchow, \emph{et al.} \cite{Salchow2016} & 2016 & Entrenamiento en espejo aplicado a la mano & Electromiografía y movimiento de mano & RehaMove Pro\\
 	\hline
-	%\cite{Simonsen2017}
-	(Simonsen, 2017) & Asistencia para apertura y cierre de mano & STMISOLA & Posición del objeto, posición de la mano & MATLAB\\
+	Mignxu Sun \cite{Sun2014} & 2014 & Recuperación de funciones de miembro superior & Acelerometría & RehaStim 1\\
 	\hline
-	%\cite{Woods2018}
-	(Woods, 2018) & Asistencia en miembro inferior para ciclisco & RehaStim 1 & Mecanomiografía, fuerza aplicada a pedales, posición del cigüeñal & Simulink\\
+	Daniel Simonsen, \emph{et al.} \cite{Simonsen2017} & 2017 & Asistencia para apertura y cierre de mano & Posición del objeto y posición de la mano & STMISOLA\\
+	\hline
+	Billy Woods, \emph{et al.} \cite{Woods2018} & 2018 & Asistencia en miembro inferior para funciones de ciclismo & Mecanomiografía, fuerza aplicada a pedales y posición de cigüeñal & RehaStim 1\\
 	\hline
 	\end{tabular}
-	\centering
 	\caption{Revisión de sistemas FES reportados en la literatura con aplicaciones similares a las de este proyecto.}
 	\label{Cuadro:Sistemas FES}
 \end{table}
 
-{\color{red}Agregar revisión de métodos de procesamiento y control para aplicaciones de FES contralateral en otro cuadro}
+Una revisión bibliográfica adicional se centró en trabajos que utilizaran señales de sEMG como señal de control, para rescatar los descriptores de amplitud comúnmente usados y los tipos de control utilizados para cada aplicación.
+
+El Cuadro \ref{Cuadro:Control} resumen la información de los trabajos consultados para dicha revisión bibliográfica, mostrando información como aautor, año de publicación, propósito de la aplicación, descriptor de amplitud utilizado y tipo de control implementado.
 
 \begin{table}[htb]
 	\centering
-	\begin{tabular}{|c|c|c|c|}
+	\begin{tabular}{|p{30mm}|p{10mm}|p{45mm}|p{25mm}|p{35mm}|}
 	\hline
-	\textbf{Referencia} & \textbf{Aplicación} & \textbf{Rasgo utilizado} & \textbf{Tipo de control}
-		
-	
-	
+	\textbf{Autor} & \textbf{Año} & \textbf{Propósito} & \textbf{Descriptor sEMG} & \textbf{Tipo de control}\\
+	\hline
+	\hline
+	Yu Zhou, \emph{et al.} \cite{Zhou2018} & 2018 & FES contralateral para miembro superior & RMS & Regresión lineal\\
+	\hline
+	Tommaso Lenzi, \emph{et al.} \cite{Lenzi2012} & 2012 & Control de exoesqueleto & Envolvente lineal & Proporcional\\
+	\hline
+	Jung Hee Kim, \emph{et al.} \cite{Kim2015} & 2015 & Terapia en espejo para recuperación de miembro superior & RMS & On-Off\\
+	\hline
+	Gustavo Aguirre, \emph{et al.} \cite{Aguirre-Vargas2015} & 2015 & Control de brazo robótico & Amplitud & Lógica difusa\\
+	\hline
+	Xin Yi, \emph{et al.} \cite{Yi2013} & 2013 & Cierre contralateral de párpado en conejos & RMS & On-Off\\
+	\hline
+	Sachs NA, \emph{et al.} \cite{Sachs2006} & 2006 & Cierre contralateral de párpado en roedores & Integración & On/Off\\
+	\hline
+	Lucas Fonseca, \emph{et al.} \cite{Fonseca2019} & 2019 & Asistencia contralateral para cierre de mano & Envolvente & FSM\\
+	\hline
 	\end{tabular}
+	\caption{Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG}
+	\label{Cuadro:Control}
 \end{table}

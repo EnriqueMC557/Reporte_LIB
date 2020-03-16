@@ -64,7 +64,7 @@
 \citation{Yucha2008}
 \@writefile{toc}{\contentsline {section}{\numberline {2.5}Algoritmos de control}{7}{section.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Control On-Off}{7}{subsection.2.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}M\IeC {\'a}quina de estados finitos}{7}{subsection.2.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}M\IeC {\'a}quina de estados finitos (FSM)}{7}{subsection.2.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Control lineal}{7}{subsection.2.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.6}Retroalimentaci\IeC {\'o}n}{7}{section.2.6}\protected@file@percent }
 \citation{Cavalcanti-Garcia2009}
@@ -79,6 +79,8 @@
 \citation{Clancy1999}
 \citation{Phinyomark2013}
 \newlabel{RMS}{{2.2}{9}{Descriptores de amplitud}{equation.2.7.2}{}}
+\citation{Fuentes2018}
+\citation{Castillo2019}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Antecedentes}{10}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -86,14 +88,25 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Plataforma de software para neuropr\IeC {\'o}tesis}{10}{subsection.3.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Aplicaci\IeC {\'o}n FES en lazo abierto}{10}{subsection.3.1.2}\protected@file@percent }
 \citation{Salchow2016}
-\citation{Simonsen2017}
 \citation{Sun2014}
+\citation{Simonsen2017}
+\citation{Woods2018}
 \citation{Salchow2016}
 \citation{Sun2014}
+\citation{Simonsen2017}
 \citation{Woods2018}
+\citation{Zhou2018}
+\citation{Lenzi2012}
+\citation{Kim2015}
+\citation{Aguirre-Vargas2015}
+\citation{Yi2013}
+\citation{Sachs2006}
+\citation{Fonseca2019}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Sistemas FES existentes}{11}{section.3.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Revisi\IeC {\'o}n de sistemas FES reportados en la literatura con aplicaciones similares a las de este proyecto.\relax }}{12}{table.caption.5}\protected@file@percent }
 \newlabel{Cuadro:Sistemas FES}{{3.1}{12}{Revisión de sistemas FES reportados en la literatura con aplicaciones similares a las de este proyecto.\relax }{table.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Revisi\IeC {\'o}n de tipos de control y descriptores de amplitud com\IeC {\'u}nmente usados en aplicaciones de control basado en sEMG\relax }}{12}{table.caption.6}\protected@file@percent }
+\newlabel{Cuadro:Control}{{3.2}{12}{Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG\relax }{table.caption.6}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Metodolog\IeC {\'\i }a}{13}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -105,13 +118,13 @@
 \newlabel{Figura: BusOut}{{4.2}{14}{Estructura del bus de datos de salida del ADS1299\relax }{figure.caption.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Funcionamiento del subsistema decodificador del stream de datos\relax }}{15}{figure.caption.9}\protected@file@percent }
 \newlabel{Figura: DecoStream}{{4.3}{15}{Funcionamiento del subsistema decodificador del stream de datos\relax }{figure.caption.9}{}}
-\newlabel{Figura: readSimu}{{4.4a}{15}{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.\relax }{figure.caption.10}{}}
-\newlabel{sub@Figura: readSimu}{{a}{15}{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.\relax }{figure.caption.10}{}}
-\newlabel{Figura: decoSimu}{{4.4b}{15}{Vista interna del subsistema encargado de la decodificación del stream de datos.\relax }{figure.caption.10}{}}
-\newlabel{sub@Figura: decoSimu}{{b}{15}{Vista interna del subsistema encargado de la decodificación del stream de datos.\relax }{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Sistema decodificador de stream de datos implementado en Simulink\relax }}{15}{figure.caption.10}\protected@file@percent }
-\newlabel{Figura: DecoSimuT}{{4.4}{15}{Sistema decodificador de stream de datos implementado en Simulink\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Evaluaci\IeC {\'o}n de bloque de adquisici\IeC {\'o}n y decodificaci\IeC {\'o}n}{16}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Evaluaci\IeC {\'o}n de bloque de adquisici\IeC {\'o}n y decodificaci\IeC {\'o}n}{15}{section.4.3}\protected@file@percent }
+\newlabel{Figura: readSimu}{{4.4a}{16}{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.\relax }{figure.caption.10}{}}
+\newlabel{sub@Figura: readSimu}{{a}{16}{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.\relax }{figure.caption.10}{}}
+\newlabel{Figura: decoSimu}{{4.4b}{16}{Vista interna del subsistema encargado de la decodificación del stream de datos.\relax }{figure.caption.10}{}}
+\newlabel{sub@Figura: decoSimu}{{b}{16}{Vista interna del subsistema encargado de la decodificación del stream de datos.\relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Sistema decodificador de stream de datos implementado en Simulink\relax }}{16}{figure.caption.10}\protected@file@percent }
+\newlabel{Figura: DecoSimuT}{{4.4}{16}{Sistema decodificador de stream de datos implementado en Simulink\relax }{figure.caption.10}{}}
 \newlabel{Figura: SenPur}{{4.5a}{16}{Senoidales puras a diferentes frecuencias\relax }{figure.caption.11}{}}
 \newlabel{sub@Figura: SenPur}{{a}{16}{Senoidales puras a diferentes frecuencias\relax }{figure.caption.11}{}}
 \newlabel{Figura: LinAte}{{4.5b}{16}{Senoidal de 50 Hz con atenuación lineal\relax }{figure.caption.11}{}}
@@ -143,6 +156,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces M\IeC {\'a}quina de estados finitos encargada de la detecci\IeC {\'o}n de movimiento e inicio del control lineal.\relax }}{20}{figure.caption.14}\protected@file@percent }
 \newlabel{Figura: FSM_control}{{4.10}{20}{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.\relax }{figure.caption.14}{}}
 \newlabel{Mapeo}{{4.2}{21}{Esquema de control}{equation.4.6.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Tarea objetivo}{21}{section.4.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Avances}{22}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -180,16 +194,25 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{acm}
 \bibdata{11_biblio}
-\bibcite{Cavalcanti-Garcia2009}{1}
-\bibcite{Clancy1999}{2}
-\bibcite{Peckham2005}{3}
-\bibcite{Phinyomark2013}{4}
-\bibcite{Popovic2015}{5}
-\bibcite{Popovic2008}{6}
-\bibcite{Salchow2016}{7}
-\bibcite{Simonsen2017}{8}
-\bibcite{Sun2014}{9}
-\bibcite{Woods2018}{10}
+\bibcite{Aguirre-Vargas2015}{1}
+\bibcite{Cavalcanti-Garcia2009}{2}
+\bibcite{Clancy1999}{3}
+\bibcite{Fonseca2019}{4}
+\bibcite{Kim2015}{5}
+\bibcite{Lenzi2012}{6}
+\bibcite{Castillo2019}{7}
+\bibcite{Fuentes2018}{8}
+\bibcite{Peckham2005}{9}
 \@writefile{toc}{\contentsline {chapter}{Referencias}{32}{chapter*.25}\protected@file@percent }
-\bibcite{Wright2016}{11}
-\bibcite{Yucha2008}{12}
+\bibcite{Phinyomark2013}{10}
+\bibcite{Popovic2015}{11}
+\bibcite{Popovic2008}{12}
+\bibcite{Sachs2006}{13}
+\bibcite{Salchow2016}{14}
+\bibcite{Simonsen2017}{15}
+\bibcite{Sun2014}{16}
+\bibcite{Woods2018}{17}
+\bibcite{Wright2016}{18}
+\bibcite{Yi2013}{19}
+\bibcite{Yucha2008}{20}
+\bibcite{Zhou2018}{21}
