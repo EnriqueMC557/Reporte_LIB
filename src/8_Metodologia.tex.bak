@@ -47,12 +47,12 @@ La implementación final del subsistema diseñado en Simulink se observa en la F
 
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}[htbp]{0.5\textwidth}
+	\begin{subfigure}[htbp]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{Read_Simu.png}
 		\caption{Vista general del sistema diseñado para realizar adquisición y decodificación del stream de datos.}
 		\label{Figura: readSimu}
 	\end{subfigure}
-	\begin{subfigure}[htbp]{0.5\textwidth}
+	\begin{subfigure}[htbp]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{Deco_Simu.png}
 		\caption{Vista interna del subsistema encargado de la decodificación del stream de datos.}
 		\label{Figura: decoSimu}
@@ -173,7 +173,7 @@ Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS 
 
 \newpage
 \section{Esquema de control}
-Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. {\color{red}AGREGAR FOTO DE POSTURAS DE MANOS}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en [{\color {red}ANA}], donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
+Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en [{\color {red}ANA}], donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
 
 El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
 
@@ -191,5 +191,5 @@ Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras
 	\label{Mapeo}
 \end{equation}
 
-\section{Tarea objetivo}
-{\color{red}INCLUIR TAREA OBJETIVO DE ENTRENAMIENTO CON TRAPEZOIDAL EN LÍNEA}
+%\section{Tarea objetivo}
+%{\color{red}INCLUIR TAREA OBJETIVO DE ENTRENAMIENTO CON TRAPEZOIDAL EN LÍNEA}
