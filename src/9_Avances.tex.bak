@@ -1,89 +1,18 @@
 %%RESULTADOS
-%\section{Decodificación de stream de datos en Simulink}
-%
-%Como una primera comprobación del funcionamiento del sistema diseñado en Simulink se aprovechó la utilidad que tiene el prototipo de adquisición de enviar señales test (ondas cuadradas con frecuencia de 2 Hz). Se configuraron los 8 canales del prototipo de adquisición para que enviaran dicha señal test, cada uno con una ganancia diferente. Posteriormente se realizó un registro de forma continua en el que se visualizó en un scope el resultado del sistema decodificador. Adicional a esto, se realizaron registros de sEMG de un solo canal mientras se realizaba la tarea de cierre de mano. En la Figura \ref{Figura: Test_PADQ} se muestra el resultado de la adquisición de las señales test, mientras que en la Figura \ref{Figura: sEMG_PADQ} se muestra el resultado de un registro de sEMG. Ambos registros se realizaron configurando el prototipo de adquisición a una frecuencia de muestreo de 1 kHz.
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{Test_8CHs_1k_mue2mue.png}
-%	\caption{Resultado de la adquisición de los 8 canales del prototipo de adquisición configurado con señales test a diferentes ganancias.}
-%	\label{Figura: Test_PADQ}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{sEMG_PADQ.png}
-%	\caption{Registro de sEMG de un solo canal a una frecuencia de muestreo de 1 kHz.}
-%	\label{Figura: sEMG_PADQ}
-%\end{figure}
-%
-%\section{Evaluación de transferencia de datos entre prototipo de adquisición y computadora}
-%
-%Adicional al procedimiento realizado para la evaluación de la comunicación, se realizó una medición de la frecuencia de muestreo real del sistema, esto se realizó midiendo con un osciloscopio la frecuencia con la que se activa el pin DRDY del ADS1299 (la activación de este pin indica que se ha realizado la adquisición de una muestra). El resultado de esta medición arrojó como resultado que la frecuencia de muestreo real del prototipo de adquisición es de 964.3 Hz. En la Figura \ref{Figura: DRDY} se muestra una captura de pantalla de la medición realizada.
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=\textwidth]{DRDY.png}
-%	\caption{Resultado de la medición de la frecuencia de muestreo real del prototipo de adquisición.}
-%	\label{Figura: DRDY}
-%\end{figure}
-%
-%Posterior a esto se realizó un ajuste a la frecuencia de muestreo a las señales sintéticas en MATLAB, esto para que la frecuencia de muestreo sintética coincidiera con la frecuencia de muestreo real del prototipo de adquisición. Teniendo las señales sintéticas ajustadas a la nueva frecuencia de muestreo se procedió a calcular la correlación entre la señal sintética y la señal adquirida con el prototipo de adquisición. Una vez obtenidos todos los valores de correlación se calculó el promedio de estos, obteniendo como resultado una correlación promedio de 0.9615. En el Cuadro \ref{Cuadro: Corre} se muestran los resultados de la correlación obtenida para cada registro realizado.
-%
-%\begin{table}[htbp]
-%\centering
-%\begin{tabular}{|c|c|c|c|}
-%\hline
-%\textbf{Señal}                                                   & \textbf{Registro 1} & \textbf{Registro 2} & \textbf{Registro 3} \\ \hline
-%Sen 1 Hz                                                         & 0.9868              & 0.9899              & 0.9899              \\ \hline
-%Sen 5 Hz                                                         & 0.8554              & 0.9750              & 0.9980              \\ \hline
-%Sen 10 Hz                                                        & 0.9985              & 0.9946              & 0.9912              \\ \hline
-%Sen 20 Hz                                                        & 0.9923              & 0.9930              & 0.9947              \\ \hline
-%Sen 50 Hz                                                        & 0.9828              & 0.9732              & 0.9851              \\ \hline
-%Sen 100 Hz                                                       & 0.9320              & 0.9309              & 0.9374              \\ \hline
-%\begin{tabular}[c]{@{}c@{}}Atenuación\\ lineal\end{tabular}      & 0.9677              & 0.9851              & 0.8869              \\ \hline
-%\begin{tabular}[c]{@{}c@{}}Atenuación\\ exponencial\end{tabular} & 0.7149              & 0.9523              & 0.9874              \\ \hline
-%Contracción                                                      & 0.9877              & 0.9896              & 0.9916              \\ \hline
-%\end{tabular}
-%\caption{Resultados de la correlación obtenida entre las señales sintéticas y los registros realizados con el prototipo de adquisición.}
-%\label{Cuadro: Corre}
-%\end{table}
-%
-%\section{Protocolo para registro de sEMG}
-%
-%Se realizaron dos registros de sEMG utilizando el protocolo de registro descrito en la metodología y el dispositivo OpenBCI, estos registros obtenidos no cuentan con marcadores de movimiento debido a que se le iba indicando por voz el momento en el cual realizar una u otra acción. En la Figura \ref{Figura: AC_Exp} se muestra uno de los registros crudos de sEMG obtenidos tras esta prueba.
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=\textwidth]{Ape_Cie_Exp.png}
-%	\caption{Registro crudo de sEMG sin marcadores de movimiento obtenido tras una primera prueba del protocolo de registro propuesto. Arriba: Registro para cierre de mano. Abajo: Registro para apertura de mano.}
-%	\label{Figura: AC_Exp}
-%\end{figure}
-%
-%Utilizando una GUI para obtener registros de sEMG con marcadores de movimieno se puso a prueba nuevamente el protocolo de registro. Para esta prueba se configuró la GUI para realizar 4 repeticiones de la secuencia \emph{descanso-cierre-descanso-apertura}, donde los movimientos de descanso se configuraron con una duración de 9 segundos, y los movimientos de cierre y apertura se configuraron con una duración de 3 segundos. Para esta prueba se realizaron registros utilizando el dispositivo OpenBCI y el sistema prototipo. En la Figura \ref{Figura: sEMG_Crudo_OBCI} se muestra un registro crudo con el dispositivo OpenBCI, mientras que en la Figura \ref{Figura: sEMG_Crudo_PADQ} se muestra un registro crudo con el dispositivo prototipo.
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=\textwidth]{sEMG_Ent_060220_OBCI.png}
-%	\caption{Registro de entrenamiento crudo realizado con el dispositivo OpenBCI. Arriba: Canal para cierre de mano. Abajo: Canal para apertura de mano. Naranja: Marcador de movimiento (línea estable: descanso; cuadro pequeño: cierre; cuadro grande: apertura}.
-%	\label{Figura: sEMG_Crudo_OBCI}
-%	
-%	\includegraphics[width=\textwidth]{sEMG_Ent_300120_PADQ.png}
-%	\caption{Registro de entrenamiento crudo realizado con el dispositivo prototipo. Arriba: Canal para cierre de mano. Abajo: Canal para apertura de mano. Naranja: Marcador de movimiento (línea estable: descanso; cuadro pequeño: cierre; cuadro grande: apertura}.
-%	\label{Figura: sEMG_Crudo_PADQ}
-%\end{figure}
-%
-%%Utilizando el mismo protocolo de registro se realizó una prueba para la obtención del valor RMS en cada canal, esto se realizó con el modelo en Simulink y en un scope se visualizó el valor RMS obtenido en cada canal, en la Figura \ref{Figura: AC_RMS} se observa esta prueba realizada. Se observa el mismo comportamiento que en los registros crudos, el RMS asociado a la apertura también detecta actividad del cierre de mano.
-%%
-%%\begin{figure}[htbp]
-%%	\centering
-%%	\includegraphics[width=\textwidth]{RMS_Apertura_Cierre.png}
-%%	\caption{RMS medido para dos canales de sEMG. Amarillo: RMS para cierre de mano. Azul: RMS para apertura de mano.}
-%%	\label{Figura: AC_RMS}
-%%\end{figure}
+
+\section{Adquisición de datos}
+Tras adquirir las señales patrón para la evaluación del bloque de adquisición descritas en la metodología, se calculó la métrica de correlación entre las señales adquiridas y las patrón, buscando traslapar una sobre otra como se muestra en la Figura \ref{Figura: ValProCum}.
+Al tener el valor de correlación para cada registro se obtuvo como resultado una correlación promedio de 0.9615 $\pm$ 0.0604, valor que sirve como indicador de la calidad del bloque diseñado para la adquisición y decodificación de datos.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{ValProCum.png}
+	\caption{Comparación entre señal adquirida con el bloque de adquisición diseñado (rojo) y señal patrón (azul)}
+	\label{Figura: ValProCum}
+\end{figure}
+
 
 \section{Procesamiento de sEMG}
-
 Utilizando los registros de calibración se probaron los filtros diseñados, obteniendo como resultado notorio la estabilización de la línea base de cada registro. En la Figura \ref{Figura: Filtrado} se muestra una comparación entre los registros crudos y filtrados de ambos canales adquiridos durante el entrenamiento.
 
 \begin{figure}[htbp]
@@ -110,9 +39,34 @@ En la Figura \ref{Figura: MapOff} se muestra el resultado de  una prueba exitosa
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{MapOff.png}
-	\caption{Ejemplo exitoso representativo de las pruebas del sistema de control fuera de línea utilizando registros de entrenamiento. Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Medio: Amplitudes de estimulación resultantes del sistema de control (Azul: canal 1. Rojo: canal 2). Abajo: Marcadores de acción solicitada al sujeto (descanso (DD), cierre ligero (CL), cierre completo (CC), apertura ligera (AL), apertura completa (AC)).}
+	\caption{Ejemplo exitoso representativo de las pruebas del esquema de control funcionando fuera de línea con registros de calibración. Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Medio: Amplitudes de estimulación resultantes del sistema de control (Azul: canal 1. Rojo: canal 2). Abajo: Marcadores de acción solicitada al sujeto (descanso (DD), cierre ligero (CL), cierre completo (CC), apertura ligera (AL), apertura completa (AC)).}
 	\label{Figura: MapOff}
 \end{figure}
+
+\newpage
+Para la prueba en línea se configuró el modelo de Simulink con los datos obtenidos tras la calibración, y se solicitó al sujeto realizar el seguimiento de un par de señales trapezoidales que le indicarían el tipo de movimiento que tendría que lograr. Cuando la trapezoidal estuviera en cero, tendría que mantenerse en descanso; en la pendiente positiva de la trapezoidal tendría que realizar una transición de descanso hacia el movimiento completo solicitado; en la meseta de la trapezoidal tendría que mantener el movimiento completo solicitado; y en la pendiente negativa de la trapezoidal tendría que realizar una transición del movimiento completo solicitado hacia descanso.
+
+En la Figura \ref{Figura: MapOn} se muestra un segmento de una de las pruebas exitosas realizadas en línea. En dicha figura se puede observar que existe un retardo entre la trapezoidal y la respuesta del sistema de control, el cual es la suma del retardo que genera el procesamiento de la señal, el retardo ocasionado por el esquema de control, y el tiempo de respuesta del sujeto a la indicación de la trapezoidal.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{MapOn.png}
+	\caption{Ejemplo exitoso representativo de las pruebas del esquema de control funcionando en línea. Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Medio: Amplitudes de estimulación resultantes del sistema de control (Azul: canal 1. Rojo: canal 2). Abajo: Señales indicadoras de tarea a seguir (descanso (DD), apertura de mano (AC), cierre de mano (CC)).}
+	\label{Figura: MapOn}
+\end{figure}
+
+Para obtener el valor del retardo total se midió el tiempo existente entre el inicio de la pendiente positiva de la señal indicadora (trapezoidal) y la activación de la estimulación eléctrica. Al promediar los tiempos obtenidos a lo largo de las pruebas realizadas en línea se obtuvo un valor de 2.3 $\pm$ 0.3553 s.
+
+En la Figura \ref{Figura: Retardo} se muestra un acercamiento a las señales obtenidas en una prueba representativa de las pruebas realizadas en línea. Se muestran una sobre otra para visualizar el retardo existente entre el inicio de la señal indicadora y la activación de la estimulación eléctrica.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{Retardo.png}
+	\caption{Acercamiento a prueba representativa de las pruebas del esquema de control funcionando en línea. Se muestran las diferentes señales asociadas a cada movimiento una sobre otra para visualizar el retardo existente. Arriba: Señales para movimiento cierre de mano. Abajo: Señales para movimiento apertura de mano. En azul se muestra la señal indicadora del movimiento a realizar. En rojo se muestra la envolvente de sEMG. En amarillo se muestra la amplitud de estimulación eléctrica (AEE) arrojada por el esquema de control.}
+	\label{Figura: Retardo}
+\end{figure}
+
+
 
 
 

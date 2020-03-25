@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: EMC_Reporte.aux
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: EMC_Reporte.aux
 The style file: acm.bst
 Database file #1: 11_biblio.bib
 Warning--empty journal in Peckham2005
@@ -6,4 +8,45 @@ Warning--empty publisher in Popovic2015
 Warning--empty publisher in Popovic2008
 Warning--there's a number but no series in Sachs2006
 Warning--empty journal in Salchow2016
+You've used 24 entries,
+            2253 wiz_defined-function locations,
+            697 strings with 9499 characters,
+and the built_in function-call counts, 8322 in all, are:
+= -- 798
+> -- 461
+< -- 0
++ -- 188
+- -- 164
+* -- 688
+:= -- 1404
+add.period$ -- 72
+call.type$ -- 24
+change.case$ -- 152
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 276
+empty$ -- 593
+format.name$ -- 164
+if$ -- 1676
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 21
+newline$ -- 121
+num.names$ -- 50
+pop$ -- 146
+preamble$ -- 1
+purify$ -- 129
+quote$ -- 0
+skip$ -- 173
+stack$ -- 0
+substring$ -- 450
+swap$ -- 74
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 94
+warning$ -- 5
+while$ -- 78
+width$ -- 26
+write$ -- 241
 (There were 5 warnings)

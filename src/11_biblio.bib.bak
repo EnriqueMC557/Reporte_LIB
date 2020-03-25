@@ -288,3 +288,29 @@ volume = {12},
 year = {2015}
 }
 
+@phdthesis{AnaMartin2019,
+author = "Martin, Ana",
+title = "{Manga para el posicionamiento estratégico de electrodos de registro de sEMG y de estimulación eléctrica funcional en miembro superior para uso en una Neuroprótesis.}",
+school = "Facultad de Ingeniería. Universidad La Salle A.C.",
+year = {2019},
+type = "",
+month = "",
+}
+
+@phdthesis{JanethFuentes2018,
+author = "Fuentes, Janeth",
+title = "{Plataforma de control y configuración de una neuroprótesis para rehabilitación en miembro superior.}",
+school = "División de Ciencias Básicas e Ingeniería. Universidad Autóoma Metropolitana Unidad Iztapalapa.",
+year = {2018},
+type = "",
+month = "Agosto",
+}
+
+@phdthesis{OmarCastillo2019,
+author = "Castillo, Joaquin",
+title = "{Señales de comando basadas en EEG para una neuroprótesis.}",
+school = "División de Ciencias Básicas e Ingeniería. Universidad Autóoma Metropolitana Unidad Iztapalapa.",
+year = {2019},
+type = "",
+month = "Enero",
+}
