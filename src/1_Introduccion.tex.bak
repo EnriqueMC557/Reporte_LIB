@@ -23,8 +23,6 @@ Para realizar el diseño de la aplicación se utilizarán dos canales de electro
 
 Por lo tanto, la hipótesis de este proyecto consiste en que al integrar los diferentes bloques de un sistema de estimulación eléctrica funcional dentro de una plataforma de software con herramientas de tiempo real, se logrará implementar un lazo cerrado que permita llevar a cabo las tareas de adquisición de sEMG, procesamiento de este y aplicación de estimulación eléctrica en línea.
 
-%La hipótesis de este proyecto consiste en que al integrar los diferentes bloques de un sistema de estimulación eléctrica funcional
-
 \section{Objetivos}
 %{\color{blue}OBJETIVOS\\}
 

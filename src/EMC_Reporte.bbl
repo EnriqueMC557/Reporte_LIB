@@ -7,6 +7,12 @@
   Rob{\'{o}}tico de Tres Grados de Libertad}.
 \newblock {\em Cultura Cient{\'{i}}fica y Tecnol{\'{o}}gica 12}, 55 (2015).
 
+\bibitem{OmarCastillo2019}
+{\sc Castillo, J.}
+\newblock {\em {Señales de comando basadas en EEG para una neuroprótesis.}}
+\newblock Tesis de grado, División de Ciencias Básicas e Ingeniería.
+  Universidad Autónoma Metropolitana Unidad Iztapalapa., Enero 2019.
+
 \bibitem{Cavalcanti-Garcia2009}
 {\sc Cavalcanti-Garcia, M., and Vierira, T.}
 \newblock {Surface electromyography: Why, when and how to use it}.
@@ -26,6 +32,13 @@
   through residual muscle contraction and movement}.
 \newblock {\em Sensors (Switzerland) 19}, 20 (oct 2019), 4532.
 
+\bibitem{JanethFuentes2018}
+{\sc Fuentes, J.}
+\newblock {\em {Plataforma de control y configuración de una neuroprótesis
+  para rehabilitación en miembro superior.}}
+\newblock Tesis de grado, División de Ciencias Básicas e Ingeniería.
+  Universidad Autónoma Metropolitana Unidad Iztapalapa., Agosto 2018.
+
 \bibitem{Kim2015}
 {\sc Kim, J.~H., and Lee, B.~H.}
 \newblock {Mirror Therapy Combined With Biofeedback Functional Electrical
@@ -38,6 +51,14 @@
 \newblock {Intention-Based EMG Control for Powered Exoskeletons}.
 \newblock {\em IEEE Transactions on Biomedical Engineering 59}, 8 (2012),
   2180--2190.
+
+\bibitem{AnaMartin2019}
+{\sc Martin, A.}
+\newblock {\em {Manga para el posicionamiento estratégico de electrodos de
+  registro de sEMG y de estimulación eléctrica funcional en miembro superior
+  para uso en una Neuroprótesis.}}
+\newblock Tesis de grado, Facultad de Ingeniería. Universidad La Salle A.C.,
+  2019.
 
 \bibitem{Castillo2019}
 {\sc Mercado, J., Castillo, J., Toledo, C., Quinzaños, J., and Gutierrez, J.}
