@@ -13,8 +13,9 @@
 \contentsline {section}{\numberline {2.5}Algoritmos de control}{6}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Control On-Off}{6}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Máquina de estados finitos (FSM)}{6}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Control lineal}{6}{subsection.2.5.3}%
 \contentsline {section}{\numberline {2.6}Retroalimentación}{6}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Electromiografía de superficie}{6}{section.2.7}%
+\contentsline {section}{\numberline {2.7}Electromiografía de superficie}{7}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Procesamiento}{7}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Descriptores de amplitud}{7}{subsection.2.7.2}%
 \contentsline {chapter}{\numberline {3}Antecedentes}{9}{chapter.3}%

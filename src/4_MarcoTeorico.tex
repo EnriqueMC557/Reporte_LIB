@@ -53,12 +53,13 @@ El control control On-Off: es una política de control en la que cuando una vari
 \subsection{Máquina de estados finitos (FSM)}
 Este es un modelo de sistema que puede considerarse como una implementación más compleja del control on-off. En este modelo, la medición de una variable del sistema en combinación con el estado actual desencadena una serie de acciones y una transición de estado. Este tipo de modelo es periódico, entonces pueden realizarse transiciones de estado en respuesta al tiempo \cite{Wright2016}.
 
-%{\color{red}\subsection{Control lineal}}
-
+{\color{red}\subsection{Control lineal}}
 
 
 \section{Retroalimentación}
-Existe más de una forma de implementar una retroalimentación dentro de un sistema de neuroprótesis. Esta retroalimentación puede ser la observación visual de la acción realizada por algún efector robótico dentro de una interfaz cerebro-computadora (neurofeedback), la adquisición de una señal eléctrica durante un periodo de estimulación eléctrica, la medición de algún elemento sensor que proporcione información sobre el estado del efector \cite{Wright2016}. Otro ejemplo de como implementar retroalimentación en un sistema de neuroprótesis es el biofeedback, el cual se trata de una técnica de retroalimentación donde no se requiere de algún elemento sensor en el efector del sistema, ya que esta técnica consiste en permitir al individuo usuario de la neuropróteis aprender a cambiar su actividad fisiológica con el fin de mejorar el rendimiento del sistema \cite{Yucha2008}.
+Como se explicó en la sección 2.3, una señal de retroalimentación es aquella que brinda información al sistema sobre los efectos ante un determinado comando. Estas señales se pueden implementar de más de una forma dentro de una neuroprótesis, por ejemplo, la observación visual de la acción realizado por algún actuador robótico de una una interfaz cerebro-computadora (comúnmente conocido como neurofeedback), la adquisición de una señal bioeléctrica durante un periodo de estimulación eléctrica, o bien la medición de algún elemento sensor que proporcione información sobre el estado del efector o actuador \cite{Wright2016}.
+
+Otro ejemplo de retroalimentación en un sistema de neuroprótesis es el biofeedback, una técnica de retroalimentación donde no se requiere de elemento sensor en el efector o actuador del sistema, ya que consiste en permitir al individuo usuario de la neuroprótesis aprender a cambiar su actividad fisiológica con el fin de mejorar el rendimiento del sistema \cite{Yucha2008}.
 
 \section{Electromiografía de superficie}
 La electromiografía se define como la detección y análisis del electromiográma (EMG). El EMG puede detectarse directamente mediante la inserción de electrodos en las fibras musculares, o de forma indirecta colocando electrodos de superficie en las zonas de la piel localizadas justo encima del tejido muscular. A este último método se le suele conocer como electromiografía de superficie (sEMG, por sus siglas en inglés), el cual, al ser un método de detección no invasivo y permitir obtener información sobre la activación muscular, como la intensidad de la contracción muscular, la manifestación de la fatiga muscular y el reclutamiento de unidades motoras, se ha convertido en un método muy popular en la investigación.
