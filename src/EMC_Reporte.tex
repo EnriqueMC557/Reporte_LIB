@@ -49,6 +49,9 @@
 
 %Símbolo de valor absoluto
 \providecommand{\abs}[1]{\lvert#1\rvert}
+
+\usepackage{tocloft}
+\renewcommand{\cftfigfont}{Figura }
     
 \begin{document}
 
@@ -58,6 +61,8 @@
 %INDÍCE
 \pagenumbering{roman}
 \tableofcontents
+\newpage
+\listoffigures
 \newpage
 \pagenumbering{arabic}
 

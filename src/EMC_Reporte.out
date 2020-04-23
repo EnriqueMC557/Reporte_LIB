@@ -1,37 +1,33 @@
-\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Marco te\363rico}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Estimulaci\363n el\351ctrica funcional}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{Neuropr\363tesis}{chapter.2}% 4
-\BOOKMARK [1][-]{section.2.3}{Se\361ales de comando y retroalimentaci\363n}{chapter.2}% 5
-\BOOKMARK [2][-]{subsection.2.3.1}{Se\361al de comando}{section.2.3}% 6
-\BOOKMARK [2][-]{subsection.2.3.2}{Se\361al de retroalimentaci\363n}{section.2.3}% 7
-\BOOKMARK [1][-]{section.2.4}{Esquemas de control}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.4.1}{Control en lazo abierto}{section.2.4}% 9
-\BOOKMARK [2][-]{subsection.2.4.2}{Control en lazo cerrado}{section.2.4}% 10
-\BOOKMARK [2][-]{subsection.2.4.3}{Control adaptativo}{section.2.4}% 11
-\BOOKMARK [1][-]{section.2.5}{Algoritmos de control}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.5.1}{Control On-Off}{section.2.5}% 13
-\BOOKMARK [2][-]{subsection.2.5.2}{M\341quina de estados finitos \(FSM\)}{section.2.5}% 14
-\BOOKMARK [2][-]{subsection.2.5.3}{Control lineal}{section.2.5}% 15
-\BOOKMARK [1][-]{section.2.6}{Retroalimentaci\363n}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.7}{Electromiograf\355a de superficie}{chapter.2}% 17
-\BOOKMARK [2][-]{subsection.2.7.1}{Procesamiento}{section.2.7}% 18
-\BOOKMARK [2][-]{subsection.2.7.2}{Descriptores de amplitud}{section.2.7}% 19
-\BOOKMARK [0][-]{chapter.3}{Antecedentes}{}% 20
-\BOOKMARK [1][-]{section.3.1}{Desarrollos previos al proyecto}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.1.1}{Plataforma de software para neuropr\363tesis}{section.3.1}% 22
-\BOOKMARK [2][-]{subsection.3.1.2}{Aplicaci\363n FES en lazo abierto}{section.3.1}% 23
-\BOOKMARK [1][-]{section.3.2}{Sistemas FES existentes}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{Metodolog\355a}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Sistema propuesto}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.2}{Adquisici\363n de datos en Simulink}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.3}{Evaluaci\363n de bloque de adquisici\363n y decodificaci\363n}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.4}{Protocolo para registro de sEMG}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.5}{Procesamiento de sEMG}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.6}{Esquema de control}{chapter.4}% 31
-\BOOKMARK [0][-]{chapter.5}{Resultados}{}% 32
-\BOOKMARK [1][-]{section.5.1}{Adquisici\363n de datos}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.2}{Procesamiento de sEMG}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.3}{Esquema de control}{chapter.5}% 35
-\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 36
-\BOOKMARK [0][-]{chapter*.21}{Referencias}{}% 37
+\BOOKMARK [0][-]{section*.2}{\315ndice de figuras}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 2
+\BOOKMARK [0][-]{chapter.2}{Marco te\363rico}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Estimulaci\363n el\351ctrica funcional}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Neuropr\363tesis}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.3}{Se\361ales de comando y retroalimentaci\363n}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.4}{Esquemas de control}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.5}{redAlgoritmos de control}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.5.1}{Control On-Off}{section.2.5}% 9
+\BOOKMARK [2][-]{subsection.2.5.2}{M\341quina de estados finitos \(FSM\)}{section.2.5}% 10
+\BOOKMARK [2][-]{subsection.2.5.3}{Control lineal}{section.2.5}% 11
+\BOOKMARK [1][-]{section.2.6}{Retroalimentaci\363n}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.7}{Electromiograf\355a de superficie}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.7.1}{Procesamiento del sEMG}{section.2.7}% 14
+\BOOKMARK [2][-]{subsection.2.7.2}{Descriptores de amplitud del sEMG}{section.2.7}% 15
+\BOOKMARK [0][-]{chapter.3}{Antecedentes}{}% 16
+\BOOKMARK [1][-]{section.3.1}{Desarrollos previos al proyecto}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{Plataforma de software para neuropr\363tesis}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.2}{Aplicaci\363n FES en lazo abierto}{section.3.1}% 19
+\BOOKMARK [1][-]{section.3.2}{Sistemas FES existentes}{chapter.3}% 20
+\BOOKMARK [0][-]{chapter.4}{Metodolog\355a}{}% 21
+\BOOKMARK [1][-]{section.4.1}{Sistema propuesto}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.2}{Adquisici\363n de datos en Simulink}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.3}{Evaluaci\363n de bloque de adquisici\363n y decodificaci\363n}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.4}{Protocolo para registro de sEMG}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.5}{Procesamiento de sEMG}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.6}{Esquema de control}{chapter.4}% 27
+\BOOKMARK [0][-]{chapter.5}{Resultados}{}% 28
+\BOOKMARK [1][-]{section.5.1}{Adquisici\363n de datos}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.2}{Procesamiento de sEMG}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.3}{Esquema de control}{chapter.5}% 31
+\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 32
+\BOOKMARK [0][-]{chapter*.23}{Referencias}{}% 33
