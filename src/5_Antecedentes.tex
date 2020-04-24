@@ -1,12 +1,11 @@
 \section{Desarrollos previos al proyecto}
-
-En el INR se han realizado trabajos previos relacionados al desarrollo de la neuroprótesis, los cuales han logrado que dicho sistema sea funcional y útil en pacientes del propio instituto. Estos trabajos incluyen una plataforma de software para control y configuración de la neuroprótesis y la implementación de una aplicación FES en lazo abierto comandada por EEG.
+En el INR-LGII se han realizado trabajos previos relacionados al desarrollo de una neuroprótesis, los cuales han logrado que dicho sistema sea funcional, e incluso se ha probado con algunos pacientes del propio instituto. Estos trabajos incluyen una plataforma de software para control y configuración de la neuroprótesis \cite{Fuentes2018}\cite{JanethFuentes2018} y la implementación de una aplicación FES en lazo abierto comandada por EEG\cite{Castillo2019}\cite{OmarCastillo2019}.
 
 \subsection{Plataforma de software para neuroprótesis}
-Consiste en una GUI implementada en MATLAB®, la cual consta de 4 pantallas que en conjunto permiten: a) realizar el registro de datos de un paciente o usuario en el que se probará el dispositivo, b) realizar el entrenamiento de un clasificador de movimientos voluntarios, c) ejecutar una aplicación FES en lazo abierto, o bien d) experimentar con los parámetros del estimulador y el sistema de registro de biopotenciales para determinar el patrón de estimulación óptimo para el paciente. Esta plataforma realiza una conexión a dispositivos comerciales: RehaMove 2 (Hasomed GmbH, Alemania) para estimulación eléctrica, y Cyton Board (OpeBCI Inc, E.E.U.U.) para adquisición de biopotenciales) que permiten la integración de las funciones de la neuroprotesis \cite{Fuentes2018}\cite{JanethFuentes2018}.
+Consiste en una GUI implementada en MATLAB®, la cual consta de 4 pantallas que en conjunto permiten: a) realizar el registro de datos de un paciente o usuario en el que se probará el dispositivo, b) realizar el entrenamiento de un clasificador de movimientos voluntarios, c) ejecutar una aplicación FES en lazo abierto, o bien d) experimentar con los parámetros del estimulador y el sistema de registro de biopotenciales para determinar el patrón de estimulación óptimo para el paciente. Esta plataforma realiza una conexión a dispositivos comerciales: RehaStim 2 para estimulación eléctrica, y Cyton Board para adquisición de biopotenciales) que permiten la integración de las funciones de la neuroprotesis \cite{Fuentes2018}\cite{JanethFuentes2018}.
 
 \subsection{Aplicación FES en lazo abierto}
-La aplicación FES, que se encuentra inmersa en la plataforma de software para la neuroprótesis, está basada en una Interfaz Cerebro-Computadora. Dicha aplicación le muestra al sujeto una serie de 5 movimientos predefinidos, dentro de los cuales el sujeto debe seleccionar alguno cerrando los ojos. Una vez seleccionado y confirmado el movimiento objetivo, el sistema envía una secuencia de pulsos de estimulación eléctrica para asistir al sujeto a realizar el movimiento elegido. En esta aplicación el patrón de estimulación eléctrica está predeterminado antes de iniciar la aplicación \cite{Castillo2019}\cite{OmarCastillo2019}.
+La aplicación FES, que se encuentra inmersa en la plataforma de software para la neuroprótesis, está basada en una Interfaz Cerebro-Computadora. Dicha aplicación le muestra al sujeto una serie de 5 movimientos predefinidos, dentro de los cuales el sujeto debe seleccionar alguno cerrando los ojos. Una vez seleccionado y confirmado el movimiento objetivo, el sistema envía una secuencia de pulsos de estimulación eléctrica para asistir al sujeto a realizar el movimiento elegido. En esta aplicación los parámetros de estimulación eléctrica están predeterminados antes de iniciar la aplicación, los cuales se determinan en una sesión de calibración personalizada \cite{Castillo2019}\cite{OmarCastillo2019}.
 
 %\subsection{Sistema prototipo de adquisición de biopotenciales}
 %Sistema que consta del convertidor analógico digital ADS1299 y el microcontrolador MSP432P401R. Es un sistema que presenta ventajas respecto al sistema comercial utilizado en trabajos anteriores basados en OpenBCI, principalmente una frecuencia de muestreo de 1 kHz por canal, la cual es útil para fines de control con sEMG \cite{Lenzi2012}\cite{Lenzi2011}\cite{Raafat}. Además, el prototipo utiliza una conexión USB para la transmisión de datos, la cual, a diferencia de la conexión bluetooth con la que cuenta el dispositivo de OpenBCI, permite una mayor tasa de transmisión de datos (460800 bps, contra 115200 bps). %y evita la pérdida de datos que se presentaba en el sistema comercial por fallas en la conexión bluetooth.
@@ -14,15 +13,15 @@ La aplicación FES, que se encuentra inmersa en la plataforma de software para l
 %El sistema prototipo de adquisición será útil para fines de este proyecto, ya que gracias a la interfaz gráfica desarrollada previamente para dicho sistema, se tiene la posibilidad de ajustar los parámetros de adquisición de tal forma que nos permitirá obtener una señal de sEMG de mejor calidad que con el sistema OpenBCI.
 
 \section{Sistemas FES existentes}
-En la literatura existe una diversidad de trabajos que implementan un lazo cerrado para aplicaciones FES, los cuales utilizan dispositivos de estimulación que varían entre dispositivos comerciales o prototipos, sin embargo, la revisión bibliográfica realizada para este proyecto se centró en trabajos que utilizaran el dispositivo RehaMove 2 (Hasomed GmbH, Alemania) como dispositivo de estimulación, y que además implementaran alguna aplicación para rehabilitación de miembro superior.
+En la literatura existe una diversidad de trabajos que implementan un lazo cerrado para aplicaciones FES, los cuales utilizan dispositivos de estimulación que varían entre dispositivos comerciales o prototipos, sin embargo, la revisión bibliográfica realizada para este proyecto se centró en trabajos que utilizan el dispositivo RehaStim como dispositivo de estimulación, y que además implementaran alguna aplicación para rehabilitación de miembro superior.
 
-Trabajos como el documentado en \cite{Salchow2016}, muestran la importancia de las aplicaciones que implementan una terapia por medio de un entrenamiento en espejo para facilitar la recuperación motora de miembros superiores e inferiores en pacientes con hemiplejia. Dicha importancia radica en lograr la ilusión de un movimiento sincrónico entre dos extremidades sanas, ilusión que ha demostrado puede promover la recuperación de la funcionalidad de la extremidad paralizada.
+Trabajos como los documentados en \cite{Salchow2016} y \cite{Kim2015}, muestran la importancia de las aplicaciones que implementan una terapia por medio de un entrenamiento en espejo para facilitar la recuperación motora de miembros superiores e inferiores en pacientes con hemiplejia. Dicha importancia radica en lograr la ilusión de un movimiento sincrónico entre dos extremidades sanas, ilusión que ha demostrado puede promover la recuperación de la funcionalidad de la extremidad paralizada \cite{Deconinck2015}.
 
-El trabajo documentado en \cite{Sun2014} demuestra la gran capacidad que tienen los algoritmos implementados en una máquina de estados finitos para realizar el control de una neuroprótesis, además de demostrar que estos algoritmos permiten una comprensión rápida sobre el funcionamiento del esquema de control.
+El trabajo documentado en \cite{Sun2014} demuestra la gran capacidad que tienen los algoritmos implementados en una máquina de estados finitos para realizar el control de una neuroprótesis, además de demostrar que estos algoritmos permiten al experimentador una comprensión rápida sobre el funcionamiento del esquema de control.
 
 Otros trabajos como lo son \cite{Simonsen2017} y \cite{Woods2018} son de utilidad para el proyecto debido a que demuestran que al lograr una integración de los componentes y control de una neuroprótesis se pueden realizar aplicaciones que presenten un funcionamiento en tiempo real o muy cercano a este.
 
-El Cuadro \ref{Cuadro:Sistemas FES} resume la información de los trabajos mencionados anteriormente, mostrando información de estos como lo son autor, año de publicación, propósito del trabajo, señales de comando y retroalimentación utilizadas, y dispositivo de estimulación. Cabe mencionar que todos estos trabajos presentan una implementación dentro de los sofwtares MATLAB y Simulink.
+El Cuadro \ref{Cuadro:Sistemas FES} resume la información de los trabajos mencionados anteriormente, mostrando información como autor, año de publicación, propósito del trabajo, señales de comando y retroalimentación utilizadas, y dispositivo de estimulación. Cabe mencionar que todos estos trabajos presentan una implementación dentro de las plataformas de software MATLAB y Simulink.
 
 %Cuadro de revisión bibliográfica
 \begin{table}[hbt]
@@ -52,6 +51,7 @@ El Cuadro \ref{Cuadro:Control} resumen la información de los trabajos consultad
 \begin{table}[htb]
 	\centering
 	\begin{tabular}{|p{30mm}|p{10mm}|p{45mm}|p{25mm}|p{35mm}|}
+%	\scriptsize
 	\hline
 	\textbf{Autor} & \textbf{Año} & \textbf{Propósito} & \textbf{Descriptor sEMG} & \textbf{Tipo de control}\\
 	\hline
@@ -74,3 +74,5 @@ El Cuadro \ref{Cuadro:Control} resumen la información de los trabajos consultad
 	\caption{Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG}
 	\label{Cuadro:Control}
 \end{table}
+
+{\color{red}Falta descripción de lo observado y aprendido de estos trabajos. Debe llevar de forma natural a justificar la metodología elegída.}
