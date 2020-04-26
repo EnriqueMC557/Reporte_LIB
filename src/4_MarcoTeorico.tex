@@ -66,7 +66,7 @@ Existen dos tipos de control importantes dentro de las aplicaciones de una neuro
 
 \begin{figure}[htbp]
 \centering
-	\includegraphics[scale=0.6]{EsquemasControl_ESP.png}
+	\includegraphics[scale=0.7]{EsquemasControl_ESP.png}
 	\caption[Esquema general de control en lazo abierto y control en lazo cerrado]{Esquema general de control en lazo abierto y control en lazo cerrado. El control en lazo abierto se ilustra con una línea sólida. El control en lazo cerrado se lleva a cabo cuando se incluye el elemento sensor, el cual se ilustra con una línea discontinua. Adaptado de \cite{Wright2016}.}
 	\label{Figura: EsqCont}
 \end{figure}
@@ -80,7 +80,7 @@ El control en lazo cerrado (línea sólida más línea discontinua de la Figura 
 %\subsection{Control adaptativo}
 Otro esquema de control capaz de implementarse en aplicaciones de neuroprótesis es el control adaptativo. Este esquema de control utiliza sensores para medir la entrada y salida del sistema, utilizando dichas métricas para ajustar el controlador en respuesta a las perturbaciones en el entorno de control o el sistema controlado, buscando siempre mantener un nivel de desempeño preestablecido. Una ventaja de este tipo de control es que se pueden desarrollar estrategias de control sin requerir de un conocimiento completo del sistema que se va a controlar, sin embargo, esto provoca que los controladores adaptativos rara vez sean óptimos \cite{Wright2016}.
 
-\section{\color{red}Algoritmos de control}
+{\color{red}\section{Algoritmos de control}}
 Existe una gran variedad de algoritmos de control que suelen ser usados dentro de las neuroprótesis, sin embargo, para este trabajo sólo se abordaran 3 algoritmos de control.
 
 \subsection{Control On-Off}
@@ -109,16 +109,16 @@ Usualmente se suele utilizar un filtro pasa banda con frecuencias de corte simil
 \subsection{Descriptores de amplitud del sEMG}
 Existen diferentes indicadores que pueden ser utilizados para estimar la amplitud del sEMG, tal es el caso de la amplitud pico a pico, la cual nos proporciona un valor instantáneo de la amplitud del sEMG. Sin embargo, este no es un indicador robusto de la amplitud de la señal de sEMG \cite{Cavalcanti-Garcia2009}.
 
-Los descriptores de amplitud de sEMG más comunes son la promediación de muestras rectificadas o elevadas al cuadrado de sEMG crudo a lo largo de una determinada tarea motora. Estos descriptores se conocen como el valor rectificado promedio (ARV o MAV, por sus siglas en inglés)(Ecuación \ref{ARV}) y el valor cuadrático medio (RMS, pos sus siglas en inglés)(Ecuación \ref{RMS}). Dichos descriptores suelen usarse para estimar las variaciones temporales de la amplitud del sEMG en ventanas cortas entre 250 ms o 500 ms \cite{Cavalcanti-Garcia2009}.
+Los descriptores de amplitud de sEMG más comunes son la promediación de muestras rectificadas o elevadas al cuadrado de sEMG crudo a lo largo de una determinada tarea motora. Estos descriptores se conocen como el valor rectificado promedio (ARV o MAV, por sus siglas en inglés)(Ecuación \ref{Ecu: ARV}) y el valor cuadrático medio (RMS, pos sus siglas en inglés)(Ecuación \ref{Ecu: RMS}). Dichos descriptores suelen usarse para estimar las variaciones temporales de la amplitud del sEMG en ventanas cortas entre 250 ms o 500 ms \cite{Cavalcanti-Garcia2009}.
 
 \begin{equation}
 	ARV = \frac{1}{N} \sum_{n=1}^{N} \abs{EMG[n]}
-	\label{ARV}
+	\label{Ecu: ARV}
 \end{equation}
 
 \begin{equation}
 	RMS = \sqrt{\frac{1}{N} \sum_{n=1}^{N} EMG[n]^{2}}
-	\label{RMS}
+	\label{Ecu: RMS}
 \end{equation}
 
 Estos descriptores de amplitud suelen proporcionar información similiar, la gran diferencia entre ellos se encuentra en la función de densidad de probabilidad (PDF, por sus siglas en inglés) que generan, donde el RMS suele ser un descriptor con PDF Gaussiana, mientras que el ARV suele ser una descriptor con PDF Laplaciana. En general, se suele utilizar el RMS debido que teóricamente la PDF de sEMG es Gaussiana, sin embargo, existen trabajos que han demostrado que en la práctica la PDF de sEMG es más cercana a una PDF Laplaciana, caso en el cual es recomendable utilizar el ARV como descriptor \cite{Clancy1999}\cite{Phinyomark2013}.
