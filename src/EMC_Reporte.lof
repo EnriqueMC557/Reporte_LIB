@@ -12,11 +12,11 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Subsistema decodificador del flujo de datos}}{14}{figure.caption.11}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Funcionamiento del subsistema decodificador del flujo de datos.\relax }}{16}{figure.caption.12}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Banco de señales para evaluación de adquisición.\relax }}{17}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Posicionamiento de electrodos para registro de sEMG}}{19}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Filtro pasa altas para conseguir línea base estable.\relax }}{21}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Filtro pasa bajas para eliminar interferencias de alta frecuencia y armónicos de 60 Hz.\relax }}{21}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Filtro rechaza banda para reducir interferencia de 60 Hz.\relax }}{21}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.\relax }}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Posicionamiento de electrodos para registro de sEMG}}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Respuesta en frecuencia de filtro pasa altas.\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Respuesta en frecuencia de filtro pasa bajas.\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Respuesta en frecuencia de filtro rechaza banda.\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces FSM para control}}{22}{figure.caption.16}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señal adquirida con el bloque de adquisición diseñado (rojo) y señal patrón (azul)\relax }}{24}{figure.caption.17}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento de los filtros diseñados aplicados a registros de entrenamiento.\relax }}{25}{figure.caption.18}%

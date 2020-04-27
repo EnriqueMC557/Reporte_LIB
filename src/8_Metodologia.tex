@@ -123,65 +123,73 @@ El proceso para la evaluación del funcionamiento del subsistema de adquisición
 \end{equation}
 
 
+\newpage
 \section{Protocolo para registro de sEMG}
-Para garantizar una repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo tiene las caracteristicas mostradas a continuación:
+Para garantizar repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo se describe a continuación y utiliza electrodos Telectrode T718 (Bio-Protech Inc., Chino, E.U.A.):
 
-\begin{itemize}
-	\item Frecuencia de muestro de sistema de adquisición: 250 Hz.
-	\item Canales 1 y 2 para realizar adquisición.
-	\item Electrodos: Covidien H124SG
-	\item Canal 1: Digitorum flexor
-	\begin{itemize}
-		\item Medir antebrazo de lado ventral de codo a muñeca.
-		\item Palpar músculo al 30\% de la medida obtenida.
-		\item Colocar dos electrodos separados 2 cm (Figura \ref{Figura: E_Cie}).
-	\end{itemize}
-	\item Canal 2: Digitorum extensor
-	\begin{itemize}
-		\item Medir antebrazo de lado dorsal de codo a muñeca.
-		\item Palpar músculo al 50\% de la medida obtenida.
-		\item Colocar dos electrodos separados 2 cm (Figura \ref{Figura: E_Ape}).
-	\end{itemize}
-	\item Referencia: Colocar electrodo en codo.
-\end{itemize}
+\begin{enumerate}
+	\item Se configura el dispositivo de adquisición (Para el caso del Cyton Board esta configuración es la default):
+	\begin{enumerate}
+		\item Frecuencia de muestreo a 250 Hz.
+		\item Ganancia 24 para los canales de adquisición 1 y 2.
+		\item BIAS habilitado para los canales de adquisición 1 y 2.
+	\end{enumerate}
+	\item Se prepara la zonas donde se colocaran los electrodos, limpiando con algodón y alcohol las zonas ventral y dorsal del antebrazo, así como el codo.
+	\item Se ubican los puntos para colocación de electrodos:
+	\begin{enumerate}
+		\item Para músculo flexor digitorum (\ref{Figura: E_Cie}):
+		\begin{enumerate}
+			\item Se mide la distancia de codo a muñeca en el lado ventral del antebrazo.
+			\item Se coloca una marca al 25\% de la medida obtenida.
+		\end{enumerate}
+		\item Para músculo extensor digitorum (\ref{Figura: E_Ape}):
+		\begin{enumerate}
+			\item Se mide la distancia de codo a muñeca en el lado dorsal del antebraz.
+			\item Se coloca una marca al 75\% de la medida obtenida.
+		\end{enumerate}
+	\end{enumerate}
+	\item Se colocan, sobre la marca obtenida para el flexor digitorum (\ref{Figura: E_Cie}), dos electrodos (en dirección de la fibra muscular) separados 3 cm. Dicho par de electrodos se conecta al canal 1 del dispositivo de adquisición.
+	\item Se colocan, sobre la marca obtenida para el extensor digitorum (\ref{Figura: E_Ape}), dos electrodos (en dirección de la fibra muscular) separados 3 cm. Dicho para de electrodos se conecta al canal 2 del dispositivo de adquisición.
+	\item Se coloca un electrodo de referencia sobre el codo. Dicho electrodo se conecta al BIAS del dispositivo de adquisición.
+\end{enumerate}
 
 \begin{figure}[htbp]
 	\centering
 	\begin{subfigure}[htbp]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{E_Cie.png}
-		\caption{Ubicación de electrodos para digitorum flexor.}
+		\caption{Ubicación de electrodos para flexor digitorum.}
 		\label{Figura: E_Cie}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[htbp]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{E_Ape.png}
-		\caption{Ubicación de electrodos para digitorum extensor.}
+		\caption{Ubicación de electrodos para extensor digitorum.}
 		\label{Figura: E_Ape}
 	\end{subfigure}
-	\caption[Posicionamiento de electrodos para registro de sEMG]{Posicionamiento de electrodos para realizar registros de sEMG. Recuperado de \cite{Cavalcanti-Garcia2009}.}
+	\caption[Posicionamiento de electrodos para registro de sEMG]{Posicionamiento de electrodos para realizar registros de sEMG. Adaptado de \cite{Cavalcanti-Garcia2009}.}
 	\label{Figura: E_sEMG}
 \end{figure}
 
-\section{Procesamiento de sEMG}
 
-Se diseñaron tres filtros Butterworth para realizar el procesamiento de sEMG: un filtro pasa altas con frecuencia de corte de 15 Hz,para eliminar las variaciones en la línea base del registro; un filtro pasa bajas con frecuencia de corte de 100 Hz, para eliminar armónicos de 60 Hz y demás interferencias de alta frecuencia; y un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea. Las gráficas de respuesta en frecuencia de estos filtros se muestran en las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
+\section{Procesamiento de sEMG}
+Se diseñaron tres filtros digitales Butterworth orden 2 para realizar el procesamiento de sEMG: un filtro pasa altas con frecuencia de corte de 15 Hz, para eliminar las variaciones en la línea base del registro; un filtro pasa bajas con frecuencia de corte de 100 Hz, para eliminar armónicos de 60 Hz y demás interferencias de alta frecuencia; y un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea. Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB. Las gráficas de respuesta en frecuencia de estos filtros se muestran en las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{FiltroPA15Hz_PADQ.png}
-	\caption{Filtro pasa altas para conseguir línea base estable.}
+	\caption{Respuesta en frecuencia de filtro pasa altas.}
 	\label{Figura: FiltroPA}
 	
 	\includegraphics[width=0.7\textwidth]{FiltroPB100Hz_PADQ.png}
-	\caption{Filtro pasa bajas para eliminar interferencias de alta frecuencia y armónicos de 60 Hz.} 
+	\caption{Respuesta en frecuencia de filtro pasa bajas.} 
 	\label{Figura: FiltroPB}
 	
 	\includegraphics[width=0.7\textwidth]{FiltroRB_58_62_PADQ.png}
-	\caption{Filtro rechaza banda para reducir interferencia de 60 Hz.}
+	\caption{Respuesta en frecuencia de filtro rechaza banda.}
 	\label{Figura: FiltroRB}
 \end{figure}
 
-Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS de ventanas de registro de 100 ms de sEMG para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de de mediana de 10 muestras (Ecuación \ref{Ecu: Mediana}), el cual tiene como propósito conseguir una señal de RMS suavizada
+Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS de ventanas de 100 ms del registro de sEMG, para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de mediana de 10 muestras (Ecuación \ref{Ecu: Mediana}), el cual tiene como propósito conseguir una señal de RMS suavizada.
 
 %Ecuación filtro mediana
 \begin{equation}
@@ -189,16 +197,17 @@ Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS 
 	\label{Ecu: Mediana}
 \end{equation}
 
+
 \newpage
 \section{Esquema de control}
 Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en \cite{AnaMartin2019}, donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
 
-El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
+El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_Control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.9]{FSM_Control.png}
-	\caption{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.}
+	\caption[FSM para control]{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.}
 	\label{Figura: FSM_Control}
 \end{figure}
 

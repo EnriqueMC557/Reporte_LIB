@@ -23,8 +23,8 @@
 \contentsline {section}{\numberline {4.1}Sistema propuesto}{13}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Adquisición de datos en Simulink}{14}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Evaluación de bloque de adquisición y decodificación}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Protocolo para registro de sEMG}{18}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Procesamiento de sEMG}{19}{section.4.5}%
+\contentsline {section}{\numberline {4.4}Protocolo para registro de sEMG}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Procesamiento de sEMG}{20}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Esquema de control}{22}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Resultados}{24}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Adquisición de datos}{24}{section.5.1}%
