@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.4.18)  27 APR 2020 10:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.4.18)  7 MAY 2020 20:24
 entering extended mode
 **./EMC_Reporte.tex
 (EMC_Reporte.tex
@@ -445,7 +445,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip54
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 42.
+Package hyperref Info: Option `colorlinks' set `true' on input line 45.
 
 ("C:\Users\enriq\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
@@ -513,22 +513,22 @@ LaTeX Info: Redefining \% on input line 24.
 )
 \openout1 = `EMC_Reporte.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -564,8 +564,8 @@ LaTeX Font Info:    ... okay on input line 56.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \. on input line 56.
-LaTeX Info: Redefining \% on input line 56.
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
 
 ("C:\Users\enriq\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
@@ -592,7 +592,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box95
-Package hyperref Info: Link coloring ON on input line 56.
+Package hyperref Info: Link coloring ON on input line 59.
 
 ("C:\Users\enriq\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -608,20 +608,20 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count293
 )
-LaTeX Info: Redefining \ref on input line 56.
-LaTeX Info: Redefining \pageref on input line 56.
-LaTeX Info: Redefining \nameref on input line 56.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
  (EMC_Reporte.out) (EMC_Reporte.out)
 \@outlinefile=\write3
 \openout3 = `EMC_Reporte.out'.
 
  (0_Portada.tex
-<../figures/variacion6Izt.png, id=135, 320.1561pt x 104.0688pt>
+<../figures/variacion6Izt.png, id=143, 320.1561pt x 104.0688pt>
 File: ../figures/variacion6Izt.png Graphic file (type png)
 <use ../figures/variacion6Izt.png>
 Package pdftex.def Info: ../figures/variacion6Izt.png  used on input line 7.
 (pdftex.def)             Requested size: 192.09512pt x 62.44176pt.
-<../figures/INR.png, id=137, 218.2554pt x 74.679pt>
+<../figures/INR.png, id=145, 218.2554pt x 74.679pt>
 File: ../figures/INR.png Graphic file (type png)
 <use ../figures/INR.png>
 Package pdftex.def Info: ../figures/INR.png  used on input line 10.
@@ -670,43 +670,43 @@ Cap\'{\i }tulo 1.
 l.13 
       [1
 
-]) [2]
+] [2]) [3]
 Cap\'{\i }tulo 2.
 (4_MarcoTeorico.tex
-<../figures/FES1.png, id=272, 138.5175pt x 82.80937pt>
+<../figures/FES1.png, id=304, 138.5175pt x 82.80937pt>
 File: ../figures/FES1.png Graphic file (type png)
 <use ../figures/FES1.png>
 Package pdftex.def Info: ../figures/FES1.png  used on input line 13.
 (pdftex.def)             Requested size: 177.42868pt x 106.07143pt.
-<../figures/FES2.png, id=273, 138.5175pt x 82.80937pt>
+<../figures/FES2.png, id=305, 138.5175pt x 82.80937pt>
 File: ../figures/FES2.png Graphic file (type png)
 <use ../figures/FES2.png>
 Package pdftex.def Info: ../figures/FES2.png  used on input line 20.
 (pdftex.def)             Requested size: 177.42868pt x 106.07143pt.
- [3
+ [4
 
  <../figures/FES1.png> <../figures/FES2.png>]
-<../figures/NeuroP.png, id=285, 394.47375pt x 381.67593pt>
+<../figures/NeuroP.png, id=316, 394.47375pt x 381.67593pt>
 File: ../figures/NeuroP.png Graphic file (type png)
 <use ../figures/NeuroP.png>
 Package pdftex.def Info: ../figures/NeuroP.png  used on input line 40.
 (pdftex.def)             Requested size: 177.42868pt x 171.67105pt.
- [4 <../figures/NeuroP.png>]
-<../figures/CompNeuroP_ESP.png, id=298, 393.72093pt x 278.54062pt>
+ [5 <../figures/NeuroP.png>]
+<../figures/CompNeuroP_ESP.png, id=329, 393.72093pt x 278.54062pt>
 File: ../figures/CompNeuroP_ESP.png Graphic file (type png)
 <use ../figures/CompNeuroP_ESP.png>
 Package pdftex.def Info: ../figures/CompNeuroP_ESP.png  used on input line 51.
 (pdftex.def)             Requested size: 266.14978pt x 188.28731pt.
- [5 <../figures/CompNeuroP_ESP.png>]
-<../figures/EsquemasControl_ESP.png, id=313, 572.1375pt x 169.38281pt>
+ [6 <../figures/CompNeuroP_ESP.png>]
+<../figures/EsquemasControl_ESP.png, id=345, 572.1375pt x 169.38281pt>
 File: ../figures/EsquemasControl_ESP.png Graphic file (type png)
 <use ../figures/EsquemasControl_ESP.png>
 Package pdftex.def Info: ../figures/EsquemasControl_ESP.png  used on input line
  69.
 (pdftex.def)             Requested size: 400.49352pt x 118.56714pt.
- [6 <../figures/EsquemasControl_ESP.png>] [7] [8]) [9]
+ [7 <../figures/EsquemasControl_ESP.png>] [8] [9]) [10]
 Cap\'{\i }tulo 3.
-(5_Antecedentes.tex [10
+(5_Antecedentes.tex [11
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 34--34
@@ -788,19 +788,19 @@ Overfull \hbox (28.98645pt too wide) in paragraph at lines 53--74
  [][] 
  []
 
-) [11] [12]
+) [12] [13]
 Cap\'{\i }tulo 4.
 (8_Metodologia.tex
-<../figures/SistemaPropuesto.png, id=425, 463.7325pt x 256.70906pt>
+<../figures/SistemaPropuesto.png, id=449, 463.7325pt x 256.70906pt>
 File: ../figures/SistemaPropuesto.png Graphic file (type png)
 <use ../figures/SistemaPropuesto.png>
 Package pdftex.def Info: ../figures/SistemaPropuesto.png  used on input line 9.
 
 (pdftex.def)             Requested size: 324.61052pt x 179.6951pt.
- [13
+ [14
 
  <../figures/SistemaPropuesto.png>]
-<../figures/Bus_Dat_Out_ADS.png, id=432, 505.89pt x 66.2475pt>
+<../figures/Bus_Dat_Out_ADS.png, id=457, 505.89pt x 66.2475pt>
 File: ../figures/Bus_Dat_Out_ADS.png Graphic file (type png)
 <use ../figures/Bus_Dat_Out_ADS.png>
 Package pdftex.def Info: ../figures/Bus_Dat_Out_ADS.png  used on input line 21.
@@ -811,123 +811,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-<../figures/Read_Simu.png, id=434, 718.18312pt x 173.14688pt>
+<../figures/Read_Simu.png, id=459, 718.18312pt x 173.14688pt>
 File: ../figures/Read_Simu.png Graphic file (type png)
 <use ../figures/Read_Simu.png>
 Package pdftex.def Info: ../figures/Read_Simu.png  used on input line 34.
 (pdftex.def)             Requested size: 354.86412pt x 85.55605pt.
-<../figures/Deco_Simu.png, id=435, 782.17218pt x 165.61874pt>
+<../figures/Deco_Simu.png, id=460, 782.17218pt x 165.61874pt>
 File: ../figures/Deco_Simu.png Graphic file (type png)
 <use ../figures/Deco_Simu.png>
 Package pdftex.def Info: ../figures/Deco_Simu.png  used on input line 39.
 (pdftex.def)             Requested size: 354.86412pt x 75.1393pt.
-[14 <../figures/Bus_Dat_Out_ADS.png> <../figures/Read_Simu.png> <../figures/Dec
+[15 <../figures/Bus_Dat_Out_ADS.png> <../figures/Read_Simu.png> <../figures/Dec
 o_Simu.png>]
-<../figures/DecoStream.png, id=453, 1156.32pt x 805.0075pt>
+<../figures/DecoStream.png, id=477, 1156.32pt x 805.0075pt>
 File: ../figures/DecoStream.png Graphic file (type png)
 <use ../figures/DecoStream.png>
 Package pdftex.def Info: ../figures/DecoStream.png  used on input line 64.
 (pdftex.def)             Requested size: 443.57848pt x 308.80492pt.
- [15] [16 <../figures/DecoStream.png>]
-<../figures/Sen_Pur.png, id=477, 1028.34187pt x 497.60907pt>
+ [16] [17 <../figures/DecoStream.png>]
+<../figures/Sen_Pur.png, id=501, 1028.34187pt x 497.60907pt>
 File: ../figures/Sen_Pur.png Graphic file (type png)
 <use ../figures/Sen_Pur.png>
 Package pdftex.def Info: ../figures/Sen_Pur.png  used on input line 78.
 (pdftex.def)             Requested size: 221.78923pt x 107.31795pt.
-<../figures/Lin_Ate.png, id=478, 421.575pt x 316.18124pt>
+<../figures/Lin_Ate.png, id=502, 421.575pt x 316.18124pt>
 File: ../figures/Lin_Ate.png Graphic file (type png)
 <use ../figures/Lin_Ate.png>
 Package pdftex.def Info: ../figures/Lin_Ate.png  used on input line 84.
 (pdftex.def)             Requested size: 177.42868pt x 133.07503pt.
-<../figures/Exp_Ate.png, id=479, 421.575pt x 316.18124pt>
+<../figures/Exp_Ate.png, id=503, 421.575pt x 316.18124pt>
 File: ../figures/Exp_Ate.png Graphic file (type png)
 <use ../figures/Exp_Ate.png>
 Package pdftex.def Info: ../figures/Exp_Ate.png  used on input line 90.
 (pdftex.def)             Requested size: 177.42868pt x 133.07503pt.
-<../figures/Contra.png, id=480, 421.575pt x 316.18124pt>
+<../figures/Contra.png, id=504, 421.575pt x 316.18124pt>
 File: ../figures/Contra.png Graphic file (type png)
 <use ../figures/Contra.png>
 Package pdftex.def Info: ../figures/Contra.png  used on input line 96.
 (pdftex.def)             Requested size: 177.42868pt x 133.07503pt.
- [17 <../figures/Sen_Pur.png (PNG copy)> <../figures/Lin_Ate.png (PNG copy)> <.
-./figures/Exp_Ate.png (PNG copy)> <../figures/Contra.png (PNG copy)>] [18]
-<../figures/E_Cie.png, id=503, 67.452pt x 101.178pt>
+ [18 <../figures/Sen_Pur.png (PNG copy)> <../figures/Lin_Ate.png (PNG copy)> <.
+./figures/Exp_Ate.png (PNG copy)> <../figures/Contra.png (PNG copy)>] [19]
+<../figures/E_Cie.png, id=527, 67.452pt x 101.178pt>
 File: ../figures/E_Cie.png Graphic file (type png)
 <use ../figures/E_Cie.png>
 Package pdftex.def Info: ../figures/E_Cie.png  used on input line 159.
 (pdftex.def)             Requested size: 133.07489pt x 199.65372pt.
-<../figures/E_Ape.png, id=504, 77.088pt x 115.1502pt>
+<../figures/E_Ape.png, id=528, 77.088pt x 115.1502pt>
 File: ../figures/E_Ape.png Graphic file (type png)
 <use ../figures/E_Ape.png>
 Package pdftex.def Info: ../figures/E_Ape.png  used on input line 165.
 (pdftex.def)             Requested size: 133.07489pt x 198.80473pt.
- [19]
-<../figures/FiltroPA15Hz_PADQ.png, id=528, 884.55469pt x 460.72125pt>
+<../figures/FiltroPA15Hz_PADQ.png, id=533, 884.55469pt x 460.72125pt>
 File: ../figures/FiltroPA15Hz_PADQ.png Graphic file (type png)
 <use ../figures/FiltroPA15Hz_PADQ.png>
 Package pdftex.def Info: ../figures/FiltroPA15Hz_PADQ.png  used on input line 1
 79.
 (pdftex.def)             Requested size: 310.50357pt x 161.72586pt.
-<../figures/FiltroPB100Hz_PADQ.png, id=529, 895.09406pt x 462.22687pt>
+<../figures/FiltroPB100Hz_PADQ.png, id=534, 895.09406pt x 462.22687pt>
 File: ../figures/FiltroPB100Hz_PADQ.png Graphic file (type png)
 <use ../figures/FiltroPB100Hz_PADQ.png>
 Package pdftex.def Info: ../figures/FiltroPB100Hz_PADQ.png  used on input line 
 183.
 (pdftex.def)             Requested size: 310.50357pt x 160.343pt.
-<../figures/FiltroRB_58_62_PADQ.png, id=530, 894.34125pt x 460.72125pt>
+<../figures/FiltroRB_58_62_PADQ.png, id=535, 894.34125pt x 460.72125pt>
 File: ../figures/FiltroRB_58_62_PADQ.png Graphic file (type png)
 <use ../figures/FiltroRB_58_62_PADQ.png>
 Package pdftex.def Info: ../figures/FiltroRB_58_62_PADQ.png  used on input line
  187.
 (pdftex.def)             Requested size: 310.50357pt x 159.95428pt.
- [20 <../figures/E_Cie.png> <../figures/E_Ape.png>] [21 <../figures/FiltroPA15H
-z_PADQ.png> <../figures/FiltroPB100Hz_PADQ.png> <../figures/FiltroRB_58_62_PADQ
-.png>]
-<../figures/FSM_Control.png, id=546, 331.99031pt x 164.11313pt>
-File: ../figures/FSM_Control.png Graphic file (type png)
-<use ../figures/FSM_Control.png>
-Package pdftex.def Info: ../figures/FSM_Control.png  used on input line 209.
-(pdftex.def)             Requested size: 298.7885pt x 147.70044pt.
- [22 <../figures/FSM_Control.png>]) [23]
+ [20] [21 <../figures/E_Cie.png> <../figures/E_Ape.png>] [22 <../figures/Filtro
+PA15Hz_PADQ.png> <../figures/FiltroPB100Hz_PADQ.png> <../figures/FiltroRB_58_62
+_PADQ.png>]
+<../figures/GUI_Exp.png, id=571, 498.36188pt x 530.73282pt>
+File: ../figures/GUI_Exp.png Graphic file (type png)
+<use ../figures/GUI_Exp.png>
+Package pdftex.def Info: ../figures/GUI_Exp.png  used on input line 217.
+(pdftex.def)             Requested size: 310.50357pt x 330.67871pt.
+ [23] [24 <../figures/GUI_Exp.png>]
+<../figures/GUI_Ent.png, id=591, 719.68875pt x 480.29437pt>
+File: ../figures/GUI_Ent.png Graphic file (type png)
+<use ../figures/GUI_Ent.png>
+Package pdftex.def Info: ../figures/GUI_Ent.png  used on input line 255.
+(pdftex.def)             Requested size: 310.50357pt x 207.2261pt.
+) [25 <../figures/GUI_Ent.png>] [26]
 Cap\'{\i }tulo 5.
 (9_Avances.tex
-<../figures/ValProCum.png, id=560, 1028.34187pt x 497.60907pt>
+<../figures/ValProCum.png, id=606, 1028.34187pt x 497.60907pt>
 File: ../figures/ValProCum.png Graphic file (type png)
 <use ../figures/ValProCum.png>
 Package pdftex.def Info: ../figures/ValProCum.png  used on input line 9.
 (pdftex.def)             Requested size: 443.57848pt x 214.6435pt.
- [24
+ [27
 
  <../figures/ValProCum.png (PNG copy)>]
-<../figures/Filtrado.png, id=566, 840.13875pt x 393.72093pt>
+<../figures/Filtrado.png, id=612, 840.13875pt x 393.72093pt>
 File: ../figures/Filtrado.png Graphic file (type png)
 <use ../figures/Filtrado.png>
 Package pdftex.def Info: ../figures/Filtrado.png  used on input line 20.
 (pdftex.def)             Requested size: 443.57848pt x 207.87808pt.
-<../figures/RMS_m.png, id=568, 837.88031pt x 361.35pt>
+<../figures/RMS_m.png, id=614, 837.88031pt x 361.35pt>
 File: ../figures/RMS_m.png Graphic file (type png)
 <use ../figures/RMS_m.png>
 Package pdftex.def Info: ../figures/RMS_m.png  used on input line 29.
 (pdftex.def)             Requested size: 443.57848pt x 191.29955pt.
- [25 <../figures/Filtrado.png>]
-<../figures/MapOff.png, id=574, 852.93657pt x 366.61969pt>
+ [28 <../figures/Filtrado.png>]
+<../figures/MapOff.png, id=620, 852.93657pt x 366.61969pt>
 File: ../figures/MapOff.png Graphic file (type png)
 <use ../figures/MapOff.png>
 Package pdftex.def Info: ../figures/MapOff.png  used on input line 41.
 (pdftex.def)             Requested size: 443.57848pt x 190.66571pt.
- [26 <../figures/RMS_m.png>]
-<../figures/MapOn.png, id=581, 848.4197pt x 361.35pt>
+ [29 <../figures/RMS_m.png>]
+<../figures/MapOn.png, id=626, 848.4197pt x 361.35pt>
 File: ../figures/MapOn.png Graphic file (type png)
 <use ../figures/MapOn.png>
 Package pdftex.def Info: ../figures/MapOn.png  used on input line 53.
 (pdftex.def)             Requested size: 443.57848pt x 188.92313pt.
-<../figures/Retardo.png, id=583, 830.35219pt x 379.4175pt>
+<../figures/Retardo.png, id=628, 830.35219pt x 379.4175pt>
 File: ../figures/Retardo.png Graphic file (type png)
 <use ../figures/Retardo.png>
 Package pdftex.def Info: ../figures/Retardo.png  used on input line 64.
 (pdftex.def)             Requested size: 443.57848pt x 202.68819pt.
- [27 <../figures/MapOff.png>]) [28 <../figures/MapOn.png>] [29 <../figures/Reta
-rdo.png>]
+) [30 <../figures/MapOff.png>] [31 <../figures/MapOn.png> <../figures/Retardo.p
+ng>]
 Cap\'{\i }tulo 6.
 (10_Discusion.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
@@ -954,14 +959,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[30
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
+[32
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
  []
@@ -976,40 +981,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--33
 
  []
 
-[31]) (EMC_Reporte.bbl [32]
+[33]) (EMC_Reporte.bbl [34]
 Underfull \hbox (badness 1701) in paragraph at lines 4--9
 []\OT1/cmr/m/sc/12 Aguirre-Vargas, G., Flores-Abad, []A., Alba-Baena, N., Acost
 a-
  []
 
-[33
+[35
 
-] [34])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 91.
- [35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 91.
+] [36])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 94.
+ [37]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 94.
  (EMC_Reporte.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 91.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 91.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 94.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 94.
 Package rerunfilecheck Info: File `EMC_Reporte.out' has not changed.
-(rerunfilecheck)             Checksum: B599C852B1D8354D740D8D2E8C7E7027;2303.
+(rerunfilecheck)             Checksum: 92416A36EF83646A2F2EB790FA8491FF;2456.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 91.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 94.
  ) 
 Here is how much of TeX's memory you used:
- 10015 strings out of 480934
- 155794 string characters out of 2899917
- 448176 words of memory out of 3000000
- 25508 multiletter control sequences out of 15000+200000
+ 10038 strings out of 480934
+ 156118 string characters out of 2899917
+ 448553 words of memory out of 3000000
+ 25520 multiletter control sequences out of 15000+200000
  541307 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,42p,1501b,683s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,11n,42p,1331b,683s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\enriq\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1200.pk><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmbx12.pfb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/font
@@ -1028,9 +1033,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
 fb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmti12.pfb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on EMC_Reporte.pdf (40 pages, 1663314 bytes).
+Output written on EMC_Reporte.pdf (42 pages, 1701641 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 156 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 166 named destinations out of 1000 (max. 500000)
+ 426 words of extra memory for PDF output out of 10000 (max. 10000000)
 

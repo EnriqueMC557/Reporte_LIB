@@ -24,10 +24,12 @@
 \BOOKMARK [1][-]{section.4.3}{Evaluaci\363n de bloque de adquisici\363n y decodificaci\363n}{chapter.4}% 24
 \BOOKMARK [1][-]{section.4.4}{Protocolo para registro de sEMG}{chapter.4}% 25
 \BOOKMARK [1][-]{section.4.5}{Procesamiento de sEMG}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.6}{Esquema de control}{chapter.4}% 27
-\BOOKMARK [0][-]{chapter.5}{Resultados}{}% 28
-\BOOKMARK [1][-]{section.5.1}{Adquisici\363n de datos}{chapter.5}% 29
-\BOOKMARK [1][-]{section.5.2}{Procesamiento de sEMG}{chapter.5}% 30
-\BOOKMARK [1][-]{section.5.3}{Esquema de control}{chapter.5}% 31
-\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 32
-\BOOKMARK [0][-]{chapter*.23}{Referencias}{}% 33
+\BOOKMARK [1][-]{section.4.6}{Sistema de control}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.6.1}{Calibraci\363n}{section.4.6}% 28
+\BOOKMARK [2][-]{subsection.4.6.2}{Validaci\363n fuera de l\355nea}{section.4.6}% 29
+\BOOKMARK [0][-]{chapter.5}{Resultados}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Adquisici\363n de datos}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Procesamiento de sEMG}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Esquema de control}{chapter.5}% 33
+\BOOKMARK [0][-]{chapter.6}{Discusi\363n}{}% 34
+\BOOKMARK [0][-]{chapter*.26}{Referencias}{}% 35

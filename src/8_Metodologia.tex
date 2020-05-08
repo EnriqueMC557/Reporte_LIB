@@ -124,7 +124,7 @@ El proceso para la evaluación del funcionamiento del subsistema de adquisición
 
 
 \newpage
-\section{Protocolo para registro de sEMG}
+\section{Protocolo para registro de sEMG}\label{Section: ProReg}
 Para garantizar repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo se describe a continuación y utiliza electrodos Telectrode T718 (Bio-Protech Inc., Chino, E.U.A.):
 
 \begin{enumerate}
@@ -199,25 +199,86 @@ Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS 
 
 
 \newpage
-\section{Esquema de control}
-Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en \cite{AnaMartin2019}, donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
+\section{Sistema de control}
+A grandes rasgos, el sistema de control implementado para este proyecto consta de la combinación de una FSM y un control lineal. La FSM permite clasificar la intención de movimiento del sujeto en tres clases (descanso, pinza gruesa y apertura), mientras que el control lineal permite realizar la modulación de la amplitud de corriente eléctrica a partir de la amplitud del sEMG. 
 
-El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_Control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
+Dicho sistema requiere de un proceso de calibración para cada sesión de prueba, donde se obtienen los parámetros de configuración del sistema para que este presente el funcionamiento esperado. Posterior al proceso de calibración se realiza una validación fuera de línea, donde a partir del registro de calibración y los parámetros arrojados por esta se pone a prueba el funcionamiento del sistema. Cuando la validación fuera de línea presenta un porcentaje de acierto igual o mayor al 80$\%$ se procede a configurar el sistema para realizar una prueba en línea y posteriormente realizar la tarea objetivo y una tarea libre. Todas las etapas antes mencionadas por las que se somete el sistema de control se describen a continuación.
 
-\begin{figure}[htbp]
+\subsection{Calibración}
+El proceso de calibración del sistema consta a su vez de una calibración de los parámetros de estimulación eléctrica y una calibración de los valores de amplitud RMS del sEMG.
+
+\subsubsection{Calibración de parámetros FES}
+El objetivo de esta calibración es el obtener los umbrales motores y funcionales de los movimientos de apertura de mano y pinza gruesa. Para esta calibración se utiliza el sistema de colocación de electrodos de estimulación eléctrica desarrollado en el INR-LGII, el cual se encuentra descrito en \cite{AnaMartin2019}, en conjunto con la pantalla \emph{Experimentación} (Figura \ref{Figura: GUI_Exp}) de la GUI diseñada en el INR-LGII \cite{JanethFuentes2018}.
+
+El proceso para la obtención de los umbrales antes mencionados consiste en realizar la colocación de los electrodos de estimulación eléctrica y realizar una exploración de la respuesta del sujeto ante diferentes valores de amplitud de corriente eléctrica que le serán proporcionados. Dichos valores exploran el rango entre 1 y 15 mA, utilizando un incremento de 1 mA. El umbral motor será el primer valor de amplitud que genere una respuesta motora en la mano del sujeto; mientras que el umbral funcional será aquél valor de amplitud en el que la respuesta motora en la mano del sujeto sea similar al movimiento que se está calibrando.
+
+\begin{figure}[htb]
 	\centering
-	\includegraphics[scale=0.9]{FSM_Control.png}
-	\caption[FSM para control]{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.}
-	\label{Figura: FSM_Control}
+	\includegraphics[width=0.7\textwidth]{GUI_Exp.png}
+	\caption{Pantalla utilizada para calibración de FES.}
+	\label{Figura: GUI_Exp}
 \end{figure}
 
-Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras para realizar la activación del control lineal, el cual modula la amplitud de la corriente eléctrica, del canal asociado al movimiento detectado, utilizando la recta descrita por la Ecuación \ref{Ecu: Mapeo}, donde $A$ representa la amplitud que inyectará el estimulador eléctrico, $A_{max}$ es el umbral funcional de estimulación eléctica, $A_{min}$ es el umbral motor de estimulación eléctica, $D$ representa el valor RMS actual, mientras que $D_{max}$ y $D_{min}$ representan los umbrales RMS de la tarea completa y ligera del canal asociado al movimiento detectado (canal 1 para cierre de mano y canal 2 para apertura de mano). Adicionalmente se aplica la función máximo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros, y también se aplica un criterio de saturación de corriente eléctrica para evitar que tras una contracción muscular muy fuerte se genere un valor de amplitud de corriente eléctrica dañino para el sujeto.
+\subsubsection{Calibración de amplitud RMS de sEMG}
+Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Section: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI.%, dichos movimientos se ilustran en la Figura NUM.
 
-%Ecuación mapeo lineal
+Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa, pinza gruesa incompleta y completa, y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_i$ representa a uno de los 5 movimientos antes mencionados, $RMS_n$ representa al valor RMS obtenido para la n-esima ventana de registro (100 ms) asociada al movimiento $M_i$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_i$.
+
 \begin{equation}
-	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
-	\label{Ecu: Mapeo}
+	M_i = \frac{\sum_{n=1}^{N}RMS_{n}}{N}
+	\label{Ecu: U_RMS}
 \end{equation}
+
+La GUI también proporciona un valor denominado \emph{detector de movimiento} (DM), y los parámetros de las rectas que se utilizarán para llevar a cabo el control lineal.
+
+El detector de movimiento, junto a los umbrales de movimiento incompleto, se utiliza para llevar a cabo la transición de estados de la FSM, siendo esta última la encargada de clasificar la intención de movimiento del sujeto. El detector de movimiento se obtiene utilizando la Ecuación \ref{Ecua: DM}, donde $RMS_{2n}$ y $RMS_{1n}$ representan el valor RMS de la n-esima ventana de registro para el movimiento de apertura incompleta en los canales 2 y 1 respectivamente, y $N$ representa la cantidad de valores RMS existentes para el movimiento de apertura incompleta.
+
+\begin{equation}
+	DM = \frac{\sum_{n=1}^{N}RMS_{2n}-RMS_{1n}}{N}
+	\label{Ecua: DM}
+\end{equation}
+
+Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordenada al origen (b), donde dichas rectas son utilizadas para llevar a cabo el control lineal de los movimientos apertura de mano y pinza gruesa. Estos parámetros se obtienen a partir de las Ecuaciones \ref{Ecu: m} y \ref{Ecu: b}, donde $m_{i}$ y $b_{i}$ representan la pendiente y ordenada al origen, respectivamente, de la i-esima recta; $U_{iF}$ y $U_{iM}$ representan los umbrales funcionales y motores, respectivamente, obtenidos tras la calibración de parámetros FES para el i-esimo movimiento correspondiente; $M_{iC}$ y $M_{iI}$ representan los umbrales de los movimientos completos e incompletos, respectivamente, del i-esimo canal de registro.
+
+\begin{equation}
+	m_{i} = \frac{ U_{iF} - U_{iM} }{ M_{iC} - M_{iI} }
+	\label{Ecu: m}
+\end{equation}
+
+\begin{equation}
+	b_{i} = U_{iM} - m_{i}*M_{iI}
+	\label{Ecu: b}
+\end{equation}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{GUI_Ent.png}
+	\caption{GUI utilizada para calibración de amplitud RMS.}
+	\label{Figura: GUI_Ent}
+\end{figure}
+
+\subsection{Validación fuera de línea}
+
+
+
+%Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en \cite{AnaMartin2019}, donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
+%
+%El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_Control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[scale=0.9]{FSM_Control.png}
+%	\caption[FSM para control]{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.}
+%	\label{Figura: FSM_Control}
+%\end{figure}
+%
+%Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras para realizar la activación del control lineal, el cual modula la amplitud de la corriente eléctrica, del canal asociado al movimiento detectado, utilizando la recta descrita por la Ecuación \ref{Ecu: Mapeo}, donde $A$ representa la amplitud que inyectará el estimulador eléctrico, $A_{max}$ es el umbral funcional de estimulación eléctica, $A_{min}$ es el umbral motor de estimulación eléctica, $D$ representa el valor RMS actual, mientras que $D_{max}$ y $D_{min}$ representan los umbrales RMS de la tarea completa y ligera del canal asociado al movimiento detectado (canal 1 para cierre de mano y canal 2 para apertura de mano). Adicionalmente se aplica la función máximo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros, y también se aplica un criterio de saturación de corriente eléctrica para evitar que tras una contracción muscular muy fuerte se genere un valor de amplitud de corriente eléctrica dañino para el sujeto.
+%
+%%Ecuación mapeo lineal
+%\begin{equation}
+%	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
+%	\label{Ecu: Mapeo}
+%\end{equation}
 
 %\section{Tarea objetivo}
 %{\color{red}INCLUIR TAREA OBJETIVO DE ENTRENAMIENTO CON TRAPEZOIDAL EN LÍNEA}
