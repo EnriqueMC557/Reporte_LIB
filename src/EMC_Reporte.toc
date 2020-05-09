@@ -7,13 +7,10 @@
 \contentsline {section}{\numberline {2.3}Señales de comando y retroalimentación}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Esquemas de control}{7}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Algoritmos de control}{8}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Control On-Off}{8}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Máquina de estados finitos (FSM)}{8}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Control lineal}{8}{subsection.2.5.3}%
-\contentsline {section}{\numberline {2.6}Retroalimentación}{8}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Electromiografía de superficie}{8}{section.2.7}%
+\contentsline {section}{\numberline {2.6}Retroalimentación}{9}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Electromiografía de superficie}{9}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Procesamiento del sEMG}{9}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Descriptores de amplitud del sEMG}{9}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.2}Descriptores de amplitud del sEMG}{10}{subsection.2.7.2}%
 \contentsline {chapter}{\numberline {3}Antecedentes}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Desarrollos previos al proyecto}{11}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Plataforma de software para neuroprótesis}{11}{subsection.3.1.1}%
@@ -30,6 +27,8 @@
 \contentsline {subsubsection}{Calibración de parámetros FES}{23}{section*.16}%
 \contentsline {subsubsection}{Calibración de amplitud RMS de sEMG}{23}{section*.18}%
 \contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{26}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Validación en línea}{26}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Tarea objetivo}{26}{subsection.4.6.4}%
 \contentsline {chapter}{\numberline {5}Resultados}{27}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Adquisición de datos}{27}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{28}{section.5.2}%
