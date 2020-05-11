@@ -12,7 +12,7 @@ En la Figura \ref{Figura: SistProp} se muestra un esquema general del sistema de
 \end{figure}
 
 
-\section{Adquisición de datos en Simulink}
+\section{Adquisición de datos en Simulink} \label{Sec: Adquisicion}
 Se utilizó el sistema Cyton Board, el cual tiene una frecuencia de muestreo de 250 Hz, para realizar la adquisición de las señales de sEMG. Dicho sistema utiliza un chip ADS1299 (Texas Instruments Inc., Dallas, E.U.A.) para realizar la conversión analógico-digital de las señales, el cual codifica los datos de cada muestra, utilizando complemento a 2, en un flujo de datos de 27 bytes esquematizado en la Figura \ref{Figura: BusOut}.
 
 %Stream datos ADS
@@ -68,7 +68,7 @@ El funcionamiento del subsistema responsable de la solicitud y decodificación d
 
 
 \newpage
-\section{Evaluación de bloque de adquisición y decodificación}
+\section{Evaluación de bloque de adquisición y decodificación}\label{Sec: EvalAdquisicion}
 Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink para la adquisición y decodificación de datos. En MATLAB se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (\ref{Figura: SenPur}), dos senoidales de 50 Hz moduladas en amplitud con una envolvente de una recta con pendiente negativa (\ref{Figura: LinAte}) y una exponencial decreciente (\ref{Figura: ExpAte}), y una senoidal de 50 Hz modulada en amplitud con una envolvente que simula la señal sEMG correspondiente a la tarea de incrementar gradualmente una contracción muscular, mantener dicha contracción y relajar el músculo gradualmente (\ref{Figura: Contra}). Todas las señales del banco se diseñaron con una frecuencia de muestreo de 250 Hz y una duración de 5 segundos, excepto la última, que se diseñó con una duración de 15 segundos; adicionalmente, todas las señales se generaron como objetos de audio dentro de MATLAB, para poder reproducirlas como audio y a partir de la salida de audio de la computadora poder acceder a ellas.
 
 %Figura de senoidales MATLAB
@@ -130,7 +130,7 @@ El proceso para la evaluación del funcionamiento del subsistema de adquisición
 \end{figure}
 
 \newpage
-\section{Protocolo para registro de sEMG}\label{Section: ProReg}
+\section{Protocolo para registro de sEMG}\label{Sec: ProReg}
 Para garantizar repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo se describe a continuación y utiliza electrodos Telectrode T718 (Bio-Protech Inc., Chino, E.U.A.):
 
 \begin{enumerate}
@@ -242,7 +242,7 @@ El proceso para la obtención de los umbrales antes mencionados consiste en real
 \end{figure}
 
 \subsubsection{Calibración de amplitud RMS de sEMG}
-Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Section: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI. Los movimientos mostrados son denominados \emph{descanso} (DD), \emph{apertura incompleta} (AI), \emph{apertura completa} (AC), \emph{pinza gruesa incompleta} (CI) y \emph{pinza gruesa completa} (CC), los cuales se pueden observar en la Figura \ref{Figura: Posturas}.
+Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Section: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG y almacena marcadores asociados a la indicación de movimiento solicitada. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI. Los movimientos mostrados son denominados \emph{descanso} (DD), \emph{apertura incompleta} (AI), \emph{apertura completa} (AC), \emph{pinza gruesa incompleta} (CI) y \emph{pinza gruesa completa} (CC), los cuales se pueden observar en la Figura \ref{Figura: Posturas}.
 
 Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa, pinza gruesa incompleta y completa, y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_i$ representa a uno de los 5 movimientos antes mencionados, $RMS_n$ representa al valor RMS obtenido para la n-esima ventana de registro (100 ms) asociada al movimiento $M_i$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_i$.
 
@@ -350,7 +350,7 @@ Posteriormente, se le indica al sujeto la forma en la que se llevará a cabo la 
 \end{figure}
 
 \newpage
-\subsection{Tarea objetivo}
+\subsection{Tarea objetivo}\label{Sec: TareaObj}
 Esta prueba final utiliza los mismos parámetros e indicaciones que en la prueba de validación en línea, sin embargo, para esta prueba se aplica estimulación eléctrica al brazo afectado del sujeto, por lo que el switch \emph{Habilitar estimulación} se encuentra conectado la salida del bloque \emph{Control}, y además, el tiempo de término de la simulación se configura a 180 s.
 
 En esta prueba se busca medir el tiempo de retardo que existe entre el inicio del movimiento en la mano sana y el inicio del movimiento en la mano afectada. Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (canales de registros de sEMG, canales de estimulación eléctrica y señal patrón trapezoidal), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
