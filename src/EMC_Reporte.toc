@@ -29,9 +29,10 @@
 \contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{26}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}Validación en línea}{28}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}Tarea objetivo}{29}{subsection.4.6.4}%
-\contentsline {chapter}{\numberline {5}Resultados}{30}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Adquisición de datos}{30}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{31}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Sistema de control}{32}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{34}{chapter.6}%
-\contentsline {chapter}{Referencias}{37}{chapter*.35}%
+\contentsline {subsection}{\numberline {4.6.5}Tarea funcional}{29}{subsection.4.6.5}%
+\contentsline {chapter}{\numberline {5}Resultados}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Adquisición de datos}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{32}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Sistema de control}{33}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{36}{chapter.6}%
+\contentsline {chapter}{Referencias}{39}{chapter*.37}%

@@ -23,11 +23,13 @@
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Posturas de mano para calibración}}{27}{figure.caption.22}%
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Sistema completo implementado en Simulink.\relax }}{28}{figure.caption.23}%
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Señal trapezoidal objetivo}}{29}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Esquema de tarea funcional con tiempo libre.}}{30}{figure.caption.25}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señales para evaluación de adquisición.}}{30}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento del esquema de filtrado diseñado.\relax }}{31}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ejemplo representativo de la obtención de envolvente de RMS}}{31}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Ejemplo representativo exitoso del funcionamiento fuera de línea del sistema de control}}{32}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Segmento de prueba representativa exitosa del funcionamiento en línea del sistema de control}}{33}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Segmento de prueba representativa de tarea objetivo}}{33}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señales para evaluación de adquisición.}}{31}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento del esquema de filtrado diseñado.\relax }}{32}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ejemplo representativo de la obtención de envolvente de RMS}}{32}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Ejemplo representativo exitoso del funcionamiento fuera de línea del sistema de control}}{33}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Segmento de prueba representativa exitosa del funcionamiento en línea del sistema de control}}{34}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Segmento de prueba representativa de tarea objetivo}}{34}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Momentos de sujeto realizando tarea funcional.\relax }}{35}{figure.caption.32}%
 \addvspace {10\p@ }
