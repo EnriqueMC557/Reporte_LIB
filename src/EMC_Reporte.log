@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.4.18)  10 MAY 2020 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.4.18)  10 MAY 2020 20:14
 entering extended mode
 **./EMC_Reporte.tex
 (EMC_Reporte.tex
@@ -989,54 +989,9 @@ Package pdftex.def Info: ../figures/Retardo.png  used on input line 76.
 ) [32 <../figures/MapOff.png>] [33 <../figures/MapOn.png> <../figures/Retardo.p
 ng>]
 Cap\'{\i }tulo 6.
-(10_Discusion.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--5
+(10_Discusion.tex [34
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--11
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--17
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--20
-
- []
-
-[34
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--33
-
- []
-
-[35]) (EMC_Reporte.bbl [36]
+] [35]) (EMC_Reporte.bbl [36]
 Underfull \hbox (badness 1701) in paragraph at lines 4--9
 []\OT1/cmr/m/sc/12 Aguirre-Vargas, G., Flores-Abad, []A., Alba-Baena, N., Acost
 a-
@@ -1055,7 +1010,7 @@ LaTeX Info: Redefining \% on input line 24.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 94.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 94.
 Package rerunfilecheck Info: File `EMC_Reporte.out' has not changed.
-(rerunfilecheck)             Checksum: 2A9299134A99F4C14F15062EB2F94AA2;2376.
+(rerunfilecheck)             Checksum: AF3DDC598FE5EEEF2A85BBCCA2A476C9;2391.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1066,13 +1021,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 94.
  ) 
 Here is how much of TeX's memory you used:
- 10120 strings out of 480934
- 157734 string characters out of 2899917
+ 10124 strings out of 480934
+ 157778 string characters out of 2899917
  446202 words of memory out of 3000000
  25586 multiletter control sequences out of 15000+200000
  541307 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,42p,1331b,666s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,11n,42p,1519b,666s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\enriq\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 tcrm1200.pk><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmbx12.pfb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/font
@@ -1091,9 +1046,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
 fb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmti12.pfb><C:/Users/enriq/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on EMC_Reporte.pdf (43 pages, 4802179 bytes).
+Output written on EMC_Reporte.pdf (43 pages, 4804469 bytes).
 PDF statistics:
- 762 PDF objects out of 1000 (max. 8388607)
- 173 named destinations out of 1000 (max. 500000)
+ 767 PDF objects out of 1000 (max. 8388607)
+ 177 named destinations out of 1000 (max. 500000)
  463 words of extra memory for PDF output out of 10000 (max. 10000000)
 

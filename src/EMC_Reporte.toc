@@ -33,5 +33,5 @@
 \contentsline {section}{\numberline {5.1}Adquisición de datos}{30}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{31}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Sistema de control}{32}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Discusión}{34}{chapter.6}%
-\contentsline {chapter}{Referencias}{37}{chapter*.31}%
+\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{34}{chapter.6}%
+\contentsline {chapter}{Referencias}{37}{chapter*.35}%
