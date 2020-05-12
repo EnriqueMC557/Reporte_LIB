@@ -18,21 +18,21 @@
 \contentsline {section}{\numberline {3.2}Sistemas FES existentes}{12}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Metodología}{14}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Sistema propuesto}{14}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Adquisición de datos en Simulink}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Adquisición de datos en Simulink\textregistered }{15}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Evaluación de bloque de adquisición y decodificación}{18}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Protocolo para registro de sEMG}{20}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Procesamiento de sEMG}{21}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Sistema de control}{23}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Calibración}{24}{subsection.4.6.1}%
-\contentsline {subsubsection}{Calibración de parámetros FES}{24}{section*.18}%
-\contentsline {subsubsection}{Calibración de amplitud RMS de sEMG}{25}{section*.20}%
-\contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{26}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Validación en línea}{28}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Tarea objetivo}{29}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Tarea funcional}{29}{subsection.4.6.5}%
-\contentsline {chapter}{\numberline {5}Resultados}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Adquisición de datos}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{32}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Sistema de control}{33}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{36}{chapter.6}%
-\contentsline {chapter}{Referencias}{39}{chapter*.37}%
+\contentsline {section}{\numberline {4.6}Sistema de control}{24}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Calibración}{25}{subsection.4.6.1}%
+\contentsline {subsubsection}{Calibración de parámetros FES}{25}{section*.18}%
+\contentsline {subsubsection}{Calibración de amplitud RMS de sEMG}{26}{section*.20}%
+\contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{27}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Validación en línea}{29}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Tarea objetivo}{30}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Tarea funcional}{30}{subsection.4.6.5}%
+\contentsline {chapter}{\numberline {5}Resultados}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Adquisición de datos}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Sistema de control}{34}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{37}{chapter.6}%
+\contentsline {chapter}{Referencias}{40}{chapter*.37}%

@@ -12,8 +12,8 @@ En la Figura \ref{Figura: SistProp} se muestra un esquema general del sistema de
 \end{figure}
 
 
-\section{Adquisición de datos en Simulink} \label{Sec: Adquisicion}
-Se utilizó el sistema Cyton Board, el cual tiene una frecuencia de muestreo de 250 Hz, para realizar la adquisición de las señales de sEMG. Dicho sistema utiliza un chip ADS1299 (Texas Instruments Inc., Dallas, E.U.A.) para realizar la conversión analógico-digital de las señales, el cual codifica los datos de cada muestra, utilizando complemento a 2, en un flujo de datos de 27 bytes esquematizado en la Figura \ref{Figura: BusOut}.
+\section{Adquisición de datos en Simulink\textregistered} \label{Sec: Adquisicion}
+Para realizar la adquisición de las señales de sEMG se utilizó el sistema Cyton Board, el cual tiene una frecuencia de muestreo de 250 Hz. Dicho sistema utiliza un chip ADS1299 (Texas Instruments Inc., Dallas, E.U.A.) para realizar la conversión analógico-digital de las señales, el cual codifica los datos de cada muestra, utilizando codificación en complemento a 2, en un flujo de datos de 27 bytes esquematizado en la Figura \ref{Figura: BusOut}. En dicha figura se aprecia claramente que cada muestra de cada canal está conformada por 3 bytes, formando un total de 24 bytes para los 8 canales, mientras que los primeros 3 bytes corresponden a información de estado propia del ADS1299.
 
 %Stream datos ADS
 \begin{figure}[htbp]
@@ -23,7 +23,7 @@ Se utilizó el sistema Cyton Board, el cual tiene una frecuencia de muestreo de 
 	\label{Figura: BusOut}
 \end{figure}
 
-Para realizar la decodificación del flujo de datos dentro de Simulink, se diseñó un subsistema encargado de la solicitud y decodificación de datos, para esto se utilizó el bloque \emph{Query Instrument} del \emph{Instrument Control Toolbox} para realizar la solicitud de datos, los cuales fueron decodificados con bloques de la librería estándar de Simulink. La figura \ref{Figura: DecoSimuT} muestra la implementación dentro de Simulink del sistema antes mencionado.
+Para realizar la decodificación del flujo de datos dentro de Simulink\textregistered, se diseñó un subsistema encargado de la solicitud y decodificación de datos, para esto se utilizó el bloque \emph{Query Instrument} del \emph{Instrument Control Toolbox} para realizar la solicitud de datos, los cuales fueron decodificados con bloques de la librería estándar de Simulink\textregistered. La figura \ref{Figura: DecoSimuT} muestra la implementación de este subsistema.
 
 \hfill \break
 
@@ -32,29 +32,29 @@ Para realizar la decodificación del flujo de datos dentro de Simulink, se dise�
 	\centering
 	\begin{subfigure}[htbp]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{Read_Simu.png}
-		\caption{Vista general del subsistema diseñado para realizar adquisición y decodificación del flujo de datos.}
+		\caption{}
 		\label{Figura: readSimu}
 	\end{subfigure}
 	\begin{subfigure}[htbp]{0.8\textwidth}
 		\includegraphics[width=\textwidth]{Deco_Simu.png}
-		\caption{Vista interna del subsistema encargado de la decodificación del flujo de datos.}
+		\caption{}
 		\label{Figura: decoSimu}
 	\end{subfigure}
-	\caption[Subsistema decodificador del flujo de datos]{Subsistema decodificador del flujo de datos implementado en Simulink.}
+	\caption[Diagrama de bloques del subsistema decodificador del flujo de datos]{Diagrama de bloques del subsistema decodificador del flujo de datos implementado en Simulink\textregistered . (a) Vista general del subsistema diseñado para realizar adquisición y decodificación del flujo de datos. (b) Vista interna del subsistema encargado de la decodificación del flujo de datos.}
 	\label{Figura: DecoSimuT}
 \end{figure}
 
 \newpage
-El funcionamiento del subsistema responsable de la solicitud y decodificación de datos implementado dentro de Simulink se encuentra esquematizado en la Figura \ref{Figura: DecoStream}, y lleva a cabo el siguiente algoritmo:
+El funcionamiento del subsistema responsable de la solicitud y decodificación de datos implementado dentro de Simulink\textregistered se encuentra esquematizado en la Figura \ref{Figura: DecoStream}, y lleva a cabo el siguiente algoritmo:
 
 \begin{enumerate}
-	\item Se realiza la adquisición de N muestras, lo cual generará un vector columna con dimensión $\mathbb{R}^{27*N\times 1}$ (Figura \ref{Figura: DecoStream} \emph{(a)}).
-	\item Se aplicar un reshape a dicho vector para obtener una matriz con dimensión $\mathbb{R}^{27\times N}$ (Figura \ref{Figura: DecoStream} \emph{(b)}).
-	\item Se obtiene la transpuesta de dicha matriz para obtener una matriz con dimension $\mathbb{R}^{N\times 27}$ (Figura \ref{Figura: DecoStream} \emph{(c)}).
-	\item Se realiza la extracción de las columnas asociadas al canal a procesar, obteniendo una matriz con dimensión $\mathbb{R}^{N\times 3}$ (Figura \ref{Figura: DecoStream} \emph{(d)}).
-	\item Se realiza el producto matricial de la matriz del canal a procesar con un vector ponderador que contiene el peso de cada columna (byte) para el valor de la muestra de 24 bits (Figura \ref{Figura: DecoStream} \emph{(e)}). El vector ponderador está compuesto por los valores $2^{16}$, $2^8$, $1$. Como resultado de dicho producto se obtiene un vector de dimensión $\mathbb{R}^{N\times 1}$ (Figura \ref{Figura: DecoStream} \emph{(f)}).
-	\item Se extraen del vector anterior las muestras en las que se encuentren codificados, en complemento a 2, un número negativo. Esto se realiza al obtener el valor del bit 23 (bit más significativo), y si dicho bit tiene un valor de 1 implica que dicha muestra codifica un número negativo (Figura \ref{Figura: DecoStream} \emph{(g)}).
-	\item Se obtiene el complemento a 1 de cada muestra del vector \emph{g}, se suma 1 a cada muestra y se multiplica cada muestra por -1. De esta operación se obtiene un vector con las muestras decodificadas a número negativos (Figura \ref{Figura: DecoStream} \emph{(h)}).
+	\item Se realiza la adquisición de N muestras, lo cual generará un vector columna con dimensión $(27*N)\times 1$ (Figura \ref{Figura: DecoStream} \emph{(a)}), donde 27 corresponde al tamaño en bytes del flujo de datos a recibir y 1 corresponde a 1 columna en la que se recibirán los datos. %$\mathbb{R}^{27*N\times 1}$
+	\item Se aplica una operación de reshape a dicho vector para obtener una matriz con dimensión $27\times N$ (Figura \ref{Figura: DecoStream} \emph{(b)}). %$\mathbb{R}^{27\times N}$
+	\item Se obtiene la transpuesta de dicha matriz para obtener una matriz de dimension $N\times 27$ (Figura \ref{Figura: DecoStream} \emph{(c)}). %$\mathbb{R}^{N\times 27}$
+	\item Se realiza la extracción de las columnas asociadas al canal a procesar, obteniendo una matriz de dimensión $N\times 3$ (Figura \ref{Figura: DecoStream} \emph{(d)}), donde 3 es el número de bytes correspondientes a cada muestra. %$\mathbb{R}^{N\times 3}$
+	\item Se realiza el producto de la matriz del canal a procesar con un vector (columna) ponderador que contiene el peso de cada columna (byte) necesario para obtener el valor de la muestra de 24 bits (Figura \ref{Figura: DecoStream} \emph{(e)}). El vector ponderador está compuesto por los valores $2^{16}$, $2^8$ y $2^0$, los cuales corresponden a realizar un corrimiento hacia la izquierda de 16, 8 y 0 bits respectivamente. Como resultado de dicho producto se obtiene un vector de dimensión $N\times 1$ (Figura \ref{Figura: DecoStream} \emph{(f)}). %$\mathbb{R}^{N\times 1}$
+	\item Se extraen del vector \emph{f} las muestras en las que se encuentren codificados, en complemento a 2, un número negativo. Esto se realiza al obtener el valor del bit 23 (bit más significativo), y si dicho bit tiene un valor de 1 implica que dicha muestra codifica un número negativo (Figura \ref{Figura: DecoStream} \emph{(g)}).
+	\item Se obtiene el complemento a 1 de cada elementro (muestra) del vector \emph{g}, sumando 1 a cada muestra y multiplicándola por -1. De esta operación se obtiene un vector con las muestras decodificadas a número negativos (Figura \ref{Figura: DecoStream} \emph{(h)}).
 	\item Se insertan los elementos del vector \emph{h} en sus posiciones originales del vector \emph{f}. De este último paso se obtiene un vector con las N muestras decodificadas a números de 24 bits con signo (Figura \ref{Figura: DecoStream} \emph{(i)}).
 \end{enumerate}
 
@@ -69,7 +69,8 @@ El funcionamiento del subsistema responsable de la solicitud y decodificación d
 
 \newpage
 \section{Evaluación de bloque de adquisición y decodificación}\label{Sec: EvalAdquisicion}
-Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink para la adquisición y decodificación de datos. En MATLAB se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (\ref{Figura: SenPur}), dos senoidales de 50 Hz moduladas en amplitud con una envolvente de una recta con pendiente negativa (\ref{Figura: LinAte}) y una exponencial decreciente (\ref{Figura: ExpAte}), y una senoidal de 50 Hz modulada en amplitud con una envolvente que simula la señal sEMG correspondiente a la tarea de incrementar gradualmente una contracción muscular, mantener dicha contracción y relajar el músculo gradualmente (\ref{Figura: Contra}). Todas las señales del banco se diseñaron con una frecuencia de muestreo de 250 Hz y una duración de 5 segundos, excepto la última, que se diseñó con una duración de 15 segundos; adicionalmente, todas las señales se generaron como objetos de audio dentro de MATLAB, para poder reproducirlas como audio y a partir de la salida de audio de la computadora poder acceder a ellas.
+Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink\textregistered para la adquisición y decodificación de datos. En MATLAB\textregistered se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), tres senoidales de 50 Hz moduladas en amplitud con distintas envolventes: 
+una envolvente de una recta con pendiente negativa (Figura \ref{Figura: LinAte}), una envolvente de una exponencial decreciente (Figura \ref{Figura: ExpAte}), y una envolvente que simula la señal sEMG correspondiente a la tarea de incrementar gradualmente una contracción muscular, mantener dicha contracción y relajar el músculo gradualmente (Figura \ref{Figura: Contra}). Todas las señales del banco se diseñaron con una frecuencia de muestreo de 250 Hz y una duración de 5 segundos, excepto la última, que se diseñó con una duración de 15 segundos; adicionalmente, todas las señales se generaron como objetos de audio dentro de MATLAB\textregistered, para poder reproducirlas como audio y a partir de la salida de audio de la computadora poder acceder a ellas.
 
 %Figura de senoidales MATLAB
 \begin{figure}[htbp]
@@ -104,16 +105,16 @@ Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema dise
 \newpage
 El proceso para la evaluación del funcionamiento del subsistema de adquisición se llevó a cabo de la siguiente manera:
 \begin{enumerate}
-	\item Se realiza la adquisición de tres tantos de todas las señales del banco de señales de prueba.
+	\item Se realiza la adquisición de tres repeticiones de cada una de las señales del banco de señales de prueba.
 	\begin{enumerate}
 		\item Se conecta una punta de un jack de audio de 3.5 mm a la salida de audio de la computadora. La otra punta se conectó al dispositivo de adquisición (Cyton Board) de la siguiente forma: el pin \emph{izquierdo} se conectó a un pin diferencial del canal 1, mientras que el pin \emph{tierra} se conectó a la entrada BIAS y al pin diferencial restante del canal 1. La Figura \ref{Figura: JackConexion} ilustra estas conexiones.
-		\item Se realiza la solicitud de datos utilizando el subsistema decodificador implementado en Simulink, y al mismo tiempo se inicia el conteo de un cronómetro.
-		\item Tras haber transcurrido 2 s en el cronómetro, se procede a reproducir la señal de audio de prueba.
-		\item Tras haber transcurrido 10 s (20 s para la simulación del sEMG de una contracción), se detiene la adquisición del subsistema de Simulink y se guardan los datos de adquisición dentro de un archivo con extensión \emph{.mat}.
+		\item Se realiza la solicitud de datos utilizando el subsistema decodificador implementado en Simulink\textregistered (Figura \ref{Figura: DecoSimuT}), y al mismo tiempo se inicia el conteo de un cronómetro.
+		\item Dos segundos después de haber iniciado la solicitud de datos, se procede a reproducir la señal de audio de prueba.
+		\item Tras haber transcurrido 10 s (20 s para la simulación del sEMG de una contracción), se detiene la adquisición del subsistema de Simulink\textregistered y se guardan los datos registrados dentro de un archivo con extensión \emph{.mat}.
 	\end{enumerate}
-	\item Se cargan, dentro del workspace de MATLAB, los datos de las señales adquiridas y los datos de las señales patrón.
-	\item Se procede a calcular el coeficiente de correlación de Pearson (Ecuación \ref{Ecu: CorrePea}) entre las señales adquiridas y su correspondiente señal patrón.
-	\item Se obtiene la media aritmética de todos los valores obtenidos al aplicar el coeficiente de correlación de Pearson. El valor obtenido se utiliza como indicador de la calidad del subsistema de adquisición y decodificación de datos.
+	\item Se cargan, dentro del workspace de MATLAB\textregistered, los datos de las señales adquiridas y los datos de las señales patrón.
+	\item Se procede a alinear de forma manual la señal adquirida con la señal patrón, y posteriormente se calcula el coeficiente de correlación de Pearson (Ecuación \ref{Ecu: CorrePea}. Donde $\sigma_{xy}$ representa la covarianza de $x$,$y$; $\sigma_{x}$ representa la desviación estándar de $x$; y $\sigma_{y}$ representa la desviación estándar de $y$) entre ambas señales.
+	\item Se obtiene la media aritmética de los valores obtenidos al aplicar el coeficiente de correlación de Pearson a cada una de las señales registradas (24 registros en total). El valor obtenido se utiliza como indicador de la calidad del subsistema de adquisición y decodificación de datos.
 \end{enumerate}
 
 %Ecuación correlación Pearson
@@ -134,29 +135,29 @@ El proceso para la evaluación del funcionamiento del subsistema de adquisición
 Para garantizar repetibilidad en los registros de sEMG se implementó un protocolo para realizar la adquisición de dicha señal. Dicho protocolo se describe a continuación y utiliza electrodos Telectrode T718 (Bio-Protech Inc., Chino, E.U.A.):
 
 \begin{enumerate}
-	\item Se configura el dispositivo de adquisición (Para el caso del Cyton Board esta configuración es la default):
+	\item Se configura el dispositivo de adquisición (Para el caso del Cyton Board esta configuración es la preprogramada por el fabricante):
 	\begin{enumerate}
 		\item Frecuencia de muestreo a 250 Hz.
 		\item Ganancia 24 para los canales de adquisición 1 y 2.
-		\item BIAS habilitado para los canales de adquisición 1 y 2.
+		\item BIAS (función de reducción de ruido común) habilitado para los canales de adquisición 1 y 2.
 	\end{enumerate}
-	\item Se prepara la zonas donde se colocaran los electrodos, limpiando con algodón y alcohol las zonas ventral y dorsal del antebrazo, así como el codo.
+	\item Se preparan las zonas donde se colocaran los electrodos para registro de sEMG, limpiando con algodón y alcohol las zonas ventral y dorsal del antebrazo, así como el codo.
 	\item Se ubican los puntos para colocación de electrodos:
 	\begin{enumerate}
-		\item Para músculo flexor digitorum (\ref{Figura: E_Cie}):
+		\item Para el par de electrodos que registrará la actividad relacionada con el movimiento de flexión de dedos (pinza gruesa), el músculo asociado es el músculo flexor digitorum (Figura \ref{Figura: E_Cie}):
 		\begin{enumerate}
 			\item Se mide la distancia de codo a muñeca en el lado ventral del antebrazo.
 			\item Se coloca una marca al 25\% de la medida obtenida.
 		\end{enumerate}
-		\item Para músculo extensor digitorum (\ref{Figura: E_Ape}):
+		\item Para el par de electrodos que registrará la actividad relacionada con el movimiento de extensión de dedos (apertura de mano), el músculo asociado es el músculo extensor digitorum (Figura \ref{Figura: E_Ape}):
 		\begin{enumerate}
-			\item Se mide la distancia de codo a muñeca en el lado dorsal del antebraz.
+			\item Se mide la distancia de codo a muñeca en el lado dorsal del antebrazo.
 			\item Se coloca una marca al 75\% de la medida obtenida.
 		\end{enumerate}
 	\end{enumerate}
-	\item Se colocan, sobre la marca obtenida para el flexor digitorum (\ref{Figura: E_Cie}), dos electrodos (en dirección de la fibra muscular) separados 3 cm. Dicho par de electrodos se conecta al canal 1 del dispositivo de adquisición.
-	\item Se colocan, sobre la marca obtenida para el extensor digitorum (\ref{Figura: E_Ape}), dos electrodos (en dirección de la fibra muscular) separados 3 cm. Dicho para de electrodos se conecta al canal 2 del dispositivo de adquisición.
-	\item Se coloca un electrodo de referencia sobre el codo. Dicho electrodo se conecta al BIAS del dispositivo de adquisición.
+	\item Se colocan, centrados sobre la marca obtenida para el flexor digitorum (Figura \ref{Figura: E_Cie}), dos electrodos (en dirección de las fibras musculares) separados 3 cm. Este par de electrodos se conecta al canal 1 del dispositivo de adquisición por medio de cables con conector tipo Snap.
+	\item Se colocan, centrados sobre la marca obtenida para el extensor digitorum (Figura \ref{Figura: E_Ape}), dos electrodos (en dirección de las fibras musculares) separados 3 cm. Este para de electrodos se conecta al canal 2 del dispositivo de adquisición por medio de cables con conector tipo Snap.
+	\item Se coloca un electrodo de referencia sobre el codo. Dicho electrodo se conecta al pin BIAS del dispositivo de adquisición.
 \end{enumerate}
 
 %Ubicación electrodos
@@ -180,7 +181,15 @@ Para garantizar repetibilidad en los registros de sEMG se implementó un protoco
 
 
 \section{Procesamiento de sEMG}
-Se diseñaron tres filtros digitales Butterworth orden 2 para realizar el procesamiento de sEMG: un filtro pasa altas con frecuencia de corte de 15 Hz, para eliminar las variaciones en la línea base del registro; un filtro pasa bajas con frecuencia de corte de 100 Hz, para eliminar armónicos de 60 Hz y demás interferencias de alta frecuencia; y un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea. Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB. Las gráficas de respuesta en frecuencia de estos filtros se muestran en las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
+Se diseñaron tres filtros digitales Butterworth orden 2 para realizar el procesamiento de sEMG:
+
+\begin{itemize}
+	\item Un filtro pasa altas con frecuencia de corte de 15 Hz, para eliminar las variaciones en la línea base del registro.
+	\item Un filtro pasa bajas con frecuencia de corte de 100 Hz, para eliminar armónicos de 60 Hz y demás interferencias de alta frecuencia.
+	\item Un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea
+\end{itemize}
+
+Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB\textregistered. Las gráficas de respuesta en frecuencia de estos filtros se muestran en las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
 
 %Respuesta en frecuencia de filtros
 \begin{figure}[htbp]
@@ -198,7 +207,7 @@ Se diseñaron tres filtros digitales Butterworth orden 2 para realizar el proces
 	\label{Figura: FiltroRB}
 \end{figure}
 
-Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS de ventanas de 100 ms del registro de sEMG, para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de mediana de 10 muestras (Ecuación \ref{Ecu: Mediana}), el cual tiene como propósito conseguir una señal de RMS suavizada.
+Se implementó dentro de Simulink\textregistered un bloque responsable de obtener el valor RMS de ventanas de 100 ms (25 muestras para una frecuencia de muestro de 250 Hz) del registro de sEMG, para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de mediana de 10 muestras (Ecuación \ref{Ecu: Mediana}), el cual tiene como propósito conseguir una señal RMS suavizada.
 
 %Ecuación filtro mediana
 \begin{equation}
@@ -209,7 +218,9 @@ Se implementó dentro de Simulink un bloque responsable de obtener el valor RMS 
 
 \newpage
 \section{Sistema de control}
-A grandes rasgos, el sistema de control implementado para este proyecto consta de la combinación de una FSM y un control proporcional. La FSM (Figura \ref{Figura: FSM_Control}) permite clasificar la intención de movimiento del sujeto en tres clases (descanso, pinza gruesa y apertura), mientras que el control proporcional permite realizar la modulación de la amplitud de corriente eléctrica a partir de la amplitud del sEMG.
+A grandes rasgos, el sistema de control implementado para este proyecto consta de la combinación de una FSM y un mapeo proporcional. La FSM (Figura \ref{Figura: FSM_Control})  determina el canal de estimulación eléctrica que se activará, a partir de la salida del algoritmo para la detección de movimiento.
+
+permite clasificar la intención de movimiento del sujeto en tres clases (descanso, pinza gruesa y apertura de mano), mientras que el control proporcional permite realizar la modulación de la amplitud de corriente eléctrica a partir de la amplitud del sEMG.
 
 %FSM
 \begin{figure}[htbp]
@@ -219,11 +230,11 @@ A grandes rasgos, el sistema de control implementado para este proyecto consta d
 	\label{Figura: FSM_Control}
 \end{figure}
 
-La máquina de estados necesita principalmente tres parámetros para llevar a cabo la clasificación de los movimientos: detector de movimiento ($DM$), umbral de pinza gruesa incompleta ($M_{1I}$) y umbral de apertura de mano incompleta ($M_{2I}$), y dentro de los estados pinza gruesa y apertura, la FSM necesita de la ecuación de control proporcional para poder llevar a cabo la modulación de la estimulación eléctrica. La obtención de dichos parámetros se obtiene de un proceso de calibración que se realiza para cada sesión de prueba.
+La máquina de estados necesita principalmente tres parámetros para llevar a cabo la transición de los movimientos: detector de movimiento ($DM$), umbral de pinza gruesa incompleta ($M_{1I}$) y umbral de apertura de mano incompleta ($M_{2I}$), y dentro de los estados pinza gruesa y apertura, la FSM necesita de la ecuación de mapeo proporcional para poder llevar a cabo la modulación de la estimulación eléctrica. La obtención de dichos parámetros se obtiene de un proceso de calibración que se realiza para cada sesión de prueba.
 
 Posterior al proceso de calibración se realiza una validación fuera de línea, donde a partir del registro de calibración y los parámetros arrojados por esta se pone a prueba el funcionamiento del sistema. Cuando la validación fuera de línea presenta un porcentaje de acierto igual o mayor al 80$\%$ se procede a configurar el sistema para realizar una prueba en línea y posteriormente realizar la tarea objetivo.
 
-Todas las etapas antes mencionadas por las que se somete el sistema de control se describen a continuación.
+Todas las etapas antes mencionadas del sistema de control se describen a continuación.
 
 \subsection{Calibración}
 El proceso de calibración del sistema consta a su vez de una calibración de los parámetros de estimulación eléctrica y una calibración de los valores de amplitud RMS del sEMG.
@@ -231,20 +242,20 @@ El proceso de calibración del sistema consta a su vez de una calibración de lo
 \subsubsection{Calibración de parámetros FES}
 El objetivo de esta calibración es el obtener los umbrales motores y funcionales de los movimientos de apertura de mano y pinza gruesa. Para esta calibración se utiliza el sistema de colocación de electrodos de estimulación eléctrica desarrollado en el INR-LGII, el cual se encuentra descrito en \cite{AnaMartin2019}, en conjunto con la pantalla \emph{Experimentación} (Figura \ref{Figura: GUI_Exp}) de la GUI diseñada en el INR-LGII \cite{JanethFuentes2018}.
 
-El proceso para la obtención de los umbrales antes mencionados consiste en realizar la colocación de los electrodos de estimulación eléctrica y realizar una exploración de la respuesta del sujeto ante diferentes valores de amplitud de corriente eléctrica que le serán proporcionados. Dichos valores exploran el rango entre 1 y 15 mA, utilizando un incremento de 1 mA. El umbral motor será el primer valor de amplitud que genere una respuesta motora en la mano del sujeto; mientras que el umbral funcional será aquél valor de amplitud en el que la respuesta motora en la mano del sujeto sea similar al movimiento que se está calibrando.
+El proceso para la obtención de los umbrales antes mencionados consiste en realizar la colocación de los electrodos de estimulación eléctrica y realizar una exploración de la respuesta del sujeto ante diferentes valores de amplitud de corriente eléctrica que le serán proporcionados. Dichos valores exploran el rango entre 1 y 15 mA, utilizando un incremento de 1 mA. El umbral motor será el primer valor de amplitud que genere una respuesta motora notable a simple vista y reconocida por el sujeto en la mano del sujeto; mientras que el umbral funcional será aquél valor de amplitud que provoque el movimiento objetivo de la mano con un rango de movimiento completo, similar a un movimiento voluntario
 
 %Experimentación
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{GUI_Exp.png}
-	\caption{Pantalla utilizada para calibración de FES.}
+	\caption{GUI utilizada para calibración de FES.}
 	\label{Figura: GUI_Exp}
 \end{figure}
 
 \subsubsection{Calibración de amplitud RMS de sEMG}
-Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Section: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG y almacena marcadores asociados a la indicación de movimiento solicitada. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI. Los movimientos mostrados son denominados \emph{descanso} (DD), \emph{apertura incompleta} (AI), \emph{apertura completa} (AC), \emph{pinza gruesa incompleta} (CI) y \emph{pinza gruesa completa} (CC), los cuales se pueden observar en la Figura \ref{Figura: Posturas}.
+Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Sec: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG y almacena marcadores asociados a la indicación de movimiento solicitada. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI. Los movimientos mostrados son denominados \emph{descanso} (DD), \emph{apertura incompleta} (AI), \emph{apertura completa} (AC), \emph{pinza gruesa incompleta} (CI) y \emph{pinza gruesa completa} (CC), los cuales se pueden observar en la Figura \ref{Figura: Posturas}.
 
-Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa, pinza gruesa incompleta y completa, y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_i$ representa a uno de los 5 movimientos antes mencionados, $RMS_n$ representa al valor RMS obtenido para la n-esima ventana de registro (100 ms) asociada al movimiento $M_i$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_i$.
+Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB\textregistered los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa, pinza gruesa incompleta y completa, y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_i$ representa a uno de los 5 movimientos antes mencionados, $RMS_n$ representa al valor RMS obtenido para la n-esima ventana de registro (100 ms) asociada al movimiento $M_i$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_i$.
 
 %Ecuación obtención de umbrales
 \begin{equation}
@@ -325,17 +336,17 @@ Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordena
 \subsection{Validación fuera de línea}
 El propósito de esta prueba consiste en obtener un indicador que proporcione información sobre el desempeño del sistema, al configurarlo con los parámetros obtenidos en la calibración, en su función de clasificación de movimientos.
 
-Para obtener dicho indicador, se diseñó un script en MATLAB que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado, obtención de RMS y suavizado) y por último aplica el algoritmo de control diseñado (FSM y control proporcional); una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$, se procede a configurar el sistema diseñado en Simulink con los parámetros arrojados en la calibración, en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
+Para obtener dicho indicador, se diseñó un script en MATLAB\textregistered que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado, obtención de RMS y suavizado) y por último aplica el algoritmo de control diseñado (FSM y control proporcional); una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$, se procede a configurar el sistema diseñado en Simulink\textregistered con los parámetros arrojados en la calibración, en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
 
 \newpage
 \subsection{Validación en línea}
-Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink (Figura \ref{Figura: SisComp}) con los parámetros obtenidos en la calibración, posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros, esto debido a que para esta prueba no se aplica estimulación eléctrica, y por último, se configura el tiempo de termino de la simulación a 60 s.
+Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink\textregistered (Figura \ref{Figura: SisComp}) con los parámetros obtenidos en la calibración, posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros, esto debido a que para esta prueba no se aplica estimulación eléctrica, y por último, se configura el tiempo de termino de la simulación a 60 s.
 
 %Sistema completo
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{SistemaCompleto.png}
-	\caption{Sistema completo implementado en Simulink.}
+	\caption{Sistema completo implementado en Simulink\textregistered.}
 	\label{Figura: SisComp}
 \end{figure}
 
@@ -353,7 +364,7 @@ Posteriormente, se le indica al sujeto la forma en la que se llevará a cabo la 
 \subsection{Tarea objetivo}\label{Sec: TareaObj}
 Esta prueba final utiliza los mismos parámetros e indicaciones que en la prueba de validación en línea, sin embargo, para esta prueba se aplica estimulación eléctrica al brazo afectado del sujeto, por lo que el switch \emph{Habilitar estimulación} se encuentra conectado la salida del bloque \emph{Control}, y además, el tiempo de término de la simulación se configura a 180 s.
 
-En esta prueba se busca medir el tiempo de retardo que existe entre el inicio del movimiento en la mano sana y el inicio del movimiento en la mano afectada. Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (canales de registros de sEMG, canales de estimulación eléctrica y señal patrón trapezoidal), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
+En esta prueba se busca medir el tiempo de retardo que existe entre el inicio del movimiento en la mano sana y el inicio del movimiento en la mano afectada. Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (canales de registros de sEMG, canales de estimulación eléctrica y señal patrón trapezoidal), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB\textregistered donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
 
 \subsection{Tarea funcional}
 Se diseñó una prueba de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto, como puede ser el agarre de un objeto y su traslación. Para ello, configurando el sistema completo de la misma forma en la cual se configuró para la tarea objetivo, cambiando el tiempo de término de la simulación a \emph{inf}, se le proporcionaron al sujeto dos objetos cilíndricos y se le colocó cada uno frente a cada una de sus manos. Se le solicitó que con el miembro sano fuera tomando dicho objeto, mientras que con ayuda de su hombro del miembro afectado fuera acercando su mano al otro objeto para, por efecto de la estimulación eléctrica, lograr tomarlo. Una vez que lograse tomarlo, con la misma ayuda de su hombro tendría que levantar dicho objeto y desplazarlo a un lugar diferente del lugar donde lo tomó y bajar suavemente dicho objeto para finalmente soltarlo. La Figura \ref{Figura: TareaFuncional} esquematiza los pasos de los que consta la tarea objetivo.
