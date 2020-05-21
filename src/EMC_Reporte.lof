@@ -14,22 +14,20 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Banco de señales para evaluación de adquisición.\relax }}{18}{figure.caption.13}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Conexiones para evaluación de bloque de adquisición.\relax }}{20}{figure.caption.14}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Posicionamiento de electrodos para registro de sEMG}}{21}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Respuesta en frecuencia de filtro pasa altas.\relax }}{23}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Respuesta en frecuencia de filtro pasa bajas.\relax }}{23}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Respuesta en frecuencia de filtro rechaza banda.\relax }}{23}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces FSM para control}}{24}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces GUI utilizada para calibración de FES.\relax }}{25}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces GUI utilizada para calibración de amplitud RMS.\relax }}{27}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Posturas de mano para calibración}}{28}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Sistema completo implementado en Simulink\textregistered .\relax }}{29}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Señal trapezoidal objetivo}}{30}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Esquema de tarea funcional con tiempo libre.}}{31}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Respuesta en frecuencia del banco de filtros diseñado.\relax }}{23}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces FSM para control}}{24}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces GUI utilizada para calibración de FES.\relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces GUI utilizada para calibración de amplitud RMS.\relax }}{27}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Posturas de mano para calibración de umbrales RMS}}{28}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Sistema completo implementado en Simulink\textregistered .\relax }}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Señal trapezoidal objetivo}}{31}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Esquema de tarea funcional con tiempo libre.}}{32}{figure.caption.25}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señales para evaluación de adquisición.}}{32}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento del esquema de filtrado diseñado.\relax }}{33}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ejemplo representativo de la obtención de envolvente de RMS}}{33}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Ejemplo representativo exitoso del funcionamiento fuera de línea del sistema de control}}{34}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Segmento de prueba representativa exitosa del funcionamiento en línea del sistema de control}}{35}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Segmento de prueba representativa de tarea objetivo}}{35}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Momentos de sujeto realizando tarea funcional.\relax }}{36}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señales para evaluación de adquisición.}}{33}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento del esquema de filtrado diseñado.\relax }}{34}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ejemplo representativo de la obtención de envolvente de RMS}}{34}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Ejemplo representativo exitoso del funcionamiento fuera de línea del sistema de control}}{35}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Segmento de prueba representativa exitosa del funcionamiento en línea del sistema de control}}{36}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Segmento de prueba representativa de tarea objetivo}}{36}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Momentos de sujeto realizando tarea funcional.\relax }}{37}{figure.caption.32}%
 \addvspace {10\p@ }
