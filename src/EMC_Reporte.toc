@@ -21,15 +21,15 @@
 \contentsline {section}{\numberline {4.2}Adquisición de datos en Simulink\textregistered }{15}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Evaluación de bloque de adquisición y decodificación}{18}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Protocolo para registro de sEMG}{20}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Procesamiento de sEMG}{21}{section.4.5}%
+\contentsline {section}{\numberline {4.5}Procesamiento de sEMG}{22}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Sistema de control}{24}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Calibración}{25}{subsection.4.6.1}%
 \contentsline {subsubsection}{Calibración de parámetros FES}{25}{section*.18}%
 \contentsline {subsubsection}{Calibración de umbrales RMS de sEMG}{26}{section*.20}%
-\contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{27}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Validación en línea (control por biofeedback)}{30}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Tarea objetivo}{31}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Aplicación sEMG-FES contralateral}{31}{subsection.4.6.5}%
+\contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{29}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Validación en línea (control por biofeedback)}{29}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Tarea funcional síncrona}{31}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Tarea funcional asíncrona}{31}{subsection.4.6.5}%
 \contentsline {chapter}{\numberline {5}Resultados}{33}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Adquisición de datos}{33}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{34}{section.5.2}%

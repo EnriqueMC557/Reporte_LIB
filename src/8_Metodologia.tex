@@ -25,8 +25,8 @@ Para realizar la adquisición de las señales de sEMG se utilizó el sistema Cyt
 
 Para realizar la decodificación del flujo de datos dentro de Simulink\textregistered, se diseñó un subsistema encargado de la solicitud y decodificación de datos, para esto se utilizó el bloque \emph{Query Instrument} del \emph{Instrument Control Toolbox} para realizar la solicitud de datos, los cuales fueron decodificados con bloques de la librería estándar de Simulink\textregistered. La figura \ref{Figura: DecoSimuT} muestra la implementación de este subsistema.
 
-\hfill \break
-
+%\hfill \break
+\vfill
 %Sistema Simulink
 \begin{figure}[htbp]
 	\centering
@@ -45,7 +45,7 @@ Para realizar la decodificación del flujo de datos dentro de Simulink\textregis
 \end{figure}
 
 \newpage
-El funcionamiento del subsistema responsable de la solicitud y decodificación de datos implementado dentro de Simulink\textregistered se encuentra esquematizado en la Figura \ref{Figura: DecoStream}, y lleva a cabo el siguiente algoritmo:
+El funcionamiento del subsistema responsable de la solicitud y decodificación de datos implementado dentro de Simulink\textregistered \; se encuentra esquematizado en la Figura \ref{Figura: DecoStream}, y lleva a cabo el siguiente algoritmo:
 
 \begin{enumerate}
 	\item Se realiza la adquisición de N muestras, lo cual generará un vector columna con dimensión $(27*N)\times 1$ (Figura \ref{Figura: DecoStream} \emph{(a)}), donde 27 corresponde al tamaño en bytes del flujo de datos a recibir y 1 corresponde a 1 columna en la que se recibirán los datos. %$\mathbb{R}^{27*N\times 1}$
@@ -67,11 +67,12 @@ El funcionamiento del subsistema responsable de la solicitud y decodificación d
 	\item Por último, para  obtener unidades de voltaje, se multiplica cada elemento del vector \emph{i} por un factor de escalamiento determinado por la Ecuación \ref{Ecu: ScaleFactor}. Obteniendo como resultado un vector columna con las N muestras adquiridas en unidades de voltaje.
 \end{enumerate}
 
+\vfill
 \begin{equation}
 	Factor\; de\; Escalamiento = V_{ref}/(2^{23}-1)/Ganancia
 	\label{Ecu: ScaleFactor}
 \end{equation}
-
+\vfill
 %Funcionamiento decodificación
 \begin{figure}[htbb]
 \centering
@@ -79,11 +80,11 @@ El funcionamiento del subsistema responsable de la solicitud y decodificación d
 	\caption{Funcionamiento del subsistema decodificador del flujo de datos.}
 	\label{Figura: DecoStream}
 \end{figure}
-
+\vfill
 
 \newpage
 \section{Evaluación de bloque de adquisición y decodificación}\label{Sec: EvalAdquisicion}
-Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink\textregistered para la adquisición y decodificación de datos. En MATLAB\textregistered se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), tres senoidales de 50 Hz moduladas en amplitud con distintas envolventes: 
+Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink\textregistered \; para la adquisición y decodificación de datos. En MATLAB\textregistered \; se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), tres senoidales de 50 Hz moduladas en amplitud con distintas envolventes: 
 una envolvente de una recta con pendiente negativa (Figura \ref{Figura: LinAte}), una envolvente de una exponencial decreciente (Figura \ref{Figura: ExpAte}), y una envolvente que simula la señal sEMG correspondiente a la tarea de incrementar gradualmente una contracción muscular, mantener dicha contracción y relajar el músculo gradualmente (Figura \ref{Figura: Contra}). Todas las señales del banco se diseñaron con una frecuencia de muestreo de 250 Hz y una duración de 5 segundos, excepto la última, que se diseñó con una duración de 15 segundos; adicionalmente, todas las señales se generaron como objetos de audio dentro de MATLAB\textregistered, para poder reproducirlas como audio y a partir de la salida de audio de la computadora poder acceder a ellas.
 
 %Figura de senoidales MATLAB
@@ -122,20 +123,22 @@ El proceso para la evaluación del funcionamiento del subsistema de adquisición
 	\item Se realiza la adquisición de tres repeticiones de cada una de las señales del banco de señales de prueba.
 	\begin{enumerate}
 		\item Se conecta una punta de un jack de audio de 3.5 mm a la salida de audio de la computadora. La otra punta se conectó al dispositivo de adquisición (Cyton Board) de la siguiente forma: el pin \emph{izquierdo} se conectó a un pin diferencial del canal 1, mientras que el pin \emph{tierra} se conectó a la entrada BIAS y al pin diferencial restante del canal 1. La Figura \ref{Figura: JackConexion} ilustra estas conexiones.
-		\item Se realiza la solicitud de datos utilizando el subsistema decodificador implementado en Simulink\textregistered (Figura \ref{Figura: DecoSimuT}), y al mismo tiempo se inicia el conteo de un cronómetro.
+		\item Se realiza la solicitud de datos utilizando el subsistema decodificador implementado en Simulink\textregistered \; (Figura \ref{Figura: DecoSimuT}), y al mismo tiempo se inicia el conteo de un cronómetro.
 		\item Dos segundos después de haber iniciado la solicitud de datos, se procede a reproducir la señal de audio de prueba.
-		\item Tras haber transcurrido 10 s (20 s para la simulación del sEMG de una contracción), se detiene la adquisición del subsistema de Simulink\textregistered y se guardan los datos registrados dentro de un archivo con extensión \emph{.mat}.
+		\item Tras haber transcurrido 10 s (20 s para la simulación del sEMG de una contracción), se detiene la adquisición del subsistema de Simulink\textregistered \; y se guardan los datos registrados dentro de un archivo con extensión \emph{.mat}.
 	\end{enumerate}
 	\item Se cargan, dentro del workspace de MATLAB\textregistered, los datos de las señales adquiridas y los datos de las señales patrón.
 	\item Se procede a alinear de forma manual la señal adquirida con la señal patrón, y posteriormente se calcula el coeficiente de correlación de Pearson (Ecuación \ref{Ecu: CorrePea}. Donde $\sigma_{xy}$ representa la covarianza de $x$,$y$; $\sigma_{x}$ representa la desviación estándar de $x$; y $\sigma_{y}$ representa la desviación estándar de $y$) entre ambas señales.
 	\item Se obtiene la media aritmética de los valores obtenidos al aplicar el coeficiente de correlación de Pearson a cada una de las señales registradas (24 registros en total). El valor obtenido se utiliza como indicador de la calidad del subsistema de adquisición y decodificación de datos.
 \end{enumerate}
 
+\vfill
 %Ecuación correlación Pearson
 \begin{equation}
 	r = \frac{\sigma_{xy}}{\sigma_{x}\sigma_{y}}
 	\label{Ecu: CorrePea}
 \end{equation}
+\vfill
 
 \begin{figure}
 	\centering
@@ -174,6 +177,7 @@ Para garantizar repetibilidad en los registros de sEMG se implementó un protoco
 	\item Se coloca un electrodo de referencia sobre el codo. Dicho electrodo se conecta al pin BIAS del dispositivo de adquisición.
 \end{enumerate}
 
+\vfill
 %Ubicación electrodos
 \begin{figure}[htbp]
 	\centering
@@ -192,10 +196,11 @@ Para garantizar repetibilidad en los registros de sEMG se implementó un protoco
 	\caption[Posicionamiento de electrodos para registro de sEMG]{Posicionamiento de electrodos para realizar registros de sEMG. Adaptado de \cite{Cavalcanti-Garcia2009}.}
 	\label{Figura: E_sEMG}
 \end{figure}
+\vfill
 
-
+\newpage
 \section{Procesamiento de sEMG} \label{Sec: Procesamiento}
-Se diseñaron tres filtros digitales Butterworth orden 2 para realizar el procesamiento de sEMG:
+Se diseñaron tres filtros digitales Butterworth de orden 2 para realizar el procesamiento de sEMG:
 
 \begin{itemize}
 	\item Un filtro pasa altas con frecuencia de corte de 15 Hz, para eliminar las variaciones en la línea base del registro.
@@ -229,7 +234,7 @@ Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB
 	\label{Figura: Freqz_Filtros}
 \end{figure}
 
-Se implementó dentro de Simulink\textregistered un bloque responsable de obtener el valor RMS de ventanas de 100 ms (25 muestras para una frecuencia de muestro de 250 Hz) del registro de sEMG, para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de mediana de 10 muestras (Ecuación \ref{Ecu: Mediana}), el cual tiene como propósito conseguir una señal RMS suavizada.
+Se implementó dentro de Simulink\textregistered \;un bloque responsable de obtener el valor RMS de ventanas de 100 ms (25 muestras para una frecuencia de muestro de 250 Hz) del registro de sEMG, para utilizar dicho descriptor de amplitud como señal de control. Adicionalmente se implementó un filtro de mediana de 10 muestras (Ecuación \ref{Ecu: Mediana}), el cual tiene como propósito conseguir una señal RMS suavizada.
 
 %Ecuación filtro mediana
 \begin{equation}
@@ -252,7 +257,7 @@ A grandes rasgos, el sistema de control implementado para este proyecto consta d
 	\label{Figura: FSM_Control}
 \end{figure}
 
-La máquina de estados necesita principalmente tres parámetros para llevar a cabo la transición de los movimientos: detector de movimiento ($DM$), umbral de pinza gruesa incompleta ($M_{1I}$) y umbral de apertura de mano incompleta ($M_{2I}$), y dentro de los estados pinza gruesa y apertura, la FSM necesita de la ecuación de mapeo proporcional para poder llevar a cabo la modulación de la estimulación eléctrica. La obtención de dichos parámetros se obtiene de un proceso de calibración que se realiza para cada sesión de prueba.
+La máquina de estados necesita principalmente tres parámetros para llevar a cabo la transición entre los movimientos: umbral detector de movimiento ($UDM$), umbral de pinza gruesa incompleta ($M_{1I}$) y umbral de apertura de mano incompleta ($M_{2I}$), y dentro de los estados pinza gruesa y apertura, la FSM necesita de la ecuación de mapeo proporcional para poder llevar a cabo la modulación de la estimulación eléctrica. La obtención de dichos parámetros se obtiene de un proceso de calibración que se realiza para cada sesión de prueba.
 
 Posterior al proceso de calibración se realiza una validación fuera de línea, donde a partir del registro de calibración y los parámetros arrojados por esta se pone a prueba el funcionamiento del sistema. Cuando la validación fuera de línea presenta un porcentaje de acierto igual o mayor al 80$\%$ se procede a configurar el sistema para realizar una prueba en línea y posteriormente realizar la tarea objetivo.
 
@@ -277,7 +282,7 @@ El proceso para la obtención de los umbrales antes mencionados consiste en real
 \subsubsection{Calibración de umbrales RMS de sEMG}
 Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Sec: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones en forma de texto de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG y almacena marcadores asociados a la indicación de movimiento solicitada. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI. Los movimientos mostrados son denominados \emph{descanso} (DD), \emph{apertura incompleta} (AI), \emph{apertura completa} (AC), \emph{pinza gruesa incompleta} (CI) y \emph{pinza gruesa completa} (CC), los cuales se pueden observar en la Figura \ref{Figura: Posturas}.
 
-Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB\textregistered los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa (ambos relacionados al canal 2 de registro y estimulación), pinza gruesa incompleta y completa (ambos relacionados al canal 1 de registro y estimulación), y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_{ij}$ representa el umbral del i-ésimo movimiento registrado en el j-ésimo canal, $RMS_n$ representa al valor RMS obtenido para la n-ésima ventana de registro (100 ms) asociada al movimiento $M_{ij}$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_{ij}$.
+Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB\textregistered \; los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa (ambos relacionados al canal 2 de registro y estimulación), pinza gruesa incompleta y completa (ambos relacionados al canal 1 de registro y estimulación), y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_{ij}$ representa el umbral del i-ésimo movimiento registrado en el j-ésimo canal, $RMS_n$ representa al valor RMS obtenido para la n-ésima ventana de registro (100 ms) asociada al movimiento $M_{ij}$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_{ij}$.
 
 %donde $M_i$ representa a uno de los 5 movimientos antes mencionados, $RMS_n$ representa al valor RMS obtenido para la n-ésima ventana de registro (100 ms) asociada al movimiento $M_i$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_i$.
 
@@ -299,18 +304,21 @@ El UDM, junto a los umbrales de movimiento incompleto, se utilizan para determin
 
 Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordenada al origen (b), donde dichas rectas son utilizadas para llevar a cabo el mapeo proporcional de los movimientos apertura de mano y pinza gruesa. Estos parámetros se obtienen a partir de las Ecuaciones \ref{Ecu: m} y \ref{Ecu: b}, donde $m_{j}$ y $b_{j}$ representan la pendiente y ordenada al origen, respectivamente, de la j-ésima recta correspondiente al j-ésimo canal de estimulación; $U_{Fj}$ y $U_{Mj}$ representan los umbrales funcionales y motores, respectivamente, obtenidos tras la calibración de parámetros FES para el j-ésimo movimiento correspondiente; $M_{Cj}$ y $M_{Ij}$ representan los umbrales de los movimientos completos e incompletos, respectivamente, del j-ésimo canal de registro. Una vez determinados estos parámetros, se tienen todos los elementos necesarios para probar y usar el sistema sEMG-FES.
 
+\vfill
 %Ecuación pendiente
 \begin{equation}
 	m_{j} = \frac{ U_{jF} - U_{jM} }{ M_{Cj} - M_{Ij} }
 	\label{Ecu: m}
 \end{equation}
 
+\vfill
 %Ecuación ordenada
 \begin{equation}
 	b_{j} = U_{jM} - m_{j}*M_{Ij}
 	\label{Ecu: b}
 \end{equation}
 
+\vfill
 %Entrenamiento_sEMG
 \begin{figure}[htb]
 	\centering
@@ -357,14 +365,15 @@ Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordena
 	\label{Figura: Posturas}
 \end{figure}
 
+\newpage
 \subsection{Validación fuera de línea}
 El propósito de esta prueba consiste en obtener un indicador que proporcione información sobre el desempeño del sistema, al configurarlo con los parámetros obtenidos en la calibración, en su función de clasificación de movimientos.
 
-Para obtener dicho indicador, se diseñó un script en MATLAB\textregistered que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado) y por último se aplica el algoritmo de control diseñado (FSM y control proporcional). Una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$ se acepta la calibración como exitosa y se procede a configurar el sistema diseñado en Simulink\textregistered con los parámetros arrojados en la calibración; en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
+Para obtener dicho indicador, se diseñó un script en MATLAB\textregistered \; que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado) y por último se aplica el algoritmo de control diseñado (FSM y control proporcional). Una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$ se acepta la calibración como exitosa y se procede a configurar el sistema diseñado en Simulink\textregistered \; con los parámetros arrojados en la calibración; en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
 
-\newpage
+%\newpage
 \subsection{Validación en línea (control por biofeedback)}
-Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink\textregistered (Figura \ref{Figura: SisComp}) con los valores de los parámetros obtenidos en la calibración. Posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros (para evitar la salida de estimulación real, pues en esta validación no se usa), y por último, se configura el tiempo de termino de la simulación a 60 s.
+Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) con los valores de los parámetros obtenidos en la calibración. Posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros (para evitar la salida de estimulación real, pues en esta validación no se usa), y por último, se configura el tiempo de termino de la simulación a 60 s.
 
 %Sistema completo
 \begin{figure}[htbp]
@@ -374,29 +383,32 @@ Una vez que el sistema se ha validado fuera de línea, se procede a realizar una
 	\label{Figura: SisComp}
 \end{figure}
 
+\newpage
 Posteriormente, se le indica al sujeto la forma en la que se llevará a cabo la prueba y cómo deberá realizarla. Para esto, al sujeto se le mostrará en un scope una señal trapezoidal con ciclos negativos y ciclos positivos (Figura \ref{Figura: Trapezoidal}), el sujeto deberá realizar el seguimiento de dicha trapezoidal considerando que el ciclo positivo indica apertura de mano completa, mientras que el ciclo negativo indica pinza gruesa completa y que una línea en cero indica descanso. El sujeto deberá realizar una transición suave y continua entre los movimientos indicados buscando seguir visualmente las pendientes de la trapezoidal. Una vez dadas las indicaciones se procede a iniciar la prueba, y a la par el experimentador deberá observar en otro scope la salida del bloque de control, donde se observará si la activación de canales de estimulación eléctrica corresponden a los movimientos que realiza el sujeto. La detección de un movimiento de pinza gruesa activa el canal 1 de estimulación, y la detección del movimientos de apertura de mano activa el canal 2 de estimulación.
 % (pinza gruesa activa canal 1 de estimulación, apertura de mano activa canal 2 de estimulación, y descanso no activa algún canal de estimulación).
 
+\vfill
 %Trapezoidal
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Trapezoidal.png}
-	\caption[Señal trapezoidal objetivo]{Segmento de señal trapezoidal objetivo utilizada para la prueba en línea y tarea objetivo. El ciclo positivo indica al sujeto que realice un movimiento de apertura completa (AC), el ciclo negativo indica al sujeto que realice un movimiento de pinza gruesa completa (CC), mientras que el valor en cero indica que realice un descanso (DD).}
+	\caption[Segmento de señal patrón trapezoidal]{Segmento de señal trapezoidal utilizada como guía visual para el sujeto en la prueba en línea. El ciclo positivo indica al sujeto que realice un movimiento de apertura completa (AC), el ciclo negativo indica al sujeto que realice un movimiento de pinza gruesa completa (CC), mientras que el valor en cero indica que realice un descanso (DD).}
 	\label{Figura: Trapezoidal}
 \end{figure}
+\vfill
 
 \newpage
-\subsection{Tarea objetivo}\label{Sec: TareaObj}
-Esta prueba final utiliza los mismos parámetros e indicaciones que en la prueba de validación en línea, sin embargo, para esta prueba se aplica estimulación eléctrica al brazo afectado del sujeto, por lo que el switch \emph{Habilitar estimulación} se encuentra conectado la salida del bloque \emph{Control}, y además, el tiempo de término de la simulación se configura a 180 s.
+\subsection{Tarea funcional síncrona}\label{Sec: TareaObj}
+En esta prueba final se utilizan los mismos parámetros e indicaciones que en la prueba de validación en línea, sin embargo, para esta prueba se aplica estimulación eléctrica al brazo afectado del sujeto, por lo que el switch \emph{Habilitar estimulación} se encuentra conectado la salida del bloque \emph{Control}, y además, el tiempo de término de la simulación se configura a 180 s.
 
-En esta prueba se busca medir el tiempo de retardo que existe entre el inicio del movimiento en la mano sana y el inicio del movimiento en la mano afectada. Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (canales de registros de sEMG, canales de estimulación eléctrica y señal patrón trapezoidal), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB\textregistered donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
+En esta prueba se mide el tiempo de retardo que existe entre el inicio del movimiento en la mano ``sana'' (generado de manera voluntaria) y el inicio del movimiento en la mano afectada. Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (canales de registros de sEMG, canales de estimulación eléctrica y señal patrón trapezoidal), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB\textregistered \; donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
 
-\subsection{Aplicación sEMG-FES contralateral}
+\subsection{Tarea funcional asíncrona}
 Se diseñó una prueba de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto, como puede ser el agarre de un objeto y su traslación. Para ello, configurando el sistema completo de la misma forma en la cual se configuró para la tarea objetivo, cambiando el tiempo de término de la simulación a \emph{inf}, se le proporcionaron al sujeto dos objetos cilíndricos y se le colocó cada uno frente a cada una de sus manos. Se le solicitó que con el miembro sano fuera tomando dicho objeto, mientras que con ayuda de su hombro del miembro afectado fuera acercando su mano al otro objeto para, por efecto de la estimulación eléctrica, lograr tomarlo. Una vez que lograse tomarlo, con la misma ayuda de su hombro tendría que levantar dicho objeto y desplazarlo a un lugar diferente del lugar donde lo tomó y bajar suavemente dicho objeto para finalmente soltarlo. La Figura \ref{Figura: TareaFuncional_P} esquematiza los pasos de los que consta la tarea objetivo.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=1]{TareaFuncional.png}
+	\includegraphics[width=\textwidth]{TareaFuncional.png}
 	\caption[Esquema de tarea funcional con tiempo libre.]{Esquema de tarea funcional con tiempo libre. De izquierda a derecha y de arriba a abajo: Se acerca la mano al objeto y se toma; Con ayuda del hombro del miembro afectado se levanta el objeto; Se traslada el objeto a un lugar diferente al inicial; Con ayuda del hombro del miembro afectado se baja el objeto y se suelta.}
 	\label{Figura: TareaFuncional_P}
 \end{figure}
