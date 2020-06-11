@@ -30,9 +30,9 @@
 \contentsline {subsection}{\numberline {4.6.3}Validación en línea (control por biofeedback)}{29}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}Tarea funcional síncrona}{31}{subsection.4.6.4}%
 \contentsline {subsection}{\numberline {4.6.5}Tarea funcional asíncrona}{31}{subsection.4.6.5}%
-\contentsline {chapter}{\numberline {5}Resultados}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Adquisición de datos}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{34}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Sistema de control}{35}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{38}{chapter.6}%
-\contentsline {chapter}{Referencias}{41}{chapter*.37}%
+\contentsline {chapter}{\numberline {5}Resultados}{34}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Adquisición de datos}{34}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{35}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Sistema de control}{36}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{39}{chapter.6}%
+\contentsline {chapter}{Referencias}{42}{chapter*.38}%

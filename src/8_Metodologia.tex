@@ -361,7 +361,7 @@ Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordena
 		\caption{Descanso.}
 		\label{Figura: DD}
 	\end{subfigure}
-	\caption[Posturas de mano para calibración de umbrales RMS]{Posturas de mano para calibración de umbrales RMS de los 5 movimientos. Se agregó una cuadrícula a la imagen para poder observar las diferencias entre una postura y otra.}
+	\caption[Posturas de mano para calibración de umbrales RMS]{Posturas de mano para calibración de umbrales RMS de los 5 movimientos. Se agregó una cuadrícula a la imagen para poder observar las diferencias entre las diferentes posturas.}
 	\label{Figura: Posturas}
 \end{figure}
 
@@ -379,7 +379,7 @@ Una vez que el sistema se ha validado fuera de línea, se procede a realizar una
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{SistemaCompleto.png}
-	\caption{Sistema completo implementado en Simulink\textregistered.}
+	\caption{Diagrama de bloques del sistema sEMG-FES implementado en Simulink\textregistered.}
 	\label{Figura: SisComp}
 \end{figure}
 
@@ -392,7 +392,7 @@ Posteriormente, se le indica al sujeto la forma en la que se llevará a cabo la 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Trapezoidal.png}
-	\caption[Segmento de señal patrón trapezoidal]{Segmento de señal trapezoidal utilizada como guía visual para el sujeto en la prueba en línea. El ciclo positivo indica al sujeto que realice un movimiento de apertura completa (AC), el ciclo negativo indica al sujeto que realice un movimiento de pinza gruesa completa (CC), mientras que el valor en cero indica que realice un descanso (DD).}
+	\caption[Segmento de señal trapezoidal patrón]{Segmento de señal trapezoidal utilizada como guía visual para el sujeto en la prueba en línea. El ciclo positivo indica al sujeto que realice un movimiento de apertura completa (AC), el ciclo negativo indica al sujeto que realice un movimiento de pinza gruesa completa (CC), mientras que el valor en cero indica que realice un descanso (DD).}
 	\label{Figura: Trapezoidal}
 \end{figure}
 \vfill
@@ -401,11 +401,33 @@ Posteriormente, se le indica al sujeto la forma en la que se llevará a cabo la 
 \subsection{Tarea funcional síncrona}\label{Sec: TareaObj}
 En esta prueba final se utilizan los mismos parámetros e indicaciones que en la prueba de validación en línea, sin embargo, para esta prueba se aplica estimulación eléctrica al brazo afectado del sujeto, por lo que el switch \emph{Habilitar estimulación} se encuentra conectado la salida del bloque \emph{Control}, y además, el tiempo de término de la simulación se configura a 180 s.
 
-En esta prueba se mide el tiempo de retardo que existe entre el inicio del movimiento en la mano ``sana'' (generado de manera voluntaria) y el inicio del movimiento en la mano afectada. Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (canales de registros de sEMG, canales de estimulación eléctrica y señal patrón trapezoidal), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB\textregistered \; donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
+En esta prueba se mide el tiempo de retardo que existe entre el inicio del movimiento en la mano ``sana'' (generado de manera voluntaria) y el inicio del movimiento en la mano afectada (generado por FES). Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (registros de sEMG, patrones de estimulación eléctrica y señal trapezoidal patrón), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB\textregistered \; donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
 
 \subsection{Tarea funcional asíncrona}
-Se diseñó una prueba de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto, como puede ser el agarre de un objeto y su traslación. Para ello, configurando el sistema completo de la misma forma en la cual se configuró para la tarea objetivo, cambiando el tiempo de término de la simulación a \emph{inf}, se le proporcionaron al sujeto dos objetos cilíndricos y se le colocó cada uno frente a cada una de sus manos. Se le solicitó que con el miembro sano fuera tomando dicho objeto, mientras que con ayuda de su hombro del miembro afectado fuera acercando su mano al otro objeto para, por efecto de la estimulación eléctrica, lograr tomarlo. Una vez que lograse tomarlo, con la misma ayuda de su hombro tendría que levantar dicho objeto y desplazarlo a un lugar diferente del lugar donde lo tomó y bajar suavemente dicho objeto para finalmente soltarlo. La Figura \ref{Figura: TareaFuncional_P} esquematiza los pasos de los que consta la tarea objetivo.
+%Se diseñó una tarea de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto, que consistió en el agarre de un objeto, su traslado y liberación. Para ello, configurando el sistema sEMG-FES de la misma forma en la cual se configuró para la tarea funcional síncrona, cambiando en Simulink \textregistered \; el tiempo de término de la simulación a \emph{inf}. Sobre la mesa donde descansan los antebrazos y manos del sujeto, se colocan dos objetos cilíndricos a unos cms de sus manos. Se le solicitó que con el miembro sano fuera tomando dicho objeto, mientras que con ayuda de su hombro del miembro afectado fuera acercando su mano al otro objeto para, por efecto de la estimulación eléctrica, lograr tomarlo. Una vez que lograse tomarlo, con la misma ayuda de su hombro tendría que levantar dicho objeto y desplazarlo a un lugar diferente del lugar donde lo tomó y bajar suavemente dicho objeto para finalmente soltarlo. La Figura \ref{Figura: TareaFuncional_P} esquematiza los pasos de los que consta la tarea funcional asíncrona.
 
+Se diseñó una prueba de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto. Para esta prueba se configuró el sistema sEMG-FES de la misma forma en la cual se configuró dicho sistema para la realización de la tarea funcional síncrona, pero con un cambio en el tiempo de término de la simulación en Simulink \textregistered . Para esta prueba los antebrazos y manos del sujeto descansan sobre una mesa, en la cual se colocan dos objetos cilíndricos a unos centímetros de sus manos (un objeto en cada mano). Una vez configurado el sistema sEMG-FES y colocado el sujeto en la posición adecuada, se procede a llevar a cabo la tarea funcional asíncrona, la cual se describe en el Cuadro \ref{Cuadro:TareaFunAsin}, donde se describe el movimiento voluntario que deberá realizar el sujeto, el canal de sEMG que debería presentar mayor actividad, el canal FES que debería activar dicho movimiento, el movimiento generado por FES que se espera, y la correspondencia de dicho movimiento con su representación gráfica en la Figura \ref{Figura: TareaFuncional_P}.
+
+Cabe mencionar que desde los incisos (c) al (e) del Cuadro \ref{Cuadro:TareaFunAsin} , el sujeto debe mantener sostenido el movimiento voluntario de pinza gruesa en la mano izquierda, y se espera esto genere la estimulación eléctrica necesaria para sostener el objeto con la mano derecha, esto sin realizar algún esfuerzo voluntario en dicha mano.
+
+%Cuadro descriptivo de tarea funcional
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{5cm}|p{1.4cm}|p{1.4cm}|p{3.5cm}|p{1.5cm}|}
+	\hline
+	\textbf{Movimiento voluntario} & \textbf{Canal sEMG activo} & \textbf{Canal FES activo} & \textbf{Movimiento FES} & \textbf{Figura}\\ \hline \hline
+	Abducción del hombro en ambos brazos para acercar mano a objeto cilíndrico cercano. & Nulo. & Nulo. & Ninguno. & Figura \ref{Figura: TareaFuncional_P}(a)\\ \hline
+	Extensión de dedos con mano ``sana'' (izquierda). En ambos brazos se deberá acercar la palma abierta al correspondiente objeto. & 2 & 2 & Apertura de mano ``afectada'' (derecha). & Figura \ref{Figura: TareaFuncional_P}(b)\\ \hline
+	Flexión de dedos con mano "sana" (izquierda) para lograr tomar el objeto. & 1 & 1 & Pinza gruesa en mano ``afectada'' (derecha) para tomar objeto. & Figura \ref{Figura: TareaFuncional_P}(c)\\ \hline
+	Abducción y extensión de ambos hombros para levantar objetos 10 cm de la mesa y trasladarlos lateralmente 10 cm de su posición original. & 1 & 1 & Pinza gruesa en mano ``afectada'' (derecha) & Figura \ref{Figura: TareaFuncional_P}(d)\\ \hline
+	Flexión de ambos hombros para bajar objetos a la altura de la mensa. & 1 & 1 & Pinza gruesa en mano ``afectada'' (derecha) & Figura \ref{Figura: TareaFuncional_P}(e)\\ \hline
+	Extensión de dedos con mano ``sana'' (izquierda) para soltar objeto sobre la mesa. & 2 & 2 & Apertura de mano ``afectada'' (derecha) para soltar objeto sobre la mesa. & Figura \ref{Figura: TareaFuncional_P}(f)\\ \hline
+	\end{tabular}
+	\caption{Descripción detallada de tarea funcional asíncrona.}
+	\label{Cuadro:TareaFunAsin}
+\end{table}
+
+%Figura tarea funcional (manitas)
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{TareaFuncional.png}
