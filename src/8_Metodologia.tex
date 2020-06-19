@@ -84,7 +84,7 @@ El funcionamiento del subsistema responsable de la solicitud y decodificación d
 
 \newpage
 \section{Evaluación de bloque de adquisición y decodificación}\label{Sec: EvalAdquisicion}
-Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink\textregistered \; para la adquisición y decodificación de datos. En MATLAB\textregistered \; se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz y 50 Hz (Figura \ref{Figura: SenPur}), tres senoidales de 50 Hz moduladas en amplitud con distintas envolventes: 
+Se llevó a cabo un procedimiento para evaluar el desempeño del subsistema diseñado en Simulink\textregistered \; para la adquisición y decodificación de datos. En MATLAB\textregistered \; se generó un banco de señales senoidales conformado por 5 senoidales puras de 1 Hz, 5 Hz, 10 Hz, 20 Hz, 50 Hz y 100 Hz (Figura \ref{Figura: SenPur}), tres senoidales de 50 Hz moduladas en amplitud con distintas envolventes: 
 una envolvente de una recta con pendiente negativa (Figura \ref{Figura: LinAte}), una envolvente de una exponencial decreciente (Figura \ref{Figura: ExpAte}), y una envolvente que simula la señal sEMG correspondiente a la tarea de incrementar gradualmente una contracción muscular, mantener dicha contracción y relajar el músculo gradualmente (Figura \ref{Figura: Contra}). Todas las señales del banco se diseñaron con una frecuencia de muestreo de 250 Hz y una duración de 5 segundos, excepto la última, que se diseñó con una duración de 15 segundos; adicionalmente, todas las señales se generaron como objetos de audio dentro de MATLAB\textregistered, para poder reproducirlas como audio y a partir de la salida de audio de la computadora poder acceder a ellas.
 
 %Figura de senoidales MATLAB
@@ -92,28 +92,28 @@ una envolvente de una recta con pendiente negativa (Figura \ref{Figura: LinAte})
 	\centering
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Sen_Pur.png}
-		\caption{Senoidales puras a diferentes frecuencias.}
+		\caption{}
 		\label{Figura: SenPur}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Lin_Ate.png}
-		\caption{Senoidal de 50 Hz con atenuación lineal.}
+		\caption{}
 		\label{Figura: LinAte}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Exp_Ate.png}
-		\caption{Senoidal de 50 Hz con atenuación exponencial.}
+		\caption{}
 		\label{Figura: ExpAte}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Contra.png}
-		\caption{Senoidal de 50 Hz simulando el sEMG de una contracción muscular.}
+		\caption{}
 		\label{Figura: Contra}
 	\end{subfigure}	
-	\caption{Banco de señales para evaluación de adquisición.}
+	\caption[Banco de señales para evaluación de adquisición]{Banco de señales para evaluación de adquisición. (a) Senoidales puras a diferentes frecuencias. (b) Senoidal de 50 Hz con atenuación lineal. (c) Senoidal de 50 Hz con atenuación exponencial. (d) Senoidal de 50 Hz simulando el sEMG de una contracción muscular.}
 	\label{Figura: SenalesEva}
 \end{figure}
 
@@ -183,17 +183,17 @@ Para garantizar repetibilidad en los registros de sEMG se implementó un protoco
 	\centering
 	\begin{subfigure}[htbp]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{E_Cie.png}
-		\caption{Ubicación de electrodos para flexor digitorum.}
+		\caption{}
 		\label{Figura: E_Cie}
 	\end{subfigure}
 %	\hfill
 	\hspace{3cm}
 	\begin{subfigure}[htbp]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{E_Ape.png}
-		\caption{Ubicación de electrodos para extensor digitorum.}
+		\caption{}
 		\label{Figura: E_Ape}
 	\end{subfigure}
-	\caption[Posicionamiento de electrodos para registro de sEMG]{Posicionamiento de electrodos para realizar registros de sEMG. Adaptado de \cite{Cavalcanti-Garcia2009}.}
+	\caption[Posicionamiento de electrodos para registro de sEMG]{Posicionamiento de electrodos para registro de sEMG. Adaptado de \cite{Cavalcanti-Garcia2009}. (a) Ubicación de electrodos para flexor digitorum. (b) Ubicación de electrodos para extensor digitorum.}
 	\label{Figura: E_sEMG}
 \end{figure}
 \vfill
@@ -215,22 +215,22 @@ Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB
 	\centering
 	\begin{subfigure}[htbp]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{FiltroPA15Hz_PADQ.png}
-		\caption{Filtro pasa altas.}
+		\caption{}
 		\label{Figura: FiltroPA}
 	\end{subfigure}
 	
 	\begin{subfigure}[htnp]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{FiltroPB100Hz_PADQ.png}
-		\caption{Filtro pasa bajas.} 
+		\caption{}
 		\label{Figura: FiltroPB}
 	\end{subfigure}
 	
 	\begin{subfigure}[htbp]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{FiltroRB_58_62_PADQ.png}
-		\caption{Filtro rechaza banda.}
+		\caption{}
 		\label{Figura: FiltroRB}
 	\end{subfigure}
-	\caption{Respuesta en frecuencia del banco de filtros diseñado.}
+	\caption[Respuesta en frecuencia del banco de filtros diseñado]{Respuesta en frecuencia del banco de filtros diseñado. (a) Filtro pasa altas. (b) Filtro pasa bajas. (c) Filtro rechaza banda.}
 	\label{Figura: Freqz_Filtros}
 \end{figure}
 
@@ -332,36 +332,36 @@ Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordena
 	\centering
 	\begin{subfigure}[htbp]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{AI_g.png}
-		\caption{Apertura incompleta.}
+		\caption{}
 		\label{Figura: AI}
 	\end{subfigure}
 %	\hfill
 	\begin{subfigure}[htbp]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{AC_g.png}
-		\caption{Apertura completa.}
+		\caption{}
 		\label{Figura: AC}
 	\end{subfigure}
 %	\hfill
 	\newline
 	\begin{subfigure}[htbp]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{CI_g.png}
-		\caption{Pinza gruesa incompleta.}
+		\caption{}
 		\label{Figura: CI}
 	\end{subfigure}
 %	\hfill
 	\begin{subfigure}[htbp]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{CC_g.png}
-		\caption{Pinza gruesa completa.}
+		\caption{}
 		\label{Figura: CC}
 	\end{subfigure}
 %	\hfill
 	\newline
 	\begin{subfigure}[htbp]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{DD_g.png}
-		\caption{Descanso.}
+		\caption{}
 		\label{Figura: DD}
 	\end{subfigure}
-	\caption[Posturas de mano para calibración de umbrales RMS]{Posturas de mano para calibración de umbrales RMS de los 5 movimientos. Se agregó una cuadrícula a la imagen para poder observar las diferencias entre las diferentes posturas.}
+	\caption[Posturas de mano para calibración de umbrales RMS]{Posturas de mano para calibración de umbrales RMS de los 5 movimientos. Se agregó una cuadrícula a la imagen para poder observar las diferencias entre las posturas. (a) Apertura incompleta (AI). (b) Apertura completa (AC). (c) Pinza gruesa incompleta (CI). (d) Pinza gruesa completa (CC). (e) Descanso (DD).}
 	\label{Figura: Posturas}
 \end{figure}
 
@@ -369,11 +369,45 @@ Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordena
 \subsection{Validación fuera de línea}
 El propósito de esta prueba consiste en obtener un indicador que proporcione información sobre el desempeño del sistema, al configurarlo con los parámetros obtenidos en la calibración, en su función de clasificación de movimientos.
 
-Para obtener dicho indicador, se diseñó un script en MATLAB\textregistered \; que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado) y por último se aplica el algoritmo de control diseñado (FSM y control proporcional). Una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$ se acepta la calibración como exitosa y se procede a configurar el sistema diseñado en Simulink\textregistered \; con los parámetros arrojados en la calibración; en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
+%Para obtener dicho indicador, se diseñó un script en MATLAB\textregistered \; que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado) y por último se aplica el algoritmo de control diseñado (FSM y control proporcional). Una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$ se acepta la calibración como exitosa y se procede a configurar el sistema diseñado en Simulink\textregistered \; con los parámetros arrojados en la calibración; en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
+
+Para obtener dicho indicador se diseñó un script en MATLAB \textregistered \; el cual lleva a cabo el siguiente funcionamiento:
+
+\begin{enumerate}
+	\item Lectura de registro crudo de sEMG obtenido en etapa de calibración.
+	\item Aplicación de etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado).
+	\item Aplicación de algoritmo de control diseñado (FSM y control proporcional).
+	\item Realizar conteo de aciertos y errores en la clasificación de movimientos.
+	\item Mostrar valor de aciertos y errores en términos de porcentaje.
+\end{enumerate}
+
+Una vez obtenido el porcentaje de aciertos y errores, se toma la decisión de aceptar o rechazar los parámetros obtenidos de la calibración. En caso de obtener un porcentaje mayor o igual al 80\% se aceptan los parámetros y se procede a configurar el sistema sEMG-FES diseñado en Simulink \textregistered \; con dichos parámetros. En caso contrario, se revisa la posibilidad de errores en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
+
+Cabe mencionar que los registros de calibración se conforman de dos repeticiones de la siguiente secuencia de movimientos:
+
+\begin{enumerate}
+	\item Descanso (DD): 9 segundos
+	\item Cierre incompleto (CI): 3 segundos
+	\item Cierre completo (CC): 6 segundos
+	\item Cierre incompleto (CI): 3 segundos
+	\item Descanso (DD): 9 segundos
+	\item Apertura incompleta (AI): 3 segundos
+	\item Apertura completa (AC): 6 segundos
+	\item Apertura incompleta (AI): 3 segundos
+\end{enumerate}
+
 
 %\newpage
 \subsection{Validación en línea (control por biofeedback)}
-Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) con los valores de los parámetros obtenidos en la calibración. Posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros (para evitar la salida de estimulación real, pues en esta validación no se usa), y por último, se configura el tiempo de termino de la simulación a 60 s.
+%Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) con los valores de los parámetros obtenidos en la calibración. Posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros (para evitar la salida de estimulación real, pues en esta validación no se usa), y por último, se configura el tiempo de termino de la simulación a 60 s.
+
+Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para llevar a cabo esto se utiliza el sistema sEMG-FES implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) configurándolo de la siguiente manera:
+
+\begin{enumerate}
+	\item Se configura el bloque \emph{Control} con los valores de los parámetros obtenidos en la calibración.
+	\item Se conecta el switch \emph{Habilitar estimulación} a \emph{Ceros} para evitar la salida de estimulación eléctrica real, pues en esta validación no se usa.
+	\item Se configura el tiempo de término de la simulación con un valor de 60 s.
+\end{enumerate}
 
 %Sistema completo
 \begin{figure}[htbp]
@@ -403,7 +437,7 @@ En esta prueba final se utilizan los mismos parámetros e indicaciones que en la
 
 En esta prueba se mide el tiempo de retardo que existe entre el inicio del movimiento en la mano ``sana'' (generado de manera voluntaria) y el inicio del movimiento en la mano afectada (generado por FES). Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (registros de sEMG, patrones de estimulación eléctrica y señal trapezoidal patrón), y posterior a la finalización de la prueba se realiza un análisis manual en MATLAB\textregistered \; donde se determina el tiempo de retardo existente para cada movimiento, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
 
-\subsection{Tarea funcional asíncrona}
+\subsection{Tarea funcional asíncrona}\label{Sec: TareaFunAsin}
 %Se diseñó una tarea de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto, que consistió en el agarre de un objeto, su traslado y liberación. Para ello, configurando el sistema sEMG-FES de la misma forma en la cual se configuró para la tarea funcional síncrona, cambiando en Simulink \textregistered \; el tiempo de término de la simulación a \emph{inf}. Sobre la mesa donde descansan los antebrazos y manos del sujeto, se colocan dos objetos cilíndricos a unos cms de sus manos. Se le solicitó que con el miembro sano fuera tomando dicho objeto, mientras que con ayuda de su hombro del miembro afectado fuera acercando su mano al otro objeto para, por efecto de la estimulación eléctrica, lograr tomarlo. Una vez que lograse tomarlo, con la misma ayuda de su hombro tendría que levantar dicho objeto y desplazarlo a un lugar diferente del lugar donde lo tomó y bajar suavemente dicho objeto para finalmente soltarlo. La Figura \ref{Figura: TareaFuncional_P} esquematiza los pasos de los que consta la tarea funcional asíncrona.
 
 Se diseñó una prueba de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto. Para esta prueba se configuró el sistema sEMG-FES de la misma forma en la cual se configuró dicho sistema para la realización de la tarea funcional síncrona, pero con un cambio en el tiempo de término de la simulación en Simulink \textregistered . Para esta prueba los antebrazos y manos del sujeto descansan sobre una mesa, en la cual se colocan dos objetos cilíndricos a unos centímetros de sus manos (un objeto en cada mano). Una vez configurado el sistema sEMG-FES y colocado el sujeto en la posición adecuada, se procede a llevar a cabo la tarea funcional asíncrona, la cual se describe en el Cuadro \ref{Cuadro:TareaFunAsin}, donde se describe el movimiento voluntario que deberá realizar el sujeto, el canal de sEMG que debería presentar mayor actividad, el canal FES que debería activar dicho movimiento, el movimiento generado por FES que se espera, y la correspondencia de dicho movimiento con su representación gráfica en la Figura \ref{Figura: TareaFuncional_P}.
@@ -431,7 +465,7 @@ Cabe mencionar que desde los incisos (c) al (e) del Cuadro \ref{Cuadro:TareaFunA
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{TareaFuncional.png}
-	\caption[Esquema de tarea funcional con tiempo libre.]{Esquema de tarea funcional con tiempo libre. De izquierda a derecha y de arriba a abajo: Se acerca la mano al objeto y se toma; Con ayuda del hombro del miembro afectado se levanta el objeto; Se traslada el objeto a un lugar diferente al inicial; Con ayuda del hombro del miembro afectado se baja el objeto y se suelta.}
+	\caption[Esquema de tarea funcional con tiempo libre.]{Esquema de tarea funcional con tiempo libre. Las flechas indican el movimiento que de se deberá realizar con ayuda de los hombros: Flecha azul (eje Y) representa movimientos horizontales; Flecha roja (eje X) representa movimientos verticales; Flecha verde (eje Z) representa movimientos hacia arriba y abajo. Cada inciso corresponde a un movimiento descrito en el Cuadro \ref{Cuadro:TareaFunAsin}.}
 	\label{Figura: TareaFuncional_P}
 \end{figure}
 

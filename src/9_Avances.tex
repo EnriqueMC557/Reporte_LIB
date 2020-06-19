@@ -1,8 +1,28 @@
 %%RESULTADOS
 
-\section{Adquisición de datos}
-Tras realizar la evaluación del subsistema de adquisición descrito en la sección \ref{Sec: Adquisicion} utilizando el procedimiento detallado en la sección \ref{Sec: EvalAdquisicion}, se obtuvo un valor de correlación promedio de 0.915 $\pm$ 0.0604, el cual se obtuvo de un total de 40 registros realizados (3 repeticiones de cada una de las señales que conforman el banco de señales para evaluación de la adquisición). En la Figura \ref{Figura: ValProCum} se puede observar una comparación entre la señal patrón y la señal adquirida con el subsistema diseñado en Simulink\textregistered.
+\section{Evaluación de bloque de adquisición y decodificación}
+Tras realizar la evaluación del subsistema de adquisición descrito en la sección \ref{Sec: Adquisicion} utilizando el procedimiento detallado en la sección \ref{Sec: EvalAdquisicion}, se obtuvo un valor de correlación promedio de 0.9615 $\pm$ 0.0604, el cual se obtuvo de un total de 27 registros realizados (3 repeticiones de cada una de las señales que conforman el banco de señales para evaluación de la adquisición). En la Figura \ref{Figura: ValProCum} se puede observar una comparación entre la señal patrón de 5 Hz y la señal adquirida con el subsistema diseñado en Simulink\textregistered. El Cuadro \ref{Cuadro:ValoresCorre} muestra el valor de correlación promedio obtenido para cada señal y la correlación total.
 
+%Cuadro valores correlación
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{6cm}|l|}
+	\hline
+	\textbf{Señal} & \textbf{Correlación promedio}\\ \hline	\hline
+	1 Hz & 0.9889\\ \hline
+	5 Hz & 0.9428\\ \hline
+	10 Hz & 0.9948\\ \hline
+	20 Hz & 0.9933\\ \hline
+	50 Hz & 0.9804\\ \hline
+	100 Hz & 0.9334\\ \hline
+	Atenuación lineal & 0.9466\\ \hline
+	Atenuación exponencial & 0.8849\\ \hline
+	Simulación contracción muscular & 0.9886\\ \hline
+	\textbf{Correlación promedio total} & 0.9615\\ \hline
+	\end{tabular}
+	\caption{Valores de correlación promedio por señal y correlación promedio total.}
+	\label{Cuadro:ValoresCorre}
+\end{table}
 
 %Tras adquirir las señales patrón para la evaluación del bloque de adquisición descritas en la metodología, se calculó la métrica de correlación entre las señales adquiridas y las patrón, buscando traslapar una sobre otra como se muestra en la Figura \ref{Figura: ValProCum}. Al tener el valor de correlación para cada registro se obtuvo como resultado una correlación promedio de 0.9615 $\pm$ 0.0604, valor que sirve como indicador de la calidad del bloque diseñado para la adquisición y decodificación de datos.
 
@@ -14,20 +34,28 @@ Tras realizar la evaluación del subsistema de adquisición descrito en la secci
 	\label{Figura: ValProCum}
 \end{figure}
 
-
+\newpage
 \section{Procesamiento de sEMG}
-El esquema de filtrado utilizado (filtro pasa altas, filtro pasa bajas y filtro rechaza banda), al igual que el procesamiento para obtención del RMS suavizado, se pusieron a prueba fuera de línea con 10 sujetos (6 hombres y 4 mujeres) sanos de edades entre 20 y 24 años.
+El esquema de filtrado utilizado (filtro pasa altas, filtro pasa bajas y filtro rechaza banda), al igual que el procesamiento para obtención del RMS suavizado, se pusieron a prueba fuera de línea con registros de 10 voluntarios sanos (6 hombres y 4 mujeres en el rango de 20 a 24 años de edad).
 
-La Figura \ref{Figura: Filtrado} muestra una comparación entre los canales de sEMG adquiridos para las pruebas de procesamiento y el resultado de su filtrado fuera de línea.
-
-En la Figura \ref{Figura: RMS} se muestra un ejemplo del resultado del procesamiento para obtención de RMS suavizado.
+La Figura \ref{Figura: Filtrado} muestra una comparación entre los canales de sEMG adquiridos para las pruebas de procesamiento y el resultado del filtrado fuera de línea. En la Figura \ref{Figura: RMS} se muestra un ejemplo del resultado del procesamiento para obtención de la envolvente RMS suavizada.
 
 %Utilizando los registros de calibración se probaron los filtros diseñados, obteniendo como resultado notorio la estabilización de la línea base de cada registro. En la Figura \ref{Figura: Filtrado} se muestra una comparación entre los registros crudos y filtrados de ambos canales adquiridos durante el entrenamiento.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Filtrado.png}
-	\caption{Ejemplo representativo del funcionamiento del esquema de filtrado diseñado.}
+	\begin{subfigure}[htbp]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Filtrado_a.png}
+		\caption{}
+		\label{Figura: Filtrado_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[htbp]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Filtrado_b.png}
+		\caption{}
+		\label{Figura: Filtrado_b}
+	\end{subfigure}	
+	\caption[Ejemplo representativo del funcionamiento del esquema de filtrado diseñado]{Ejemplo representativo del funcionamiento del esquema de filtrado diseñado.(a)Arriba, registro de sEMG del canal 1 sin filtrar.(a)Abajo, registro de sEMG del canal 1 después del filtrado.(b)Arriba, registro de sEMG del canal 2 sin filtrar.(b)Abajo, registro de sEMG del canal 2 después del filtrado.}
 	\label{Figura: Filtrado}
 \end{figure}
 
@@ -36,50 +64,82 @@ En la Figura \ref{Figura: RMS} se muestra un ejemplo del resultado del procesami
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{RMS.png}
-	\caption[Ejemplo representativo de la obtención de envolvente de RMS]{Ejemplo representativo de la obtención de envolvente de RMS. En azul, los registros de sEMG. En rojo, las envolventes de RMS.}
+	\caption[Ejemplo representativo de la obtención de envolvente de RMS]{Ejemplo representativo de la obtención de envolvente de RMS. En azul, los registros de sEMG después del filtrado. En rojo, las envolventes de RMS. Arriba, señal sEMG y envolvente del canal 1, correspondiente al movimiento de pinza gruesa. Abajo, señal sEMG y envolvente del canal 2, correspondiente al movimiento de apertura de mano.}
 	\label{Figura: RMS}
 \end{figure}
 
 
+\newpage
 \section{Sistema de control}
-El sistema completo se puso a prueba con un sujeto varón sano de 22 años de edad, en el cual presentaron resultados satisfactorios. Relacionado a la validación fuera de línea, el algoritmo para la clasificación de los movimientos obtuvo un porcentaje de acierto del 81$\%$. La Figura \ref{Figura: MapOff} muestra el resultado de la prueba para la validación fuera de línea. Respecto a la prueba de validación en línea, en esta demostró una respuesta del sistema de acuerdo a lo esperado. La Figura \ref{Figura: MapOn} presenta un segmento de las señales obtenidas tras la realización de la prueba en línea. En relación a la tarea objetivo, el sistema logró llevar a cabo la modulación de la estimulación eléctrica de forma satisfactoria, con un notable retardo del sistema, el cual al medirlo como se describe en la sección \ref{Sec: TareaObj}, se obtuvo un valor de retardo de 2.3 $\pm$ 0.3553 s. La Figura \ref{Figura: Retardo} muestra un acercamiento a las señales obtenidas al termino de la tarea objetivo, donde es notorio el retardo entre la generación de la señal patrón y el inicio de la modulación de estimulación eléctrica.
+El sistema de control sEMG-FES se puso a prueba con un voluntario sano de 22 años de edad, obteniendo los siguientes resultados.
 
-Respecto a la aplicación sEMG-FES contralateral, esta se logró llevar a cabo sin complicaciones en el sujeto de prueba antes mencionado, el cual pudo realizar por completo la tarea. Las Figuras \ref{Figura: Fun_A_1} a \ref{Figura: Fun_A_2} muestran momentos en los que el sujeto llevó a cabo la tarea funcional.
-%Previo a realizar pruebas del esquema de control en línea, este se probó fuera de línea, aprovechando los registros de calibración. Para estas pruebas se diseñó un script en MATLAB que obtiene los parámetros necesarios del esquema de control de la misma forma que los arroja la calibración. Una vez obtenidos dichos parámetros se configura con ellos al esquema de control y se realiza una prueba fuera de línea donde con cada ventana de sEMG se obtiene un valor de RMS el cuál es sometido al esquema de control y arroja un valor de amplitud para el canal asociado al movimiento detectado. Tras probar el esquema de control con tres registros distintos de calibración se obtuvo un porcentaje de acierto del 81$\%$ en la identificación correcta de los movimientos de cierre, apertura y descanso de mano.
+\subsection{Calibración}
 
-%En la Figura \ref{Figura: MapOff} se muestra el resultado de  una prueba exitosa del esquema de control fuera de línea, donde se observa que el esquema de control diseñado suele presentar errores en la identificación de los segmentos iniciales y finales de la tarea apertura de mano.
+\subsection{Validación fuera de línea}
+El algoritmo de clasificación de movimientos obtuvo una exactitud del 81\%. La Figura \ref{Figura: MapOff} muestra el resultado de la prueba para la validación fuera de línea, donde se pueden observar los siguientes resultados de clasificación:
 
+\begin{itemize}
+	\item Durante los episodios del movimiento de cierre de mano (9-21 y 51-63 s):
+	
+	\begin{itemize}
+		\item Se puede observar una clasificación correcta cuando la señal \emph{Acción} toma como valores a \emph{CI} y \emph{CC} y la señal \emph{Amplitud FES$_{C1}$} toma valores distintos de cero mientras que la señal \emph{Amplitud FES$_{C2}$} toma valor de cero.
+		\item Dentro de los episodios de este movimiento se pueden observar errores de clasificación en los segundos 18-21 y alrededor de los 59 segundos, donde se observa que la señal \emph{Amplitud FES$_{C2}$} toma valores distintos de cero.
+	\end{itemize}
+	
+	\item Durante los episodios del movimiento de apertura de mano (30-42 y 72-84 s):
+	
+	\begin{itemize}
+		\item Se puede observar una clasificación correcta cuando la señal \emph{Acción} toma como valores a \emph{AI} y \emph{AC} y la señal \emph{Amplitud FES$_{C2}$} toma valores distintos de cero mientras que la señal \emph{Amplitud FES$_{C1}$} toma valor de cero.
+		\item Dentro de los episodios de este movimiento se pueden observar errores de clasificación en los segundos 30-33, 40-42 y 72-75, donde se observa que la señal \emph{Amplitud FES$_{C1}$} toma valores distintos de cero.
+	\end{itemize}
+		
+	\item Durante los episodios de descanso (0-9, 21-30, 42-51, 63-72 y 84-87 s):
+	\begin{itemize}
+		\item Se puede observar una clasificación correcta cuando la señal \emph{Acción} toma como valor a \emph{DD} y las señales \emph{Amplitud FES$_{C1}$} y \emph{Amplitud FES$_{C2}$} toman valor de cero.
+		\item Dentro de los episodios de este movimiento se pueden observar errores alrededor de los segundos 42 y 63, donde la señal \emph{Amplitud FES$_{C1}$} se activa brevemente cuando no tendría que haberse activado.
+	\end{itemize}
+\end{itemize}
+
+%Figura validación fuera de línea
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{MapOff.png}
-	\caption[Ejemplo representativo exitoso del funcionamiento fuera de línea del sistema de control]{Ejemplo representativo exitoso del funcionamiento fuera de línea del sistema de control. Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Centro: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). Abajo: Marcadores de acción solicitada al sujeto (descanso (DD), pinza gruesa incompleta (CI), pinza gruesa completa (CC), apertura incompleta (AL), apertura completa (AC)).}
+	\caption[Secuencia temporal de una prueba exitosa de validación fuera de línea]{Secuencia temporal de una prueba exitosa de validación fura de línea del sistema de control sEMG-FES. Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Centro: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). Abajo: Marcadores de acción solicitada al sujeto (descanso (DD), pinza gruesa incompleta (CI), pinza gruesa completa (CC), apertura incompleta (AL), apertura completa (AC)).}
 	\label{Figura: MapOff}
 \end{figure}
 
-%\newpage
-%Para la prueba en línea se configuró el modelo de Simulink con los datos obtenidos tras la calibración, y se solicitó al sujeto realizar el seguimiento de un par de señales trapezoidales que le indicarían el tipo de movimiento que tendría que lograr. Cuando la trapezoidal estuviera en cero, tendría que mantenerse en descanso; en la pendiente positiva de la trapezoidal tendría que realizar una transición de descanso hacia el movimiento completo solicitado; en la meseta de la trapezoidal tendría que mantener el movimiento completo solicitado; y en la pendiente negativa de la trapezoidal tendría que realizar una transición del movimiento completo solicitado hacia descanso.
 
-%En la Figura \ref{Figura: MapOn} se muestra un segmento de una de las pruebas exitosas realizadas en línea. En dicha figura se puede observar que existe un retardo entre la trapezoidal y la respuesta del sistema de control, el cual es la suma del retardo que genera el procesamiento de la señal, el retardo ocasionado por el esquema de control, y el tiempo de respuesta del sujeto a la indicación de la trapezoidal.
+\newpage
+\subsection{Validación en línea (control por biofeedback)}
+Respecto a la prueba de validación en línea, en esta demostró una respuesta del sistema de acuerdo a lo esperado. La Figura \ref{Figura: MapOn} presenta un segmento de las señales obtenidas tras la realización de la prueba en línea.
 
+%Figura prueba en línea (sin estimulación)
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{MapOn.png}
-	\caption[Segmento de prueba representativa exitosa del funcionamiento en línea del sistema de control]{Segmento de prueba representativa exitosa del funcionamiento en línea del sistema de control.  Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Centro: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). Abajo: Señal trapezoidal patrón indicadora de tarea a seguir (descanso (DD), pinza gruesa (CC), apertura completa (AC)).}
+	\caption[Secuencia temporal de una prueba exitosa de validación en línea]{Secuencia temporal de una prueba exitosa de validación en línea del sistema de control sEMG-FES.  Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Centro: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). Abajo: Señal trapezoidal patrón indicadora del movimiento objetivo (descanso (DD), pinza gruesa (CC), apertura completa (AC)).}
 	\label{Figura: MapOn}
 \end{figure}
 
-%Para obtener el valor del retardo total se midió el tiempo existente entre el inicio de la pendiente positiva de la señal indicadora (trapezoidal) y la activación de la estimulación eléctrica. Al promediar los tiempos obtenidos a lo largo de las pruebas realizadas en línea se obtuvo un valor de 2.3 $\pm$ 0.3553 s.
 
-%En la Figura \ref{Figura: Retardo} se muestra un acercamiento a las señales obtenidas en una prueba representativa de las pruebas realizadas en línea. Se muestran una sobre otra para visualizar el retardo existente entre el inicio de la señal indicadora y la activación de la estimulación eléctrica.
+\newpage
+\subsection{Tarea funcional síncrona}
+En relación a la tarea funcional síncrona, el sistema logró llevar a cabo la modulación de la estimulación eléctrica de forma satisfactoria, obteniendo un retardo promedio del sistema con valor de de 2.3 $\pm$ 0.3553 s, medido de la forma descrita en la sección \ref{Sec: TareaObj}. La Figura \ref{Figura: Retardo} muestra un acercamiento a las señales obtenidas al termino de la prueba de la tarea funcional síncrona, donde es notable el retardo entre la señal patrón y la señal de amplitud de estimulación eléctrica.
 
+%Figura medición de retardo
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{Retardo.png}
-	\caption[Segmento de prueba representativa de tarea objetivo]{Segmento de prueba representativa de tarea objetivo. Se muestran las diferentes señales asociadas a cada movimiento una sobre otra para visualizar el retardo existente. Arriba: Señales para movimiento pinza gruesa completa. Abajo: Señales para movimiento apertura completa. En azul se muestra la señal trapezoidal patrón del movimiento a seguir. En rojo se muestra la envolvente de sEMG. En amarillo se muestra la amplitud de estimulación eléctrica (salida del sistema control).}
+	\caption[Secuencia temporal de una prueba exitosa de la tarea funcional síncrona]{Secuencia temporal de una prueba exitosa de la tarea funcional síncrona. Se muestran las diferentes señales asociadas a cada movimiento sobre la misma base de tiempo para visualizar el retardo existente entre la señal trapezoidal patrón y la señal de amplitud de estimulación eléctrica. Arriba: Señales para movimiento pinza gruesa completa (CC). Abajo: Señales para movimiento apertura completa (AC). En azul se muestra la señal trapezoidal patrón del movimiento objetivo. En rojo se muestra la envolvente de sEMG. En amarillo se muestra la amplitud de estimulación eléctrica (salida del sistema control).}
 	\label{Figura: Retardo}
 \end{figure}
 
-%Posturas manos
+
+\newpage
+\subsection{Tarea funcional asíncrona}
+Respecto a la tarea funcional asíncrona, esta logró ser realizada por el sujeto de prueba, logrando realizar las 6 acciones de la que consta dicha tarea. La Figura \ref{Figura: TareaFuncional} muestra las diferentes fases de movimiento durante la ejecución de la tarea funcional asíncrona por parte del sujeto. Se puede apreciar que los movimientos corresponden a los descritos en la sección \ref{Sec: TareaFunAsin}.
+
+%Figura levantar objetos
 \begin{figure}[htbp]
 	\centering
 	\begin{subfigure}[htbp]{0.45\textwidth}
@@ -106,6 +166,25 @@ Respecto a la aplicación sEMG-FES contralateral, esta se logró llevar a cabo s
 		\caption{Apertura de mano para soltar objeto posterior a su traslado.}
 		\label{Figura: Fun_A_2}
 	\end{subfigure}
-	\caption{Momentos de sujeto realizando tarea funcional.}
+	\caption{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea).}
 	\label{Figura: TareaFuncional}
 \end{figure}
+%Previo a realizar pruebas del esquema de control en línea, este se probó fuera de línea, aprovechando los registros de calibración. Para estas pruebas se diseñó un script en MATLAB que obtiene los parámetros necesarios del esquema de control de la misma forma que los arroja la calibración. Una vez obtenidos dichos parámetros se configura con ellos al esquema de control y se realiza una prueba fuera de línea donde con cada ventana de sEMG se obtiene un valor de RMS el cuál es sometido al esquema de control y arroja un valor de amplitud para el canal asociado al movimiento detectado. Tras probar el esquema de control con tres registros distintos de calibración se obtuvo un porcentaje de acierto del 81$\%$ en la identificación correcta de los movimientos de cierre, apertura y descanso de mano.
+
+%En la Figura \ref{Figura: MapOff} se muestra el resultado de  una prueba exitosa del esquema de control fuera de línea, donde se observa que el esquema de control diseñado suele presentar errores en la identificación de los segmentos iniciales y finales de la tarea apertura de mano.
+
+
+
+%\newpage
+%Para la prueba en línea se configuró el modelo de Simulink con los datos obtenidos tras la calibración, y se solicitó al sujeto realizar el seguimiento de un par de señales trapezoidales que le indicarían el tipo de movimiento que tendría que lograr. Cuando la trapezoidal estuviera en cero, tendría que mantenerse en descanso; en la pendiente positiva de la trapezoidal tendría que realizar una transición de descanso hacia el movimiento completo solicitado; en la meseta de la trapezoidal tendría que mantener el movimiento completo solicitado; y en la pendiente negativa de la trapezoidal tendría que realizar una transición del movimiento completo solicitado hacia descanso.
+
+%En la Figura \ref{Figura: MapOn} se muestra un segmento de una de las pruebas exitosas realizadas en línea. En dicha figura se puede observar que existe un retardo entre la trapezoidal y la respuesta del sistema de control, el cual es la suma del retardo que genera el procesamiento de la señal, el retardo ocasionado por el esquema de control, y el tiempo de respuesta del sujeto a la indicación de la trapezoidal.
+
+
+
+%Para obtener el valor del retardo total se midió el tiempo existente entre el inicio de la pendiente positiva de la señal indicadora (trapezoidal) y la activación de la estimulación eléctrica. Al promediar los tiempos obtenidos a lo largo de las pruebas realizadas en línea se obtuvo un valor de 2.3 $\pm$ 0.3553 s.
+
+%En la Figura \ref{Figura: Retardo} se muestra un acercamiento a las señales obtenidas en una prueba representativa de las pruebas realizadas en línea. Se muestran una sobre otra para visualizar el retardo existente entre el inicio de la señal indicadora y la activación de la estimulación eléctrica.
+
+
+
