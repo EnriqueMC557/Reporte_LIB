@@ -6,9 +6,10 @@ Tras realizar la evaluación del subsistema de adquisición descrito en la secci
 %Cuadro valores correlación
 \begin{table}[htbp]
 	\centering
-	\begin{tabular}{|p{6cm}|l|}
+	\begin{tabular}{|l|c|}
 	\hline
-	\textbf{Señal} & \textbf{Correlación promedio}\\ \hline	\hline
+	\textbf{Señal} & \textbf{Correlación}\\ 
+	\textbf{} & \textbf{promedio}\\ \hline	\hline
 	1 Hz & 0.9889\\ \hline
 	5 Hz & 0.9428\\ \hline
 	10 Hz & 0.9948\\ \hline
@@ -74,9 +75,62 @@ La Figura \ref{Figura: Filtrado} muestra una comparación entre los canales de s
 El sistema de control sEMG-FES se puso a prueba con un voluntario sano de 22 años de edad, obteniendo los siguientes resultados.
 
 \subsection{Calibración}
+Tras realizar el proceso de calibración descrito en la sección \ref{Sec: Calibracion} se obtuvieron los valores mostrados en los Cuadros \ref{Cuadro:UmbralesFES} a \ref{Cuadro:Rectas}.
 
+El Cuadro \ref{Cuadro:UmbralesFES} muestra los valores obtenidos para los umbrales motores y funcionales tras realizar la calibración de parámetros FES descrita en la sección \ref{Sec:CalFES}.
+
+El Cuadro \ref{Sec:CalRMS} muestra los valores de umbrales RMS y umbral detector de movimiento obtenidos tras realizar la calibración de umbrales RMS de sEMG descrita en la sección \ref{Sec:CalRMS}. Cabe señalar que en esta prueba se obtuvo un umbral de activación menor para el movimiento de pinza gruesa en comparación con el umbral de activación para el movimiento de apertura de mano (recordemos que los umbrales de activación son el umbral de pinza gruesa incompleta en el canal 1 y el umbral de apertura de mano incompleta en el canal 2).
+
+%Cuadro umbrales FES
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|c|c|}
+	\hline
+	\textbf{Canal} & \textbf{Umbral motor} & \textbf{Umbral funcional}\\
+	\textbf{} & \textbf{[mA]} & \textbf{[mA]}\\ \hline	\hline
+	Canal 1 (Pinza gruesa) & 6 & 14\\ \hline
+	Canal 1 (Apertura de mano) & 9 & 13\\ \hline
+	\end{tabular}
+	\caption{Valores obtenidos para umbrales motores y funcionales de estimulación eléctrica.}
+	\label{Cuadro:UmbralesFES}
+\end{table}
+
+%Cuadro umbrales sEMG
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|c|c|}
+	\hline
+	\textbf{Movimiento} & \textbf{Canal 1} & \textbf{Canal 2}\\
+	\textbf{} & \textbf{[mV]} & \textbf{[mV]}\\ \hline \hline
+	Apertura de mano completa & 0.8708 & 3.0000\\ \hline
+	Apertura de mano incompleta & 0.4657 & 0.9115\\ \hline
+	Descanso & 0.1981 & 0.1536\\ \hline
+	Pinza gruesa incompleta & 0.7918 & 0.8134\\ \hline
+	Pinza gruesa completa & 2.2491 & 1.9610\\ \hline	
+	Umbral detector de movimiento & \multicolumn{2}{|c|}{0.4458}\\ \hline
+	\end{tabular}
+	\caption{Valores obtenidos para umbrales RMS de sEMG.}
+	\label{Cuadro:UmbralesRMS}
+\end{table}
+
+%Cuadro parámetros de rectas
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|c|c|}
+	\hline
+	\textbf{Canal} & \textbf{Pendiente} & \textbf{Ordenada al origen}\\ 
+	\textbf{} & \textbf{[mA/mV]} & \textbf{[mA]}\\\hline \hline
+	Canal 1 (Pinza gruesa) & 5.4894 & 1.6536\\ \hline
+	Canal 2 (Apertura de mano) & 1.9153 & 7.2542\\ \hline
+	\end{tabular}
+	\caption{Parámetros de recta obtenidos para realizar mapeo sEMG-FES.}
+	\label{Cuadro:Rectas}
+\end{table}
+
+
+\newpage
 \subsection{Validación fuera de línea}
-El algoritmo de clasificación de movimientos obtuvo una exactitud del 81\%. La Figura \ref{Figura: MapOff} muestra el resultado de la prueba para la validación fuera de línea, donde se pueden observar los siguientes resultados de clasificación:
+El algoritmo de clasificación de movimientos obtuvo una exactitud del 81.7241\%, valor derivado de la matriz de confusión mostrada en el Cuadro \ref{Cuadro:PorcentajesValores}. La Figura \ref{Figura: MapOff} muestra el resultado de la prueba para la validación fuera de línea, donde se pueden observar los siguientes resultados de clasificación:
 
 \begin{itemize}
 	\item Durante los episodios del movimiento de cierre de mano (9-21 y 51-63 s):
@@ -100,6 +154,21 @@ El algoritmo de clasificación de movimientos obtuvo una exactitud del 81\%. La 
 	\end{itemize}
 \end{itemize}
 
+%Cuadro porcentajes aciertos y errores 
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|c|c|}
+	\hline
+	\textbf{Movimiento} & \textbf{Aciertos} & \textbf{Errores}\\ \hline \hline
+	Apertura de mano & 57.5000\% & 42.5000\%\\ \hline
+	Descanso & 97.6923\% & 2.3077\%\\ \hline
+	Pinza gruesa & 80.0000\% & 20.000\%\\ \hline	
+	\textbf{TOTAL} & 81.7241\% & 18.2759\%\\ \hline
+	\end{tabular}
+	\caption{Porcentajes de aciertos y errores obtenidos en prueba fuera de línea.}
+	\label{Cuadro:PorcentajesValores}
+\end{table}
+
 %Figura validación fuera de línea
 \begin{figure}[htbp]
 	\centering
@@ -122,10 +191,11 @@ Respecto a la prueba de validación en línea, en esta demostró una respuesta d
 \end{figure}
 
 
-\newpage
+%\newpage
 \subsection{Tarea funcional síncrona}
 En relación a la tarea funcional síncrona, el sistema logró llevar a cabo la modulación de la estimulación eléctrica de forma satisfactoria, obteniendo un retardo promedio del sistema con valor de de 2.3 $\pm$ 0.3553 s, medido de la forma descrita en la sección \ref{Sec: TareaObj}. La Figura \ref{Figura: Retardo} muestra un acercamiento a las señales obtenidas al termino de la prueba de la tarea funcional síncrona, donde es notable el retardo entre la señal patrón y la señal de amplitud de estimulación eléctrica.
 
+\newpage
 %Figura medición de retardo
 \begin{figure}[htbp]
 	\centering
@@ -135,7 +205,7 @@ En relación a la tarea funcional síncrona, el sistema logró llevar a cabo la 
 \end{figure}
 
 
-\newpage
+%\newpage
 \subsection{Tarea funcional asíncrona}
 Respecto a la tarea funcional asíncrona, esta logró ser realizada por el sujeto de prueba, logrando realizar las 6 acciones de la que consta dicha tarea. La Figura \ref{Figura: TareaFuncional} muestra las diferentes fases de movimiento durante la ejecución de la tarea funcional asíncrona por parte del sujeto. Se puede apreciar que los movimientos corresponden a los descritos en la sección \ref{Sec: TareaFunAsin}.
 
@@ -143,30 +213,43 @@ Respecto a la tarea funcional asíncrona, esta logró ser realizada por el sujet
 \begin{figure}[htbp]
 	\centering
 	\begin{subfigure}[htbp]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{Funcional_Apertura_1.png}
-		\caption{Apertura de mano para tomar objeto.}
-		\label{Figura: Fun_A_1}
+		\includegraphics[width=\textwidth]{Funcional_a.png}
+		\caption{}
+		\label{Figura: Fun_A}
 	\end{subfigure}
 %	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{Funcional_Cierre.png}
-		\caption{Pinza gruesa con objeto tomado.}
-		\label{Figura: Fun_C}
+		\includegraphics[width=\textwidth]{Funcional_b.png}
+		\caption{}
+		\label{Figura: Fun_B}
 	\end{subfigure}
 %	\hfill
 	\newline
 	\begin{subfigure}[htbp]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{Funcional_Levantar.png}
-		\caption{Levantamiento de objeto para trasladarlo.}
-		\label{Figura: Fun_L}
+		\includegraphics[width=\textwidth]{Funcional_c.png}
+		\caption{}
+		\label{Figura: Fun_C}
 	\end{subfigure}
 %	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{Funcional_Apertura_2.png}
-		\caption{Apertura de mano para soltar objeto posterior a su traslado.}
-		\label{Figura: Fun_A_2}
+		\includegraphics[width=\textwidth]{Funcional_d.png}
+		\caption{}
+		\label{Figura: Fun_D}
 	\end{subfigure}
-	\caption{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea).}
+%	\hfill
+	\newline
+	\begin{subfigure}[htbp]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Funcional_e.png}
+		\caption{}
+		\label{Figura: Fun_E}
+	\end{subfigure}
+%	\hfill
+	\begin{subfigure}[htbp]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{Funcional_f.png}
+		\caption{}
+		\label{Figura: Fun_F}
+	\end{subfigure}
+	\caption[Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)]{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea). (a)Abducción de hombros. (b)Extensión de dedos. (c)Flexión de dedos. (d)Abducción y extensión de hombros. (e)Flexión de hombros. (f) Extensión de dedos.}
 	\label{Figura: TareaFuncional}
 \end{figure}
 %Previo a realizar pruebas del esquema de control en línea, este se probó fuera de línea, aprovechando los registros de calibración. Para estas pruebas se diseñó un script en MATLAB que obtiene los parámetros necesarios del esquema de control de la misma forma que los arroja la calibración. Una vez obtenidos dichos parámetros se configura con ellos al esquema de control y se realiza una prueba fuera de línea donde con cada ventana de sEMG se obtiene un valor de RMS el cuál es sometido al esquema de control y arroja un valor de amplitud para el canal asociado al movimiento detectado. Tras probar el esquema de control con tres registros distintos de calibración se obtuvo un porcentaje de acierto del 81$\%$ en la identificación correcta de los movimientos de cierre, apertura y descanso de mano.

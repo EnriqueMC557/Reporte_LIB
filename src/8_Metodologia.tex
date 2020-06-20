@@ -263,10 +263,10 @@ Posterior al proceso de calibración se realiza una validación fuera de línea,
 
 Todas las etapas antes mencionadas del sistema de control se describen a continuación.
 
-\subsection{Calibración}
+\subsection{Calibración}\label{Sec: Calibracion}
 El proceso de calibración del sistema se divide en una calibración de los parámetros de estimulación eléctrica y una calibración de los valores de amplitud RMS del sEMG.
 
-\subsubsection{Calibración de parámetros FES}
+\subsubsection{Calibración de parámetros FES}\label{Sec:CalFES}
 El objetivo de esta calibración es el obtener los umbrales motores y funcionales de los movimientos de apertura de mano y pinza gruesa. Para esta calibración se utiliza el sistema de colocación de electrodos de estimulación eléctrica desarrollado en el INR-LGII, el cual se encuentra descrito en \cite{AnaMartin2019}, en conjunto con la pantalla \emph{Experimentación} (Figura \ref{Figura: GUI_Exp}) de la GUI diseñada en el INR-LGII \cite{JanethFuentes2018}.
 
 El proceso para la obtención de los umbrales antes mencionados consiste en realizar la colocación de los electrodos de estimulación eléctrica y realizar una exploración de la respuesta del sujeto ante diferentes valores de amplitud de corriente eléctrica que le serán proporcionados. Dichos valores exploran el rango entre 1 y 15 mA, utilizando un incremento de 1 mA. El umbral motor será el primer valor de amplitud que genere una respuesta motora notable a simple vista y reconocida por el sujeto en la mano del sujeto; mientras que el umbral funcional será aquél valor de amplitud que provoque el movimiento objetivo de la mano con un rango de movimiento completo, similar a un movimiento voluntario
@@ -279,7 +279,7 @@ El proceso para la obtención de los umbrales antes mencionados consiste en real
 	\label{Figura: GUI_Exp}
 \end{figure}
 
-\subsubsection{Calibración de umbrales RMS de sEMG}
+\subsubsection{Calibración de umbrales RMS de sEMG}\label{Sec:CalRMS}
 Para realizar esta calibración se utiliza el protocolo de registro descrito en la sección \ref{Sec: ProReg} y una pantalla de calibración diseñada para este proyecto (Figura \ref{Figura: GUI_Ent}), la cual muestra indicaciones en forma de texto de los movimientos que debe realizar el sujeto y a la par realiza el registro de sEMG y almacena marcadores asociados a la indicación de movimiento solicitada. Una vez colocados los electrodos para registro de sEMG, se le muestra al sujeto cuales son los movimientos asociados a cada una de las indicaciones que se le irán mostrando en la GUI. Los movimientos mostrados son denominados \emph{descanso} (DD), \emph{apertura incompleta} (AI), \emph{apertura completa} (AC), \emph{pinza gruesa incompleta} (CI) y \emph{pinza gruesa completa} (CC), los cuales se pueden observar en la Figura \ref{Figura: Posturas}.
 
 Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB\textregistered \; los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa (ambos relacionados al canal 2 de registro y estimulación), pinza gruesa incompleta y completa (ambos relacionados al canal 1 de registro y estimulación), y descanso, para cada canal de registro. La obtención de estos umbrales se realiza mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_{ij}$ representa el umbral del i-ésimo movimiento registrado en el j-ésimo canal, $RMS_n$ representa al valor RMS obtenido para la n-ésima ventana de registro (100 ms) asociada al movimiento $M_{ij}$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_{ij}$.
@@ -298,7 +298,7 @@ El UDM, junto a los umbrales de movimiento incompleto, se utilizan para determin
 
 %Ecuación detector movimiento
 \begin{equation}
-	DM = \frac{\sum_{n=1}^{N}RMS_{2n}-RMS_{1n}}{N}
+	UDM = \frac{\sum_{n=1}^{N}RMS_{2n}-RMS_{1n}}{N}
 	\label{Ecua: DM}
 \end{equation}
 
@@ -378,7 +378,7 @@ Para obtener dicho indicador se diseñó un script en MATLAB \textregistered \; 
 	\item Aplicación de etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado).
 	\item Aplicación de algoritmo de control diseñado (FSM y control proporcional).
 	\item Realizar conteo de aciertos y errores en la clasificación de movimientos.
-	\item Mostrar valor de aciertos y errores en términos de porcentaje.
+	\item Mostrar valor de aciertos y errores en términos de porcentaje (Cuadro \ref{Cuadro:PorcentajesObtencion}).
 \end{enumerate}
 
 Una vez obtenido el porcentaje de aciertos y errores, se toma la decisión de aceptar o rechazar los parámetros obtenidos de la calibración. En caso de obtener un porcentaje mayor o igual al 80\% se aceptan los parámetros y se procede a configurar el sistema sEMG-FES diseñado en Simulink \textregistered \; con dichos parámetros. En caso contrario, se revisa la posibilidad de errores en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
@@ -395,6 +395,21 @@ Cabe mencionar que los registros de calibración se conforman de dos repeticione
 	\item Apertura completa (AC): 6 segundos
 	\item Apertura incompleta (AI): 3 segundos
 \end{enumerate}
+
+%Cuadro porcentajes aciertos y errores 
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|c|c|}
+	\hline
+	\textbf{Movimiento} & \textbf{Aciertos} & \textbf{Errores}\\ \hline \hline
+	Apertura de mano & $\frac{Aciertos_{apertura}}{Aciertos_{apertura}+Errores_{apertura}}*100$ & $\frac{Errores_{apertura}}{Aciertos_{apertura}+Errores_{apertura}}*100$\\ \hline
+	Descanso & $\frac{Aciertos_{descanso}}{Aciertos_{descanso}+Errores_{descanso}}*100$ & $\frac{Errores_{descanso}}{Aciertos_{descanso}+Errores_{descanso}}*100$\\ \hline
+	Pinza gruesa & $\frac{Aciertos_{pinza}}{Aciertos_{pinza}+Errores_{pinza}}*100$ & $\frac{Errores_{pinza}}{Aciertos_{pinza}+Errores_{pinza}}*100$\\ \hline	
+	\textbf{TOTAL} & $\frac{Aciertos_{totales}}{Aciertos_{totales}+Errores_{totales}}*100$ & $\frac{Errores_{totales}}{Aciertos_{totales}+Errores_{totales}}*100$\\ \hline
+	\end{tabular}
+	\caption{Matriz de confusión para prueba fuera de línea.}
+	\label{Cuadro:PorcentajesObtencion}
+\end{table}
 
 
 %\newpage
