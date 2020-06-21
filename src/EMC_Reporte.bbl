@@ -6,17 +6,19 @@
 \newblock {Control de Se{\~{n}}ales EMG para el Movimiento de un Brazo
   Rob{\'{o}}tico de Tres Grados de Libertad}.
 \newblock {\em Cultura Cient{\'{i}}fica y Tecnol{\'{o}}gica 12}, 55 (2015).
+\newblock \url{http://erevistas.uacj.mx/ojs/index.php/culcyt/article/view/741}.
 
 \bibitem{Wayne2003}
 {\sc Bequette, B.~W.}
 \newblock {\em Process Control: Modeling, Design and Simulation}, 1~ed.
 \newblock Prentice Hall, 2003.
+\newblock ISBN: 0133536408.
 
 \bibitem{OmarCastillo2019}
 {\sc Castillo, J.}
-\newblock {\em {Señales de comando basadas en EEG para una neuroprótesis.}}
+\newblock {\em {Señales de comando basadas en EEG para una neuroprótesis}}.
 \newblock Reporte de proyecto terminal, División de Ciencias Básicas e
-  Ingeniería. Universidad Autónoma Metropolitana Unidad Iztapalapa., Enero
+  Ingeniería, Universidad Autónoma Metropolitana Unidad Iztapalapa, Enero
   2019.
 
 \bibitem{Cavalcanti-Garcia2009}
@@ -30,6 +32,7 @@
   to Amplitude Detectors}.
 \newblock {\em IEEE Transactions on Biomedical Engineering 46}, 6 (1999),
   730--739.
+\newblock \url{https://doi.org/10.1109/10.764949}.
 
 \bibitem{Deconinck2015}
 {\sc Deconinck, F.~J., Smorenburg, A.~R., Benham, A., Ledebt, A., Feltham,
@@ -37,11 +40,13 @@
 \newblock {Reflections on Mirror Therapy: A Systematic Review of the Effect of
   Mirror Visual Feedback on the Brain}.
 \newblock {\em Neurorehabilitation and Neural Repair 29}, 4 (2015), 349--361.
+\newblock \url{https://doi.org/10.1177/1545968314546134}.
 
 \bibitem{Finn2003}
 {\sc Finn, W.~E., and LoPresti, P.~G.}
 \newblock {\em {Handbook of Neuroprosthetic Methods}}.
 \newblock CRC Press, 2003.
+\newblock ISBN: 0-8493-1100-4.
 
 \bibitem{Fonseca2019}
 {\sc Fonseca, L., Tigra, W., Navarro, B., Guiraud, D., Fattal, C., B{\'{o}},
@@ -49,13 +54,14 @@
 \newblock {Assisted grasping in individuals with tetraplegia: Improving control
   through residual muscle contraction and movement}.
 \newblock {\em Sensors (Switzerland) 19}, 20 (oct 2019), 4532.
+\newblock \url{https://doi.org/10.3390/s19204532}.
 
 \bibitem{JanethFuentes2018}
 {\sc Fuentes, J.}
 \newblock {\em {Plataforma de control y configuración de una neuroprótesis
-  para rehabilitación en miembro superior.}}
+  para rehabilitación en miembro superior}}.
 \newblock Reporte de proyecto terminal, División de Ciencias Básicas e
-  Ingeniería. Universidad Autónoma Metropolitana Unidad Iztapalapa., Agosto
+  Ingeniería, Universidad Autónoma Metropolitana Unidad Iztapalapa, Agosto
   2018.
 
 \bibitem{Kim2015}
@@ -64,12 +70,14 @@
   Stimulation for Motor Recovery of Upper Extremities After Stroke: A Pilot
   Randomized Controlled Trial}.
 \newblock {\em Occupational Therapy International 22}, 2 (2015), 51--60.
+\newblock \url{https://doi.org/10.1002/oti.1384}.
 
 \bibitem{Lenzi2012}
 {\sc Lenzi, T., {De Rossi}, S. M.~M., Vitiello, N., and Carroza, M.~C.}
 \newblock {Intention-Based EMG Control for Powered Exoskeletons}.
 \newblock {\em IEEE Transactions on Biomedical Engineering 59}, 8 (2012),
   2180--2190.
+\newblock \url{https://doi.org/10.1109/TBME.2012.2198821}.
 
 \bibitem{AnaMartin2019}
 {\sc Martin, A.}
@@ -77,13 +85,15 @@
   registro de sEMG y de estimulación eléctrica funcional en miembro superior
   para uso en una Neuroprótesis.}}
 \newblock Tesis de grado, Facultad de Ingeniería. Universidad La Salle A.C.,
-  2019.
+  "" 2019.
 
 \bibitem{Castillo2019}
 {\sc Mercado, J., Castillo, J., Toledo, C., Quinzaños, J., and Gutierrez, J.}
 \newblock {A Simple Approach for EEG-FES Triggered Upper Limb Rehabilitation}.
 \newblock {\em Rehabweek 2019 / International Functional Electrical Stimulation
   Society Conference\/} (2019).
+\newblock
+  \url{https://www.researchgate.net/publication/334207418_A_Simple_Approach_for_EEG-FES_Triggered_Upper_Limb_Rehabilitation}.
 
 \bibitem{Fuentes2018}
 {\sc Mercado, J., Fuentes, J., Toledo, C., Castellanos, N., and Gutierrez, J.}
@@ -91,41 +101,53 @@
   Rehabilitation Systems}.
 \newblock {\em 22 Annual Conference of the International Functional Electrical
   Stimulation Society\/} (2018).
+\newblock
+  \url{https://www.researchgate.net/publication/328529935_Design_of_a_Flexible_Platform_for_prototyping_of_FES-based_Motor_Rehabilitation_Systems}.
 
 \bibitem{Peckham2005}
 {\sc Peckham, P.~H., and Knutson, J.~S.}
 \newblock {Functional Electrical Stimulation for Neuromuscular Applications}.
+\newblock {\em Annual Review of Biomedical Engineering 7}, 1 (2005), 327--360.
+\newblock \url{https://doi.org/10.1146/annurev.bioeng.6.040803.140103}.
 
 \bibitem{Phinyomark2013}
 {\sc Phinyomark, A., Thongpanja, S., Quaine, F., and Laurillau, Y.}
-\newblock {Optimal EMG Amplitude Detectors for Muscle- Computer Interface}.
+\newblock {Optimal EMG Amplitude Detectors for Muscle-Computer Interface}.
 \newblock In {\em 2013 10th International Conference on Electrical
   Engineering/Electronics, Computer, Telecommunications and Information
   Technology\/} (Krabi, Thailand, 2013), pp.~1--6.
+\newblock \url{https://doi.org/10.1109/ECTICon.2013.6559485}.
 
 \bibitem{Popovic2015}
 {\sc Popovi{\'{c}}, D.~B.}
 \newblock {Principles of command and control for neuroprostheses}.
 \newblock In {\em Implantable Neuroprostheses for Restoring Function}. 2015,
   pp.~45--58.
+\newblock \url{https://doi.org/10.1016/B978-1-78242-101-6.00003-3}.
 
 \bibitem{Popovic2008}
 {\sc Popovic, M.~R., and Thrasher, A.~T.}
 \newblock {Neuroprostheses}.
 \newblock In {\em Encyclopedia of Biomaterials and Biomedical Engineering},
-  G.~E. Wnek and G.~L. Bowlin, Eds., 2~ed. 2008, ch.~Neuroprost,
+  G.~E. Wnek and G.~L. Bowlin, Eds., 2~ed. 2008, ch.~Neuroprosthes,
   pp.~1056--1065.
+\newblock \url{http://toronto-fes.ca/publications/2004%20Popovic.pdf}.
 
 \bibitem{Sachs2006}
 {\sc Sachs, N., Chang, E., and Weiland, J.}
 \newblock {Contralateral EMG-Triggered Electrical Stimulation of the Eyelid}.
 \newblock In {\em 11th Annual Conference of the International FES Society\/}
   (Zao, Japan, 2006), no.~September, pp.~286--288.
+\newblock
+  \url{https://www.researchgate.net/publication/237647720_Contralateral_EMG-Triggered_Electrical_Stimulation_of_the_Eyelid}.
 
 \bibitem{Salchow2016}
 {\sc Salchow, C., Valtin, M., Seel, T., and Schauer, T.}
-\newblock {Development of a Feedback-Controlled Hand Neuroprosthesis:
-  FES-Supported Mirror Training}.
+\newblock Development of a feedback-controlled hand neuroprosthesis:
+  Fes-supported mirror training.
+\newblock In {\em Automed Workshop, Wismar\/} (September 2016).
+\newblock
+  \url{http://automed2016.hs-wismar.de/wp-content/uploads/2017/02/Salchow_etal_Technische_Universit%C3%A4t_Berlin.pdf}.
 
 \bibitem{Simonsen2017}
 {\sc Simonsen, D., Spaich, E.~G., Hansen, J., and Andersen, O.~K.}
@@ -134,12 +156,15 @@
   Kinect Sensor}.
 \newblock {\em IEEE Transactions on Neural Systems and Rehabilitation
   Engineering 25}, 8 (2017), 1249--1256.
+\newblock \url{https://doi.org/10.1109/TNSRE.2016.2622160}.
 
 \bibitem{Sun2014}
 {\sc Sun, M.}
 \newblock {\em {A Functional Electrical Stimulation (FES) Control System For
   Upper Limb Rehabilitation}}.
 \newblock PhD thesis, University of Salford, 2014.
+\newblock
+  \url{http://usir.salford.ac.uk/32854/1/Final_thesis_Mingxu_240914.pdf}.
 
 \bibitem{Woods2018}
 {\sc Woods, B., Subramanian, M., Shafti, A., and Faisal, A.~A.}
@@ -147,12 +172,14 @@
   cycling system}.
 \newblock {\em 2018 7th IEEE International Conference on Biomedical Robotics
   and Biomechatronics (Biorob)\/} (2018), 179--184.
+\newblock \url{https://doi.org/10.1109/BIOROB.2018.8487941}.
 
 \bibitem{Wright2016}
 {\sc Wright, J., Macefield, V.~G., van Schaik, A., and Tapson, J.~C.}
 \newblock {A Review of Control Strategies in Closed-Loop Neuroprosthetic
   Systems}.
-\newblock {\em Frontiers in Neuroscience 10\/} (2016).
+\newblock {\em Frontiers in Neuroscience 10\/} (2016), 312.
+\newblock \url{https://doi.org/10.3389/fnins.2016.00312}.
 
 \bibitem{Yi2013}
 {\sc Yi, X., Jia, J., Deng, S., Shen, G., Xie, Q., and Wang, G.}
@@ -160,17 +187,20 @@
   Stimulation and Real-Time Artifact Blanking}.
 \newblock {\em IEEE Transactions on Biomedical Circuits and Systems 7}, 2
   (2013), 140--148.
+\newblock \url{https://doi.org/10.1109/ISCAS.2012.6271543}.
 
 \bibitem{Yucha2008}
 {\sc Yucha, C.~B., and Montgomery, D.}
 \newblock {\em {Evidence-Based Practice in Biofeedback and Neurofeedback}},
   vol.~6656.
 \newblock AAPB Wheat Ridge, CO, 2008.
+\newblock ISBN: 1-887114-19-X.
 
 \bibitem{Zhou2018}
 {\sc Zhou, Y., Fang, Y., Gui, K., Li, K., Zhang, D., and Liu, H.}
 \newblock {sEMG Bias-driven Functional Electrical Stimulation System for
   Upper-Limb Stroke Rehabilitation}.
 \newblock {\em IEEE Sensors Journal 18}, 16 (2018), 6812--6821.
+\newblock \url{https://doi.org/10.1109/JSEN.2018.2848726}.
 
 \end{thebibliography}

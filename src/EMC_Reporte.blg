@@ -3,50 +3,48 @@ Capacity: max_strings=4000, hash_size=5000, hash_prime=4253
 The top-level auxiliary file: EMC_Reporte.aux
 The style file: acm.bst
 Database file #1: 11_biblio.bib
-Warning--empty journal in Peckham2005
 Warning--empty publisher in Popovic2015
 Warning--empty publisher in Popovic2008
 Warning--there's a number but no series in Sachs2006
-Warning--empty journal in Salchow2016
 You've used 27 entries,
             2253 wiz_defined-function locations,
-            717 strings with 10042 characters,
-and the built_in function-call counts, 9253 in all, are:
-= -- 883
+            745 strings with 11478 characters,
+and the built_in function-call counts, 9671 in all, are:
+= -- 949
 > -- 512
 < -- 0
 + -- 209
 - -- 182
-* -- 759
-:= -- 1563
-add.period$ -- 81
+* -- 787
+:= -- 1629
+add.period$ -- 106
 call.type$ -- 27
 change.case$ -- 169
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 311
-empty$ -- 666
+cite$ -- 30
+duplicate$ -- 320
+empty$ -- 700
 format.name$ -- 182
-if$ -- 1864
+if$ -- 1962
 int.to.chr$ -- 0
 int.to.str$ -- 27
 missing$ -- 26
-newline$ -- 136
+newline$ -- 161
 num.names$ -- 56
-pop$ -- 169
+pop$ -- 148
 preamble$ -- 1
 purify$ -- 144
 quote$ -- 0
-skip$ -- 190
+skip$ -- 191
 stack$ -- 0
-substring$ -- 490
-swap$ -- 80
+substring$ -- 524
+swap$ -- 82
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 102
-warning$ -- 5
-while$ -- 86
+warning$ -- 3
+while$ -- 89
 width$ -- 29
-write$ -- 272
-(There were 5 warnings)
+write$ -- 324
+(There were 3 warnings)

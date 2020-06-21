@@ -23,6 +23,16 @@ En cuanto al mapeo proporcional encargado de la modulación de la amplitud FES, 
 
 Relacionado a las pruebas con la aplicación sEMG-FES contralateral (tarea funcional síncrona y asíncrona), el hecho de que se lograra llevar a cabo con éxito a pesar de las limitaciones ya mencionadas de los distintos bloques del sistema, es un indicador del potencial que tiene el enfoque propuesto en este proyecto, para el desarrollo de aplicaciones para terapia de rehabilitación, dando a los pacientes la posibilidad de realizar tareas comunes de la vida diaria que serían imposibles de realizar para ellos de otro modo. Se espera que con las correctas adecuaciones, el sistema diseñado en este proyecto pueda ser de utilidad en sujetos con hemiplejia. Adicionalmente, sería bueno realizar una variante de esta prueba donde se llevara a cabo el mismo procedimiento pero mediante un experimento cruzado (un sujeto controla mientras otro sujeto es estimulado), y junto con algún algoritmo de visión por computadora poder determinar el retardo existente en esta prueba, para así tener una métrica más sobre el desempeño del sistema. O bien, introduciendo una señal sintética similar al sEMG que permita la medición exacta de los tiempos de retardo.
 
+
+\subsubsection*{Conclusiones}
+La aplicación sEMG-FES diseñada en este trabajo logró cumplir el objetivo principal del mismo, y además, pese a las limitaciones del sistema, se logró demostrar que el enfoque utilizado en este trabajo puede ser de utilidad en aplicaciones diseñadas para terapia de rehabilitación.
+
+Relacionado al protocolo de registro se concluye que este es susceptible a errores humanos, por lo cuál es recomendable utilizar otro protocolo o seguir guías clínicas como las ya mencionadas guías del SENIAM.
+
+En cuanto al algoritmo para clasificación de movimientos, se destaca que el algoritmo diseñado basado en umbrales no fue la mejor solución. Un algoritmo basado en inteligencia artificial probablemente arroje mejores resultados.
+
+Por último, relacionado al mapeo sEMG-FES, se obtuvo una solución rápida y sencilla, la cuál se puede adaptar a los tipos de señales con las que se cuente, sin embargo, al no ser lineal el sEMG es probable que este este método no sea el adecuado para dicha señal.
+
 %Cabe destacar que al final del desarrollo de este proyecto se tuvo la posibilidad de probar la utilidad del sistema dentro de una situación de la vida real. Esta prueba se realizó a un sujeto sano, al cual se le otorgó la tarea de tomar un objeto cilíndrico con su mano derecha pero utilizando solamente la corriente eléctrica modulada por su brazo izquierdo. El sujeto pudo tomar el objeto de forma eficaz, y realizando movimientos del hombro logró levantar el objeto y trasladarlo a un lugar diferente a donde tomó el objeto. Con esto se logró demostrar que aplicaciones basadas en este proyecto pueden ser de utilidad en terapias de rehabilitación, dando a los pacientes la posibilidad de realizar tareas comunes de su vida diaria. Se espera que con las correctas adecuaciones, el sistema diseñado en este proyecto pueda ser de utilidad en sujetos con hemiplejia.
 
 %Se ha demostrado que el sistema implementado en Simulink para realizar la adquisición y decodificación funciona adecuadamente, y gracias a la métrica de correlación obtenida se puede fundamentar su buen funcionamiento.
