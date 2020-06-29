@@ -25,7 +25,6 @@ Para realizar la adquisición de las señales de sEMG se utilizó el sistema Cyt
 
 Para realizar la decodificación del flujo de datos dentro de Simulink\textregistered, se diseñó un subsistema encargado de la solicitud y decodificación de datos, para esto se utilizó el bloque \emph{Query Instrument} del \emph{Instrument Control Toolbox} para realizar la solicitud de datos, los cuales fueron decodificados con bloques de la librería estándar de Simulink\textregistered. La figura \ref{Figura: DecoSimuT} muestra la implementación de este subsistema.
 
-%\hfill \break
 \vfill
 %Sistema Simulink
 \begin{figure}[htbp]
@@ -207,7 +206,7 @@ Se diseñaron tres filtros digitales Butterworth de orden 2 para realizar el pro
 	\item Un filtro rechaza banda centrado en 60 Hz, para reducir la interferencia de la línea.
 \end{itemize}
 
-Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB\textregistered. Las gráficas de respuesta en frecuencia de estos filtros se muestran en la Figura \ref{Figura: Freqz_Filtros} %las Figuras \ref{Figura: FiltroPA} a \ref{Figura: FiltroRB}.
+Todos estos filtros se diseñaron utilizando la función \emph{butter} de MATLAB\textregistered. Las gráficas de respuesta en frecuencia de estos filtros se muestran en la Figura \ref{Figura: Freqz_Filtros} 
 
 %Respuesta en frecuencia de filtros
 \begin{figure}[htbp]
@@ -246,8 +245,6 @@ Se implementó dentro de Simulink\textregistered \;un bloque responsable de obte
 \section{Sistema de control}
 A grandes rasgos, el sistema de control implementado para este proyecto consta de la combinación de una FSM y un mapeo proporcional. La FSM (Figura \ref{Figura: FSM_Control})  determina el canal de estimulación eléctrica que se activará, a partir de la salida del algoritmo para la detección de movimiento, el cual clasifica la intención de movimiento del sujeto en tres clases (descanso, pinza gruesa y apertura de mano), mientras que el mapeo proporcional permite realizar la modulación de la amplitud de corriente eléctrica a partir de la amplitud del sEMG.
 
-%permite clasificar la intención de movimiento del sujeto en tres clases (descanso, pinza gruesa y apertura de mano), mientras que el control proporcional permite realizar la modulación de la amplitud de corriente eléctrica a partir de la amplitud del sEMG.
-
 %FSM
 \begin{figure}[htbp]
 	\centering
@@ -283,8 +280,6 @@ Para realizar esta calibración se utiliza el protocolo de registro descrito en 
 
 Al terminar las repeticiones de los movimientos solicitados, la GUI nos arroja en la consola de MATLAB\textregistered \; los valores de los umbrales RMS para los movimientos apertura de mano incompleta y completa (ambos relacionados al canal 2 de registro y estimulación), pinza gruesa incompleta y completa (ambos relacionados al canal 1 de registro y estimulación), y descanso, para cada canal de registro. Estos umbrales se expresan mediante la Ecuación \ref{Ecu: U_RMS}, donde $M_{ij}$ representa el umbral del i-ésimo movimiento registrado en el j-ésimo canal, $RMS[n]$ representa al valor RMS obtenido para la n-ésima ventana de registro (100 ms) asociada al movimiento $M_{ij}$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_{ij}$. Cabe mencionar que para los movimientos $M_{ij}$ con $i=\{1,2,4,5\}$ el valor de N corresponde a 120, mientras que para $M_{3j}$ el valor de N corresponde a 390.
 
-%donde $M_i$ representa a uno de los 5 movimientos antes mencionados, $RMS_n$ representa al valor RMS obtenido para la n-ésima ventana de registro (100 ms) asociada al movimiento $M_i$, y $N$ representa la cantidad de valores RMS asociados al movimiento $M_i$.
-
 %Ecuación obtención de umbrales
 \begin{equation}
 	M_{ij} = \frac{\sum_{n=1}^{N}RMS[n]}{N}
@@ -302,8 +297,6 @@ El UDM, junto a los umbrales de movimiento incompleto, se utilizan para determin
 \end{equation}
 
 Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordenada al origen (b), donde dichas rectas son utilizadas para llevar a cabo el mapeo proporcional del valor RMS del sEMG a la amplitud de estimulación eléctrica, para los movimientos de apertura de mano y pinza gruesa. Estos parámetros se obtienen a partir de las Ecuaciones \ref{Ecu: m} y \ref{Ecu: b}, donde $m_{j}$ y $b_{j}$ representan la pendiente y ordenada al origen, respectivamente, de la j-ésima recta correspondiente al j-ésimo canal de estimulación; $U_{Fj}$ y $U_{Mj}$ representan los umbrales funcionales y motores, respectivamente, obtenidos tras la calibración de parámetros FES correspondiente al j-ésimo movimiento. Finalmente, $M_{Cj}$ y $M_{Ij}$ representan los umbrales RMS de los movimientos completos e incompletos, los cuales se utilizarán según sea la j-ésima recta a determinar: para $j=1$ se deberá tomar $C=5$ e $I=4$, mientras que para $j=2$ se deberá tomar $C=1$ e $I=2$.
-
-%de los movimientos completos e incompletos, respectivamente, del j-ésimo canal de registro. Una vez determinados estos parámetros, se tienen todos los elementos necesarios para probar y usar el sistema sEMG-FES.
 
 \vfill
 %Ecuación pendiente
@@ -370,8 +363,6 @@ Los parámetros de las rectas que arroja la GUI son la pendiente (m) y la ordena
 \subsection{Validación fuera de línea}
 El propósito de esta prueba consiste en obtener un indicador que proporcione información sobre el desempeño del sistema, al configurarlo con los parámetros obtenidos en la calibración, en su función de clasificación de movimientos.
 
-%Para obtener dicho indicador, se diseñó un script en MATLAB\textregistered \; que lee el registro de sEMG crudo obtenido en la etapa de calibración, posteriormente le aplica una etapa de procesamiento (filtrado (descrito en la sección \ref{Sec: Procesamiento}), cálculo de RMS y suavizado) y por último se aplica el algoritmo de control diseñado (FSM y control proporcional). Una vez obtenida la salida del algoritmo de control, se procede a realizar el conteo de los errores y aciertos que tuvo el sistema al realizar la clasificación de los movimientos, expresando dichos valores en términos de porcentaje. Si el porcentaje obtenido de acierto es igual o mayor al 80$\%$ se acepta la calibración como exitosa y se procede a configurar el sistema diseñado en Simulink\textregistered \; con los parámetros arrojados en la calibración; en caso contrario, se revisa si existen problemas en la colocación de electrodos para registro de sEMG y se repite el proceso de calibración.
-
 Para obtener dicho indicador se diseñó un script en MATLAB \textregistered \; el cual lleva a cabo el siguiente procedimiento:
 
 \begin{enumerate}
@@ -422,8 +413,6 @@ Donde $T = TD+TC+TA$. $TD$, $TC$ y $TA$ corresponden a los movimientos \emph{des
 
 %\newpage
 \subsection{Validación en línea (control por biofeedback)}
-%Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para esto, se configura el bloque \emph{Control} del sistema completo implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) con los valores de los parámetros obtenidos en la calibración. Posteriormente, se configura el switch \emph{Habilitar estimulación} a ceros (para evitar la salida de estimulación real, pues en esta validación no se usa), y por último, se configura el tiempo de termino de la simulación a 60 s.
-
 Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para llevar a cabo esto se utiliza el sistema sEMG-FES en línea implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) configurándolo de la siguiente manera:
 
 \begin{enumerate}
@@ -442,7 +431,6 @@ Una vez que el sistema se ha validado fuera de línea, se procede a realizar una
 
 \newpage
 Posteriormente, se le indica al sujeto la forma en la que se llevará a cabo la prueba y cómo deberá realizarla. Para esto, al sujeto se le mostrará en una ventana una señal trapezoidal con ciclos negativos y ciclos positivos (Figura \ref{Figura: Trapezoidal}), el sujeto deberá realizar el seguimiento de dicha trapezoidal considerando que el ciclo positivo indica apertura de mano completa, mientras que el ciclo negativo indica pinza gruesa completa y que una línea en cero indica la mano en posición de descanso. El sujeto deberá realizar una transición suave y continua entre los movimientos indicados buscando seguir visualmente las pendientes de la trapezoidal. Una vez dadas las indicaciones se inicia la prueba, y a la par el experimentador deberá observar en otra ventana la salida del bloque de control, donde se observará si la activación de canales de estimulación eléctrica corresponden a los movimientos que realiza el sujeto. La respuesta esperada del sistema consiste en que, la detección de un movimiento de pinza gruesa activa el canal 1 de estimulación, y la detección del movimientos de apertura de mano activa el canal 2 de estimulación.
-% (pinza gruesa activa canal 1 de estimulación, apertura de mano activa canal 2 de estimulación, y descanso no activa algún canal de estimulación).
 
 \vfill
 %Trapezoidal
@@ -461,8 +449,6 @@ En esta prueba final se utilizan los mismos parámetros e indicaciones que en la
 En esta prueba se mide el tiempo de retardo que existe entre el inicio del movimiento en la mano ``sana'' (generado de manera voluntaria) y el inicio del movimiento en la mano afectada (generado por FES). Para poder realizar esto se almacenan todos los datos de las señales involucradas en el sistema (registros de sEMG, patrones de estimulación eléctrica y señal trapezoidal patrón), y posterior a la finalización de la prueba se realiza un análisis en MATLAB\textregistered \; donde se determina el tiempo de retardo existente entre el inicio de la señal trapezoidal (indicación al sujeto) y el inicio de la estimulación en el canal de estimulación del movimiento correspondiente, y se obtiene el promedio del retardo de todas las repeticiones realizadas para obtener un retardo global de la sesión.
 
 \subsection{Tarea funcional asíncrona}\label{Sec: TareaFunAsin}
-%Se diseñó una tarea de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto, que consistió en el agarre de un objeto, su traslado y liberación. Para ello, configurando el sistema sEMG-FES de la misma forma en la cual se configuró para la validación en línea con FES, cambiando en Simulink \textregistered \; el tiempo de término de la simulación a \emph{inf}. Sobre la mesa donde descansan los antebrazos y manos del sujeto, se colocan dos objetos cilíndricos a unos cms de sus manos. Se le solicitó que con el miembro sano fuera tomando dicho objeto, mientras que con ayuda de su hombro del miembro afectado fuera acercando su mano al otro objeto para, por efecto de la estimulación eléctrica, lograr tomarlo. Una vez que lograse tomarlo, con la misma ayuda de su hombro tendría que levantar dicho objeto y desplazarlo a un lugar diferente del lugar donde lo tomó y bajar suavemente dicho objeto para finalmente soltarlo. La Figura \ref{Figura: TareaFuncional_P} esquematiza los pasos de los que consta la tarea funcional asíncrona.
-
 Se diseñó una prueba de tiempo libre donde pudiera demostrarse la utilidad del sistema diseñado para realizar alguna tarea funcional útil para el sujeto. Para esta prueba se configuró el sistema sEMG-FES de la misma forma en la cual se configuró dicho sistema para la realización de la validación en línea con FES, pero cambiando el tiempo de término de la simulación en Simulink \textregistered\; al valor \emph{inf}. Para esta prueba los antebrazos y manos del sujeto descansan sobre una mesa, en la cual se colocan dos objetos cilíndricos a unos centímetros de sus manos (un objeto en cada mano). Una vez configurado el sistema sEMG-FES y colocado el sujeto en la posición adecuada, se procede a llevar a cabo la tarea funcional asíncrona. Esta tarea se explica en el Cuadro \ref{Cuadro:TareaFunAsin}, donde se describen los diferentes movimientos a realizar por el sujeto, el comportamiento esperado en los diferentes canales de sEMG, el canal FES que debería activar dicho movimiento, el movimiento generado por FES que se espera, y la correspondencia de dicho movimiento con su representación gráfica en la Figura \ref{Figura: TareaFuncional_P}.
 
 Cabe mencionar que desde los incisos (c) al (e) del Cuadro \ref{Cuadro:TareaFunAsin} , el sujeto debe sostener (contracción isométrica) el movimiento voluntario de pinza gruesa en la mano izquierda, y se espera esto genere la estimulación eléctrica necesaria para sostener el objeto con la mano derecha, sin que el sujeto realice algún esfuerzo voluntario en dicha mano, imitando la condición de hemiplejia de un sujeto con ACV.
@@ -489,29 +475,5 @@ Cabe mencionar que desde los incisos (c) al (e) del Cuadro \ref{Cuadro:TareaFunA
 	\centering
 	\includegraphics[width=\textwidth]{TareaFuncional.png}
 	\caption[Esquema de tarea funcional con tiempo libre.]{Esquema de tarea funcional con tiempo libre. Las flechas indican la dirección de cada movimiento de las manos o brazos. Tomando como referencia la posición corporal del sujeto para esta tarea, las flechas azules indican movimientos en el eje Y (plano corporal frontal), las flechas rojas indican movimientos en el eje X (plano corporal transversal), y las flechas verdes indican movimientos en el eje Z (plano corporal sagital).Cada inciso corresponde a un movimiento descrito en el Cuadro \ref{Cuadro:TareaFunAsin}.}
-%	Flecha azul (eje Y) representa movimientos horizontales; Flecha roja (eje X) representa movimientos verticales; Flecha verde (eje Z) representa movimientos hacia arriba y abajo. 
 	\label{Figura: TareaFuncional_P}
 \end{figure}
-
-
-%Se diseñó un sistema basado en una combinación de máquina de estados finitos con un control lineal. El sistema requiere de un proceso de calibración previa donde se obtienen 8 umbrales tras la repetición de 4 movimientos, dos umbrales corresponden a los valores RMS promedio de los dos canales de adquisición a lo largo de la tarea \emph{cierre de mano ligero}, otros dos corresponden a los valores RMS promedio de la tarea \emph{cierre de mano completo}, mientras que los 4 restantes corresponden a los valores RMS promedio de las tareas \emph{apertura de mano ligera} y \emph{apertura de mano completa}. Además, tras la calibración se obtiene también un factor denominado \emph{detector de movimiento}, el cual se obtiene tras calcular la diferencia promedio entre los canales de adquisición a lo largo de la tarea de apertura de mano. Adicionalmente se realiza una calibración de la estimulación eléctrica, la cual utiliza el sistema de colocación de electrodos de estimulación descrito en \cite{AnaMartin2019}, donde se obtiene los valores en amplitud de los umbrales motores y funcionales de las tareas de apertura y cierre de mano.
-%
-%El detector de movimiento se utiliza para realizar el control por máquina de estados finitos (Figura \ref{Figura: FSM_Control}), la cual consisten en determinar si la diferencia de amplitudes entre canales ha pasado el valor del detector de movimiento, si es así, el control prosigue con la tarea de apertura de mano, en caso contrario, el control procede a la tarea de cierre de mano.
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[scale=0.9]{FSM_Control.png}
-%	\caption[FSM para control]{Máquina de estados finitos encargada de la detección de movimiento e inicio del control lineal.}
-%	\label{Figura: FSM_Control}
-%\end{figure}
-%
-%Dentro del control de cada tarea, se utilizan los umbrales de las tareas ligeras para realizar la activación del control lineal, el cual modula la amplitud de la corriente eléctrica, del canal asociado al movimiento detectado, utilizando la recta descrita por la Ecuación \ref{Ecu: Mapeo}, donde $A$ representa la amplitud que inyectará el estimulador eléctrico, $A_{max}$ es el umbral funcional de estimulación eléctica, $A_{min}$ es el umbral motor de estimulación eléctica, $D$ representa el valor RMS actual, mientras que $D_{max}$ y $D_{min}$ representan los umbrales RMS de la tarea completa y ligera del canal asociado al movimiento detectado (canal 1 para cierre de mano y canal 2 para apertura de mano). Adicionalmente se aplica la función máximo entero a la recta debido a que el dispositivo de estimulación eléctrica sólo admite valores enteros, y también se aplica un criterio de saturación de corriente eléctrica para evitar que tras una contracción muscular muy fuerte se genere un valor de amplitud de corriente eléctrica dañino para el sujeto.
-%
-%%Ecuación mapeo lineal
-%\begin{equation}
-%	A = \frac{A_{max} - A_{min}}{D_{max} - D_{min}}(D - D_{min}) + A_{min}
-%	\label{Ecu: Mapeo}
-%\end{equation}
-
-%\section{Tarea objetivo}
-%{\color{red}INCLUIR TAREA OBJETIVO DE ENTRENAMIENTO CON TRAPEZOIDAL EN LÍNEA}

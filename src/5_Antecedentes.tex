@@ -7,10 +7,6 @@ Consiste en una GUI implementada en MATLAB\textregistered \; (The MathWorks Inc.
 \subsection{Aplicación FES en lazo abierto}
 La aplicación FES, que se encuentra inmersa en la plataforma de software para la neuroprótesis, está basada en una Interfaz Cerebro-Computadora. Dicha aplicación le muestra al sujeto una serie de 5 movimientos predefinidos, dentro de los cuales el sujeto debe seleccionar alguno cerrando los ojos. Una vez seleccionado y confirmado el movimiento objetivo, el sistema envía una secuencia de pulsos de estimulación eléctrica para asistir al sujeto a realizar el movimiento elegido. En esta aplicación los parámetros de estimulación eléctrica están predeterminados antes de iniciar la aplicación, los cuales se determinan en una sesión de calibración personalizada \cite{Castillo2019}\cite{OmarCastillo2019}.
 
-%\subsection{Sistema prototipo de adquisición de biopotenciales}
-%Sistema que consta del convertidor analógico digital ADS1299 y el microcontrolador MSP432P401R. Es un sistema que presenta ventajas respecto al sistema comercial utilizado en trabajos anteriores basados en OpenBCI, principalmente una frecuencia de muestreo de 1 kHz por canal, la cual es útil para fines de control con sEMG \cite{Lenzi2012}\cite{Lenzi2011}\cite{Raafat}. Además, el prototipo utiliza una conexión USB para la transmisión de datos, la cual, a diferencia de la conexión bluetooth con la que cuenta el dispositivo de OpenBCI, permite una mayor tasa de transmisión de datos (460800 bps, contra 115200 bps). %y evita la pérdida de datos que se presentaba en el sistema comercial por fallas en la conexión bluetooth.
-%
-%El sistema prototipo de adquisición será útil para fines de este proyecto, ya que gracias a la interfaz gráfica desarrollada previamente para dicho sistema, se tiene la posibilidad de ajustar los parámetros de adquisición de tal forma que nos permitirá obtener una señal de sEMG de mejor calidad que con el sistema OpenBCI.
 
 \section{Sistemas FES existentes}
 En la literatura existe una diversidad de trabajos que implementan un lazo cerrado para aplicaciones FES, los cuales utilizan dispositivos de estimulación que varían entre dispositivos comerciales o prototipos, sin embargo, la revisión bibliográfica realizada para este proyecto se centró en trabajos que utilizan el dispositivo RehaStim como dispositivo de estimulación, y que además implementaran alguna aplicación para rehabilitación de miembro superior.
@@ -75,5 +71,3 @@ El Cuadro \ref{Cuadro:Control} resumen la información de los trabajos consultad
 	\caption{Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG.}
 	\label{Cuadro:Control}
 \end{table}
-
-%{\color{red}Falta descripción de lo observado y aprendido de estos trabajos. Debe llevar de forma natural a justificar la metodología elegída.}
