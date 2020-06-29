@@ -35,6 +35,8 @@
 \citation{Sun2014}
 \citation{Woods2018}
 \citation{Peckham2005}
+\citation{HASOMED}
+\citation{HASOMED}
 \citation{Finn2003}
 \citation{Popovic2008}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Marco teórico}{4}{chapter.2}\protected@file@percent }
@@ -130,8 +132,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Sistemas FES existentes}{12}{section.3.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Revisión de sistemas FES reportados en la literatura con aplicaciones similares a las de este proyecto.\relax }}{13}{table.caption.7}\protected@file@percent }
 \newlabel{Cuadro:Sistemas FES}{{3.1}{13}{Revisión de sistemas FES reportados en la literatura con aplicaciones similares a las de este proyecto.\relax }{table.caption.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG\relax }}{13}{table.caption.8}\protected@file@percent }
-\newlabel{Cuadro:Control}{{3.2}{13}{Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG\relax }{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG.\relax }}{13}{table.caption.8}\protected@file@percent }
+\newlabel{Cuadro:Control}{{3.2}{13}{Revisión de tipos de control y descriptores de amplitud comúnmente usados en aplicaciones de control basado en sEMG.\relax }{table.caption.8}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Metodología}{14}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -221,71 +223,86 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Validación fuera de línea}{29}{subsection.4.6.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Matriz de confusión para prueba fuera de línea.\relax }}{30}{table.caption.23}\protected@file@percent }
 \newlabel{Cuadro:PorcentajesObtencion}{{4.1}{30}{Matriz de confusión para prueba fuera de línea.\relax }{table.caption.23}{}}
+\newlabel{Ecu: Exactitud}{{4.8}{30}{Validación fuera de línea}{equation.4.6.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Validación en línea (control por biofeedback)}{30}{subsection.4.6.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Diagrama de bloques del sistema sEMG-FES implementado en Simulink\textregistered .\relax }}{30}{figure.caption.24}\protected@file@percent }
-\newlabel{Figura: SisComp}{{4.13}{30}{Diagrama de bloques del sistema sEMG-FES implementado en Simulink\textregistered .\relax }{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Segmento de señal trapezoidal patrón}}{31}{figure.caption.25}\protected@file@percent }
-\newlabel{Figura: Trapezoidal}{{4.14}{31}{Segmento de señal trapezoidal patrón}{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.4}Tarea funcional síncrona}{32}{subsection.4.6.4}\protected@file@percent }
-\newlabel{Sec: TareaObj}{{4.6.4}{32}{Tarea funcional síncrona}{subsection.4.6.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.5}Tarea funcional asíncrona}{32}{subsection.4.6.5}\protected@file@percent }
-\newlabel{Sec: TareaFunAsin}{{4.6.5}{32}{Tarea funcional asíncrona}{subsection.4.6.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Descripción detallada de tarea funcional asíncrona.\relax }}{33}{table.caption.26}\protected@file@percent }
-\newlabel{Cuadro:TareaFunAsin}{{4.2}{33}{Descripción detallada de tarea funcional asíncrona.\relax }{table.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Esquema de tarea funcional con tiempo libre.}}{34}{figure.caption.27}\protected@file@percent }
-\newlabel{Figura: TareaFuncional_P}{{4.15}{34}{Esquema de tarea funcional con tiempo libre}{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Resultados}{35}{chapter.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Diagrama de bloques del sistema sEMG-FES en línea implementado en Simulink\textregistered .\relax }}{31}{figure.caption.24}\protected@file@percent }
+\newlabel{Figura: SisComp}{{4.13}{31}{Diagrama de bloques del sistema sEMG-FES en línea implementado en Simulink\textregistered .\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Segmento de señal trapezoidal patrón}}{32}{figure.caption.25}\protected@file@percent }
+\newlabel{Figura: Trapezoidal}{{4.14}{32}{Segmento de señal trapezoidal patrón}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.4}Validación en línea con FES}{33}{subsection.4.6.4}\protected@file@percent }
+\newlabel{Sec: TareaObj}{{4.6.4}{33}{Validación en línea con FES}{subsection.4.6.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.5}Tarea funcional asíncrona}{33}{subsection.4.6.5}\protected@file@percent }
+\newlabel{Sec: TareaFunAsin}{{4.6.5}{33}{Tarea funcional asíncrona}{subsection.4.6.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Descripción detallada de tarea funcional asíncrona.\relax }}{34}{table.caption.26}\protected@file@percent }
+\newlabel{Cuadro:TareaFunAsin}{{4.2}{34}{Descripción detallada de tarea funcional asíncrona.\relax }{table.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Esquema de tarea funcional con tiempo libre.}}{35}{figure.caption.27}\protected@file@percent }
+\newlabel{Figura: TareaFuncional_P}{{4.15}{35}{Esquema de tarea funcional con tiempo libre}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Resultados}{36}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Evaluación de bloque de adquisición y decodificación}{35}{section.5.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Valores de correlación promedio por señal y correlación promedio total.\relax }}{35}{table.caption.28}\protected@file@percent }
-\newlabel{Cuadro:ValoresCorre}{{5.1}{35}{Valores de correlación promedio por señal y correlación promedio total.\relax }{table.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señales para evaluación de adquisición.}}{36}{figure.caption.29}\protected@file@percent }
-\newlabel{Figura: ValProCum}{{5.1}{36}{Comparación entre señales para evaluación de adquisición}{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{36}{section.5.2}\protected@file@percent }
-\newlabel{Figura: Filtrado_a}{{5.2a}{37}{\relax }{figure.caption.30}{}}
-\newlabel{sub@Figura: Filtrado_a}{{a}{37}{\relax }{figure.caption.30}{}}
-\newlabel{Figura: Filtrado_b}{{5.2b}{37}{\relax }{figure.caption.30}{}}
-\newlabel{sub@Figura: Filtrado_b}{{b}{37}{\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento del esquema de filtrado diseñado}}{37}{figure.caption.30}\protected@file@percent }
-\newlabel{Figura: Filtrado}{{5.2}{37}{Ejemplo representativo del funcionamiento del esquema de filtrado diseñado}{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Ejemplo representativo de la obtención de envolvente de RMS}}{37}{figure.caption.31}\protected@file@percent }
-\newlabel{Figura: RMS}{{5.3}{37}{Ejemplo representativo de la obtención de envolvente de RMS}{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Sistema de control}{38}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Calibración}{38}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Valores obtenidos para umbrales motores y funcionales de estimulación eléctrica.\relax }}{38}{table.caption.32}\protected@file@percent }
-\newlabel{Cuadro:UmbralesFES}{{5.2}{38}{Valores obtenidos para umbrales motores y funcionales de estimulación eléctrica.\relax }{table.caption.32}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Valores obtenidos para umbrales RMS de sEMG.\relax }}{38}{table.caption.33}\protected@file@percent }
-\newlabel{Cuadro:UmbralesRMS}{{5.3}{38}{Valores obtenidos para umbrales RMS de sEMG.\relax }{table.caption.33}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Parámetros de recta obtenidos para realizar mapeo sEMG-FES.\relax }}{39}{table.caption.34}\protected@file@percent }
-\newlabel{Cuadro:Rectas}{{5.4}{39}{Parámetros de recta obtenidos para realizar mapeo sEMG-FES.\relax }{table.caption.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Validación fuera de línea}{39}{subsection.5.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Porcentajes de aciertos y errores obtenidos en prueba fuera de línea.\relax }}{40}{table.caption.35}\protected@file@percent }
-\newlabel{Cuadro:PorcentajesValores}{{5.5}{40}{Porcentajes de aciertos y errores obtenidos en prueba fuera de línea.\relax }{table.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Secuencia temporal de una prueba exitosa de validación fuera de línea}}{40}{figure.caption.36}\protected@file@percent }
-\newlabel{Figura: MapOff}{{5.4}{40}{Secuencia temporal de una prueba exitosa de validación fuera de línea}{figure.caption.36}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Validación en línea (control por biofeedback)}{41}{subsection.5.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Secuencia temporal de una prueba exitosa de validación en línea}}{41}{figure.caption.37}\protected@file@percent }
-\newlabel{Figura: MapOn}{{5.5}{41}{Secuencia temporal de una prueba exitosa de validación en línea}{figure.caption.37}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Tarea funcional síncrona}{41}{subsection.5.3.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Secuencia temporal de una prueba exitosa de la tarea funcional síncrona}}{42}{figure.caption.38}\protected@file@percent }
-\newlabel{Figura: Retardo}{{5.6}{42}{Secuencia temporal de una prueba exitosa de la tarea funcional síncrona}{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Tarea funcional asíncrona}{42}{subsection.5.3.5}\protected@file@percent }
-\newlabel{Figura: Fun_A}{{5.7a}{43}{\relax }{figure.caption.39}{}}
-\newlabel{sub@Figura: Fun_A}{{a}{43}{\relax }{figure.caption.39}{}}
-\newlabel{Figura: Fun_B}{{5.7b}{43}{\relax }{figure.caption.39}{}}
-\newlabel{sub@Figura: Fun_B}{{b}{43}{\relax }{figure.caption.39}{}}
-\newlabel{Figura: Fun_C}{{5.7c}{43}{\relax }{figure.caption.39}{}}
-\newlabel{sub@Figura: Fun_C}{{c}{43}{\relax }{figure.caption.39}{}}
-\newlabel{Figura: Fun_D}{{5.7d}{43}{\relax }{figure.caption.39}{}}
-\newlabel{sub@Figura: Fun_D}{{d}{43}{\relax }{figure.caption.39}{}}
-\newlabel{Figura: Fun_E}{{5.7e}{43}{\relax }{figure.caption.39}{}}
-\newlabel{sub@Figura: Fun_E}{{e}{43}{\relax }{figure.caption.39}{}}
-\newlabel{Figura: Fun_F}{{5.7f}{43}{\relax }{figure.caption.39}{}}
-\newlabel{sub@Figura: Fun_F}{{f}{43}{\relax }{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)}}{43}{figure.caption.39}\protected@file@percent }
-\newlabel{Figura: TareaFuncional}{{5.7}{43}{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)}{figure.caption.39}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{44}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Evaluación de bloque de adquisición y decodificación}{36}{section.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Valores de correlación promedio por señal y correlación promedio total.\relax }}{36}{table.caption.28}\protected@file@percent }
+\newlabel{Cuadro:ValoresCorre}{{5.1}{36}{Valores de correlación promedio por señal y correlación promedio total.\relax }{table.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparación entre señales para evaluación de adquisición.}}{37}{figure.caption.29}\protected@file@percent }
+\newlabel{Figura: ValProCum}{{5.1}{37}{Comparación entre señales para evaluación de adquisición}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Procesamiento de sEMG}{37}{section.5.2}\protected@file@percent }
+\newlabel{Figura: Filtrado_a}{{5.2a}{38}{\relax }{figure.caption.30}{}}
+\newlabel{sub@Figura: Filtrado_a}{{a}{38}{\relax }{figure.caption.30}{}}
+\newlabel{Figura: Filtrado_b}{{5.2b}{38}{\relax }{figure.caption.30}{}}
+\newlabel{sub@Figura: Filtrado_b}{{b}{38}{\relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Ejemplo representativo del funcionamiento del esquema de filtrado diseñado}}{38}{figure.caption.30}\protected@file@percent }
+\newlabel{Figura: Filtrado}{{5.2}{38}{Ejemplo representativo del funcionamiento del esquema de filtrado diseñado}{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Ejemplo representativo de la obtención de envolvente de RMS}}{38}{figure.caption.31}\protected@file@percent }
+\newlabel{Figura: RMS}{{5.3}{38}{Ejemplo representativo de la obtención de envolvente de RMS}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Sistema de control}{39}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Calibración}{39}{subsection.5.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Valores obtenidos para umbrales motores y funcionales de estimulación eléctrica.\relax }}{39}{table.caption.32}\protected@file@percent }
+\newlabel{Cuadro:UmbralesFES}{{5.2}{39}{Valores obtenidos para umbrales motores y funcionales de estimulación eléctrica.\relax }{table.caption.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Valores obtenidos para umbrales RMS de sEMG.\relax }}{40}{table.caption.33}\protected@file@percent }
+\newlabel{Cuadro:UmbralesRMS}{{5.3}{40}{Valores obtenidos para umbrales RMS de sEMG.\relax }{table.caption.33}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Parámetros de recta obtenidos para realizar mapeo sEMG-FES.\relax }}{40}{table.caption.34}\protected@file@percent }
+\newlabel{Cuadro:Rectas}{{5.4}{40}{Parámetros de recta obtenidos para realizar mapeo sEMG-FES.\relax }{table.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Validación fuera de línea}{40}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Matriz de confusión obtenida tras validación fuera de línea.\relax }}{41}{table.caption.35}\protected@file@percent }
+\newlabel{Cuadro:PorcentajesValores}{{5.5}{41}{Matriz de confusión obtenida tras validación fuera de línea.\relax }{table.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Secuencia temporal de una prueba exitosa de validación fuera de línea}}{41}{figure.caption.36}\protected@file@percent }
+\newlabel{Figura: MapOff}{{5.4}{41}{Secuencia temporal de una prueba exitosa de validación fuera de línea}{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Validación en línea (control por biofeedback)}{42}{subsection.5.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Secuencia temporal de una prueba exitosa de validación en línea}}{42}{figure.caption.37}\protected@file@percent }
+\newlabel{Figura: MapOn}{{5.5}{42}{Secuencia temporal de una prueba exitosa de validación en línea}{figure.caption.37}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Validación en línea con FES}{42}{subsection.5.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Secuencia temporal de una prueba exitosa de la validación en línea con FES}}{43}{figure.caption.38}\protected@file@percent }
+\newlabel{Figura: Retardo}{{5.6}{43}{Secuencia temporal de una prueba exitosa de la validación en línea con FES}{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Tarea funcional asíncrona}{43}{subsection.5.3.5}\protected@file@percent }
+\newlabel{Figura: Fun_A}{{5.7a}{44}{\relax }{figure.caption.39}{}}
+\newlabel{sub@Figura: Fun_A}{{a}{44}{\relax }{figure.caption.39}{}}
+\newlabel{Figura: Fun_B}{{5.7b}{44}{\relax }{figure.caption.39}{}}
+\newlabel{sub@Figura: Fun_B}{{b}{44}{\relax }{figure.caption.39}{}}
+\newlabel{Figura: Fun_C}{{5.7c}{44}{\relax }{figure.caption.39}{}}
+\newlabel{sub@Figura: Fun_C}{{c}{44}{\relax }{figure.caption.39}{}}
+\newlabel{Figura: Fun_D}{{5.7d}{44}{\relax }{figure.caption.39}{}}
+\newlabel{sub@Figura: Fun_D}{{d}{44}{\relax }{figure.caption.39}{}}
+\newlabel{Figura: Fun_E}{{5.7e}{44}{\relax }{figure.caption.39}{}}
+\newlabel{sub@Figura: Fun_E}{{e}{44}{\relax }{figure.caption.39}{}}
+\newlabel{Figura: Fun_F}{{5.7f}{44}{\relax }{figure.caption.39}{}}
+\newlabel{sub@Figura: Fun_F}{{f}{44}{\relax }{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)}}{44}{figure.caption.39}\protected@file@percent }
+\newlabel{Figura: TareaFuncional}{{5.7}{44}{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)}{figure.caption.39}{}}
+\newlabel{Figura: Fun_Sen_A}{{5.8a}{45}{\relax }{figure.caption.40}{}}
+\newlabel{sub@Figura: Fun_Sen_A}{{a}{45}{\relax }{figure.caption.40}{}}
+\newlabel{Figura: Fun_Sen_B}{{5.8b}{45}{\relax }{figure.caption.40}{}}
+\newlabel{sub@Figura: Fun_Sen_B}{{b}{45}{\relax }{figure.caption.40}{}}
+\newlabel{Figura: Fun_Sen_C}{{5.8c}{45}{\relax }{figure.caption.40}{}}
+\newlabel{sub@Figura: Fun_Sen_C}{{c}{45}{\relax }{figure.caption.40}{}}
+\newlabel{Figura: Fun_Sen_D}{{5.8d}{45}{\relax }{figure.caption.40}{}}
+\newlabel{sub@Figura: Fun_Sen_D}{{d}{45}{\relax }{figure.caption.40}{}}
+\newlabel{Figura: Fun_Sen_E}{{5.8e}{45}{\relax }{figure.caption.40}{}}
+\newlabel{sub@Figura: Fun_Sen_E}{{e}{45}{\relax }{figure.caption.40}{}}
+\newlabel{Figura: Fun_F}{{5.8f}{45}{\relax }{figure.caption.40}{}}
+\newlabel{sub@Figura: Fun_F}{{f}{45}{\relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Señales de las fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)}}{45}{figure.caption.40}\protected@file@percent }
+\newlabel{Figura: TareaFuncional_Senales}{{5.8}{45}{Señales de las fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)}{figure.caption.40}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Discusión y conclusiones}{46}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{acm}
@@ -299,22 +316,23 @@
 \bibcite{Finn2003}{7}
 \bibcite{Fonseca2019}{8}
 \bibcite{JanethFuentes2018}{9}
-\@writefile{toc}{\contentsline {chapter}{Referencias}{48}{chapter*.45}\protected@file@percent }
-\bibcite{Kim2015}{10}
-\bibcite{Lenzi2012}{11}
-\bibcite{AnaMartin2019}{12}
-\bibcite{Castillo2019}{13}
-\bibcite{Fuentes2018}{14}
-\bibcite{Peckham2005}{15}
-\bibcite{Phinyomark2013}{16}
-\bibcite{Popovic2015}{17}
-\bibcite{Popovic2008}{18}
-\bibcite{Sachs2006}{19}
-\bibcite{Salchow2016}{20}
-\bibcite{Simonsen2017}{21}
-\bibcite{Sun2014}{22}
-\bibcite{Woods2018}{23}
-\bibcite{Wright2016}{24}
-\bibcite{Yi2013}{25}
-\bibcite{Yucha2008}{26}
-\bibcite{Zhou2018}{27}
+\@writefile{toc}{\contentsline {chapter}{Referencias}{50}{chapter*.46}\protected@file@percent }
+\bibcite{HASOMED}{10}
+\bibcite{Kim2015}{11}
+\bibcite{Lenzi2012}{12}
+\bibcite{AnaMartin2019}{13}
+\bibcite{Castillo2019}{14}
+\bibcite{Fuentes2018}{15}
+\bibcite{Peckham2005}{16}
+\bibcite{Phinyomark2013}{17}
+\bibcite{Popovic2015}{18}
+\bibcite{Popovic2008}{19}
+\bibcite{Sachs2006}{20}
+\bibcite{Salchow2016}{21}
+\bibcite{Simonsen2017}{22}
+\bibcite{Sun2014}{23}
+\bibcite{Woods2018}{24}
+\bibcite{Wright2016}{25}
+\bibcite{Yi2013}{26}
+\bibcite{Yucha2008}{27}
+\bibcite{Zhou2018}{28}

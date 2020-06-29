@@ -6,45 +6,45 @@ Database file #1: 11_biblio.bib
 Warning--empty publisher in Popovic2015
 Warning--empty publisher in Popovic2008
 Warning--there's a number but no series in Sachs2006
-You've used 27 entries,
+You've used 28 entries,
             2253 wiz_defined-function locations,
-            745 strings with 11478 characters,
-and the built_in function-call counts, 9671 in all, are:
-= -- 949
-> -- 512
+            750 strings with 11615 characters,
+and the built_in function-call counts, 9885 in all, are:
+= -- 969
+> -- 519
 < -- 0
-+ -- 209
-- -- 182
-* -- 787
-:= -- 1629
-add.period$ -- 106
-call.type$ -- 27
-change.case$ -- 169
++ -- 212
+- -- 184
+* -- 795
+:= -- 1664
+add.period$ -- 109
+call.type$ -- 28
+change.case$ -- 173
 chr.to.int$ -- 0
-cite$ -- 30
-duplicate$ -- 320
-empty$ -- 700
-format.name$ -- 182
-if$ -- 1962
+cite$ -- 31
+duplicate$ -- 328
+empty$ -- 723
+format.name$ -- 184
+if$ -- 2009
 int.to.chr$ -- 0
-int.to.str$ -- 27
+int.to.str$ -- 28
 missing$ -- 26
-newline$ -- 161
-num.names$ -- 56
-pop$ -- 148
+newline$ -- 166
+num.names$ -- 58
+pop$ -- 156
 preamble$ -- 1
-purify$ -- 144
+purify$ -- 147
 quote$ -- 0
-skip$ -- 191
+skip$ -- 198
 stack$ -- 0
-substring$ -- 524
-swap$ -- 82
+substring$ -- 529
+swap$ -- 84
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 102
+type$ -- 106
 warning$ -- 3
-while$ -- 89
-width$ -- 29
-write$ -- 324
+while$ -- 91
+width$ -- 30
+write$ -- 334
 (There were 3 warnings)

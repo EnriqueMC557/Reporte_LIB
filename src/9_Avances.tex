@@ -8,8 +8,8 @@ Tras realizar la evaluación del subsistema de adquisición descrito en la secci
 	\centering
 	\begin{tabular}{|l|c|}
 	\hline
-	\textbf{Señal} & \textbf{Correlación}\\ 
-	\textbf{} & \textbf{promedio}\\ \hline	\hline
+	\textbf{} & \textbf{Correlación}\\ 
+	\textbf{Señal} & \textbf{promedio}\\ \hline	\hline
 	1 Hz & 0.9889\\ \hline
 	5 Hz & 0.9428\\ \hline
 	10 Hz & 0.9948\\ \hline
@@ -37,7 +37,7 @@ Tras realizar la evaluación del subsistema de adquisición descrito en la secci
 
 \newpage
 \section{Procesamiento de sEMG}
-El esquema de filtrado utilizado (filtro pasa altas, filtro pasa bajas y filtro rechaza banda), al igual que el procesamiento para obtención del RMS suavizado, se pusieron a prueba fuera de línea con registros de 10 voluntarios sanos (6 hombres y 4 mujeres en el rango de 20 a 24 años de edad).
+El esquema de filtrado utilizado (filtro pasa altas, filtro pasa bajas y filtro rechaza banda), al igual que el procesamiento para obtención del RMS suavizado, se pusieron a prueba fuera de línea con registros de sEMG de 10 voluntarios sanos (6 hombres y 4 mujeres en el rango de 20 a 24 años de edad).
 
 La Figura \ref{Figura: Filtrado} muestra una comparación entre los canales de sEMG adquiridos para las pruebas de procesamiento y el resultado del filtrado fuera de línea. En la Figura \ref{Figura: RMS} se muestra un ejemplo del resultado del procesamiento para obtención de la envolvente RMS suavizada.
 
@@ -79,15 +79,18 @@ Tras realizar el proceso de calibración descrito en la sección \ref{Sec: Calib
 
 El Cuadro \ref{Cuadro:UmbralesFES} muestra los valores obtenidos para los umbrales motores y funcionales tras realizar la calibración de parámetros FES descrita en la sección \ref{Sec:CalFES}.
 
-El Cuadro \ref{Sec:CalRMS} muestra los valores de umbrales RMS y umbral detector de movimiento obtenidos tras realizar la calibración de umbrales RMS de sEMG descrita en la sección \ref{Sec:CalRMS}. Cabe señalar que en esta prueba se obtuvo un umbral de activación menor para el movimiento de pinza gruesa en comparación con el umbral de activación para el movimiento de apertura de mano (recordemos que los umbrales de activación son el umbral de pinza gruesa incompleta en el canal 1 y el umbral de apertura de mano incompleta en el canal 2).
+El Cuadro \ref{Cuadro:UmbralesRMS} muestra los valores de umbrales RMS y el valor del umbral detector de movimiento obtenidos tras realizar la calibración de umbrales RMS de sEMG descrita en la sección \ref{Sec:CalRMS}. Cabe señalar que en esta prueba se obtuvo un umbral de activación menor para el movimiento de pinza gruesa en comparación con el umbral de activación para el movimiento de apertura de mano (recordemos que los umbrales de activación son el umbral de pinza gruesa incompleta en el canal 1 y el umbral de apertura de mano incompleta en el canal 2).
+
+El Cuadro \ref{Cuadro:Rectas} muestra los valores de la pendiente y la ordenada al origen correspondientes a las rectas de mapeo proporcional para el canal 1 y el canal 2 de estimulación eléctrica.
 
 %Cuadro umbrales FES
 \begin{table}[htbp]
 	\centering
 	\begin{tabular}{|l|c|c|}
 	\hline
-	\textbf{Canal} & \textbf{Umbral motor} & \textbf{Umbral funcional}\\
-	\textbf{} & \textbf{[mA]} & \textbf{[mA]}\\ \hline	\hline
+	\textbf{} & \textbf{Umbral motor} & \textbf{Umbral funcional}\\
+	\textbf{} & \textbf{($U_{Mj}$)} & \textbf{($U_{Fj}$)}\\
+	\textbf{Canal} & \textbf{[mA]} & \textbf{[mA]}\\ \hline	\hline
 	Canal 1 (Pinza gruesa) & 6 & 14\\ \hline
 	Canal 1 (Apertura de mano) & 9 & 13\\ \hline
 	\end{tabular}
@@ -100,14 +103,16 @@ El Cuadro \ref{Sec:CalRMS} muestra los valores de umbrales RMS y umbral detector
 	\centering
 	\begin{tabular}{|l|c|c|}
 	\hline
-	\textbf{Movimiento} & \textbf{Canal 1} & \textbf{Canal 2}\\
-	\textbf{} & \textbf{[mV]} & \textbf{[mV]}\\ \hline \hline
-	Apertura de mano completa & 0.8708 & 3.0000\\ \hline
-	Apertura de mano incompleta & 0.4657 & 0.9115\\ \hline
-	Descanso & 0.1981 & 0.1536\\ \hline
-	Pinza gruesa incompleta & 0.7918 & 0.8134\\ \hline
-	Pinza gruesa completa & 2.2491 & 1.9610\\ \hline	
-	Umbral detector de movimiento & \multicolumn{2}{|c|}{0.4458}\\ \hline
+	\textbf{} & \multicolumn{2}{|c|}{Umbral RMS}\\
+	\textbf{} & \textbf{Canal 1} & \textbf{Canal 2}\\
+	\textbf{} & \textbf{$j=1$} & \textbf{$j=2$}\\
+	\textbf{Movimiento} & \textbf{[mV]} & \textbf{[mV]}\\ \hline \hline
+	Apertura de mano completa ($M_{1j}$) & 0.8708 & 3.0000\\ \hline
+	Apertura de mano incompleta	($M_{2j}$) & 0.4657 & 0.9115\\ \hline
+	Descanso ($M_{3j}$) & 0.1981 & 0.1536\\ \hline
+	Pinza gruesa incompleta ($M_4j$) & 0.7918 & 0.8134\\ \hline
+	Pinza gruesa completa ($M_5j$) & 2.2491 & 1.9610\\ \hline	
+	Umbral detector de movimiento ($UDM$) & \multicolumn{2}{|c|}{0.4458}\\ \hline
 	\end{tabular}
 	\caption{Valores obtenidos para umbrales RMS de sEMG.}
 	\label{Cuadro:UmbralesRMS}
@@ -118,8 +123,9 @@ El Cuadro \ref{Sec:CalRMS} muestra los valores de umbrales RMS y umbral detector
 	\centering
 	\begin{tabular}{|l|c|c|}
 	\hline
-	\textbf{Canal} & \textbf{Pendiente} & \textbf{Ordenada al origen}\\ 
-	\textbf{} & \textbf{[mA/mV]} & \textbf{[mA]}\\\hline \hline
+	\textbf{} & \textbf{Pendiente} & \textbf{Ordenada al origen}\\ 
+	\textbf{} & \textbf{($m_{j}$)} & \textbf{($b_{j}$)}\\
+	\textbf{Canal} & \textbf{[mA/mV]} & \textbf{[mA]}\\\hline \hline
 	Canal 1 (Pinza gruesa) & 5.4894 & 1.6536\\ \hline
 	Canal 2 (Apertura de mano) & 1.9153 & 7.2542\\ \hline
 	\end{tabular}
@@ -157,15 +163,16 @@ El algoritmo de clasificación de movimientos obtuvo una exactitud del 81.7241\%
 %Cuadro porcentajes aciertos y errores 
 \begin{table}[htbp]
 	\centering
-	\begin{tabular}{|l|c|c|}
+\begin{tabular}{|l|c|c|c|}
 	\hline
-	\textbf{Movimiento} & \textbf{Aciertos} & \textbf{Errores}\\ \hline \hline
-	Apertura de mano & 57.5000\% & 42.5000\%\\ \hline
-	Descanso & 97.6923\% & 2.3077\%\\ \hline
-	Pinza gruesa & 80.0000\% & 20.000\%\\ \hline	
-	\textbf{TOTAL} & 81.7241\% & 18.2759\%\\ \hline
+	\textbf{} & \multicolumn{3}{|c|}{Movimiento real}\\
+	\textbf{Movimiento} & \textbf{Descanso} & \textbf{Pinza} & \textbf{Apertura}\\
+	\textbf{predicho} & \textbf{} & \textbf{gruesa} & \textbf{de mano}\\ \hline \hline
+	\textbf{Descanso} & \textbf{381} & \textbf{9} & \textbf{0}\\ \hline
+	\textbf{Pinza gruesa} & \textbf{41} & \textbf{192} & \textbf{7}\\ \hline
+	\textbf{Apertura de mano} & \textbf{32} & \textbf{70} & \textbf{138}\\ \hline
 	\end{tabular}
-	\caption{Porcentajes de aciertos y errores obtenidos en prueba fuera de línea.}
+	\caption{Matriz de confusión obtenida tras validación fuera de línea.}
 	\label{Cuadro:PorcentajesValores}
 \end{table}
 
@@ -173,7 +180,7 @@ El algoritmo de clasificación de movimientos obtuvo una exactitud del 81.7241\%
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{MapOff.png}
-	\caption[Secuencia temporal de una prueba exitosa de validación fuera de línea]{Secuencia temporal de una prueba exitosa de validación fura de línea del sistema de control sEMG-FES. Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Centro: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). Abajo: Marcadores de acción solicitada al sujeto (descanso (DD), pinza gruesa incompleta (CI), pinza gruesa completa (CC), apertura incompleta (AL), apertura completa (AC)).}
+	\caption[Secuencia temporal de una prueba exitosa de validación fuera de línea]{Secuencia temporal de una prueba exitosa de validación fura de línea del sistema de control sEMG-FES. Arriba: Marcadores de acción solicitada al sujeto (descanso (DD), pinza gruesa incompleta (CI), pinza gruesa completa (CC), apertura de mano incompleta (AL), apertura de mano completa (AC)). Centro: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Abajo: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). }
 	\label{Figura: MapOff}
 \end{figure}
 
@@ -186,28 +193,28 @@ Respecto a la prueba de validación en línea, en esta demostró una respuesta d
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{MapOn.png}
-	\caption[Secuencia temporal de una prueba exitosa de validación en línea]{Secuencia temporal de una prueba exitosa de validación en línea del sistema de control sEMG-FES.  Arriba: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Centro: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2). Abajo: Señal trapezoidal patrón indicadora del movimiento objetivo (descanso (DD), pinza gruesa (CC), apertura completa (AC)).}
+	\caption[Secuencia temporal de una prueba exitosa de validación en línea]{Secuencia temporal de una prueba exitosa de validación en línea del sistema de control sEMG-FES.  Arriba: Señal trapezoidal patrón indicadora del movimiento objetivo (descanso (DD), pinza gruesa (CC), apertura de mano completa (AC)). Centro: Envolventes de sEMG (Azul: canal 1. Rojo: canal 2). Abajo: Amplitudes de estimulación eléctrica (salida del sistema de control) (Azul: canal 1. Rojo: canal 2).}
 	\label{Figura: MapOn}
 \end{figure}
 
 
 %\newpage
-\subsection{Tarea funcional síncrona}
-En relación a la tarea funcional síncrona, el sistema logró llevar a cabo la modulación de la estimulación eléctrica de forma satisfactoria, obteniendo un retardo promedio del sistema con valor de de 2.3 $\pm$ 0.3553 s, medido de la forma descrita en la sección \ref{Sec: TareaObj}. La Figura \ref{Figura: Retardo} muestra un acercamiento a las señales obtenidas al termino de la prueba de la tarea funcional síncrona, donde es notable el retardo entre la señal patrón y la señal de amplitud de estimulación eléctrica.
+\subsection{Validación en línea con FES}
+En relación a la validación en línea con FES, el sistema logró llevar a cabo la modulación de la estimulación eléctrica de forma satisfactoria, obteniendo un retardo promedio del sistema con valor de de 2.3 $\pm$ 0.3553 s, medido de la forma descrita en la sección \ref{Sec: TareaObj}. La Figura \ref{Figura: Retardo} muestra un acercamiento a las señales obtenidas al termino de la prueba de la validación en línea con FES, donde se aprecia el retardo entre la señal patrón y la señal de amplitud de estimulación eléctrica.
 
 \newpage
 %Figura medición de retardo
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{Retardo_Flechas.png}
-	\caption[Secuencia temporal de una prueba exitosa de la tarea funcional síncrona]{Secuencia temporal de una prueba exitosa de la tarea funcional síncrona. Se muestran las diferentes señales asociadas a cada movimiento sobre la misma base de tiempo para visualizar el retardo existente entre la señal trapezoidal patrón y la señal de amplitud de estimulación eléctrica. Arriba: Señales para movimiento pinza gruesa completa (CC). Abajo: Señales para movimiento apertura completa (AC). En azul se muestra la señal trapezoidal patrón del movimiento objetivo. En rojo se muestra la envolvente de sEMG. En amarillo se muestra la amplitud de estimulación eléctrica (salida del sistema control). Se agregaron flechas color verde a las gráficas para resaltar el retardo existente entre la señal trapezoidal y la amplitud FES.}
+	\includegraphics[width=\textwidth]{Retardo_Flechas_2.png}
+	\caption[Secuencia temporal de una prueba exitosa de la validación en línea con FES]{Secuencia temporal de una prueba exitosa de la validación en línea con FES. Se muestran las diferentes señales asociadas a cada movimiento sobre la misma base de tiempo para visualizar el retardo existente entre la señal trapezoidal patrón y la señal de amplitud de estimulación eléctrica. Arriba: Señales para movimiento pinza gruesa completa (CC). Abajo: Señales para movimiento apertura de mano completa (AC). En amarillo se muestra la señal trapezoidal patrón del movimiento objetivo. En azul se muestra la envolvente de sEMG. En rojo se muestra la amplitud de estimulación eléctrica (salida del sistema control). Se agregaron flechas color verde a las gráficas para resaltar el retardo existente entre la señal trapezoidal y la amplitud FES. La escala vertical mostrada a la izquierda es la misma para las señales sEMG y FES, sólo se aplica el correspondiente cambio de unidades.}
 	\label{Figura: Retardo}
 \end{figure}
 
 
 %\newpage
 \subsection{Tarea funcional asíncrona}
-Respecto a la tarea funcional asíncrona, esta logró ser realizada por el sujeto de prueba, logrando realizar las 6 acciones de la que consta dicha tarea. La Figura \ref{Figura: TareaFuncional} muestra las diferentes fases de movimiento durante la ejecución de la tarea funcional asíncrona por parte del sujeto. Se puede apreciar que los movimientos corresponden a los descritos en la sección \ref{Sec: TareaFunAsin}.
+Respecto a la tarea funcional asíncrona, esta logró ser realizada por el sujeto de prueba, logrando realizar las 6 acciones de la que consta dicha tarea. La Figura \ref{Figura: TareaFuncional} muestra las diferentes fases de movimiento durante la ejecución de la tarea funcional asíncrona por parte del sujeto, mientras que la Figura \ref{Figura: TareaFuncional_Senales} muestra las señales (sEMG y FES) correspondiente a cada fase. Se puede apreciar que los movimientos corresponden a los descritos en la sección \ref{Sec: TareaFunAsin}.
 
 %Figura levantar objetos
 \begin{figure}[htbp]
@@ -217,40 +224,77 @@ Respecto a la tarea funcional asíncrona, esta logró ser realizada por el sujet
 		\caption{}
 		\label{Figura: Fun_A}
 	\end{subfigure}
-%	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Funcional_b.png}
 		\caption{}
 		\label{Figura: Fun_B}
 	\end{subfigure}
-%	\hfill
 	\newline
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Funcional_c.png}
 		\caption{}
 		\label{Figura: Fun_C}
 	\end{subfigure}
-%	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Funcional_d.png}
 		\caption{}
 		\label{Figura: Fun_D}
 	\end{subfigure}
-%	\hfill
 	\newline
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Funcional_e.png}
 		\caption{}
 		\label{Figura: Fun_E}
 	\end{subfigure}
-%	\hfill
 	\begin{subfigure}[htbp]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{Funcional_f.png}
 		\caption{}
 		\label{Figura: Fun_F}
 	\end{subfigure}
-	\caption[Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)]{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea). (a)Abducción de hombros. (b)Extensión de dedos. (c)Flexión de dedos. (d)Abducción y extensión de hombros. (e)Flexión de hombros. (f) Extensión de dedos.}
+	\caption[Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)]{Fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea). (a)Adducción de hombros. (b)Extensión de dedos. (c)Flexión de dedos. (d)Abducción y extensión de hombros. (e)Flexión de hombros. (f) Extensión de dedos.}
 	\label{Figura: TareaFuncional}
+\end{figure}
+
+%Figura señales levantar objetos
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[htbp]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{sEMG_FES_FUN_a.png}
+		\caption{}
+		\label{Figura: Fun_Sen_A}
+	\end{subfigure}
+	\hspace*{1cm}
+	\begin{subfigure}[htbp]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{sEMG_FES_FUN_b.png}
+		\caption{}
+		\label{Figura: Fun_Sen_B}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}[htbp]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{sEMG_FES_FUN_c.png}
+		\caption{}
+		\label{Figura: Fun_Sen_C}
+	\end{subfigure}
+	\hspace*{1cm}
+	\begin{subfigure}[htbp]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{sEMG_FES_FUN_d.png}
+		\caption{}
+		\label{Figura: Fun_Sen_D}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}[htbp]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{sEMG_FES_FUN_e.png}
+		\caption{}
+		\label{Figura: Fun_Sen_E}
+	\end{subfigure}
+	\hspace*{1cm}
+	\begin{subfigure}[htbp]{0.35\textwidth}
+		\includegraphics[width=\textwidth]{sEMG_FES_FUN_f.png}
+		\caption{}
+		\label{Figura: Fun_F}
+	\end{subfigure}
+	\caption[Señales de las fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea)]{Señales de las fases de la tarea funcional asíncrona ejecutada por el sujeto (en línea). Arriba: Señales de sEMG. Abajo: Señales de amplitud FES. Azul: Señales del canal 1. Rojo: Señales del canal 2. (a)Adducción de hombros. (b)Extensión de dedos. (c)Flexión de dedos. (d)Abducción y extensión de hombros. (e)Flexión de hombros. (f) Extensión de dedos.}
+	\label{Figura: TareaFuncional_Senales}
 \end{figure}
 %Previo a realizar pruebas del esquema de control en línea, este se probó fuera de línea, aprovechando los registros de calibración. Para estas pruebas se diseñó un script en MATLAB que obtiene los parámetros necesarios del esquema de control de la misma forma que los arroja la calibración. Una vez obtenidos dichos parámetros se configura con ellos al esquema de control y se realiza una prueba fuera de línea donde con cada ventana de sEMG se obtiene un valor de RMS el cuál es sometido al esquema de control y arroja un valor de amplitud para el canal asociado al movimiento detectado. Tras probar el esquema de control con tres registros distintos de calibración se obtuvo un porcentaje de acierto del 81$\%$ en la identificación correcta de los movimientos de cierre, apertura y descanso de mano.
 
