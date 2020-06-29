@@ -47,15 +47,15 @@ Para realizar la decodificación del flujo de datos dentro de Simulink\textregis
 El funcionamiento del subsistema responsable de la solicitud y decodificación de datos implementado dentro de Simulink\textregistered \; se encuentra esquematizado en la Figura \ref{Figura: DecoStream}, y lleva a cabo el siguiente algoritmo:
 
 \begin{enumerate}
-	\item Se realiza la adquisición de N muestras, lo cual generará un vector columna con dimensión $(27*N)\times 1$ (Figura \ref{Figura: DecoStream} \emph{(a)}), donde 27 corresponde al tamaño en bytes del flujo de datos a recibir y 1 corresponde a 1 columna en la que se recibirán los datos. %$\mathbb{R}^{27*N\times 1}$
+	\item Se realiza la adquisición de N muestras, lo cual generará un vector columna con dimensión $(27*N)\times 1$ (Figura \ref{Figura: DecoStream} \emph{(a)}), donde 27 corresponde al tamaño en bytes del flujo de datos a recibir y 1 corresponde a 1 columna en la que se recibirán los datos.
 	
-	\item Se aplica una operación de reshape a dicho vector para obtener una matriz con dimensión $27\times N$ (Figura \ref{Figura: DecoStream} \emph{(b)}). %$\mathbb{R}^{27\times N}$
+	\item Se aplica una operación de reshape a dicho vector para obtener una matriz con dimensión $27\times N$ (Figura \ref{Figura: DecoStream} \emph{(b)}).
 	
-	\item Se obtiene la transpuesta de dicha matriz para obtener una matriz de dimension $N\times 27$ (Figura \ref{Figura: DecoStream} \emph{(c)}). %$\mathbb{R}^{N\times 27}$
+	\item Se obtiene la transpuesta de dicha matriz para obtener una matriz de dimension $N\times 27$ (Figura \ref{Figura: DecoStream} \emph{(c)}).
 	
-	\item Se realiza la extracción de las columnas asociadas al canal a procesar, obteniendo una matriz de dimensión $N\times 3$ (Figura \ref{Figura: DecoStream} \emph{(d)}), donde 3 es el número de bytes correspondientes a cada muestra. %$\mathbb{R}^{N\times 3}$
+	\item Se realiza la extracción de las columnas asociadas al canal a procesar, obteniendo una matriz de dimensión $N\times 3$ (Figura \ref{Figura: DecoStream} \emph{(d)}), donde 3 es el número de bytes correspondientes a cada muestra.
 	
-	\item Se realiza el producto de la matriz del canal a procesar con un vector (columna) ponderador que contiene el peso de cada columna (byte) necesario para obtener el valor de la muestra de 24 bits (Figura \ref{Figura: DecoStream} \emph{(e)}). El vector ponderador está compuesto por los valores $2^{16}$, $2^8$ y $2^0$, los cuales corresponden a realizar un corrimiento hacia la izquierda de 16, 8 y 0 bits respectivamente. Como resultado de dicho producto se obtiene un vector de dimensión $N\times 1$ en unidades de bits (Figura \ref{Figura: DecoStream} \emph{(f)}). %$\mathbb{R}^{N\times 1}$
+	\item Se realiza el producto de la matriz del canal a procesar con un vector (columna) ponderador que contiene el peso de cada columna (byte) necesario para obtener el valor de la muestra de 24 bits (Figura \ref{Figura: DecoStream} \emph{(e)}). El vector ponderador está compuesto por los valores $2^{16}$, $2^8$ y $2^0$, los cuales corresponden a realizar un corrimiento hacia la izquierda de 16, 8 y 0 bits respectivamente. Como resultado de dicho producto se obtiene un vector de dimensión $N\times 1$ en unidades de bits (Figura \ref{Figura: DecoStream} \emph{(f)}).
 	
 	\item Se extraen del vector \emph{f} las muestras en las que se encuentren codificados, en complemento a 2, un número negativo. Esto se realiza al obtener el valor del bit 23 (bit más significativo), y si dicho bit tiene un valor de 1 implica que dicha muestra codifica un número negativo. De esta operación se obtiene un vector con dimensión $M\times 1$, donde $M$ es la cantidad de muestras negativas a decodificar. (Figura \ref{Figura: DecoStream} \emph{(g)}).
 	
@@ -72,6 +72,7 @@ El funcionamiento del subsistema responsable de la solicitud y decodificación d
 	\label{Ecu: ScaleFactor}
 \end{equation}
 \vfill
+
 %Funcionamiento decodificación
 \begin{figure}[htbb]
 \centering
@@ -411,7 +412,6 @@ Cabe mencionar que los registros de calibración se conforman de dos repeticione
 
 Donde $T = TD+TC+TA$. $TD$, $TC$ y $TA$ corresponden a los movimientos \emph{descanso}, \emph{pinza gruesa} y \emph{apertura de mano}, respectivamente, clasificados de forma correcta. $FDC$ corresponde al movimiento \emph{descanso} clasificado como \emph{pinza gruesa}. $FDA$ corresponde al movimiento \emph{descanso} clasificado como \emph{apertura de mano}. $FCD$ corresponde al movimiento \emph{pinza gruesa} clasificado como \emph{descanso}. $FCA$ corresponde al movimiento \emph{pinza gruesa} clasificado como \emph{apertura de mano}. $FAD$ corresponde al movimiento \emph{apertura de mano} clasificado como \emph{descanso}. $FAC$ corresponde al movimiento \emph{apertura de mano} clasificado como \emph{pinza gruesa}.
 
-%\newpage
 \subsection{Validación en línea (control por biofeedback)}
 Una vez que el sistema se ha validado fuera de línea, se procede a realizar una prueba para corroborar su funcionamiento en línea. Para llevar a cabo esto se utiliza el sistema sEMG-FES en línea implementado en Simulink\textregistered \; (Figura \ref{Figura: SisComp}) configurándolo de la siguiente manera:
 

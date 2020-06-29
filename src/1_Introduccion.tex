@@ -1,10 +1,6 @@
 %INTRODUCCIÓN
 Las lesiones o daños al sistema nervioso central (SNC) suelen ocasionar alteraciones en el funcionamiento de las estructuras neuromusculares, originando condiciones de deficiencia motriz o sensorial, atrofia muscular y espasticidad. Según sea la ubicación y el grado de la lesión, serán los efectos y posibilidades de recuperación del miembro afectado. En particular, el Accidente Cerebrovascular (ACV) es un evento que reduce el flujo sanguíneo al cerebro, el cual muchas veces ocasiona hemiplejia, que es la reducción de la capacidad motriz de un lado del cuerpo.
 
-%una lesión al SNC puede originar hemiplejia, lo cual es un trastorno del cuerpo en el que debido a la privación de irrigación sanguínea al cerebro, la sensibilidad y movimiento de la mitad del cuerpo se pueden ver anulados o disminuidos.
-
-%Relacionado a las lesiones en las que el miembro superior se ve afectado, existen diferentes técnicas de rehabilitación, las cuales se pueden catalogar en rehabilitación convencional (sesiones de fisioterapia) y rehabilitación basada en tecnología (práctica mental con imaginación motora, terapia de movimiento inducida por restricción y sistemas de estimulación eléctrica). Las primeras
-
 Relacionado a las lesiones en las que el miembro superior se ve afectado, existen diferentes técnicas de rehabilitación, entre las cuales podemos encontrar las sesiones de fisioterapia, la terapia de movimiento inducido por restricción, la práctica mental con imaginación motora y sistemas de estimulación eléctrica.
 
 La estimulación eléctrica funcional (FES, por sus siglas en inglés), es una técnica que, a partir de la aplicación de corriente eléctrica, permite la producción de potenciales de acción, y esto a su vez permite generar una contracción muscular que podría llegar a considerarse funcional\cite{Peckham2005}. Las neuroprótesis basadas en FES son dispositivos que sirven como puente entre el SNC y la zona afectada del cuerpo. Estos dispositivos buscan reemplazar o rehabilitar la función motriz dañada debido a una lesión en el SNC.
@@ -14,15 +10,9 @@ En la división de Investigación en Ingeniería Médica del Instituto Nacional 
 Para dicho proyecto el INR-LGII desarrolló una interfaz gráfica de usuario (GUI, por sus siglas en inglés) que permite controlar los parámetros del sistema de estimulación eléctrica RehaStim 2 (HASOMED GmbH., Magdeburgo, Alemania) y el sistema de adquisición de biopotenciales Cyton Board (OpenBCI Inc., Nueva York, E.U.A.), siendo estos tres (GUI, RehaStim 2 y Cyton Board) los principales elementos de la neuroprótesis del INR-LGII. Una primera aplicación de la neuroprótesis se encuentra funcionando y se ha utilizado con sujetos sanos y pacientes del INR-LGII, aplicándoles estimulación eléctrica para generar movimientos de miembro superior. Sin embargo, actualmente el sistema opera en lazo abierto, es decir, la secuencia de estimulación se diseña y se aplica sin considerar información relevante del movimiento generado y variables relacionadas.
 
 %\section{Planteamiento del problema}
-%La problemática que se presenta en 
 El estado actual del proyecto del INR-LGII es la  operación en la modalidad de lazo abierto, en el cual los parámetros de la estimulación eléctrica son controlados por el experimentador quien los adapta hasta obtener el patrón específico útil para el sujeto en rehabilitación. Esto causa una dependencia del experimentador para la operación del sistema, y limita su utilidad para objetivos de rehabilitación, ya que no considera variables intrínsecas del paciente, como la intención de movimiento o actividad residual, que podrían contribuir a la modulación de los parámetros de estimulación y el movimiento resultante.
 
-%Ante dicha problemática, surge la necesidad de un sistema que permita considerar variables intrínsecas del paciente para llevar a cabo su terapia de rehabilitación disminuyendo la dependencia del experimentador y permitiendo que el paciente participe de forma activa en esta. 
-
-%Adicional a la GUI desarrollada en el INR, incluyendo la implementación de un funcionamiento en lazo abierto, se desarrolló un prototipo de adquisición de biopotenciales que permitiera tener un control total sobre los parámetros de adquisición (frecuencia de muestreo, ganancia y filtros) y que además fuera compatible con la aplicación en lazo abierto antes mencionada.
-
 %\section{Justificación}
-%{\color{blue}JUSTIFICACIÓN\\}
 Ante esta problemática en la que se encuentra la neuroprótesis desarrollada en el INR-LGII, los sistemas involucrados trabajan sin tener retroalimentación entre ellos, surge la necesidad de implementar alguna aplicación que permita la interacción entre sistemas y que además permita la participación del paciente de forma activa en la terapia.
 
 Por ello, este proyecto plantea desarrollar una aplicación en lazo cerrado que permita la participación activa del paciente (a partir de señales de sEMG (electromiografía de superficie) del brazo sano) en la terapia de rehabilitación basada en FES, llevando a cabo una modulación de la estimulación eléctrica que permita la ejecución, en el brazo afectado, de los movimientos involucrados en el agarre de un objeto (flexión y extensión de los dedos). Un sistema con estas características permitiría al sujeto tener el control sobre los movimientos de la mano contralateral, y además disminuiría la dependencia del experimentador en el proceso de la terapia.
@@ -31,22 +21,10 @@ Trabajos como los documentados en \cite{Zhou2018} \cite{Kim2015} \cite{Yi2013} \
 
 Otros trabajos como \cite{Salchow2016} \cite{Sun2014} \cite{Woods2018}, muestran la posibilidad de crear sistemas en lazo cerrado que se ejecutan en tiempo real utilizando el dispositivo de estimulación eléctrica RehaStim 2 (o una versión anterior a esta), el cual es el dispositivo de estimulación eléctrica con el que cuenta la neuroprótesis del INR-LGII.
 
-%\section{Planteamiento del problema}
-%{\color{red}PLANTEAMIENTO DEL PROBLEMA\\}
-
-%Para realizar el diseño de la aplicación se utilizarán dos canales de electromiografía de superficie (sEMG, por sus siglas en inglés) para la extracción de algún rasgo descriptivo de su amplitud, el cuál servirá para realizar el diseño de un esquema de control que permita identificar el tipo de movimiento a realizar (flexión o extensión de los dedos) y a su vez sirva como modulador de la amplitud de corriente eléctrica a inyectar en el miembro contrario, buscando lograr un funcionamiento en tiempo real.
-
 %\section{Hipótesis}
-%{\color{blue}HIPÓTESIS\\}
 Considerando los trabajos antes mencionados, se formula la hipótesis de este proyecto de la siguiente manera: al integrar los diferentes bloques de un sistema de estimulación eléctrica funcional dentro de una plataforma de software con herramientas de tiempo real, se logrará implementar una aplicación FES en lazo cerrado que permita llevar a cabo en línea la adquisición y procesamiento de señales de sEMG en línea, como parte de un esquema de control contralateral de movimientos de la mano.
 
-%Por lo tanto, la hipótesis de este proyecto consiste en que al integrar los diferentes bloques de un sistema de estimulación eléctrica funcional dentro de una plataforma de software con herramientas de tiempo real, se logrará implementar un lazo cerrado que permita llevar a cabo las tareas de adquisición de sEMG, procesamiento de este y aplicación de estimulación eléctrica en línea.
-
-%La hipótesis de este proyecto consiste en que al integrar los diferentes bloques de un sistema de estimulación eléctrica funcional
-
 %\section{Objetivos}
-%{\color{blue}OBJETIVOS\\}
-
 Siendo el objetivo general de este proyecto diseñar e implementar un esquema de control contralateral para miembro superior, que permita la modulación de la amplitud de estimulación eléctrica a partir de señales de sEMG. Teniendo como objetivos particulares los siguientes:
 
 \begin{itemize}
